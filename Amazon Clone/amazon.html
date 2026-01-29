@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap (match CSS + JS version) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome (stable) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="amazon.css">
+
+  <title>Amazon Clone-Practice</title>
+</head>
+<body>
+ <!-- PART-1 Top Black Header -->
+  <header class="amz-header sticky-top">
+    <div class="amz-top">
+      <div class="container-fluid px-2 px-md-3">
+        <div class="d-flex align-items-center gap-2 py-2">
+
+          <!-- Mobile Hamburger (Offcanvas Trigger) -->
+          <button class="btn amz-hamburger d-md-none" type="button"
+                  data-bs-toggle="offcanvas" data-bs-target="#amzOffcanvas"
+                  aria-controls="amzOffcanvas" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <!-- Logo -->
+          <a class="amz-logo d-flex align-items-center text-decoration-none" href="#">
+            <img src="Photos/logo.jpg" alt="Amazon" class="amz-logo-img">
+          </a>
+
+          <!-- Deliver to (Desktop only) -->
+          <button class="amz-deliver d-none d-md-flex align-items-center text-start" type="button">
+            <span class="amz-deliver-top">
+              <i class="fa-solid fa-location-arrow"></i> Update Location
+            </span>
+          </button>
+
+          <!-- Search (Desktop) -->
+          <form class="amz-search d-none d-md-flex ms-auto" role="search">
+            <select class="amz-search-select" aria-label="Category">
+              <option>All</option>
+              <option>Mobiles</option>
+              <option>Fashion</option>
+              <option>Electronics</option>
+            </select>
+
+            <input class="amz-search-input" type="search" placeholder="Search Amazon.in" aria-label="Search">
+
+            <button class="amz-search-btn" type="submit" aria-label="Search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+
+          <!-- Language (Desktop only) -->
+          <div class="amz-lang d-none d-md-flex align-items-center">
+            <img src="Photos/flag.png" alt="IN" class="amz-flag">
+            <select class="amz-lang-select" aria-label="Language">
+              <option value="en" selected>EN</option>
+              <option value="hi">हिं</option>
+              <option value="ta">தமிழ்</option>
+              <option value="te">తెలుగు</option>
+            </select>
+          </div>
+
+          <!-- Right Actions -->
+          <div class="amz-actions ms-auto ms-md-0 d-flex align-items-center gap-2">
+            <a class="amz-action d-none d-md-flex flex-column" href="#">
+              <span class="small">Hello, sign in</span>
+              <strong>Account</strong>
+            </a>
+
+            <a class="amz-action d-none d-md-flex flex-column" href="#">
+              <span class="small">Returns</span>
+              <strong>& Orders</strong>
+            </a>
+
+            <a class="amz-cart d-flex align-items-center" href="#">
+              <span class="amz-cart-icon-wrap">
+                <i class="fa-solid fa-cart-arrow-down amz-cart-icon"></i>
+                <span class="amz-cart-badge">0</span>
+              </span>
+              <span class="d-none d-md-inline fw-bold ms-1">My Cart</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Row (Mobile only) -->
+    <div class="amz-search-mobile d-md-none">
+      <div class="container-fluid px-2 pb-2">
+        <form class="amz-search amz-search--mobile" role="search">
+          <input class="amz-search-input" type="search" placeholder="Search Amazon.in" aria-label="Search">
+          <button class="amz-search-btn" type="submit" aria-label="Search">🔍</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- Offcanvas Menu (Mobile) -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="amzOffcanvas" aria-labelledby="amzOffcanvasLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="amzOffcanvasLabel">
+        <i class="fa-solid fa-user me-2"></i>Hello, sign in
+      </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body p-0">
+      <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action">
+          <i class="fa-solid fa-user me-2"></i>Account
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <i class="fa-solid fa-box me-2"></i>Orders
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <i class="fa-solid fa-rotate-left me-2"></i>Returns
+        </a>
+
+        <div class="list-group-item">
+          <div class="d-flex align-items-center justify-content-between">
+            <span><i class="fa-solid fa-language me-2"></i>Language</span>
+            <select class="form-select form-select-sm" style="width: 110px;">
+              <option selected>EN</option>
+              <option>हिं</option>
+              <option>தமிழ்</option>
+              <option>తెలుగు</option>
+            </select>
+          </div>
+        </div>
+
+        <a href="#" class="list-group-item list-group-item-action">
+          <i class="fa-solid fa-location-dot me-2"></i>Deliver to India
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (must be after HTML) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+<!-- part-2 -->
+ 

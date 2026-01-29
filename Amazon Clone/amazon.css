@@ -1,0 +1,237 @@
+/* PART-1 Top Black Header*/
+:root{
+  --amz-dark: #131921;
+  --amz-accent:#febd69;
+  --amz-accent2:#f3a847;
+  --text:#ffffff;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.amz-header{
+  background: var(--amz-dark);
+  color: var(--text);
+}
+
+/* top row */
+.amz-top{
+  background: var(--amz-dark);
+}
+
+/* header alignment */
+.amz-top .d-flex{
+  min-height: 64px;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+/* LOGO */
+.amz-logo{
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+.amz-logo-img{
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (min-width: 768px){
+  .amz-logo-img{ height: 68px; }
+}
+
+/* DELIVER */
+.amz-deliver{
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.amz-deliver-top{
+  font-size: 13px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* SEARCH */
+.amz-search{
+  display:flex;
+  align-items: stretch;
+  width: 100%;
+  max-width: 820px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.amz-search-select{
+  border: 0;
+  padding: 0 8px;        
+  background: #f3f3f3;
+  font-size: 15px;
+  width: 70px;         
+  min-width: 70px;
+}
+
+
+.amz-search-input{
+  border: 0;
+  flex: 1;
+  padding: 12px 14px;
+  font-size: 16px;
+}
+
+.amz-search-btn{
+  border: 0;
+  padding: 0 18px;
+  background: var(--amz-accent);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.amz-search-btn:hover{
+  background: var(--amz-accent2);
+}
+
+/* LANGUAGE */
+.amz-lang{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+.amz-flag{
+  width: 20px;
+  height: 14px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.amz-lang-select{
+  background: transparent;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.amz-lang-select option{
+  color: #111;
+}
+
+/* ACTIONS */
+.amz-action{
+  color:#fff;
+  text-decoration:none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+.amz-action .small{
+  font-size: 12px;
+}
+
+.amz-action strong{
+  font-size: 14px;
+}
+
+/* CART */
+.amz-cart{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  color:#fff;
+  text-decoration:none;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+.amz-cart-icon-wrap{
+  position: relative;
+  display: inline-flex;
+}
+
+.amz-cart-icon{
+  font-size: 24px;
+}
+
+.amz-cart-badge{
+  position:absolute;
+  top: -6px;
+  right: -8px;
+  min-width: 18px;
+  height: 18px;
+  background: #ff9900;
+  color:#111;
+  font-weight: 800;
+  font-size: 11px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* MOBILE SEARCH ROW */
+.amz-search-mobile{
+  background: var(--amz-dark);
+}
+
+.amz-search--mobile{
+  border-radius: 12px;
+}
+
+/* HOVER: only border, no blue text */
+.amz-logo:hover,
+.amz-deliver:hover,
+.amz-lang:hover,
+.amz-action:hover,
+.amz-cart:hover{
+  border-color: #fff;
+  background: transparent !important;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Hamburger */
+.amz-hamburger{
+  color: #fff !important;
+  background: transparent !important;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.amz-hamburger i{
+  color: #fff !important;
+}
+
+.amz-hamburger:hover{
+  border-color: #fff;
+}
+
+/* MOBILE */
+@media (min-width: 768px){
+  .amz-logo-img{ height: 60; }
+  .amz-search-input{ font-size: 15px; }
+  .amz-cart-icon{ font-size: 22px; }
+}
+
+
+
+/* PART-2 */
