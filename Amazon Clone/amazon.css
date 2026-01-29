@@ -400,4 +400,422 @@ body{
   .amz-strip-row::-webkit-scrollbar{
     display: none;
   }
+}/* Add gap between consecutive 1-D strips */
+.amz-strip-gap{
+  margin-top: 16px;   /* adjust: 12 / 16 / 20 */
+}
+
+/* Next Part */
+/* ===== Component 8: Mixed boxes (mini carousel + normal cards) ===== */
+
+/* mini carousel area */
+.amz-mini-carousel{
+  margin-top: 6px;
+}
+
+.amz-mini-slide{
+  height: 210px;
+  object-fit: contain;
+  background: #fff;
+}
+
+/* make carousel arrows subtle (like amazon) */
+.amz-mini-carousel .carousel-control-prev,
+.amz-mini-carousel .carousel-control-next{
+  width: 20%;
+}
+
+.amz-mini-carousel .carousel-control-prev-icon,
+.amz-mini-carousel .carousel-control-next-icon{
+  filter: invert(1);
+  opacity: 0.85;
+}
+
+/* product meta text */
+.amz-prod-meta{
+  margin-top: 10px;
+}
+
+.amz-prod-name{
+  font-size: 13px;
+  line-height: 1.25;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.amz-price{
+  font-size: 18px;
+  font-weight: 800;
+  color: #111;
+}
+
+.amz-price sup{
+  font-size: 11px;
+  top: -0.4em;
+}
+
+.amz-mrp{
+  font-size: 12px;
+  font-weight: 400;
+  color: #565959;
+  margin-left: 6px;
+  text-decoration: line-through;
+}
+
+.amz-rupee{
+  font-weight: 800;
+}
+
+/* beauty main product + thumbs */
+.amz-main-prod{
+  width: 100%;
+  height: 210px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 4px;
+  margin-top: 6px;
+}
+
+.amz-thumbs{
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.amz-thumb{
+  border: 1px solid #d5d9d9;
+  background: #fff;
+  border-radius: 10px;
+  padding: 6px;
+  width: 48px;
+  height: 48px;
+}
+
+.amz-thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.amz-thumb.active{
+  border-color: #007185;
+  box-shadow: 0 0 0 2px rgba(0,113,133,0.15);
+}
+
+/* responsive tweak */
+@media (max-width: 575px){
+  .amz-mini-slide,
+  .amz-main-prod{
+    height: 240px;
+  }
+}
+
+/* next-part */
+/* ===== Component 10: Amazon Live section ===== */
+.amz-live{
+  background: #e3e6e6;
+  padding: 14px 0 22px;
+}
+
+.amz-live-head{
+  background: #fff;
+  border-radius: 6px 6px 0 0;
+  padding: 12px 14px;
+  margin-bottom: 0;
+}
+
+.amz-live-title{
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.amz-live-link{
+  margin-left: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #007185;
+  text-decoration: none;
+}
+
+.amz-live-link:hover{
+  text-decoration: underline;
+}
+
+/* wrapper spacing like screenshot */
+.amz-live .row.g-3{
+  background: #fff;
+  border-radius: 0 0 6px 6px;
+  padding: 12px 14px 14px;
+}
+
+/* left video card */
+.amz-live-video{
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #000;
+  height: 320px;
+}
+
+.amz-live-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.amz-live-badge{
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0,0,0,0.65);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.amz-live-controls{
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.amz-live-icon{
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+}
+
+.amz-live-footer{
+  position: absolute;
+  bottom: 12px;
+  left: 90px;
+  color: #fff;
+  background: rgba(0,0,0,0.35);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+/* right scroller */
+.amz-live-strip{
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+}
+
+.amz-live-strip::-webkit-scrollbar{
+  display: none;
+}
+
+.amz-live-card{
+  flex: 0 0 auto;
+  width: 190px;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 10px;
+  text-decoration: none;
+  color: #111;
+  background: #fff;
+}
+
+.amz-live-card img{
+  width: 100%;
+  height: 140px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 6px;
+  display: block;
+}
+
+.amz-live-name{
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.25;
+  height: 48px;           /* keeps cards same height */
+  overflow: hidden;
+}
+
+.amz-live-price{
+  margin-top: 6px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.amz-live-mrp{
+  margin-left: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #565959;
+  text-decoration: line-through;
+}
+
+/* responsive */
+@media (max-width: 575px){
+  .amz-live-video{ height: 260px; }
+  .amz-live-card{ width: 170px; }
+}
+
+/* next-part */
+/* ===== Best Sellers strip (evenly filled) ===== */
+.amz-bs-row{
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* ✅ 8 equal columns */
+  gap: 22px;
+  align-items: center;
+}
+
+/* images */
+.amz-bs-item img{
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ===== Mobile: horizontal scroll ===== */
+@media (max-width: 767px){
+  .amz-bs-row{
+    display: flex;
+    overflow-x: auto;
+    gap: 22px;
+    scrollbar-width: none;
+  }
+
+  .amz-bs-row::-webkit-scrollbar{
+    display: none;
+  }
+
+  .amz-bs-item{
+    flex: 0 0 auto;
+    width: 160px;
+  }
+
+  .amz-bs-item img{
+    width: 100%;
+    height: 150px;
+  }
+}
+/* ===== Component 12: Amazon Footer ===== */
+.amz-footer{
+  color: #fff;
+  background: #232f3e;
+}
+
+/* Back to top bar */
+.amz-backtop{
+  width: 100%;
+  border: 0;
+  background: #37475a;
+  color: #fff;
+  padding: 12px 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.amz-backtop:hover{
+  background: #465b73;
+}
+
+/* main section */
+.amz-footer-main{
+  padding: 38px 0 34px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.amz-foot-title{
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.amz-foot-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.amz-foot-list li{
+  margin: 8px 0;
+}
+
+.amz-foot-list a{
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.amz-foot-list a:hover{
+  text-decoration: underline;
+}
+
+/* bottom bar */
+.amz-footer-bottom{
+  padding: 22px 0;
+  background: #232f3e;
+}
+
+.amz-foot-bottom-row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.amz-foot-logo img{
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.amz-foot-controls{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.amz-foot-pill{
+  border: 1px solid rgba(255,255,255,0.35);
+  background: transparent;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.amz-foot-pill:hover{
+  border-color: #fff;
+}
+
+.amz-foot-flag{
+  width: 18px;
+  height: 12px;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+}
+
+/* Responsive: make columns comfy on small screens */
+@media (max-width: 575px){
+  .amz-footer-main{
+    padding: 26px 0 24px;
+  }
 }
