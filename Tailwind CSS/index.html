@@ -8,52 +8,59 @@
 </head>
 <body>
 
+    <!-- bg-image -->
+    <section class="h-screen bg-[url(https://media.istockphoto.com/id/1473666403/photo/deep-forest-waterfall-in-thailand-erawan-waterfall-national-park-kanjanaburi-thailand.jpg?s=612x612&w=0&k=20&c=weBEF1fecZcspR3wqZz79ZmH4fnauLTqy9A4xEb8xi4=)] bg-cover bg-center rounded-[10px]">
+    </section>
+
+
+
+
 <h1 class="sm:text-center md:text-right lg:text-center text-3xl">Responsive Test</h1>
 <div class="bg-[#123000] text-[white] text-center py-[10px] max-w-[800px] mx-auto mt-[5px]">Color and Padding Test</div>
 
 <!-- Grid Layout -->
- <h1 class="sm:text-[20px] md:text-[30px] lg:text-[40px] text-center mt-[40px]">Balanced Grid Layout</h1>
+ <h1 class="sm:text-[20px] md:text-[30px] lg:text-[40px] text-center mt-[40px] bg-[red] text-[white]">Grid System (Balanced Division)</h1>
 
- <div class="grid grid-cols-3 max-w-[75%] mx-auto gap-[20px] mt-[30px]">
+ <div class="grid grid-cols-3 max-w-[1200px] mx-auto gap-[30px] mt-[30px]">
     <div>
-        <img src="/Frontend-Web-Development/Amazon Clone/Photos/image4.jpg" alt="">
+        <img src="/Frontend-Web-Development/Amazon Clone/Photos/nextitem32.jpg" class="border-y-4 border-[red] border-[solid]" alt="">
         <div>
-            <h1>Men's Outfit</h1>
+            <h1 class="text-xl">1.Buy Now</h1>
         </div>
     </div>
 
      <div>
-        <img src="/Frontend-Web-Development/Amazon Clone/Photos/image4.jpg" alt="">
+        <img  src="/Frontend-Web-Development/Amazon Clone/Photos/nextitem6.jpg"class="border-y-4 border-[red] border-[solid]" alt="">
         <div>
-            <h1>Men's Outfit</h1>
+            <h1 class="text-xl">2.Buy Now</h1>
         </div>
     </div>
 
      <div>
-        <img src="/Frontend-Web-Development/Amazon Clone/Photos/image4.jpg" alt="">
+        <img src="/Frontend-Web-Development/Amazon Clone/Photos/nextitem9.jpg"class="border-y-4 border-[red] border-[solid]" alt="">
         <div>
-            <h1>Men's Outfit</h1>
+            <h1 class="text-xl">3.Buy Now</h1>
         </div>
     </div>
 
      <div>
-        <img src="/Frontend-Web-Development/Amazon Clone/Photos/image4.jpg" alt="">
+        <img src="/Frontend-Web-Development/Amazon Clone/Photos/nextitem8.jpg"class="border-y-4 border-[red] border-[solid]" alt="">
         <div>
-            <h1>Men's Outfit</h1>
+            <h1 class="text-xl">4.Buy Now</h1>
         </div>
     </div>
 
      <div>
-        <img src="/Frontend-Web-Development/Amazon Clone/Photos/image4.jpg" alt="">
+        <img src="/Frontend-Web-Development/Amazon Clone/Photos/nextitem1.jpg"class="border-y-4 border-[red] border-[solid]" alt="">
         <div>
-            <h1>Men's Outfit</h1>
+            <h1 class="text-xl">5.Buy Now</h1>
         </div>
     </div>
-
+  
      <div>
-        <img src="/Frontend-Web-Development/Amazon Clone/Photos/image4.jpg" alt="">
+        <img src="/Frontend-Web-Development/Amazon Clone/Photos/nextitem13.jpg"class="border-y-4 border-[red] border-[solid]" alt="">
         <div>
-            <h1>Men's Outfit</h1>
+            <h1 class="text-xl">6.Buy Now</h1>
         </div>
     </div>
  </div>
@@ -63,7 +70,7 @@
   <h1 class="text-center font-bold text-3xl mt-[30px] bg-[blue] py-[15px]  text-[white] mb-[15px]" >Grid System (60%,40% Division)</h1>
   <div class="grid grid-cols-[40%_auto] max-w-[95%] mx-auto">
     <div class="mx-auto">
-        <img src="/Frontend-Web-Development/Amazon Clone/Photos/image6.jpg" alt="">
+        <img src="/Frontend-Web-Development/Amazon Clone/Photos/nextitem11.jpg" alt="">
     </div>
      <div>
         <h1 class="text-3xl text-start">About Fashion</h1>
@@ -72,6 +79,53 @@
         </div>
     </div>
   </div>
+
+  <div class="text-4xl bg-[violet] text-[brown] py-[20px] text-center mt-[30px]
+            border-2 border-blue-500 rounded-[20px]">
+  Flex Column Division
+</div>
+
+<div class="flex shadow-lg border-2 border-blue-500 
+            group transition-all duration-500 hover:-translate-y-3">
+
+  <!-- Image -->
+  <div class="lg:basis-[35%] basis-[100%] border-2 border-black p-[10px]
+              transition-all duration-500 group-hover:scale-105">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1z3WO2y5h7YkHljxIsvwuOxP21OE_8tnedA&s"
+         class="rounded-[10px]" />
+  </div>
+
+  <!-- Content -->
+  <div class="lg:basis-[65%] basis-[100%] border-2 border-black p-[10px]
+              transition-all duration-500 group-hover:translate-x-2">
+
+    <h1 class="text-4xl text-center text-blue-600
+               transition-all duration-500 group-hover:text-red-500">
+      Welcome to Natural World
+    </h1>
+
+    <p class="text-xl mt-[5px]">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit...
+    </p>
+
+    <!-- Buttons -->
+    <div class="flex gap-[20px] mt-[15px]">
+      <button class="p-[10px] bg-blue-500 rounded-[10px] text-white text-[20px]
+                     transition-all duration-500 group-hover:bg-red-500">
+        Visit More
+      </button>
+
+      <button class="p-[10px] bg-blue-500 rounded-[10px] text-white text-[20px]
+                     transition-all duration-500 group-hover:bg-red-500">
+        Ignore
+      </button>
+    </div>
+
+  </div>
+</div>
+
+
+
 
     
 </body>
