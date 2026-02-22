@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
      <title>Tailwind CSS</title>
 </head>
@@ -20,7 +21,7 @@
 
     <!-- concept of grid layout -->
      <div class="grid lg:grid-cols-4  md:grid-cols-2 grid-cols-1 gap-[25px] max-w-[90%] mx-auto">
-        <div class="shadow-lg rounded-[10px] border-[lightblue] border-[2px] col-span-3">
+        <div class="shadow-lg rounded-[10px] border-[lightblue] border-[2px]">
             <div>
                 <img src="photos/img2.jpg">
             </div>
@@ -106,30 +107,10 @@
             </div>
             
         </div>
-
-         <div class="shadow-lg rounded-[10px] border-[lightblue] border-[2px]">
-            <div>
-                <img src="photos/img4.jpg">
-            </div>
-            <div class="p-[10px]">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic corrupti consequuntur doloremque natus eveniet enim, at quibusdam eos modi quisquam nihil non explicabo labore? Porro.
-            </div>
-            
-        </div>
-
-         <div class="shadow-lg rounded-[10px] border-[lightblue] border-[2px]">
-            <div>
-                <img src="photos/img2.jpg">
-            </div>
-            <div class="p-[10px]">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic corrupti consequuntur doloremque natus eveniet enim, at quibusdam eos modi quisquam nihil non explicabo labore? Porro.
-            </div>
-            
-        </div>
         
      </div>
-
-<hr>
+     
+<hr class="mt-[40px]">
 
      <!-- concept of manual division in grid -->
      <div class="max-w-[95%] mx-auto border-[blue] border-[3px] my-[25px] bg-[yellow] bg-[lightgrey] p-[10px]">
@@ -137,15 +118,146 @@
         </div>
 
      <div class="grid grid-cols-[40%_auto] max-w-[95%] mx-auto p-[15px]">
-     <div class="p-[10px]">
+     <div class="p-[10px] mx-auto">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam fugiat fugit rem dolorem ipsa hic doloremque tenetur perferendis nihil neque accusantium nesciunt corrupti expedita libero modi accusamus pariatur, natus sapiente. Culpa perspiciatis quidem, distinctio autem, impedit nam aspernatur sint dolore veritatis, nemo cum pariatur beatae tenetur quibusdam! Dolorem cupiditate dolores harum placeat. Quae, reiciendis dolor. Delectus quod cumque aspernatur asperiores earum totam nisi temporibus, ex atque repellat non suscipit facere laudantium reprehenderit! Cumque nulla incidunt harum! Cum error iusto, quos impedit provident laudantium a aut dolor nesciunt autem dicta rem esse nisi ad architecto! Voluptatibus nulla blanditiis consequatur repudiandae quaerat!
      </div>
 
      <div class="h-[300px] overflow-hidden">
     <img src="photos/img3.jpg" class="w-full h-full object-cover">
     </div>
-<hr>
+     </div>
+<hr class="my-[20px]">
 
+
+<!-- Flexbox -->
+<section class="max-w-[95%] mx-auto text-center border-[blue] border-[2px] text-[20px] md:text-[30px] lg:text-[40px] bg-[lightgrey] text-[brown] my-[15px]">Flex Alignment</section>
+<div class="flex max-w-[85%] mx-auto justify-start">
+    <div class="basis-[55%] mx-auto">
+        <img src="photos/img5.jpg">
+    </div>
+
+    <div class="basis-[45%] ">
+        <div class="p-[10px]">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem dolor porro obcaecati totam consequatur fugiat magni! Illo odio eius quisquam, molestias quo exercitationem debitis repellendus magni sunt eos ipsum recusandae.
+        Quae, maxime eligendi, sunt beatae repellendus voluptatum amet repellat dolorem incidunt, temporibus ipsa doloribus ullam ex? Vero, rem, magnam error reprehenderit delectus velit dolorum reiciendis aliquid modi quo facere perspiciatis!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quisquam odio error illum soluta quam, velit esse ea architecto officia tempore dignissimos quibusdam sed nisi ratione maiores reiciendis sequi numquam.
+        Eveniet commodi saepe nesciunt voluptate, quod, similique provident asperiores temporibus qui, fuga accusantium magni rem possimus deleniti amet eum explicabo! Suscipit ipsam dolor debitis fuga fugit facilis a at omnis.
+        Aperiam eius sed eaque voluptas qui rerum aspernatur esse velit animi cum fugiat sit ratione laborum tempora fuga non ipsam, nisi aliquid, ex molestias quos accusantium sunt labore! Quos, rerum.
+        </div>
+    </div>
     
+</div>
+
+
+<hr class="my-[15px]">
+<h1 class=" max-w-[95%] mx-auto bg-[lightblue] border-[blue] border-[2px] text-[20px] md:text-[30px] lg:text-[40px] text-center rounded-[15px]">Our Services</h1>
+<div class="flex justify-evenly items-center max-w-[90%] mx-auto  shadow-2xl p-4 py-[40px]">
+
+    <div class="flex items-center gap-2 border-[blue] border-[2px] rounded-[10px] p-[20px] bg-red-100 shadow-2xl">
+        <i class="fa-solid fa-water"></i>
+        <p class="text-[18px]">Save Water</p>
+    </div>
+
+    <div class="flex items-center gap-2 border-[blue] border-[2px] rounded-[10px] p-[20px] bg-red-100 shadow-2xl">
+        <i class="fa-solid fa-water"></i>
+        <p class="text-[18px]">Save Water</p>
+    </div>
+
+    <div class="flex items-center gap-2 border-[blue] border-[2px] rounded-[10px] p-[20px] bg-red-100 shadow-2xl">
+        <i class="fa-solid fa-water"></i>
+        <p class="text-[18px]">Save Water</p>
+    </div>
+
+    <div class="flex items-center gap-2 border-[blue] border-[2px] rounded-[10px] p-[20px] bg-red-100 shadow-2xl">
+        <i class="fa-solid fa-water"></i>
+        <p class="text-[18px]">Save Water</p>
+    </div>
+
+</div>
+
+
+<hr class="my-[30px]">
+
+<!-- Group Hovering -->
+ <section class="max-w-[95%] mx-auto border-[red] border-[2px] border-[solid] p-[15px] bg-[lightgreen] text-[20px] md:text-[30px] lg:text-[30px]  text-center">Group Hovering Effect</section>
+ <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-[95%] mx-auto gap-[25px] my-[25px]">
+
+    <div> 
+       <div class="shadow-lg border-[lightblue] border-[2px] p-6 text-center rounded-lg">
+         <i class="fa-solid fa-tv text-4xl mb-4"></i>
+         <h1 class="font-bold text-lg mb-3">
+           Comprehensive Full Stack Enterprise
+        </h1>
+        <p class="text-sm leading-relaxed text-gray-700">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam possimus veniam quidem minus totam deserunt at? Est ipsa nobis exercitationem vero sit, eum sint sed facere earum, voluptatibus doloribus nostrum doloremque soluta. Quibusdam est praesentium sint nisi officia? Dolore, corporis.
+          </p>
+
+    </div>
+    </div>
+    <div> 
+       <div class="shadow-lg border-[lightblue] border-[2px] p-6 text-center rounded-lg">
+         <i class="fa-solid fa-tv text-4xl mb-4"></i>
+         <h1 class="font-bold text-lg mb-3">
+           Comprehensive Full Stack Enterprise
+        </h1>
+        <p class="text-sm leading-relaxed text-gray-700">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam possimus veniam quidem minus totam deserunt at? Est ipsa nobis exercitationem vero sit, eum sint sed facere earum, voluptatibus doloribus nostrum doloremque soluta. Quibusdam est praesentium sint nisi officia? Dolore, corporis.
+          </p>
+
+    </div>
+    </div>
+
+     <div> 
+       <div class="shadow-lg border-[lightblue] border-[2px] p-6 text-center rounded-lg">
+         <i class="fa-solid fa-tv text-4xl mb-4"></i>
+         <h1 class="font-bold text-lg mb-3">
+           Comprehensive Full Stack Enterprise
+        </h1>
+        <p class="text-sm leading-relaxed text-gray-700">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam possimus veniam quidem minus totam deserunt at? Est ipsa nobis exercitationem vero sit, eum sint sed facere earum, voluptatibus doloribus nostrum doloremque soluta. Quibusdam est praesentium sint nisi officia? Dolore, corporis.
+          </p>
+
+    </div>
+    </div>
+
+     <div> 
+       <div class="shadow-lg border-[lightblue] border-[2px] p-6 text-center rounded-lg">
+         <i class="fa-solid fa-tv text-4xl mb-4"></i>
+         <h1 class="font-bold text-lg mb-3">
+           Comprehensive Full Stack Enterprise
+        </h1>
+        <p class="text-sm leading-relaxed text-gray-700">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam possimus veniam quidem minus totam deserunt at? Est ipsa nobis exercitationem vero sit, eum sint sed facere earum, voluptatibus doloribus nostrum doloremque soluta. Quibusdam est praesentium sint nisi officia? Dolore, corporis.
+          </p>
+
+    </div>
+    </div>
+
+     <div> 
+       <div class="shadow-lg border-[lightblue] border-[2px] p-6 text-center rounded-lg">
+         <i class="fa-solid fa-tv text-4xl mb-4"></i>
+         <h1 class="font-bold text-lg mb-3">
+           Comprehensive Full Stack Enterprise
+        </h1>
+        <p class="text-sm leading-relaxed text-gray-700">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam possimus veniam quidem minus totam deserunt at? Est ipsa nobis exercitationem vero sit, eum sint sed facere earum, voluptatibus doloribus nostrum doloremque soluta. Quibusdam est praesentium sint nisi officia? Dolore, corporis.
+          </p>
+
+    </div>
+    </div>
+
+     <div> 
+       <div class="shadow-lg border-[lightblue] border-[2px] p-6 text-center rounded-lg">
+         <i class="fa-solid fa-tv text-4xl mb-4"></i>
+         <h1 class="font-bold text-lg mb-3">
+           Comprehensive Full Stack Enterprise
+        </h1>
+        <p class="text-sm leading-relaxed text-gray-700">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam possimus veniam quidem minus totam deserunt at? Est ipsa nobis exercitationem vero sit, eum sint sed facere earum, voluptatibus doloribus nostrum doloremque soluta. Quibusdam est praesentium sint nisi officia? Dolore, corporis.
+          </p>
+
+    </div>
+    </div>
+   <button class="bg-[blue] text-[white] p-[10px] border-[red] border-[2px] text-[25px] hover:bg-[red] text-[blue] hover: shadow-2xl">Check Hover</button>    
 </body>
 </html>
