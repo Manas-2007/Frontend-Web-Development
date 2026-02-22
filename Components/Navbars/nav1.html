@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <title>Navbar 1</title>
+</head>
+
+<body class="bg-white">
+
+  <!-- Mobile drawer toggle  -->
+  <input id="navToggle" type="checkbox" class="peer hidden" />
+
+  <nav class="w-full bg-white shadow-lg border-b border-black/10">
+    <!-- container -->
+    <div class="max-w-[1400px] mx-auto px-3 sm:px-6 h-14 flex items-center justify-between">
+
+      <!-- LEFT: logo + mobile hamburger -->
+      <div class="flex items-center gap-3">
+        <!-- Mobile hamburger -->
+        <label for="navToggle"
+          class="md:hidden cursor-pointer p-2 rounded hover:bg-black/5">
+          <i class="fa-solid fa-bars text-[18px]"></i>
+        </label>
+
+        <!-- Logo (fixed sizing) -->
+        <img
+          class="h-7 w-auto object-contain"
+          src="https://blogs.microsoft.com/wp-content/uploads/2012/08/8867.Microsoft_5F00_Logo_2D00_for_2D00_screen.jpg"
+          alt="logo"
+        />
+      </div>
+
+      <!-- MIDDLE: Desktop links (hidden on mobile) -->
+      <div class="hidden md:flex items-center gap-6 border-l-2 border-black/20 pl-6">
+
+        <!-- Your first link -->
+        <a href="#"
+          class="text-green-700 text-[15px] font-semibold border-b-2 border-transparent hover:border-green-700">
+          <i class="fa-solid fa-football text-green-700"></i>
+          XBOX Pass
+        </a>
+
+        <!--  Dropdown -->
+        <details class="group relative">
+          <summary
+            class="cursor-pointer list-none text-[15px] text-black/80 hover:text-green-700 border-b-2 border-transparent hover:border-green-700 flex items-center gap-2">
+            Game Pass
+            <i class="fa-solid fa-chevron-down text-[11px] transition group-open:rotate-180"></i>
+          </summary>
+          <div class="absolute left-0 top-full mt-2 w-52 bg-white border border-black/10 shadow-lg rounded-md p-2 z-20">
+            <a href="#" class="block px-3 py-2 rounded hover:bg-black/5 text-sm">Ultimate</a>
+            <a href="#" class="block px-3 py-2 rounded hover:bg-black/5 text-sm">PC Game Pass</a>
+            <a href="#" class="block px-3 py-2 rounded hover:bg-black/5 text-sm">Console</a>
+          </div>
+        </details>
+
+        <!--  Dropdown -->
+        <details class="group relative">
+          <summary
+            class="cursor-pointer list-none text-[15px] text-black/80 hover:text-green-700 border-b-2 border-transparent hover:border-green-700 flex items-center gap-2">
+            Games
+            <i class="fa-solid fa-chevron-down text-[11px] transition group-open:rotate-180"></i>
+          </summary>
+          <div class="absolute left-0 top-full mt-2 w-52 bg-white border border-black/10 shadow-lg rounded-md p-2 z-20">
+            <a href="#" class="block px-3 py-2 rounded hover:bg-black/5 text-sm">Browse All</a>
+            <a href="#" class="block px-3 py-2 rounded hover:bg-black/5 text-sm">New Releases</a>
+            <a href="#" class="block px-3 py-2 rounded hover:bg-black/5 text-sm">Coming Soon</a>
+          </div>
+        </details>
+
+        <!-- Dropdown  -->
+        <details class="group relative">
+          <summary
+            class="cursor-pointer list-none text-[15px] text-black/80 hover:text-green-700 border-b-2 border-transparent hover:border-green-700 flex items-center gap-2">
+            Devices
+            <i class="fa-solid fa-chevron-down text-[11px] transition group-open:rotate-180"></i>
+          </summary>
+          <div class="absolute left-0 top-full mt-2 w-52 bg-white border border-black/10 shadow-lg rounded-md p-2 z-20">
+            <a href="#" class="block px-3 py-2 rounded hover:bg-black/5 text-sm">Consoles</a>
+            <a href="#" class="block px-3 py-2 rounded hover:bg-black/5 text-sm">Controllers</a>
+            <a href="#" class="block px-3 py-2 rounded hover:bg-black/5 text-sm">Accessories</a>
+          </div>
+        </details>
+
+        <!-- Your normal links -->
+        <a href="#" class="text-[15px] text-black/80 hover:text-green-700 border-b-2 border-transparent hover:border-green-700">Store</a>
+        <a href="#" class="text-[15px] text-black/80 hover:text-green-700 border-b-2 border-transparent hover:border-green-700">Community</a>
+        <a href="#" class="text-[15px] text-black/80 hover:text-green-700 border-b-2 border-transparent hover:border-green-700">Support</a>
+        <a href="#" class="text-[15px] text-black/80 hover:text-green-700 border-b-2 border-transparent hover:border-green-700">Developers</a>
+      </div>
+
+      <!-- RIGHT: Desktop actions -->
+      <div class="hidden md:flex items-center gap-3 border-l-2 border-black/20 pl-6">
+        <a href="#" class="text-[15px] text-black/80 hover:text-green-700 border-b-2 border-transparent hover:border-green-700">All Microsoft</a>
+
+        <!-- make icons clickable + better hover area -->
+        <a href="#" class="p-2 rounded hover:bg-black/5" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#" class="p-2 rounded hover:bg-black/5" aria-label="Cart"><i class="fa-solid fa-cart-arrow-down"></i></a>
+        <a href="#" class="p-2 rounded hover:bg-black/5" aria-label="Account"><i class="fa-solid fa-address-book"></i></a>
+      </div>
+
+      <!-- Mobile right icons-->
+      <div class="md:hidden flex items-center gap-1">
+        <a href="#" class="p-2 rounded hover:bg-black/5" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#" class="p-2 rounded hover:bg-black/5" aria-label="Account"><i class="fa-solid fa-address-book"></i></a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!--  Overlay -->
+  <label for="navToggle"
+    class="fixed inset-0 bg-black/40 opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition z-40">
+  </label>
+
+  <!-- Left Drawer(mobile) -->
+  <aside
+    class="fixed top-0 left-0 h-full w-[78%] max-w-sm bg-white shadow-xl -translate-x-full peer-checked:translate-x-0 transition-transform duration-300 z-50 md:hidden">
+
+    <div class="h-14 px-4 flex items-center justify-between border-b border-black/10">
+      <span class="font-semibold">Menu</span>
+      <!-- close button -->
+      <label for="navToggle" class="cursor-pointer p-2 rounded hover:bg-black/5">
+        <i class="fa-solid fa-xmark text-[18px]"></i>
+      </label>
+    </div>
+
+    <div class="p-3 space-y-1">
+      <a href="#" class="block px-3 py-3 rounded hover:bg-black/5">All Microsoft</a>
+      <a href="#" class="block px-3 py-3 rounded hover:bg-black/5">Store</a>
+
+      <!-- Mobile dropdowns (details) -->
+      <details class="group">
+        <summary class="list-none cursor-pointer px-3 py-3 rounded hover:bg-black/5 flex items-center justify-between">
+          <span>Game Pass</span>
+          <i class="fa-solid fa-chevron-down text-[12px] transition group-open:rotate-180"></i>
+        </summary>
+        <div class="pl-3 pb-2">
+          <a href="#" class="block px-3 py-2 rounded hover:bg-black/5 text-sm">Ultimate</a>
+          <a href="#" class="block px-3 py-2 rounded hover:bg-black/5 text-sm">PC Game Pass</a>
+          <a href="#" class="block px-3 py-2 rounded hover:bg-black/5 text-sm">Console</a>
+        </div>
+      </details>
+
+      <details class="group">
+        <summary class="list-none cursor-pointer px-3 py-3 rounded hover:bg-black/5 flex items-center justify-between">
+          <span>Games</span>
+          <i class="fa-solid fa-chevron-down text-[12px] transition group-open:rotate-180"></i>
+        </summary>
+        <div class="pl-3 pb-2">
+          <a href="#" class="block px-3 py-2 rounded hover:bg-black/5 text-sm">Browse All</a>
+          <a href="#" class="block px-3 py-2 rounded hover:bg-black/5 text-sm">New Releases</a>
+          <a href="#" class="block px-3 py-2 rounded hover:bg-black/5 text-sm">Coming Soon</a>
+        </div>
+      </details>
+
+      <details class="group">
+        <summary class="list-none cursor-pointer px-3 py-3 rounded hover:bg-black/5 flex items-center justify-between">
+          <span>Devices</span>
+          <i class="fa-solid fa-chevron-down text-[12px] transition group-open:rotate-180"></i>
+        </summary>
+        <div class="pl-3 pb-2">
+          <a href="#" class="block px-3 py-2 rounded hover:bg-black/5 text-sm">Consoles</a>
+          <a href="#" class="block px-3 py-2 rounded hover:bg-black/5 text-sm">Controllers</a>
+          <a href="#" class="block px-3 py-2 rounded hover:bg-black/5 text-sm">Accessories</a>
+        </div>
+      </details>
+
+      <a href="#" class="block px-3 py-3 rounded hover:bg-black/5">Community</a>
+      <a href="#" class="block px-3 py-3 rounded hover:bg-black/5">Support</a>
+      <a href="#" class="block px-3 py-3 rounded hover:bg-black/5">Developers</a>
+    </div>
+  </aside>
+
+</body>
+</html>
