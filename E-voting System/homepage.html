@@ -33,15 +33,15 @@ border-b-[1px] border-white/40 shadow-2xl">
       class="text-[17px] text-black 
       px-[12px] py-[6px] 
       border-y-[3px] border-transparent
-      hover:border-y-red-600 
-      hover:text-red-600 
-      hover:scale-[1.12] hover:translate-y-[-3px]
+      border-y-red-600 
+      text-red-600 
+      scale-[1.12] translate-y-[-3px]
       duration-[0.3s]">
       HOME
       </a>
 
-    <a href="#" id="aboutBtn"
-      class="text-[17px] text-black px-[12px] py-[6px] 
+    <a href="#"
+      class=" openAbout text-[17px] text-black px-[12px] py-[6px] 
       border-y-[3px] border-transparent
       hover:border-y-orange-500 
       hover:text-orange-600 
@@ -56,7 +56,7 @@ border-b-[1px] border-white/40 shadow-2xl">
       hover:border-y-green-600 
       hover:text-green-600 
       hover:scale-[1.12] hover:translate-y-[-3px]
-      duration-[0.3s]">
+      duration-[0.3s] openFeatures">
       FEATURES
       </a>
 
@@ -66,7 +66,7 @@ border-b-[1px] border-white/40 shadow-2xl">
       hover:border-y-red-600 
       hover:text-red-600 
       hover:scale-[1.12] hover:translate-y-[-3px]
-      duration-[0.3s]"  id="howBtn" >
+      duration-[0.3s] howBtn">
       HOW IT WORKS
       </a>
 
@@ -76,7 +76,7 @@ border-b-[1px] border-white/40 shadow-2xl">
       hover:border-y-green-600 
       hover:text-green-600 
       hover:scale-[1.12] hover:translate-y-[-3px]
-      duration-[0.3s]" id="securityBtn">
+      duration-[0.3s] openSecurity" >
       SECURITY
       </a>
 
@@ -86,7 +86,7 @@ border-b-[1px] border-white/40 shadow-2xl">
       hover:border-y-orange-500 
       hover:text-orange-600 
       hover:scale-[1.12] hover:translate-y-[-3px]
-      duration-[0.3s]" id="guideBtn">
+      duration-[0.3s] openGuide" >
       GUIDELINES
       </a>
 
@@ -96,7 +96,7 @@ border-b-[1px] border-white/40 shadow-2xl">
       hover:border-y-red-600 
       hover:text-red-600 
       hover:scale-[1.12] hover:translate-y-[-3px]
-      duration-[0.3s]" id="contactBtn">
+      duration-[0.3s] openContact" >
       CONTACT
       </a>
 
@@ -134,11 +134,11 @@ border-b-[1px] border-white/40 shadow-2xl">
 
   <div class="flex flex-col gap-[10px] font-[800]">
     <a href="#" class="px-[12px] py-[10px] rounded-[14px] hover:bg-black/10">HOME</a>
-    <a href="#" class="px-[12px] py-[10px] rounded-[14px] hover:bg-black/10">FEATURES</a>
-    <a href="#" class="px-[12px] py-[10px] rounded-[14px] hover:bg-black/10">HOW IT WORKS</a>
-    <a href="#" class="px-[12px] py-[10px] rounded-[14px] hover:bg-black/10">SECURITY</a>
-    <a href="#" class="px-[12px] py-[10px] rounded-[14px] hover:bg-black/10">GUIDELINES</a>
-    <a href="#" class="px-[12px] py-[10px] rounded-[14px] hover:bg-black/10">CONTACT</a>
+    <a href="#" class="px-[12px] py-[10px] rounded-[14px] hover:bg-black/10 openFeatures">FEATURES</a>
+    <a href="#" class="howBtn" class="px-[12px] py-[10px] rounded-[14px] hover:bg-black/10">HOW IT WORKS</a>
+    <a href="#" class="px-[12px] py-[10px] rounded-[14px] hover:bg-black/10 openSecurity">SECURITY</a>
+    <a href="#" class="px-[12px] py-[10px] rounded-[14px] hover:bg-black/10 openGuide">GUIDELINES</a>
+    <a href="#" class="px-[12px] py-[10px] rounded-[14px] hover:bg-black/10 openContact">CONTACT</a>
   </div>
 </div>
 
@@ -190,7 +190,7 @@ border-b-[1px] border-white/40 shadow-2xl">
                   border-[3px] border-white/40 text-white font-[500]
                   text-[16px] sm:text-[18px]
                   hover:bg-white/20 hover:scale-[1.08] hover:translate-y-[-3px]
-                  duration-[0.2s]"">
+                  duration-[0.2s] howBtn">
           How It Works
         </a>
 
@@ -248,11 +248,11 @@ border-b-[1px] border-white/40 shadow-2xl">
       <h3 class="text-[15px] font-[900] mb-[10px]">Quick Links</h3>
       <div class="grid grid-cols-2 gap-[10px] text-[13px] font-[700]">
         <a href="#home" class="text-white/75 hover:text-orange-400 duration-[0.25s]">Home</a>
-        <a href="#about" class="text-white/75 hover:text-orange-400 duration-[0.25s]">About</a>
-        <a href="#features" class="text-white/75 hover:text-orange-400 duration-[0.25s]">Features</a>
-        <a href="#how" class="text-white/75 hover:text-orange-400 duration-[0.25s]">How it Works</a>
-        <a href="#security" class="text-white/75 hover:text-green-400 duration-[0.25s]">Security</a>
-        <a href="#contact" class="text-white/75 hover:text-green-400 duration-[0.25s]">Contact</a>
+        <a href="#about" class="text-white/75 hover:text-orange-400 duration-[0.25s] openAbout">About</a>
+        <a href="#features" class="text-white/75 hover:text-orange-400 duration-[0.25s] openFeatures">Features</a>
+        <a href="#how"class="howBtn" class="text-white/75 hover:text-orange-400 duration-[0.25s]">How it Works</a>
+        <a href="#security" class="text-white/75 hover:text-green-400 duration-[0.25s] openSecurity">Security</a>
+        <a href="#contact" class="text-white/75 hover:text-green-400 duration-[0.25s] openContact">Contact</a>
       </div>
     </div>
 
@@ -371,16 +371,17 @@ border-b-[1px] border-white/40 shadow-2xl">
 
 <!-- Features Modal -->
  <!-- FEATURES MODAL -->
-<div id="featuresModal" class="fixed inset-[0] z-[99999] hidden">
+<div id="featuresModal" class="fixed inset-[0] z-[99999] hidden overflow-y-auto">
   <!-- overlay -->
   <div id="featuresOverlay" class="absolute inset-[0] bg-black/70"></div>
 
   <!-- modal box -->
-  <div class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
-              w-[92%] max-w-[760px] rounded-[18px]
-              bg-white/95 backdrop-blur-[10px]
-              border-[1px] border-black/10 shadow-2xl p-[18px] sm:p-[22px]">
-
+  <div class="relative mx-auto my-[18px] sm:my-[28px]
+            w-[92%] max-w-[760px] rounded-[18px]
+            bg-white/95 backdrop-blur-[10px]
+            border-[1px] border-black/10 shadow-2xl p-[18px] sm:p-[22px]
+            max-h-[calc(100vh_-_36px)] sm:max-h-[calc(100vh_-_56px)]
+            overflow-y-auto">
     <div class="flex items-start justify-between gap-[12px]">
       <div>
         <h2 class="text-[22px] sm:text-[26px] font-[900] text-slate-900">Key Features</h2>

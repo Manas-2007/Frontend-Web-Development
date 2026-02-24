@@ -1,32 +1,36 @@
-// ABOUT MODAL
-const aboutBtn = document.getElementById("aboutBtn");
+// ABOUT MODAL (CLASS BASED)
+const aboutBtns = document.querySelectorAll(".openAbout");
+
 const aboutModal = document.getElementById("aboutModal");
 const aboutOverlay = document.getElementById("aboutOverlay");
 const aboutClose = document.getElementById("aboutClose");
 const aboutOk = document.getElementById("aboutOk");
-const aboutGoHow = document.getElementById("aboutGoHow");
 
-function openAbout() {
+function openAbout(){
   aboutModal.classList.remove("hidden");
-  document.body.style.overflow = "hidden";
+  document.body.style.overflow="hidden";
 }
 
-function closeAbout() {
+function closeAbout(){
   aboutModal.classList.add("hidden");
-  document.body.style.overflow = "";
+  document.body.style.overflow="";
 }
 
-aboutBtn?.addEventListener("click", (e) => {
-  e.preventDefault();
-  openAbout();
+aboutBtns.forEach(btn=>{
+  btn.addEventListener("click",(e)=>{
+    e.preventDefault();
+    openAbout();
+  });
 });
 
-aboutOverlay?.addEventListener("click", closeAbout);
-aboutClose?.addEventListener("click", closeAbout);
-aboutOk?.addEventListener("click", closeAbout);
+aboutOverlay?.addEventListener("click",closeAbout);
+aboutClose?.addEventListener("click",closeAbout);
+aboutOk?.addEventListener("click",closeAbout);
 
-aboutGoHow?.addEventListener("click", () => {
-  closeAbout();
+document.addEventListener("keydown",(e)=>{
+  if(e.key==="Escape" && !aboutModal.classList.contains("hidden")){
+    closeAbout();
+  }
 });
 
 // ESC close
@@ -37,41 +41,43 @@ document.addEventListener("keydown", (e) => {
 });
 
 
-// FEATURES MODAL
-const featuresBtn = document.getElementById("featuresBtn");
+// FEATURES MODAL (CLASS BASED)
+const featureBtns = document.querySelectorAll(".openFeatures");
+
 const featuresModal = document.getElementById("featuresModal");
 const featuresOverlay = document.getElementById("featuresOverlay");
 const featuresClose = document.getElementById("featuresClose");
 const featuresOk = document.getElementById("featuresOk");
 
-function openFeatures() {
+function openFeatures(){
   featuresModal.classList.remove("hidden");
-  document.body.style.overflow = "hidden";
+  document.body.style.overflow="hidden";
 }
 
-function closeFeatures() {
+function closeFeatures(){
   featuresModal.classList.add("hidden");
-  document.body.style.overflow = "";
+  document.body.style.overflow="";
 }
 
-featuresBtn?.addEventListener("click", (e) => {
-  e.preventDefault();
-  openFeatures();
+featureBtns.forEach(btn=>{
+  btn.addEventListener("click",(e)=>{
+    e.preventDefault();
+    openFeatures();
+  });
 });
 
-featuresOverlay?.addEventListener("click", closeFeatures);
-featuresClose?.addEventListener("click", closeFeatures);
-featuresOk?.addEventListener("click", closeFeatures);
+featuresOverlay?.addEventListener("click",closeFeatures);
+featuresClose?.addEventListener("click",closeFeatures);
+featuresOk?.addEventListener("click",closeFeatures);
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && !featuresModal.classList.contains("hidden")) {
+document.addEventListener("keydown",(e)=>{
+  if(e.key==="Escape" && !featuresModal.classList.contains("hidden")){
     closeFeatures();
   }
 });
+// HOW IT WORKS MODAL (CLASS BASED)
+const howBtns = document.querySelectorAll(".howBtn");
 
-// HOW IT WORKS MODAL
-const howBtn = document.getElementById("howBtn");
-const howBtnMobile = document.getElementById("howBtnMobile");
 const howModal = document.getElementById("howModal");
 const howOverlay = document.getElementById("howOverlay");
 const howClose = document.getElementById("howClose");
@@ -81,54 +87,66 @@ function openHow() {
   howModal.classList.remove("hidden");
   document.body.style.overflow = "hidden";
 }
+
 function closeHow() {
   howModal.classList.add("hidden");
   document.body.style.overflow = "";
 }
 
-howBtn?.addEventListener("click", (e) => { e.preventDefault(); openHow(); });
-howBtnMobile?.addEventListener("click", (e) => { e.preventDefault(); openHow(); });
+// 🔥 sab buttons automatically work
+howBtns.forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    openHow();
+  });
+});
 
+// close actions
 howOverlay?.addEventListener("click", closeHow);
 howClose?.addEventListener("click", closeHow);
 howOk?.addEventListener("click", closeHow);
 
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && !howModal.classList.contains("hidden")) closeHow();
+  if (e.key === "Escape" && !howModal.classList.contains("hidden")) {
+    closeHow();
+  }
 });
 
+// SECURITY MODAL (CLASS BASED)
+const securityBtns = document.querySelectorAll(".openSecurity");
 
-// SECURITY MODAL
-const securityBtn = document.getElementById("securityBtn");
-const securityBtnMobile = document.getElementById("securityBtnMobile");
 const securityModal = document.getElementById("securityModal");
 const securityOverlay = document.getElementById("securityOverlay");
 const securityClose = document.getElementById("securityClose");
 const securityOk = document.getElementById("securityOk");
 
-function openSecurity() {
+function openSecurity(){
   securityModal.classList.remove("hidden");
-  document.body.style.overflow = "hidden";
+  document.body.style.overflow="hidden";
 }
-function closeSecurity() {
+function closeSecurity(){
   securityModal.classList.add("hidden");
-  document.body.style.overflow = "";
+  document.body.style.overflow="";
 }
 
-securityBtn?.addEventListener("click", (e) => { e.preventDefault(); openSecurity(); });
-securityBtnMobile?.addEventListener("click", (e) => { e.preventDefault(); openSecurity(); });
+securityBtns.forEach(btn=>{
+  btn.addEventListener("click",(e)=>{
+    e.preventDefault();
+    openSecurity();
+  });
+});
 
-securityOverlay?.addEventListener("click", closeSecurity);
-securityClose?.addEventListener("click", closeSecurity);
-securityOk?.addEventListener("click", closeSecurity);
+securityOverlay?.addEventListener("click",closeSecurity);
+securityClose?.addEventListener("click",closeSecurity);
+securityOk?.addEventListener("click",closeSecurity);
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && !securityModal.classList.contains("hidden")) closeSecurity();
+document.addEventListener("keydown",(e)=>{
+ if(e.key==="Escape" && !securityModal.classList.contains("hidden")) closeSecurity();
 });
 
 // GUIDELINES MODAL
-const guideBtn = document.getElementById("guideBtn");
-const guideBtnMobile = document.getElementById("guideBtnMobile");
+const guideBtns = document.querySelectorAll(".openGuide");
+
 const guideModal = document.getElementById("guideModal");
 const guideOverlay = document.getElementById("guideOverlay");
 const guideClose = document.getElementById("guideClose");
@@ -143,8 +161,12 @@ function closeGuide(){
   document.body.style.overflow="";
 }
 
-guideBtn?.addEventListener("click",(e)=>{e.preventDefault();openGuide();});
-guideBtnMobile?.addEventListener("click",(e)=>{e.preventDefault();openGuide();});
+guideBtns.forEach(btn=>{
+  btn.addEventListener("click",(e)=>{
+    e.preventDefault();
+    openGuide();
+  });
+});
 
 guideOverlay?.addEventListener("click",closeGuide);
 guideClose?.addEventListener("click",closeGuide);
@@ -154,30 +176,37 @@ document.addEventListener("keydown",(e)=>{
  if(e.key==="Escape" && !guideModal.classList.contains("hidden")) closeGuide();
 });
 
-// CONTACT MODAL
-const contactBtn = document.getElementById("contactBtn");
-const contactBtnMobile = document.getElementById("contactBtnMobile");
+//CONTACT MODAL (CLASS BASED)
+const contactBtns = document.querySelectorAll(".openContact");
+
 const contactModal = document.getElementById("contactModal");
 const contactOverlay = document.getElementById("contactOverlay");
 const contactClose = document.getElementById("contactClose");
 const contactOk = document.getElementById("contactOk");
 
-function openContact() {
+function openContact(){
   contactModal.classList.remove("hidden");
-  document.body.style.overflow = "hidden";
+  document.body.style.overflow="hidden";
 }
-function closeContact() {
+
+function closeContact(){
   contactModal.classList.add("hidden");
-  document.body.style.overflow = "";
+  document.body.style.overflow="";
 }
 
-contactBtn?.addEventListener("click", (e) => { e.preventDefault(); openContact(); });
-contactBtnMobile?.addEventListener("click", (e) => { e.preventDefault(); openContact(); });
+contactBtns.forEach(btn=>{
+  btn.addEventListener("click",(e)=>{
+    e.preventDefault();
+    openContact();
+  });
+});
 
-contactOverlay?.addEventListener("click", closeContact);
-contactClose?.addEventListener("click", closeContact);
-contactOk?.addEventListener("click", closeContact);
+contactOverlay?.addEventListener("click",closeContact);
+contactClose?.addEventListener("click",closeContact);
+contactOk?.addEventListener("click",closeContact);
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && !contactModal.classList.contains("hidden")) closeContact();
+document.addEventListener("keydown",(e)=>{
+  if(e.key==="Escape" && !contactModal.classList.contains("hidden")){
+    closeContact();
+  }
 });
