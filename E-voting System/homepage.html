@@ -144,9 +144,155 @@ border-b-[1px] border-white/40 shadow-2xl">
 </div>
 
 
-<!-- main content -->
-    
+<!-- HERO FULL SCREEN SLIDER (Pakka fix) -->
+<section class="w-[100%] h-[100vh] pt-[96px] relative overflow-hidden">
 
+  <!-- Background Slider (navbar ke niche se start) -->
+  <div class="absolute top-[96px] left-[0] right-[0] bottom-[0]">
+
+    <!-- Image 1 -->
+    <div class="absolute inset-[0] slider-img slider-1 bg-cover bg-center bg-no-repeat"></div>
+
+    <!-- Image 2 -->
+    <div class="absolute inset-[0] slider-img slider-2 bg-cover bg-center bg-no-repeat"></div>
+
+    <!-- Dark overlay -->
+    <div class="absolute inset-[0] bg-black/60"></div>
+  </div>
+
+  <!-- Foreground Content (height = screen minus navbar) -->
+  <div class="relative z-[10] h-[calc(100vh_-_96px)] flex items-center justify-center text-center px-[20px]">
+    <div class="max-w-[1000px]">
+
+      <h1 class="text-white font-[900] leading-[1.1]
+                 text-[32px] sm:text-[48px] md:text-[64px]">
+        Vote Smart. Vote Secure.<br class="hidden sm:block">
+        Vote Online.
+      </h1>
+
+      <p class="mt-[18px] text-white/95 font-[700]
+                text-[15px] sm:text-[18px] md:text-[22px]">
+        Empowering democracy with a fast, secure and transparent digital voting system.
+      </p>
+
+      <div class="mt-[30px] flex justify-center gap-[16px] flex-wrap">
+
+        <a href="login.html"
+           class="px-[26px] py-[14px] rounded-[14px]
+                  bg-orange-500 text-white font-[900]
+                  text-[16px] sm:text-[18px]
+                  hover:bg-orange-600 hover:scale-[1.08] hover:translate-y-[-3px]
+                  duration-[0.3s]">
+          Start Voting
+        </a>
+
+        <a href="#how"
+           class="px-[26px] py-[14px] rounded-[14px]
+                  border-[2px] border-white/40 text-white font-[900]
+                  text-[16px] sm:text-[18px]
+                  hover:bg-white/20 hover:scale-[1.08] hover:translate-y-[-3px]
+                  duration-[0.3s]">
+          How It Works
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .slider-1 { background-image: url('Photos/homepage1.jpg'); }
+  .slider-2 { background-image: url('Photos/homepage2.jpg'); }
+
+  .slider-img { opacity: 0; animation: sliderFade 4s infinite; }
+  .slider-1 { animation-delay: 0s; }
+  .slider-2 { animation-delay: 2s; }
+
+  @keyframes sliderFade{
+    0%{opacity:0;}
+    10%{opacity:1;}
+    40%{opacity:1;}
+    50%{opacity:0;}
+    100%{opacity:0;}
+  }
+</style>
+
+
+
+<!-- Footer -->
+<footer class="w-[100%] bg-slate-950 text-white mt-[0] border-t-[3px] border-orange-500">
+  <!-- thin tricolor strip -->
+  <div class="w-[100%] h-[6px] bg-gradient-to-r from-orange-500 via-white to-green-600"></div>
+
+  <div class="max-w-[1250px] mx-auto px-[18px] py-[22px] grid grid-cols-1 md:grid-cols-3 gap-[18px]">
+
+    <!-- Brand -->
+    <div>
+      <div class="flex items-center gap-[10px]">
+        <div class="w-[44px] h-[44px] rounded-[12px] bg-white/10 grid place-items-center font-[900] text-[18px]">
+          EV
+        </div>
+        <div>
+          <h2 class="text-[18px] font-[900] tracking-[0.5px]">E-Vote Bank</h2>
+          <p class="text-[13px] text-white/70 mt-[2px]">Secure • Transparent • Fast</p>
+        </div>
+      </div>
+
+      <p class="text-[13px] text-white/75 mt-[10px] leading-[1.5]">
+        A voting-oriented demo system focused on privacy, integrity, and instant results display.
+      </p>
+    </div>
+
+    <!-- Quick links -->
+    <div>
+      <h3 class="text-[15px] font-[900] mb-[10px]">Quick Links</h3>
+      <div class="grid grid-cols-2 gap-[10px] text-[13px] font-[700]">
+        <a href="#home" class="text-white/75 hover:text-orange-400 duration-[0.25s]">Home</a>
+        <a href="#about" class="text-white/75 hover:text-orange-400 duration-[0.25s]">About</a>
+        <a href="#features" class="text-white/75 hover:text-orange-400 duration-[0.25s]">Features</a>
+        <a href="#how" class="text-white/75 hover:text-orange-400 duration-[0.25s]">How it Works</a>
+        <a href="#security" class="text-white/75 hover:text-green-400 duration-[0.25s]">Security</a>
+        <a href="#contact" class="text-white/75 hover:text-green-400 duration-[0.25s]">Contact</a>
+      </div>
+    </div>
+
+    <!-- Support / Info -->
+    <div>
+      <h3 class="text-[15px] font-[900] mb-[10px]">Support</h3>
+
+      <div class="text-[13px] text-white/75 leading-[1.6]">
+        <p><span class="text-white/90 font-[800]">Help:</span> guidelines & voting rules</p>
+        <p class="mt-[4px]"><span class="text-white/90 font-[800]">Email:</span> support@evotebank.com</p>
+        <p class="mt-[4px]"><span class="text-white/90 font-[800]">Hours:</span> 9 AM – 6 PM</p>
+      </div>
+
+      <div class="mt-[12px] inline-flex items-center gap-[10px]">
+        <span class="px-[10px] py-[6px] rounded-[999px] text-[12px] font-[900] bg-orange-500/20 border-[1px] border-orange-500/40">
+          Verified Flow
+        </span>
+        <span class="px-[10px] py-[6px] rounded-[999px] text-[12px] font-[900] bg-green-500/20 border-[1px] border-green-500/40">
+          Privacy First
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- bottom bar -->
+  <div class="border-t-[1px] border-white/10">
+    <div class="max-w-[1250px] mx-auto px-[18px] py-[12px]
+                flex flex-col md:flex-row items-center justify-between gap-[8px]">
+      <p class="text-[12px] text-white/60 font-[700]">
+        © <span class="text-white/80">2026</span> E-Vote Bank • All rights reserved.
+      </p>
+
+      <p class="text-[12px] text-white/55 text-center md:text-right">
+        Educational project — individual vote choices are not displayed, only counts.
+      </p>
+    </div>
+  </div>
+</footer>
 
 
 </body>
