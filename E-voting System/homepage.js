@@ -210,3 +210,9 @@ document.addEventListener("keydown",(e)=>{
     closeContact();
   }
 });
+
+const startVoteBtn = document.getElementById("startVoteBtn");
+
+startVoteBtn?.addEventListener("click", () => {
+  window.location.href = "./login.html";  // same folder me ho to
+});
