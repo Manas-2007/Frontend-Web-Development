@@ -1,410 +1,1286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Voting Dashboard</title>
-
-<!-- Tailwind CDN -->
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+ <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>E-Voting Portal</title>
 </head>
+<body>
+  <!-- navbar -->
+<nav class="w-[100%] fixed top-[0] left-[0] z-[999] 
+bg-white/95 backdrop-blur-[12px] 
+border-b-[1px] border-white/40 shadow-2xl">
 
-<body class="bg-slate-100">
+  <div class="max-w-[1250px] mx-auto px-[18px] py-[12px] flex items-center justify-between">
 
-<!-- ================= NAVBAR START ================= -->
-<header class="w-full bg-white border-b-[1px] border-black/10">
+    <!-- Left logo -->
+    <div class="flex items-center gap-[12px]">
+      <img src="Photos/homepagelogo.jpg" class="w-[70px] h-[70px] rounded-[12px]" />
+      <h1 class="text-[22px] font-[500] text-red-600 tracking-[0.5px]">
+        E-Vote Bank
+      </h1>
+    </div>
 
-<div class="max-w-[1280px] mx-auto px-[16px] lg:px-[24px]">
+    <!-- Tabs -->
+    <div class="hidden md:flex items-center gap-[28px] font-[700]">
 
-<div class="h-[74px] flex items-center justify-between">
+      <a href="#" 
+      class="text-[17px] text-black 
+      px-[12px] py-[6px] 
+      border-y-[3px] border-transparent
+      border-y-red-600 
+      text-red-600 
+      scale-[1.12] translate-y-[-3px]
+      duration-[0.3s]" 
+      id="navHome">
+      HOME
+      </a>
 
-<!-- ========= LEFT : LOGO ========= -->
-<div class="flex items-center gap-[12px]">
+      <a href="#"
+      class="openAbout text-[17px] text-black px-[12px] py-[6px] 
+      border-y-[3px] border-transparent
+      hover:border-y-orange-500 
+      hover:text-orange-600 
+      hover:scale-[1.12] hover:translate-y-[-3px]
+      duration-[0.3s]"
+      id="navHow">
+      HOW TO USE
+      </a>
 
-<div class="w-[44px] h-[44px] rounded-[10px]
-bg-slate-100 flex items-center justify-center">
+      <a href="#"
+      class="text-[17px] text-black px-[12px] py-[6px] 
+      border-y-[3px] border-transparent
+      hover:border-y-green-600 
+      hover:text-green-600 
+      hover:scale-[1.12] hover:translate-y-[-3px]
+      duration-[0.3s] openFeatures"
+      id="navStatus">
+      VOTE STATUS
+      </a>
 
-<img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png"
-class="w-[28px] h-[28px]">
+      <a href="#" 
+      class="text-[17px] text-black px-[12px] py-[6px] 
+      border-y-[3px] border-transparent
+      hover:border-y-red-600 
+      hover:text-red-600 
+      hover:scale-[1.12] hover:translate-y-[-3px]
+      duration-[0.3s] howBtn"
+      id="navParties">
+      ELECTION PARTIES
+      </a>
 
-</div>
+      <a href="#"
+      class="text-[17px] text-black px-[12px] py-[6px] 
+      border-y-[3px] border-transparent
+      hover:border-y-green-600 
+      hover:text-green-600 
+      hover:scale-[1.12] hover:translate-y-[-3px]
+      duration-[0.3s] openSecurity"
+      id="navResults">
+      RESULTS
+      </a>
 
-<h1 class="text-[20px] font-[900] text-slate-900">
-Voting Dashboard
-</h1>
+    </div>
 
-</div>
+    <!-- LIVE STATUS -->
+    <div id="voteLiveBox" class="flex items-center gap-[8px] bg-gray-100 px-[12px] py-[6px] rounded-[20px]">
 
+      <span id="liveDot"
+      class="w-[10px] h-[10px] rounded-full bg-gray-400"></span>
 
-<!-- ========= RIGHT SECTION ========= -->
-<div class="flex items-center gap-[14px]">
+      <span id="liveText" class="text-[14px] font-[700] text-gray-600">
+      NOT LIVE
+      </span>
 
-<!-- Voting Status -->
-<div class="hidden sm:flex items-center gap-[8px]
-px-[14px] py-[8px]
-rounded-[12px]
-bg-emerald-50
-border-[1px] border-emerald-200">
+    </div>
 
-<span class="w-[10px] h-[10px]
-bg-emerald-500 rounded-full"></span>
+  </div>
+</nav>
 
-<p class="text-[14px] font-[800] text-emerald-700">
-Voting : LIVE
-</p>
+<!-- Home Tab -->
+ <main class="pt-[110px]">
 
-</div>
+<section id="tab-home" class="tabSection block">
+  <div class="max-w-[1250px] mx-auto px-[18px] pb-[26px]">
 
+    <!-- Top Hero Card -->
+    <div class="bg-white/90 border-[1px] border-black/10 shadow-2xl rounded-[22px] p-[18px] sm:p-[22px]">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-[14px]">
 
-<!-- ========= USER MENU ========= -->
-<div id="userMenu" class="relative">
-
-<button id="menuBtn"
-class="flex items-center gap-[10px]
-px-[10px] py-[6px]
-rounded-[14px]
-border-[1px] border-black/10
-hover:bg-slate-50 duration-[200ms]">
-
-<!-- Avatar -->
-<div class="w-[40px] h-[40px]
-rounded-full overflow-hidden">
-
-<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
-
-</div>
-
-<div class="hidden sm:block text-left">
-<p class="text-[14px] font-[900]">Admin</p>
-<p class="text-[12px] text-slate-500">Dashboard</p>
-</div>
-
-<!-- Arrow -->
-<svg id="arrowIcon"
-class="w-[18px] h-[18px] duration-[200ms]"
-fill="currentColor"
-viewBox="0 0 20 20">
-<path fill-rule="evenodd"
-d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-clip-rule="evenodd"/>
-</svg>
-
-</button>
-
-
-<!-- ===== DROPDOWN ===== -->
-<div id="dropdownMenu"
-class="hidden absolute right-[0px] top-[60px]
-w-[210px]
-bg-white
-border-[1px] border-black/10
-rounded-[14px]
-shadow-xl">
-
-<div class="p-[10px]">
-
-<div class="px-[12px] py-[10px]
-rounded-[12px]
-bg-slate-50">
-
-<p class="text-[13px] font-[900]">Admin Panel</p>
-<p class="text-[12px] text-slate-500">Role : Admin</p>
-
-</div>
-
-<div class="border-t-[1px] border-black/10 my-[8px]"></div>
-
-<button class="w-full text-left
-px-[12px] py-[10px]
-rounded-[10px]
-hover:bg-slate-50">
-Profile
-</button>
-
-<button class="w-full text-left
-px-[12px] py-[10px]
-rounded-[10px]
-hover:bg-slate-50">
-Settings
-</button>
-
-<button class="w-full text-left
-px-[12px] py-[10px]
-rounded-[10px]
-hover:bg-red-50 text-red-600 font-[800]">
-Logout
-</button>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-</div>
-</header>
-<!-- ================= NAVBAR END ================= -->
-
-
- <!-- ===================== TABS NAVBAR START ===================== -->
-  <section class="w-full bg-white border-b-[1px] border-black/10">
-    <div class="max-w-[1280px] mx-auto px-[16px] lg:px-[24px]">
-
-      <div class="h-[66px] flex items-center justify-between gap-[12px]">
-
-        <!-- Left: Logo + Name -->
-        <div class="flex items-center gap-[10px] min-w-[150px]">
-          <div class="w-[36px] h-[36px] rounded-[10px] bg-slate-100 flex items-center justify-center overflow-hidden">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png"
-              alt="Logo"
-              class="w-[22px] h-[22px] object-contain"
-            />
-          </div>
-          <p class="text-[15px] sm:text-[16px] font-[900] text-slate-900">
-            E-Voting
+        <div>
+          <h2 class="text-[22px] sm:text-[30px] font-[900] text-slate-900 leading-[1.1]">
+            Voter Dashboard
+          </h2>
+          <p class="mt-[6px] text-slate-600 text-[14px] sm:text-[15px] font-[600]">
+            Apni profile, vote status aur vote details yahin dikhengi.
           </p>
         </div>
 
-        <!-- Middle: Tabs -->
-        <div class="flex-1">
-          <div
-            id="tabsContainer"
-            class="flex items-center gap-[8px]
-                   overflow-x-auto whitespace-nowrap scrollbar-none"
-          >
-            <button data-tab="dashboard"
-              class="tabBtn px-[14px] py-[9px] rounded-[12px]
-                     border-[1px] border-black/10
-                     text-[14px] font-[900] text-slate-700
-                     hover:bg-slate-50 duration-[150ms]">
-              Dashboard
-            </button>
+        <!-- Status Pill -->
+        <div id="voteStatusBadge"
+          class="w-full lg:w-auto inline-flex items-center justify-center gap-[10px]
+          px-[16px] py-[10px] rounded-[999px]
+          border-[1px] border-black/10
+          bg-gradient-to-r from-gray-50 to-gray-100
+          shadow-lg">
 
-            <button data-tab="partylist"
-              class="tabBtn px-[14px] py-[9px] rounded-[12px]
-                     border-[1px] border-black/10
-                     text-[14px] font-[900] text-slate-700
-                     hover:bg-slate-50 duration-[150ms]">
-              Party List
-            </button>
+          <span id="voteStatusDot"
+            class="w-[11px] h-[11px] rounded-full bg-gray-400"></span>
 
-            <button data-tab="instructions"
-              class="tabBtn px-[14px] py-[9px] rounded-[12px]
-                     border-[1px] border-black/10
-                     text-[14px] font-[900] text-slate-700
-                     hover:bg-slate-50 duration-[150ms]">
-              Instructions
-            </button>
-
-            <!-- ✅ RESULTS TAB ADDED PROPERLY -->
-            <button data-tab="results"
-              class="tabBtn resultsTab px-[14px] py-[9px] rounded-[12px]
-                     border-[1px] border-black/10
-                     text-[14px] font-[900] text-slate-700
-                     hover:bg-slate-50 duration-[150ms]">
-              Results
-            </button>
-          </div>
-
-          <!-- Underline Track -->
-          <div class="relative mt-[10px] h-[3px] bg-black/5 rounded-[999px] overflow-hidden">
-            <div id="activeLine" class="absolute left-[0px] top-[0px] h-[3px] w-[0px] bg-slate-900 duration-[200ms]"></div>
-          </div>
-        </div>
-
-        <!-- Right: Logout -->
-        <div class="min-w-[120px] flex justify-end">
-          <button id="logoutBtn"
-            class="px-[16px] py-[10px] rounded-[12px]
-                   bg-slate-900 text-white text-[13px] font-[900]
-                   hover:bg-slate-800 duration-[150ms]">
-            Logout
-          </button>
+          <span id="voteStatusText"
+            class="text-[13px] sm:text-[14px] font-[900] tracking-[0.6px] text-gray-700">
+            NOT VOTED
+          </span>
         </div>
 
       </div>
     </div>
-  </section>
-  <!-- ===================== TABS NAVBAR END ===================== -->
 
+    <!-- Main Grid -->
+    <div class="mt-[16px] grid grid-cols-1 lg:grid-cols-12 gap-[16px]">
 
-  <!-- ===== Demo Panels (optional) ===== -->
-  <main class="max-w-[1280px] mx-auto px-[16px] lg:px-[24px] py-[18px]">
-    <div id="tabPanels">
-      <div data-panel="dashboard" class="panel bg-white border-[1px] border-black/10 rounded-[16px] p-[16px]">
-        <p class="text-[16px] font-[900] text-slate-900">Dashboard Panel</p>
-      </div>
+      <!-- LEFT COLUMN -->
+      <div class="lg:col-span-7 grid grid-cols-1 gap-[16px]">
 
-      <div data-panel="partylist" class="panel hidden bg-white border-[1px] border-black/10 rounded-[16px] p-[16px]">
-        <p class="text-[16px] font-[900] text-slate-900">Party List Panel</p>
-      </div>
+        <!-- Voter Profile Card -->
+        <div class="group bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] sm:p-[22px]
+        shadow-xl transition duration-[0.25s] hover:-translate-y-[3px] hover:shadow-2xl">
 
-      <div data-panel="instructions" class="panel hidden bg-white border-[1px] border-black/10 rounded-[16px] p-[16px]">
-        <p class="text-[16px] font-[900] text-slate-900">Instructions Panel</p>
-      </div>
-
-      <div data-panel="results" class="panel hidden bg-white border-[1px] border-black/10 rounded-[16px] p-[16px]">
-        <p class="text-[16px] font-[900] text-slate-900">Results Panel</p>
-      </div>
-    </div>
-  </main>
-
-  <!-- ===================== TABS NAVBAR ===================== -->
-  <section class="w-full bg-white border-b-[1px] border-black/10">
-    <div class="max-w-[1280px] mx-auto px-[16px] lg:px-[24px]">
-
-      <div class="h-[66px] flex items-center justify-between gap-[12px]">
-
-        <!-- Left: Logo + Name -->
-        <div class="flex items-center gap-[10px] min-w-[150px]">
-          <div class="w-[36px] h-[36px] rounded-[10px] bg-slate-100 flex items-center justify-center overflow-hidden">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png"
-              alt="Logo"
-              class="w-[22px] h-[22px] object-contain"
-            />
-          </div>
-          <p class="text-[15px] sm:text-[16px] font-[900] text-slate-900">E-Voting</p>
-        </div>
-
-        <!-- Tabs -->
-        <div class="flex-1">
-          <div id="tabsContainer"
-            class="flex items-center gap-[8px] overflow-x-auto whitespace-nowrap scrollbar-none">
-            <button data-tab="dashboard"
-              class="tabBtn px-[14px] py-[9px] rounded-[12px] border-[1px] border-black/10
-                     text-[14px] font-[900] text-slate-700 hover:bg-slate-50 duration-[150ms]">
-              Dashboard
-            </button>
-
-            <button data-tab="partylist"
-              class="tabBtn px-[14px] py-[9px] rounded-[12px] border-[1px] border-black/10
-                     text-[14px] font-[900] text-slate-700 hover:bg-slate-50 duration-[150ms]">
-              Party List
-            </button>
-
-            <button data-tab="instructions"
-              class="tabBtn px-[14px] py-[9px] rounded-[12px] border-[1px] border-black/10
-                     text-[14px] font-[900] text-slate-700 hover:bg-slate-50 duration-[150ms]">
-              Instructions
-            </button>
-
-            <button data-tab="results"
-              class="tabBtn resultsTab px-[14px] py-[9px] rounded-[12px] border-[1px] border-black/10
-                     text-[14px] font-[900] text-slate-700 hover:bg-slate-50 duration-[150ms]">
-              Results
-            </button>
-          </div>
-
-          <!-- Underline -->
-          <div class="relative mt-[10px] h-[3px] bg-black/5 rounded-[999px] overflow-hidden">
-            <div id="activeLine" class="absolute left-[0px] top-[0px] h-[3px] w-[0px] bg-slate-900 duration-[200ms]"></div>
-          </div>
-        </div>
-
-        <!-- Logout -->
-        <div class="min-w-[120px] flex justify-end">
-          <button id="logoutBtn"
-            class="px-[16px] py-[10px] rounded-[12px] bg-slate-900 text-white
-                   text-[13px] font-[900] hover:bg-slate-800 duration-[150ms]">
-            Logout
-          </button>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== PANELS AREA ===================== -->
-  <main class="max-w-[1280px] mx-auto px-[16px] lg:px-[24px] py-[18px]">
-
-    <!-- ============== TAB 1: DASHBOARD PANEL (✅ DONE) ============== -->
-    <section data-panel="dashboard" class="panel">
-      <div class="bg-white border-[1px] border-black/10 rounded-[18px] p-[18px]">
-
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-[12px]">
-          <div>
-            <h2 class="text-[22px] sm:text-[26px] font-[900] text-slate-900">Dashboard</h2>
-            <p class="text-[14px] text-slate-600 mt-[4px]">
-              Overview of voting status and your access.
-            </p>
-          </div>
-
-          <div class="flex items-center gap-[10px]">
-            <div class="px-[12px] py-[10px] rounded-[14px] bg-slate-50 border-[1px] border-black/10">
-              <p class="text-[12px] font-[900] text-slate-500">Role</p>
-              <p id="roleText" class="text-[14px] font-[900] text-slate-900">Voter</p>
+          <div class="flex items-start justify-between gap-[12px]">
+            <div>
+              <h3 class="text-[18px] sm:text-[20px] font-[900] text-slate-900">
+                Your Information
+              </h3>
+              <p class="mt-[4px] text-[13px] text-slate-600 font-[600]">
+                Voter details verified for this session.
+              </p>
             </div>
 
-            <div class="px-[12px] py-[10px] rounded-[14px] bg-slate-50 border-[1px] border-black/10">
-              <p class="text-[12px] font-[900] text-slate-500">Voting</p>
-              <p id="statusText" class="text-[14px] font-[900] text-slate-900">LIVE</p>
+            <div class="px-[12px] py-[8px] rounded-[14px]
+            bg-gradient-to-r from-red-50 to-orange-50 border-[1px] border-black/5">
+              <p class="text-[12px] font-[900] text-red-700 tracking-[0.4px]">VOTER</p>
+            </div>
+          </div>
+
+          <div class="mt-[14px] grid grid-cols-1 sm:grid-cols-2 gap-[12px]">
+
+            <div class="rounded-[18px] border-[1px] border-black/10 bg-white p-[14px]
+            transition duration-[0.25s] group-hover:border-black/15">
+              <p class="text-[12px] font-[800] text-slate-500 tracking-[0.5px]">NAME</p>
+              <p id="voterName" class="mt-[4px] text-[16px] font-[900] text-slate-900">
+                Manas Patidar
+              </p>
+            </div>
+
+            <div class="rounded-[18px] border-[1px] border-black/10 bg-white p-[14px]
+            transition duration-[0.25s] group-hover:border-black/15">
+              <p class="text-[12px] font-[800] text-slate-500 tracking-[0.5px]">VOTER ID</p>
+              <p id="voterId" class="mt-[4px] text-[16px] font-[900] text-slate-900">
+                EVB-10293
+              </p>
+            </div>
+
+            <div class="rounded-[18px] border-[1px] border-black/10 bg-white p-[14px]
+            transition duration-[0.25s] group-hover:border-black/15">
+              <p class="text-[12px] font-[800] text-slate-500 tracking-[0.5px]">CONSTITUENCY</p>
+              <p id="voterArea" class="mt-[4px] text-[16px] font-[900] text-slate-900">
+                Huzurganj
+              </p>
+            </div>
+
+            <div class="rounded-[18px] border-[1px] border-black/10 bg-white p-[14px]
+            transition duration-[0.25s] group-hover:border-black/15">
+              <p class="text-[12px] font-[800] text-slate-500 tracking-[0.5px]">ACCOUNT STATUS</p>
+              <p class="mt-[4px] text-[16px] font-[900] text-green-700">
+                Active
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Vote Details Card -->
+        <div class="group bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] sm:p-[22px]
+        shadow-xl transition duration-[0.25s] hover:-translate-y-[3px] hover:shadow-2xl">
+
+          <div class="flex items-start justify-between gap-[12px]">
+            <div>
+              <h3 class="text-[18px] sm:text-[20px] font-[900] text-slate-900">
+                Your Vote Details
+              </h3>
+              <p class="mt-[4px] text-[13px] text-slate-600 font-[600]">
+                Vote ki date/time yahan track hoti hai.
+              </p>
+            </div>
+
+            <div class="px-[12px] py-[8px] rounded-[14px]
+            bg-gradient-to-r from-emerald-50 to-lime-50 border-[1px] border-black/5">
+              <p class="text-[12px] font-[900] text-emerald-700 tracking-[0.4px]">ONE PERSON</p>
+              <p class="text-[12px] font-[900] text-emerald-700 tracking-[0.4px]">ONE VOTE</p>
+            </div>
+          </div>
+
+          <div class="mt-[14px] grid grid-cols-1 sm:grid-cols-3 gap-[12px]">
+
+            <div class="rounded-[18px] border-[1px] border-black/10 bg-white p-[14px]
+            transition duration-[0.25s] group-hover:border-black/15">
+              <p class="text-[12px] font-[800] text-slate-500 tracking-[0.5px]">HAS VOTED?</p>
+              <p id="hasVoted" class="mt-[4px] text-[18px] font-[900] text-slate-900">No</p>
+            </div>
+
+            <div class="rounded-[18px] border-[1px] border-black/10 bg-white p-[14px]
+            transition duration-[0.25s] group-hover:border-black/15">
+              <p class="text-[12px] font-[800] text-slate-500 tracking-[0.5px]">VOTE DATE</p>
+              <p id="voteDate" class="mt-[4px] text-[16px] font-[900] text-slate-900">—</p>
+            </div>
+
+            <div class="rounded-[18px] border-[1px] border-black/10 bg-white p-[14px]
+            transition duration-[0.25s] group-hover:border-black/15">
+              <p class="text-[12px] font-[800] text-slate-500 tracking-[0.5px]">VOTE TIME</p>
+              <p id="voteTime" class="mt-[4px] text-[16px] font-[900] text-slate-900">—</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="lg:col-span-5 grid grid-cols-1 gap-[16px]">
+
+        <!-- Vote Count Big Card -->
+        <div class="group bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] sm:p-[22px]
+        shadow-xl transition duration-[0.25s] hover:-translate-y-[3px] hover:shadow-2xl">
+
+          <h3 class="text-[18px] sm:text-[20px] font-[900] text-slate-900">
+            Vote Count
+          </h3>
+          <p class="mt-[4px] text-[13px] text-slate-600 font-[600]">
+            Aapke total votes (max 1).
+          </p>
+
+          <div class="mt-[14px] rounded-[20px] border-[1px] border-black/10
+          bg-gradient-to-br from-slate-50 to-slate-100 p-[16px]">
+
+            <div class="flex items-end justify-between gap-[14px]">
+              <div>
+                <p class="text-[12px] font-[900] text-slate-500 tracking-[0.6px]">YOUR VOTES</p>
+                <p id="voteCount" class="mt-[6px] text-[54px] leading-[1] font-[900] text-slate-900">0</p>
+              </div>
+
+              <div class="text-right">
+                <p class="text-[12px] font-[900] text-slate-500 tracking-[0.6px]">MAX</p>
+                <p class="mt-[6px] text-[22px] font-[900] text-slate-900">1</p>
+              </div>
+            </div>
+
+            <div class="mt-[14px] h-[12px] w-[100%] bg-white rounded-[999px] overflow-hidden border-[1px] border-black/10">
+              <div id="voteProgress"
+                class="h-[12px] w-[0%] bg-gradient-to-r from-slate-900 to-slate-700 rounded-[999px]
+                duration-[0.35s]"></div>
+            </div>
+
+            <p class="mt-[12px] text-[12px] text-slate-600 font-[700] leading-[1.5]">
+              Vote once. After successful vote, system permanently locks your voting action.
+            </p>
+
+          </div>
+        </div>
+
+        <!-- Quick Actions (optional) -->
+        <div class="bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] sm:p-[22px]
+        shadow-xl">
+          <h3 class="text-[18px] sm:text-[20px] font-[900] text-slate-900">
+            Quick Actions
+          </h3>
+
+          <div class="mt-[12px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-[10px]">
+            <button
+              class="w-full px-[14px] py-[12px] rounded-[16px] font-[900] text-[14px]
+              bg-slate-900 text-white
+              shadow-lg hover:shadow-2xl hover:-translate-y-[2px]
+              duration-[0.25s]">
+              Go to Parties
+            </button>
+
+            <button
+              class="w-full px-[14px] py-[12px] rounded-[16px] font-[900] text-[14px]
+              bg-white text-slate-900 border-[1px] border-black/10
+              shadow-lg hover:shadow-2xl hover:-translate-y-[2px]
+              duration-[0.25s]">
+              Read Instructions
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+</main>
+
+<!-- how to use tab -->
+ <section id="tab-how" class="tabSection hidden">
+  <div class="max-w-[1250px] mx-auto px-[18px] pb-[26px]">
+
+    <!-- Header -->
+    <div class="bg-white/90 border-[1px] border-black/10 shadow-2xl rounded-[22px] p-[18px] sm:p-[22px]">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-[14px]">
+
+        <div>
+          <h2 class="text-[22px] sm:text-[30px] font-[900] text-slate-900 leading-[1.1]">
+            How To Use
+          </h2>
+          <p class="mt-[6px] text-slate-600 text-[14px] sm:text-[15px] font-[600]">
+            This section helps new voters understand how to use the dashboard and complete voting correctly.
+          </p>
+        </div>
+
+        <div
+          class="w-full lg:w-auto inline-flex items-center justify-center gap-[10px]
+          px-[16px] py-[10px] rounded-[999px]
+          border-[1px] border-black/10
+          bg-gradient-to-r from-orange-50 to-amber-50
+          shadow-lg">
+          <span class="w-[11px] h-[11px] rounded-full bg-orange-400"></span>
+          <span class="text-[13px] sm:text-[14px] font-[900] tracking-[0.6px] text-orange-700">
+            VOTER GUIDE
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="mt-[16px] grid grid-cols-1 lg:grid-cols-12 gap-[16px]">
+
+      <!-- LEFT COLUMN -->
+      <div class="lg:col-span-7 grid grid-cols-1 gap-[16px]">
+
+        <!-- Step 1 -->
+        <div class="group bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] sm:p-[22px]
+        shadow-xl transition duration-[0.25s] hover:-translate-y-[3px] hover:shadow-2xl">
+          <div class="flex items-start justify-between gap-[12px]">
+            <div>
+              <h3 class="text-[18px] sm:text-[20px] font-[900] text-slate-900">
+                Step 1 — Check Your Dashboard
+              </h3>
+              <p class="mt-[4px] text-[13px] text-slate-600 font-[600]">
+                Review your voter profile and current voting status before proceeding.
+              </p>
+            </div>
+
+            <div class="px-[12px] py-[8px] rounded-[14px]
+            bg-gradient-to-r from-orange-50 to-red-50 border-[1px] border-black/5">
+              <p class="text-[12px] font-[900] text-orange-700 tracking-[0.4px]">01</p>
+            </div>
+          </div>
+
+          <div class="mt-[14px] grid grid-cols-1 sm:grid-cols-2 gap-[12px]">
+            <div class="rounded-[18px] border-[1px] border-black/10 bg-white p-[14px]
+            transition duration-[0.25s] group-hover:border-black/15">
+              <p class="text-[12px] font-[800] text-slate-500 tracking-[0.5px]">CHECK</p>
+              <p class="mt-[4px] text-[16px] font-[900] text-slate-900">Name and Voter ID</p>
+            </div>
+
+            <div class="rounded-[18px] border-[1px] border-black/10 bg-white p-[14px]
+            transition duration-[0.25s] group-hover:border-black/15">
+              <p class="text-[12px] font-[800] text-slate-500 tracking-[0.5px]">CHECK</p>
+              <p class="mt-[4px] text-[16px] font-[900] text-slate-900">Whether you already voted</p>
             </div>
           </div>
         </div>
 
-        <!-- Cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[12px] mt-[16px]">
+        <!-- Step 2 -->
+        <div class="group bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] sm:p-[22px]
+        shadow-xl transition duration-[0.25s] hover:-translate-y-[3px] hover:shadow-2xl">
+          <div class="flex items-start justify-between gap-[12px]">
+            <div>
+              <h3 class="text-[18px] sm:text-[20px] font-[900] text-slate-900">
+                Step 2 — Confirm Voting is Live
+              </h3>
+              <p class="mt-[4px] text-[13px] text-slate-600 font-[600]">
+                Voting can be done only when the admin has started the election session.
+              </p>
+            </div>
 
-          <div class="rounded-[16px] border-[1px] border-black/10 bg-white p-[14px]">
-            <p class="text-[12px] font-[900] text-slate-500">Total Parties</p>
-            <p id="totalParties" class="text-[24px] font-[900] text-slate-900 mt-[6px]">8</p>
+            <div class="px-[12px] py-[8px] rounded-[14px]
+            bg-gradient-to-r from-emerald-50 to-lime-50 border-[1px] border-black/5">
+              <p class="text-[12px] font-[900] text-emerald-700 tracking-[0.4px]">02</p>
+            </div>
           </div>
 
-          <div class="rounded-[16px] border-[1px] border-black/10 bg-white p-[14px]">
-            <p class="text-[12px] font-[900] text-slate-500">Your Vote</p>
-            <p id="voteState" class="text-[18px] font-[900] text-slate-900 mt-[6px]">Not Voted</p>
-          </div>
-
-          <div class="rounded-[16px] border-[1px] border-black/10 bg-white p-[14px]">
-            <p class="text-[12px] font-[900] text-slate-500">Access</p>
-            <p id="accessState" class="text-[18px] font-[900] text-slate-900 mt-[6px]">Voter Panel</p>
-          </div>
-
-          <div class="rounded-[16px] border-[1px] border-black/10 bg-white p-[14px]">
-            <p class="text-[12px] font-[900] text-slate-500">Next Step</p>
-            <p class="text-[14px] font-[900] text-slate-900 mt-[6px]">
-              Go to <span class="underline">Party List</span> to vote.
+          <div class="mt-[14px] rounded-[18px] border-[1px] border-black/10 bg-white p-[14px]
+          transition duration-[0.25s] group-hover:border-black/15">
+            <p class="text-[12px] font-[800] text-slate-500 tracking-[0.5px]">LOOK FOR</p>
+            <p class="mt-[4px] text-[16px] font-[900] text-slate-900">
+              The LIVE status indicator in the top navbar
+            </p>
+            <p class="mt-[6px] text-[13px] text-slate-600 font-[600] leading-[1.6]">
+              If voting is not live, the voter should wait until the election is started by the admin.
             </p>
           </div>
+        </div>
 
+        <!-- Step 3 -->
+        <div class="group bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] sm:p-[22px]
+        shadow-xl transition duration-[0.25s] hover:-translate-y-[3px] hover:shadow-2xl">
+          <div class="flex items-start justify-between gap-[12px]">
+            <div>
+              <h3 class="text-[18px] sm:text-[20px] font-[900] text-slate-900">
+                Step 3 — Open Election Parties
+              </h3>
+              <p class="mt-[4px] text-[13px] text-slate-600 font-[600]">
+                Move to the Election Parties tab to see all available parties and their symbols.
+              </p>
+            </div>
+
+            <div class="px-[12px] py-[8px] rounded-[14px]
+            bg-gradient-to-r from-red-50 to-pink-50 border-[1px] border-black/5">
+              <p class="text-[12px] font-[900] text-red-700 tracking-[0.4px]">03</p>
+            </div>
+          </div>
+
+          <div class="mt-[14px] rounded-[18px] border-[1px] border-black/10 bg-white p-[14px]
+          transition duration-[0.25s] group-hover:border-black/15">
+            <p class="text-[12px] font-[800] text-slate-500 tracking-[0.5px]">YOU WILL SEE</p>
+            <p class="mt-[4px] text-[16px] font-[900] text-slate-900">
+              Party cards with symbol, party name, and vote button
+            </p>
+          </div>
         </div>
 
       </div>
-    </section>
 
-    <!-- ============== TAB 2: PARTY LIST PANEL (NEXT) ============== -->
-    <section data-panel="partylist" class="panel hidden">
-      <div class="bg-white border-[1px] border-black/10 rounded-[18px] p-[18px]">
-        <p class="text-[18px] font-[900] text-slate-900">Party List Panel</p>
-        <p class="text-[14px] text-slate-600 mt-[6px]">Next: we’ll build party cards + vote button + modal here.</p>
+      <!-- RIGHT COLUMN -->
+      <div class="lg:col-span-5 grid grid-cols-1 gap-[16px]">
+
+        <!-- Step 4 -->
+        <div class="group bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] sm:p-[22px]
+        shadow-xl transition duration-[0.25s] hover:-translate-y-[3px] hover:shadow-2xl">
+
+          <div class="flex items-start justify-between gap-[12px]">
+            <div>
+              <h3 class="text-[18px] sm:text-[20px] font-[900] text-slate-900">
+                Step 4 — Vote Carefully
+              </h3>
+              <p class="mt-[4px] text-[13px] text-slate-600 font-[600]">
+                Select your party carefully before confirming your final vote.
+              </p>
+            </div>
+
+            <div class="px-[12px] py-[8px] rounded-[14px]
+            bg-gradient-to-r from-indigo-50 to-blue-50 border-[1px] border-black/5">
+              <p class="text-[12px] font-[900] text-indigo-700 tracking-[0.4px]">04</p>
+            </div>
+          </div>
+
+          <div class="mt-[14px] rounded-[20px] border-[1px] border-black/10
+          bg-gradient-to-br from-slate-50 to-slate-100 p-[16px]">
+            <p class="text-[12px] font-[900] text-slate-500 tracking-[0.6px]">IMPORTANT</p>
+            <p class="mt-[6px] text-[16px] leading-[1.5] font-[900] text-slate-900">
+              Once you click the vote button, a confirmation popup will appear before final submission.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="group bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] sm:p-[22px]
+        shadow-xl transition duration-[0.25s] hover:-translate-y-[3px] hover:shadow-2xl">
+
+          <div class="flex items-start justify-between gap-[12px]">
+            <div>
+              <h3 class="text-[18px] sm:text-[20px] font-[900] text-slate-900">
+                Step 5 — Vote is Locked After Submission
+              </h3>
+              <p class="mt-[4px] text-[13px] text-slate-600 font-[600]">
+                The system follows a one-person, one-vote rule.
+              </p>
+            </div>
+
+            <div class="px-[12px] py-[8px] rounded-[14px]
+            bg-gradient-to-r from-slate-50 to-gray-100 border-[1px] border-black/5">
+              <p class="text-[12px] font-[900] text-slate-700 tracking-[0.4px]">05</p>
+            </div>
+          </div>
+
+          <div class="mt-[14px] rounded-[18px] border-[1px] border-black/10 bg-white p-[14px]">
+            <p class="text-[13px] text-slate-700 font-[700] leading-[1.6]">
+              After a successful vote, your dashboard will update the vote status, vote date, vote time, and vote count.  
+              You will not be able to cast a second vote.
+            </p>
+          </div>
+        </div>
+
+        <!-- Quick Tips -->
+        <div class="bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] sm:p-[22px]
+        shadow-xl">
+          <h3 class="text-[18px] sm:text-[20px] font-[900] text-slate-900">
+            Quick Tips
+          </h3>
+
+          <div class="mt-[12px] grid grid-cols-1 gap-[10px]">
+            <div class="w-full px-[14px] py-[12px] rounded-[16px] font-[800] text-[14px]
+            bg-orange-50 text-orange-800 border-[1px] border-orange-100">
+              Check party symbol carefully before confirming
+            </div>
+
+            <div class="w-full px-[14px] py-[12px] rounded-[16px] font-[800] text-[14px]
+            bg-emerald-50 text-emerald-800 border-[1px] border-emerald-100">
+              Vote only when the LIVE status is active
+            </div>
+
+            <div class="w-full px-[14px] py-[12px] rounded-[16px] font-[800] text-[14px]
+            bg-slate-50 text-slate-800 border-[1px] border-slate-200">
+              Once submitted, the vote cannot be changed
+            </div>
+          </div>
+        </div>
+
       </div>
-    </section>
 
-    <!-- ============== TAB 3: INSTRUCTIONS PANEL (NEXT) ============== -->
-    <section data-panel="instructions" class="panel hidden">
-      <div class="bg-white border-[1px] border-black/10 rounded-[18px] p-[18px]">
-        <p class="text-[18px] font-[900] text-slate-900">Instructions Panel</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Vote status tab -->
+ <section id="tab-status" class="tabSection hidden">
+  <div class="max-w-[1250px] mx-auto px-[18px] pb-[26px]">
+
+    <!-- Top Header -->
+    <div class="bg-white/90 border-[1px] border-black/10 shadow-2xl rounded-[22px] p-[18px] sm:p-[22px]">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-[14px]">
+
+        <div>
+          <h2 class="text-[22px] sm:text-[30px] font-[900] text-slate-900 leading-[1.1]">
+            Vote Status
+          </h2>
+          <p class="mt-[6px] text-slate-600 text-[14px] sm:text-[15px] font-[600]">
+            Select your preferred party and cast your vote carefully.
+          </p>
+        </div>
+
+        <div
+          class="w-full lg:w-auto inline-flex items-center justify-center gap-[10px]
+          px-[16px] py-[10px] rounded-[999px]
+          border-[1px] border-black/10
+          bg-gradient-to-r from-green-50 to-emerald-50
+          shadow-lg">
+          <span class="w-[11px] h-[11px] rounded-full bg-green-500"></span>
+          <span class="text-[13px] sm:text-[14px] font-[900] tracking-[0.6px] text-green-700">
+            SELECT PARTY
+          </span>
+        </div>
+
       </div>
-    </section>
+    </div>
 
-    <!-- ============== TAB 4: RESULTS PANEL (NEXT) ============== -->
-    <section data-panel="results" class="panel hidden">
-      <div class="bg-white border-[1px] border-black/10 rounded-[18px] p-[18px]">
-        <p class="text-[18px] font-[900] text-slate-900">Results Panel</p>
+    <!-- Parties Grid -->
+    <div class="mt-[18px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-[20px] gap-y-[24px]">
+
+      <!-- Party 1 -->
+      <div class="flex flex-col items-center">
+        <div class="w-full max-w-[340px] min-h-[250px] bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+        transition duration-[0.25s] hover:-translate-y-[4px] hover:shadow-2xl flex flex-col justify-center">
+          <div class="w-full flex items-center justify-center">
+            <img src="Photos/party1.png" alt="Party 1"
+            class="w-[150px] h-[150px] object-contain rounded-[16px]" />
+          </div>
+          <div class="mt-[14px] text-center">
+            <h3 class="text-[20px] font-[900] text-slate-900">Party Name 1</h3>
+          </div>
+        </div>
+        <button
+          class="mt-[12px] px-[30px] py-[12px] rounded-[16px] font-[900] text-[15px]
+          bg-slate-900 text-white shadow-lg
+          hover:bg-slate-800 hover:-translate-y-[2px] hover:shadow-2xl
+          duration-[0.25s]">
+          Vote
+        </button>
       </div>
-    </section>
 
-  </main>
+      <!-- Party 2 -->
+      <div class="flex flex-col items-center">
+        <div class="w-full max-w-[340px] min-h-[250px] bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+        transition duration-[0.25s] hover:-translate-y-[4px] hover:shadow-2xl flex flex-col justify-center">
+          <div class="w-full flex items-center justify-center">
+            <img src="Photos/party2.png" alt="Party 2"
+            class="w-[150px] h-[150px] object-contain rounded-[16px]" />
+          </div>
+          <div class="mt-[14px] text-center">
+            <h3 class="text-[20px] font-[900] text-slate-900">Party Name 2</h3>
+          </div>
+        </div>
+        <button class="mt-[12px] px-[30px] py-[12px] rounded-[16px] font-[900] text-[15px] bg-slate-900 text-white shadow-lg hover:bg-slate-800 hover:-translate-y-[2px] hover:shadow-2xl duration-[0.25s]">Vote</button>
+      </div>
+
+      <!-- Party 3 -->
+      <div class="flex flex-col items-center">
+        <div class="w-full max-w-[340px] min-h-[250px] bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+        transition duration-[0.25s] hover:-translate-y-[4px] hover:shadow-2xl flex flex-col justify-center">
+          <div class="w-full flex items-center justify-center">
+            <img src="Photos/party3.png" alt="Party 3"
+            class="w-[150px] h-[150px] object-contain rounded-[16px]" />
+          </div>
+          <div class="mt-[14px] text-center">
+            <h3 class="text-[20px] font-[900] text-slate-900">Party Name 3</h3>
+          </div>
+        </div>
+        <button class="mt-[12px] px-[30px] py-[12px] rounded-[16px] font-[900] text-[15px] bg-slate-900 text-white shadow-lg hover:bg-slate-800 hover:-translate-y-[2px] hover:shadow-2xl duration-[0.25s]">Vote</button>
+      </div>
+
+      <!-- Party 4 -->
+      <div class="flex flex-col items-center">
+        <div class="w-full max-w-[340px] min-h-[250px] bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+        transition duration-[0.25s] hover:-translate-y-[4px] hover:shadow-2xl flex flex-col justify-center">
+          <div class="w-full flex items-center justify-center">
+            <img src="Photos/party4.png" alt="Party 4"
+            class="w-[150px] h-[150px] object-contain rounded-[16px]" />
+          </div>
+          <div class="mt-[14px] text-center">
+            <h3 class="text-[20px] font-[900] text-slate-900">Party Name 4</h3>
+          </div>
+        </div>
+        <button class="mt-[12px] px-[30px] py-[12px] rounded-[16px] font-[900] text-[15px] bg-slate-900 text-white shadow-lg hover:bg-slate-800 hover:-translate-y-[2px] hover:shadow-2xl duration-[0.25s]">Vote</button>
+      </div>
+
+      <!-- Party 5 -->
+      <div class="flex flex-col items-center">
+        <div class="w-full max-w-[340px] min-h-[250px] bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+        transition duration-[0.25s] hover:-translate-y-[4px] hover:shadow-2xl flex flex-col justify-center">
+          <div class="w-full flex items-center justify-center">
+            <img src="Photos/party5.png" alt="Party 5"
+            class="w-[150px] h-[150px] object-contain rounded-[16px]" />
+          </div>
+          <div class="mt-[14px] text-center">
+            <h3 class="text-[20px] font-[900] text-slate-900">Party Name 5</h3>
+          </div>
+        </div>
+        <button class="mt-[12px] px-[30px] py-[12px] rounded-[16px] font-[900] text-[15px] bg-slate-900 text-white shadow-lg hover:bg-slate-800 hover:-translate-y-[2px] hover:shadow-2xl duration-[0.25s]">Vote</button>
+      </div>
+
+      <!-- Party 6 -->
+      <div class="flex flex-col items-center">
+        <div class="w-full max-w-[340px] min-h-[250px] bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+        transition duration-[0.25s] hover:-translate-y-[4px] hover:shadow-2xl flex flex-col justify-center">
+          <div class="w-full flex items-center justify-center">
+            <img src="Photos/party6.png" alt="Party 6"
+            class="w-[150px] h-[150px] object-contain rounded-[16px]" />
+          </div>
+          <div class="mt-[14px] text-center">
+            <h3 class="text-[20px] font-[900] text-slate-900">Party Name 6</h3>
+          </div>
+        </div>
+        <button class="mt-[12px] px-[30px] py-[12px] rounded-[16px] font-[900] text-[15px] bg-slate-900 text-white shadow-lg hover:bg-slate-800 hover:-translate-y-[2px] hover:shadow-2xl duration-[0.25s]">Vote</button>
+      </div>
+
+      <!-- Party 7 -->
+      <div class="flex flex-col items-center">
+        <div class="w-full max-w-[340px] min-h-[250px] bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+        transition duration-[0.25s] hover:-translate-y-[4px] hover:shadow-2xl flex flex-col justify-center">
+          <div class="w-full flex items-center justify-center">
+            <img src="Photos/party7.png" alt="Party 7"
+            class="w-[150px] h-[150px] object-contain rounded-[16px]" />
+          </div>
+          <div class="mt-[14px] text-center">
+            <h3 class="text-[20px] font-[900] text-slate-900">Party Name 7</h3>
+          </div>
+        </div>
+        <button class="mt-[12px] px-[30px] py-[12px] rounded-[16px] font-[900] text-[15px] bg-slate-900 text-white shadow-lg hover:bg-slate-800 hover:-translate-y-[2px] hover:shadow-2xl duration-[0.25s]">Vote</button>
+      </div>
+
+      <!-- Party 8 -->
+      <div class="flex flex-col items-center">
+        <div class="w-full max-w-[340px] min-h-[250px] bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+        transition duration-[0.25s] hover:-translate-y-[4px] hover:shadow-2xl flex flex-col justify-center">
+          <div class="w-full flex items-center justify-center">
+            <img src="Photos/party8.png" alt="Party 8"
+            class="w-[150px] h-[150px] object-contain rounded-[16px]" />
+          </div>
+          <div class="mt-[14px] text-center">
+            <h3 class="text-[20px] font-[900] text-slate-900">Party Name 8</h3>
+          </div>
+        </div>
+        <button class="mt-[12px] px-[30px] py-[12px] rounded-[16px] font-[900] text-[15px] bg-slate-900 text-white shadow-lg hover:bg-slate-800 hover:-translate-y-[2px] hover:shadow-2xl duration-[0.25s]">Vote</button>
+      </div>
+
+      <!-- Party 9 -->
+      <div class="flex flex-col items-center">
+        <div class="w-full max-w-[340px] min-h-[250px] bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+        transition duration-[0.25s] hover:-translate-y-[4px] hover:shadow-2xl flex flex-col justify-center">
+          <div class="w-full flex items-center justify-center">
+            <img src="Photos/party9.png" alt="Party 9"
+            class="w-[150px] h-[150px] object-contain rounded-[16px]" />
+          </div>
+          <div class="mt-[14px] text-center">
+            <h3 class="text-[20px] font-[900] text-slate-900">Party Name 9</h3>
+          </div>
+        </div>
+        <button class="mt-[12px] px-[30px] py-[12px] rounded-[16px] font-[900] text-[15px] bg-slate-900 text-white shadow-lg hover:bg-slate-800 hover:-translate-y-[2px] hover:shadow-2xl duration-[0.25s]">Vote</button>
+      </div>
+
+      <!-- Party 10 -->
+      <div class="flex flex-col items-center">
+        <div class="w-full max-w-[340px] min-h-[250px] bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+        transition duration-[0.25s] hover:-translate-y-[4px] hover:shadow-2xl flex flex-col justify-center">
+          <div class="w-full flex items-center justify-center">
+            <img src="Photos/party10.png" alt="Party 10"
+            class="w-[150px] h-[150px] object-contain rounded-[16px]" />
+          </div>
+          <div class="mt-[14px] text-center">
+            <h3 class="text-[20px] font-[900] text-slate-900">Party Name 10</h3>
+          </div>
+        </div>
+        <button class="mt-[12px] px-[30px] py-[12px] rounded-[16px] font-[900] text-[15px] bg-slate-900 text-white shadow-lg hover:bg-slate-800 hover:-translate-y-[2px] hover:shadow-2xl duration-[0.25s]">Vote</button>
+      </div>
+
+      <!-- Party 11 -->
+      <div class="flex flex-col items-center">
+        <div class="w-full max-w-[340px] min-h-[250px] bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+        transition duration-[0.25s] hover:-translate-y-[4px] hover:shadow-2xl flex flex-col justify-center">
+          <div class="w-full flex items-center justify-center">
+            <img src="Photos/party11.png" alt="Party 11"
+            class="w-[150px] h-[150px] object-contain rounded-[16px]" />
+          </div>
+          <div class="mt-[14px] text-center">
+            <h3 class="text-[20px] font-[900] text-slate-900">Party Name 11</h3>
+          </div>
+        </div>
+        <button class="mt-[12px] px-[30px] py-[12px] rounded-[16px] font-[900] text-[15px] bg-slate-900 text-white shadow-lg hover:bg-slate-800 hover:-translate-y-[2px] hover:shadow-2xl duration-[0.25s]">Vote</button>
+      </div>
+
+      <!-- Party 12 -->
+      <div class="flex flex-col items-center">
+        <div class="w-full max-w-[340px] min-h-[250px] bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+        transition duration-[0.25s] hover:-translate-y-[4px] hover:shadow-2xl flex flex-col justify-center">
+          <div class="w-full flex items-center justify-center">
+            <img src="Photos/party12.png" alt="Party 12"
+            class="w-[150px] h-[150px] object-contain rounded-[16px]" />
+          </div>
+          <div class="mt-[14px] text-center">
+            <h3 class="text-[20px] font-[900] text-slate-900">Party Name 12</h3>
+          </div>
+        </div>
+        <button class="mt-[12px] px-[30px] py-[12px] rounded-[16px] font-[900] text-[15px] bg-slate-900 text-white shadow-lg hover:bg-slate-800 hover:-translate-y-[2px] hover:shadow-2xl duration-[0.25s]">Vote</button>
+      </div>
+
+      <!-- Party 13 -->
+      <div class="flex flex-col items-center">
+        <div class="w-full max-w-[340px] min-h-[250px] bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+        transition duration-[0.25s] hover:-translate-y-[4px] hover:shadow-2xl flex flex-col justify-center">
+          <div class="w-full flex items-center justify-center">
+            <img src="Photos/party13.png" alt="Party 13"
+            class="w-[150px] h-[150px] object-contain rounded-[16px]" />
+          </div>
+          <div class="mt-[14px] text-center">
+            <h3 class="text-[20px] font-[900] text-slate-900">Party Name 13</h3>
+          </div>
+        </div>
+        <button class="mt-[12px] px-[30px] py-[12px] rounded-[16px] font-[900] text-[15px] bg-slate-900 text-white shadow-lg hover:bg-slate-800 hover:-translate-y-[2px] hover:shadow-2xl duration-[0.25s]">Vote</button>
+      </div>
+
+      <!-- Party 14 -->
+      <div class="flex flex-col items-center">
+        <div class="w-full max-w-[340px] min-h-[250px] bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+        transition duration-[0.25s] hover:-translate-y-[4px] hover:shadow-2xl flex flex-col justify-center">
+          <div class="w-full flex items-center justify-center">
+            <img src="Photos/party14.png" alt="Party 14"
+            class="w-[150px] h-[150px] object-contain rounded-[16px]" />
+          </div>
+          <div class="mt-[14px] text-center">
+            <h3 class="text-[20px] font-[900] text-slate-900">Party Name 14</h3>
+          </div>
+        </div>
+        <button class="mt-[12px] px-[30px] py-[12px] rounded-[16px] font-[900] text-[15px] bg-slate-900 text-white shadow-lg hover:bg-slate-800 hover:-translate-y-[2px] hover:shadow-2xl duration-[0.25s]">Vote</button>
+      </div>
+
+      <!-- Party 15 -->
+      <div class="flex flex-col items-center">
+        <div class="w-full max-w-[340px] min-h-[250px] bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+        transition duration-[0.25s] hover:-translate-y-[4px] hover:shadow-2xl flex flex-col justify-center">
+          <div class="w-full flex items-center justify-center">
+            <img src="Photos/party15.png" alt="Party 15"
+            class="w-[150px] h-[150px] object-contain rounded-[16px]" />
+          </div>
+          <div class="mt-[14px] text-center">
+            <h3 class="text-[20px] font-[900] text-slate-900">Party Name 15</h3>
+          </div>
+        </div>
+        <button class="mt-[12px] px-[30px] py-[12px] rounded-[16px] font-[900] text-[15px] bg-slate-900 text-white shadow-lg hover:bg-slate-800 hover:-translate-y-[2px] hover:shadow-2xl duration-[0.25s]">Vote</button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
 
+<!-- Election Party List -->
+ <section id="tab-parties" class="tabSection hidden">
+  <div class="max-w-[1250px] mx-auto px-[18px] pb-[26px]">
 
-<script src="dashboard.js"></script>
+    <!-- Header -->
+    <div class="bg-white/90 border-[1px] border-black/10 shadow-2xl rounded-[22px] p-[18px] sm:p-[22px]">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-[14px]">
 
+        <div>
+          <h2 class="text-[22px] sm:text-[30px] font-[900] text-slate-900 leading-[1.1]">
+            Election Parties
+          </h2>
+          <p class="mt-[6px] text-slate-600 text-[14px] sm:text-[15px] font-[600]">
+            This section shows all parties added by the admin for the current election.
+          </p>
+        </div>
+
+        <div
+          class="w-full lg:w-auto inline-flex items-center justify-center gap-[10px]
+          px-[16px] py-[10px] rounded-[999px]
+          border-[1px] border-black/10
+          bg-gradient-to-r from-red-50 to-orange-50
+          shadow-lg">
+          <span class="w-[11px] h-[11px] rounded-full bg-red-500"></span>
+          <span class="text-[13px] sm:text-[14px] font-[900] tracking-[0.6px] text-red-700">
+            OFFICIAL PARTY LIST
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- List Header -->
+    <div class="mt-[18px] hidden md:grid grid-cols-[100px_1fr_180px] gap-[14px]
+    bg-slate-900 text-white rounded-[18px] px-[18px] py-[14px] shadow-xl">
+      <div class="text-[15px] font-[900] tracking-[0.4px]">S. No.</div>
+      <div class="text-[15px] font-[900] tracking-[0.4px]">Party Name</div>
+      <div class="text-[15px] font-[900] tracking-[0.4px] text-center">Symbol</div>
+    </div>
+
+    <!-- Party List -->
+    <div class="mt-[14px] grid grid-cols-1 gap-[14px]">
+
+      <!-- Party 1 -->
+      <div class="grid grid-cols-1 md:grid-cols-[100px_1fr_180px] gap-[14px] items-center
+      bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+      transition duration-[0.25s] hover:-translate-y-[2px] hover:shadow-2xl">
+        
+        <div class="flex md:block items-center gap-[8px]">
+          <span class="md:hidden text-[13px] font-[800] text-slate-500">S. No.:</span>
+          <span class="text-[24px] font-[900] text-red-600">01</span>
+        </div>
+
+        <div>
+          <p class="md:hidden text-[13px] font-[800] text-slate-500">Party Name</p>
+          <h3 class="text-[19px] sm:text-[22px] font-[900] text-slate-900">Party Name 1</h3>
+        </div>
+
+        <div class="flex flex-col items-center md:items-center">
+          <p class="md:hidden text-[13px] font-[800] text-slate-500 mb-[8px]">Symbol</p>
+          <img src="Photos/party1.png" alt="Party 1 Symbol"
+          class="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] object-contain rounded-[16px]" />
+        </div>
+      </div>
+
+      <!-- Party 2 -->
+      <div class="grid grid-cols-1 md:grid-cols-[100px_1fr_180px] gap-[14px] items-center
+      bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+      transition duration-[0.25s] hover:-translate-y-[2px] hover:shadow-2xl">
+        
+        <div class="flex md:block items-center gap-[8px]">
+          <span class="md:hidden text-[13px] font-[800] text-slate-500">S. No.:</span>
+          <span class="text-[24px] font-[900] text-red-600">02</span>
+        </div>
+
+        <div>
+          <p class="md:hidden text-[13px] font-[800] text-slate-500">Party Name</p>
+          <h3 class="text-[19px] sm:text-[22px] font-[900] text-slate-900">Party Name 2</h3>
+        </div>
+
+        <div class="flex flex-col items-center md:items-center">
+          <p class="md:hidden text-[13px] font-[800] text-slate-500 mb-[8px]">Symbol</p>
+          <img src="Photos/party2.png" alt="Party 2 Symbol"
+          class="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] object-contain rounded-[16px]" />
+        </div>
+      </div>
+
+      <!-- Party 3 -->
+      <div class="grid grid-cols-1 md:grid-cols-[100px_1fr_180px] gap-[14px] items-center
+      bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+      transition duration-[0.25s] hover:-translate-y-[2px] hover:shadow-2xl">
+        
+        <div class="flex md:block items-center gap-[8px]">
+          <span class="md:hidden text-[13px] font-[800] text-slate-500">S. No.:</span>
+          <span class="text-[24px] font-[900] text-red-600">03</span>
+        </div>
+
+        <div>
+          <p class="md:hidden text-[13px] font-[800] text-slate-500">Party Name</p>
+          <h3 class="text-[19px] sm:text-[22px] font-[900] text-slate-900">Party Name 3</h3>
+        </div>
+
+        <div class="flex flex-col items-center md:items-center">
+          <p class="md:hidden text-[13px] font-[800] text-slate-500 mb-[8px]">Symbol</p>
+          <img src="Photos/party3.png" alt="Party 3 Symbol"
+          class="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] object-contain rounded-[16px]" />
+        </div>
+      </div>
+
+      <!-- Party 4 -->
+      <div class="grid grid-cols-1 md:grid-cols-[100px_1fr_180px] gap-[14px] items-center
+      bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+      transition duration-[0.25s] hover:-translate-y-[2px] hover:shadow-2xl">
+        
+        <div class="flex md:block items-center gap-[8px]">
+          <span class="md:hidden text-[13px] font-[800] text-slate-500">S. No.:</span>
+          <span class="text-[24px] font-[900] text-red-600">04</span>
+        </div>
+
+        <div>
+          <p class="md:hidden text-[13px] font-[800] text-slate-500">Party Name</p>
+          <h3 class="text-[19px] sm:text-[22px] font-[900] text-slate-900">Party Name 4</h3>
+        </div>
+
+        <div class="flex flex-col items-center md:items-center">
+          <p class="md:hidden text-[13px] font-[800] text-slate-500 mb-[8px]">Symbol</p>
+          <img src="Photos/party4.png" alt="Party 4 Symbol"
+          class="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] object-contain rounded-[16px]" />
+        </div>
+      </div>
+
+      <!-- Party 5 -->
+      <div class="grid grid-cols-1 md:grid-cols-[100px_1fr_180px] gap-[14px] items-center
+      bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+      transition duration-[0.25s] hover:-translate-y-[2px] hover:shadow-2xl">
+        
+        <div class="flex md:block items-center gap-[8px]">
+          <span class="md:hidden text-[13px] font-[800] text-slate-500">S. No.:</span>
+          <span class="text-[24px] font-[900] text-red-600">05</span>
+        </div>
+
+        <div>
+          <p class="md:hidden text-[13px] font-[800] text-slate-500">Party Name</p>
+          <h3 class="text-[19px] sm:text-[22px] font-[900] text-slate-900">Party Name 5</h3>
+        </div>
+
+        <div class="flex flex-col items-center md:items-center">
+          <p class="md:hidden text-[13px] font-[800] text-slate-500 mb-[8px]">Symbol</p>
+          <img src="Photos/party5.png" alt="Party 5 Symbol"
+          class="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] object-contain rounded-[16px]" />
+        </div>
+      </div>
+
+      <!-- Party 6 -->
+      <div class="grid grid-cols-1 md:grid-cols-[100px_1fr_180px] gap-[14px] items-center
+      bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+      transition duration-[0.25s] hover:-translate-y-[2px] hover:shadow-2xl">
+        
+        <div class="flex md:block items-center gap-[8px]">
+          <span class="md:hidden text-[13px] font-[800] text-slate-500">S. No.:</span>
+          <span class="text-[24px] font-[900] text-red-600">06</span>
+        </div>
+
+        <div>
+          <p class="md:hidden text-[13px] font-[800] text-slate-500">Party Name</p>
+          <h3 class="text-[19px] sm:text-[22px] font-[900] text-slate-900">Party Name 6</h3>
+        </div>
+
+        <div class="flex flex-col items-center md:items-center">
+          <p class="md:hidden text-[13px] font-[800] text-slate-500 mb-[8px]">Symbol</p>
+          <img src="Photos/party6.png" alt="Party 6 Symbol"
+          class="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] object-contain rounded-[16px]" />
+        </div>
+      </div>
+
+      <!-- Party 7 -->
+<div class="grid grid-cols-1 md:grid-cols-[100px_1fr_180px] gap-[14px] items-center
+bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+transition duration-[0.25s] hover:-translate-y-[2px] hover:shadow-2xl">
+  
+  <div class="flex md:block items-center gap-[8px]">
+    <span class="md:hidden text-[13px] font-[800] text-slate-500">S. No.:</span>
+    <span class="text-[24px] font-[900] text-red-600">07</span>
+  </div>
+
+  <div>
+    <p class="md:hidden text-[13px] font-[800] text-slate-500">Party Name</p>
+    <h3 class="text-[19px] sm:text-[22px] font-[900] text-slate-900">Party Name 7</h3>
+  </div>
+
+  <div class="flex flex-col items-center md:items-center">
+    <p class="md:hidden text-[13px] font-[800] text-slate-500 mb-[8px]">Symbol</p>
+    <img src="Photos/party7.png" alt="Party 7 Symbol"
+    class="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] object-contain rounded-[16px]" />
+  </div>
+</div>
+
+<!-- Party 8 -->
+<div class="grid grid-cols-1 md:grid-cols-[100px_1fr_180px] gap-[14px] items-center
+bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+transition duration-[0.25s] hover:-translate-y-[2px] hover:shadow-2xl">
+  
+  <div class="flex md:block items-center gap-[8px]">
+    <span class="md:hidden text-[13px] font-[800] text-slate-500">S. No.:</span>
+    <span class="text-[24px] font-[900] text-red-600">08</span>
+  </div>
+
+  <div>
+    <p class="md:hidden text-[13px] font-[800] text-slate-500">Party Name</p>
+    <h3 class="text-[19px] sm:text-[22px] font-[900] text-slate-900">Party Name 8</h3>
+  </div>
+
+  <div class="flex flex-col items-center md:items-center">
+    <p class="md:hidden text-[13px] font-[800] text-slate-500 mb-[8px]">Symbol</p>
+    <img src="Photos/party8.png" alt="Party 8 Symbol"
+    class="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] object-contain rounded-[16px]" />
+  </div>
+</div>
+
+<!-- Party 9 -->
+<div class="grid grid-cols-1 md:grid-cols-[100px_1fr_180px] gap-[14px] items-center
+bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+transition duration-[0.25s] hover:-translate-y-[2px] hover:shadow-2xl">
+  
+  <div class="flex md:block items-center gap-[8px]">
+    <span class="md:hidden text-[13px] font-[800] text-slate-500">S. No.:</span>
+    <span class="text-[24px] font-[900] text-red-600">09</span>
+  </div>
+
+  <div>
+    <p class="md:hidden text-[13px] font-[800] text-slate-500">Party Name</p>
+    <h3 class="text-[19px] sm:text-[22px] font-[900] text-slate-900">Party Name 9</h3>
+  </div>
+
+  <div class="flex flex-col items-center md:items-center">
+    <p class="md:hidden text-[13px] font-[800] text-slate-500 mb-[8px]">Symbol</p>
+    <img src="Photos/party9.png" alt="Party 9 Symbol"
+    class="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] object-contain rounded-[16px]" />
+  </div>
+</div>
+
+<!-- Party 10 -->
+<div class="grid grid-cols-1 md:grid-cols-[100px_1fr_180px] gap-[14px] items-center
+bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+transition duration-[0.25s] hover:-translate-y-[2px] hover:shadow-2xl">
+  
+  <div class="flex md:block items-center gap-[8px]">
+    <span class="md:hidden text-[13px] font-[800] text-slate-500">S. No.:</span>
+    <span class="text-[24px] font-[900] text-red-600">10</span>
+  </div>
+
+  <div>
+    <p class="md:hidden text-[13px] font-[800] text-slate-500">Party Name</p>
+    <h3 class="text-[19px] sm:text-[22px] font-[900] text-slate-900">Party Name 10</h3>
+  </div>
+
+  <div class="flex flex-col items-center md:items-center">
+    <p class="md:hidden text-[13px] font-[800] text-slate-500 mb-[8px]">Symbol</p>
+    <img src="Photos/party10.png" alt="Party 10 Symbol"
+    class="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] object-contain rounded-[16px]" />
+  </div>
+</div>
+
+<!-- Party 11 -->
+<div class="grid grid-cols-1 md:grid-cols-[100px_1fr_180px] gap-[14px] items-center
+bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+transition duration-[0.25s] hover:-translate-y-[2px] hover:shadow-2xl">
+  
+  <div class="flex md:block items-center gap-[8px]">
+    <span class="md:hidden text-[13px] font-[800] text-slate-500">S. No.:</span>
+    <span class="text-[24px] font-[900] text-red-600">11</span>
+  </div>
+
+  <div>
+    <p class="md:hidden text-[13px] font-[800] text-slate-500">Party Name</p>
+    <h3 class="text-[19px] sm:text-[22px] font-[900] text-slate-900">Party Name 11</h3>
+  </div>
+
+  <div class="flex flex-col items-center md:items-center">
+    <p class="md:hidden text-[13px] font-[800] text-slate-500 mb-[8px]">Symbol</p>
+    <img src="Photos/party11.png" alt="Party 11 Symbol"
+    class="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] object-contain rounded-[16px]" />
+  </div>
+</div>
+
+<!-- Party 12 -->
+<div class="grid grid-cols-1 md:grid-cols-[100px_1fr_180px] gap-[14px] items-center
+bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+transition duration-[0.25s] hover:-translate-y-[2px] hover:shadow-2xl">
+  
+  <div class="flex md:block items-center gap-[8px]">
+    <span class="md:hidden text-[13px] font-[800] text-slate-500">S. No.:</span>
+    <span class="text-[24px] font-[900] text-red-600">12</span>
+  </div>
+
+  <div>
+    <p class="md:hidden text-[13px] font-[800] text-slate-500">Party Name</p>
+    <h3 class="text-[19px] sm:text-[22px] font-[900] text-slate-900">Party Name 12</h3>
+  </div>
+
+  <div class="flex flex-col items-center md:items-center">
+    <p class="md:hidden text-[13px] font-[800] text-slate-500 mb-[8px]">Symbol</p>
+    <img src="Photos/party12.png" alt="Party 12 Symbol"
+    class="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] object-contain rounded-[16px]" />
+  </div>
+</div>
+
+<!-- Party 13 -->
+<div class="grid grid-cols-1 md:grid-cols-[100px_1fr_180px] gap-[14px] items-center
+bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+transition duration-[0.25s] hover:-translate-y-[2px] hover:shadow-2xl">
+  
+  <div class="flex md:block items-center gap-[8px]">
+    <span class="md:hidden text-[13px] font-[800] text-slate-500">S. No.:</span>
+    <span class="text-[24px] font-[900] text-red-600">13</span>
+  </div>
+
+  <div>
+    <p class="md:hidden text-[13px] font-[800] text-slate-500">Party Name</p>
+    <h3 class="text-[19px] sm:text-[22px] font-[900] text-slate-900">Party Name 13</h3>
+  </div>
+
+  <div class="flex flex-col items-center md:items-center">
+    <p class="md:hidden text-[13px] font-[800] text-slate-500 mb-[8px]">Symbol</p>
+    <img src="Photos/party13.png" alt="Party 13 Symbol"
+    class="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] object-contain rounded-[16px]" />
+  </div>
+</div>
+
+<!-- Party 14 -->
+<div class="grid grid-cols-1 md:grid-cols-[100px_1fr_180px] gap-[14px] items-center
+bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+transition duration-[0.25s] hover:-translate-y-[2px] hover:shadow-2xl">
+  
+  <div class="flex md:block items-center gap-[8px]">
+    <span class="md:hidden text-[13px] font-[800] text-slate-500">S. No.:</span>
+    <span class="text-[24px] font-[900] text-red-600">14</span>
+  </div>
+
+  <div>
+    <p class="md:hidden text-[13px] font-[800] text-slate-500">Party Name</p>
+    <h3 class="text-[19px] sm:text-[22px] font-[900] text-slate-900">Party Name 14</h3>
+  </div>
+
+  <div class="flex flex-col items-center md:items-center">
+    <p class="md:hidden text-[13px] font-[800] text-slate-500 mb-[8px]">Symbol</p>
+    <img src="Photos/party14.png" alt="Party 14 Symbol"
+    class="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] object-contain rounded-[16px]" />
+  </div>
+</div>
+
+<!-- Party 15 -->
+<div class="grid grid-cols-1 md:grid-cols-[100px_1fr_180px] gap-[14px] items-center
+bg-white/90 border-[1px] border-black/10 rounded-[22px] p-[18px] shadow-xl
+transition duration-[0.25s] hover:-translate-y-[2px] hover:shadow-2xl">
+  
+  <div class="flex md:block items-center gap-[8px]">
+    <span class="md:hidden text-[13px] font-[800] text-slate-500">S. No.:</span>
+    <span class="text-[24px] font-[900] text-red-600">15</span>
+  </div>
+
+  <div>
+    <p class="md:hidden text-[13px] font-[800] text-slate-500">Party Name</p>
+    <h3 class="text-[19px] sm:text-[22px] font-[900] text-slate-900">Party Name 15</h3>
+  </div>
+
+  <div class="flex flex-col items-center md:items-center">
+    <p class="md:hidden text-[13px] font-[800] text-slate-500 mb-[8px]">Symbol</p>
+    <img src="Photos/party15.png" alt="Party 15 Symbol"
+    class="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] object-contain rounded-[16px]" />
+  </div>
+</div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Result Tab -->
+ <section id="tab-results" class="tabSection hidden">
+  <div class="max-w-[1250px] mx-auto px-[18px] pb-[26px]">
+
+    <!-- Header -->
+    <div class="bg-white/90 border-[1px] border-black/10 shadow-2xl rounded-[22px] p-[18px] sm:p-[22px]">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-[14px]">
+
+        <div>
+          <h2 class="text-[22px] sm:text-[30px] font-[900] text-slate-900 leading-[1.1]">
+            Results
+          </h2>
+          <p class="mt-[6px] text-slate-600 text-[14px] sm:text-[15px] font-[600]">
+            Final election results will be visible only after the admin ends the voting session.
+          </p>
+        </div>
+
+        <div
+          class="w-full lg:w-auto inline-flex items-center justify-center gap-[10px]
+          px-[16px] py-[10px] rounded-[999px]
+          border-[1px] border-black/10
+          bg-gradient-to-r from-slate-50 to-gray-100
+          shadow-lg">
+          <span class="w-[11px] h-[11px] rounded-full bg-gray-500"></span>
+          <span class="text-[13px] sm:text-[14px] font-[900] tracking-[0.6px] text-gray-700">
+            RESULT LOCKED
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Locked Result Card -->
+    <div class="mt-[18px] bg-white/90 border-[1px] border-black/10 rounded-[24px] p-[22px] sm:p-[30px]
+    shadow-2xl text-center">
+
+      <div class="w-[90px] h-[90px] mx-auto rounded-full bg-slate-100 border-[1px] border-black/10
+      flex items-center justify-center text-[38px] shadow-lg">
+        🔒
+      </div>
+
+      <h3 class="mt-[18px] text-[24px] sm:text-[30px] font-[900] text-slate-900">
+        Results Not Available Yet
+      </h3>
+
+      <p class="mt-[10px] max-w-[760px] mx-auto text-[15px] sm:text-[16px] text-slate-600 font-[600] leading-[1.7]">
+        The voting session has not started yet or the election is still in progress.  
+        Final results will be published only after the admin ends the election.
+      </p>
+
+      <div class="mt-[22px] grid grid-cols-1 md:grid-cols-3 gap-[14px]">
+
+        <div class="rounded-[20px] border-[1px] border-black/10 bg-slate-50 p-[16px] shadow-md">
+          <p class="text-[12px] font-[900] text-slate-500 tracking-[0.6px]">CURRENT STATUS</p>
+          <p class="mt-[6px] text-[18px] font-[900] text-slate-900">Voting Not Started</p>
+        </div>
+
+        <div class="rounded-[20px] border-[1px] border-black/10 bg-slate-50 p-[16px] shadow-md">
+          <p class="text-[12px] font-[900] text-slate-500 tracking-[0.6px]">RESULT ACCESS</p>
+          <p class="mt-[6px] text-[18px] font-[900] text-slate-900">Locked for Now</p>
+        </div>
+
+        <div class="rounded-[20px] border-[1px] border-black/10 bg-slate-50 p-[16px] shadow-md">
+          <p class="text-[12px] font-[900] text-slate-500 tracking-[0.6px]">WILL BE VISIBLE</p>
+          <p class="mt-[6px] text-[18px] font-[900] text-slate-900">After Vote Ends</p>
+        </div>
+
+      </div>
+
+      <div class="mt-[22px] inline-flex items-center justify-center gap-[10px]
+      px-[18px] py-[12px] rounded-[16px]
+      bg-red-50 border-[1px] border-red-100 text-red-700 shadow-md">
+        <span class="text-[18px]">ℹ️</span>
+        <span class="text-[14px] sm:text-[15px] font-[800]">
+          Please wait until the admin starts and completes the election.
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  <script src="dashboard.js"></script>
 </body>
 </html>

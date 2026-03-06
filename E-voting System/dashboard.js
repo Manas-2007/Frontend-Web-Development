@@ -1,130 +1,466 @@
-// tabsbar.js
-// Upgraded: Results is ALWAYS visible.
-// - If VOTE_STATUS !== "ENDED" -> Results is locked (disabled), but NOT too faint.
-// - If VOTE_STATUS === "ENDED" -> Results becomes clickable and normal.
+function setVoterHomeStatus(isVoted, voteISODateTime){
+  const dot = document.getElementById("voteStatusDot");
+  const text = document.getElementById("voteStatusText");
 
-document.addEventListener("DOMContentLoaded", () => {
-  // ===== CONFIG (connect later with your login/vote system) =====
-  const USER_ROLE = "voter";   // "admin" or "voter" (not hiding Results anymore)
-  const VOTE_STATUS = "LIVE";  // "LIVE" or "ENDED"
+  const hasVotedEl = document.getElementById("hasVoted");
+  const voteDateEl = document.getElementById("voteDate");
+  const voteTimeEl = document.getElementById("voteTime");
 
-  const tabButtons = Array.from(document.querySelectorAll(".tabBtn"));
-  const panels = Array.from(document.querySelectorAll(".panel"));
-  const activeLine = document.getElementById("activeLine");
-  const tabsContainer = document.getElementById("tabsContainer");
+  const voteCountEl = document.getElementById("voteCount");
+  const voteProgress = document.getElementById("voteProgress");
 
-  const resultsBtn = document.querySelector(".resultsTab");
+  if(!isVoted){
+    dot.className = "w-[11px] h-[11px] rounded-full bg-gray-400";
+    text.innerText = "NOT VOTED";
+    text.className = "text-[13px] sm:text-[14px] font-[900] tracking-[0.6px] text-gray-700";
 
-  // ===== RESULTS BEHAVIOR (VISIBLE ALWAYS) =====
-  if (resultsBtn) {
-    if (VOTE_STATUS !== "ENDED") {
-      // Locked but readable
-      resultsBtn.disabled = true;
+    hasVotedEl.innerText = "No";
+    hasVotedEl.className = "mt-[4px] text-[18px] font-[900] text-slate-900";
 
-      // remove any previous states (if reloaded)
-      resultsBtn.classList.remove("opacity-[0.45]");
-      resultsBtn.classList.add("opacity-[0.85]", "cursor-not-allowed");
+    voteDateEl.innerText = "—";
+    voteTimeEl.innerText = "—";
 
-      resultsBtn.title = "Results will be available after voting ends.";
+    voteCountEl.innerText = "0";
+    voteProgress.style.width = "0%";
+    return;
+  }
 
-      // Add (Locked) label only once
-      if (!resultsBtn.dataset.lockedApplied) {
-        resultsBtn.dataset.originalText = resultsBtn.textContent.trim();
-        resultsBtn.innerHTML =
-          `${resultsBtn.dataset.originalText} <span class="ml-[6px] text-[12px] font-[900]">(Locked)</span>`;
-        resultsBtn.dataset.lockedApplied = "true";
-      }
-    } else {
-      // Unlocked
-      resultsBtn.disabled = false;
-      resultsBtn.classList.remove("opacity-[0.85]", "cursor-not-allowed");
-      resultsBtn.title = "";
+  // voted state
+  dot.className = "w-[11px] h-[11px] rounded-full bg-green-500";
+  text.innerText = "VOTED";
+  text.className = "text-[13px] sm:text-[14px] font-[900] tracking-[0.6px] text-green-700";
 
-      // Restore original text if it was locked before
-      if (resultsBtn.dataset.originalText) {
-        resultsBtn.textContent = resultsBtn.dataset.originalText;
-      }
-      delete resultsBtn.dataset.lockedApplied;
+  hasVotedEl.innerText = "Yes";
+  hasVotedEl.className = "mt-[4px] text-[18px] font-[900] text-green-700";
+
+  const dt = new Date(voteISODateTime);
+  const dateStr = dt.toLocaleDateString("en-IN", { day:"2-digit", month:"short", year:"numeric" });
+  const timeStr = dt.toLocaleTimeString("en-IN", { hour:"2-digit", minute:"2-digit" });
+
+  voteDateEl.innerText = dateStr;
+  voteTimeEl.innerText = timeStr;
+
+  voteCountEl.innerText = "1";
+  voteProgress.style.width = "100%";
+}
+document.addEventListener("DOMContentLoaded", function () {
+  const navHome = document.getElementById("navHome");
+  const tabHome = document.getElementById("tab-home");
+
+  navHome.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    tabHome.classList.remove("hidden");
+    tabHome.classList.add("block");
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const navHome = document.getElementById("navHome");
+  const navHow = document.getElementById("navHow");
+
+  const tabHome = document.getElementById("tab-home");
+  const tabHow = document.getElementById("tab-how");
+
+  function hideAllTabs() {
+    tabHome.classList.remove("block");
+    tabHome.classList.add("hidden");
+
+    tabHow.classList.remove("block");
+    tabHow.classList.add("hidden");
+  }
+
+  navHome.addEventListener("click", function (e) {
+    e.preventDefault();
+    hideAllTabs();
+    tabHome.classList.remove("hidden");
+    tabHome.classList.add("block");
+  });
+
+  navHow.addEventListener("click", function (e) {
+    e.preventDefault();
+    hideAllTabs();
+    tabHow.classList.remove("hidden");
+    tabHow.classList.add("block");
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+
+  const navHome = document.getElementById("navHome");
+  const navHow = document.getElementById("navHow");
+
+  const tabHome = document.getElementById("tab-home");
+  const tabHow = document.getElementById("tab-how");
+
+  const navTabs = [navHome, navHow];
+
+  function resetTabs() {
+    navTabs.forEach(tab => {
+      tab.classList.remove(
+        "border-y-red-600",
+        "text-red-600",
+        "scale-[1.12]",
+        "translate-y-[-3px]"
+      );
+    });
+  }
+
+  function hideAllTabs() {
+    tabHome.classList.add("hidden");
+    tabHow.classList.add("hidden");
+
+    tabHome.classList.remove("block");
+    tabHow.classList.remove("block");
+  }
+
+  navHome.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    hideAllTabs();
+    resetTabs();
+
+    tabHome.classList.remove("hidden");
+    tabHome.classList.add("block");
+
+    navHome.classList.add(
+      "border-y-red-600",
+      "text-red-600",
+      "scale-[1.12]",
+      "translate-y-[-3px]"
+    );
+  });
+
+  navHow.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    hideAllTabs();
+    resetTabs();
+
+    tabHow.classList.remove("hidden");
+    tabHow.classList.add("block");
+
+    navHow.classList.add(
+      "border-y-red-600",
+      "text-red-600",
+      "scale-[1.12]",
+      "translate-y-[-3px]"
+    );
+  });
+
+});
+
+
+function setVoterHomeStatus(isVoted, voteISODateTime) {
+  const dot = document.getElementById("voteStatusDot");
+  const text = document.getElementById("voteStatusText");
+
+  const hasVotedEl = document.getElementById("hasVoted");
+  const voteDateEl = document.getElementById("voteDate");
+  const voteTimeEl = document.getElementById("voteTime");
+
+  const voteCountEl = document.getElementById("voteCount");
+  const voteProgress = document.getElementById("voteProgress");
+
+  if (!isVoted) {
+    if (dot) dot.className = "w-[11px] h-[11px] rounded-full bg-gray-400";
+    if (text) {
+      text.innerText = "NOT VOTED";
+      text.className = "text-[13px] sm:text-[14px] font-[900] tracking-[0.6px] text-gray-700";
+    }
+
+    if (hasVotedEl) {
+      hasVotedEl.innerText = "No";
+      hasVotedEl.className = "mt-[4px] text-[18px] font-[900] text-slate-900";
+    }
+
+    if (voteDateEl) voteDateEl.innerText = "—";
+    if (voteTimeEl) voteTimeEl.innerText = "—";
+    if (voteCountEl) voteCountEl.innerText = "0";
+    if (voteProgress) voteProgress.style.width = "0%";
+    return;
+  }
+
+  if (dot) dot.className = "w-[11px] h-[11px] rounded-full bg-green-500";
+  if (text) {
+    text.innerText = "VOTED";
+    text.className = "text-[13px] sm:text-[14px] font-[900] tracking-[0.6px] text-green-700";
+  }
+
+  if (hasVotedEl) {
+    hasVotedEl.innerText = "Yes";
+    hasVotedEl.className = "mt-[4px] text-[18px] font-[900] text-green-700";
+  }
+
+  const dt = new Date(voteISODateTime);
+  const dateStr = dt.toLocaleDateString("en-IN", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+  const timeStr = dt.toLocaleTimeString("en-IN", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  if (voteDateEl) voteDateEl.innerText = dateStr;
+  if (voteTimeEl) voteTimeEl.innerText = timeStr;
+  if (voteCountEl) voteCountEl.innerText = "1";
+  if (voteProgress) voteProgress.style.width = "100%";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const navHome = document.getElementById("navHome");
+  const navHow = document.getElementById("navHow");
+  const navStatus = document.getElementById("navStatus");
+
+  const tabHome = document.getElementById("tab-home");
+  const tabHow = document.getElementById("tab-how");
+  const tabStatus = document.getElementById("tab-status");
+
+  const navTabs = [navHome, navHow, navStatus];
+  const allSections = [tabHome, tabHow, tabStatus];
+
+  function resetNavTabs() {
+    navTabs.forEach((tab) => {
+      if (!tab) return;
+      tab.classList.remove(
+        "border-y-red-600",
+        "text-red-600",
+        "scale-[1.12]",
+        "translate-y-[-3px]"
+      );
+    });
+  }
+
+  function hideAllSections() {
+    allSections.forEach((section) => {
+      if (!section) return;
+      section.classList.add("hidden");
+      section.classList.remove("block");
+    });
+  }
+
+  function openTab(sectionToShow, navToActivate) {
+    hideAllSections();
+    resetNavTabs();
+
+    if (sectionToShow) {
+      sectionToShow.classList.remove("hidden");
+      sectionToShow.classList.add("block");
+    }
+
+    if (navToActivate) {
+      navToActivate.classList.add(
+        "border-y-red-600",
+        "text-red-600",
+        "scale-[1.12]",
+        "translate-y-[-3px]"
+      );
     }
   }
 
-  function setActiveStyles(activeId) {
-    tabButtons.forEach((btn) => {
-      const isActive = btn.getAttribute("data-tab") === activeId;
-
-      // Do not force active style on disabled buttons when clicked (we block click anyway)
-      if (isActive) {
-        btn.classList.add("bg-slate-900", "text-white");
-        btn.classList.remove("text-slate-700");
-      } else {
-        btn.classList.remove("bg-slate-900", "text-white");
-        btn.classList.add("text-slate-700");
-      }
+  if (navHome) {
+    navHome.addEventListener("click", function (e) {
+      e.preventDefault();
+      openTab(tabHome, navHome);
     });
   }
 
-  function showPanel(activeId) {
-    panels.forEach((panel) => {
-      const isTarget = panel.getAttribute("data-panel") === activeId;
-      panel.classList.toggle("hidden", !isTarget);
+  if (navHow) {
+    navHow.addEventListener("click", function (e) {
+      e.preventDefault();
+      openTab(tabHow, navHow);
     });
   }
 
-  function moveUnderline(activeId) {
-    const activeBtn = tabButtons.find((b) => b.getAttribute("data-tab") === activeId);
-    if (!activeBtn || !activeLine || !tabsContainer) return;
-
-    const btnRect = activeBtn.getBoundingClientRect();
-    const cRect = tabsContainer.getBoundingClientRect();
-
-    // Position underline relative to container scroll
-    const left = Math.round((btnRect.left - cRect.left) + tabsContainer.scrollLeft);
-    const width = Math.round(btnRect.width);
-
-    activeLine.style.left = left + "px";
-    activeLine.style.width = width + "px";
-
-    // Keep active tab visible on mobile
-    activeBtn.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-  }
-
-  function activateTab(tabId) {
-    setActiveStyles(tabId);
-    showPanel(tabId);
-    moveUnderline(tabId);
-  }
-
-  // Click handlers
-  tabButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      if (btn.disabled) return; // Important: prevent switching to locked Results
-      activateTab(btn.getAttribute("data-tab"));
-    });
-  });
-
-  // Default tab
-  activateTab("dashboard");
-
-  // Recalculate underline on resize
-  window.addEventListener("resize", () => {
-    const currentActive = tabButtons.find((b) => b.classList.contains("bg-slate-900"));
-    if (currentActive) activateTab(currentActive.getAttribute("data-tab"));
-  });
-
-  // Keep underline aligned when tabs scroll (mobile)
-  if (tabsContainer) {
-    tabsContainer.addEventListener("scroll", () => {
-      const currentActive = tabButtons.find((b) => b.classList.contains("bg-slate-900"));
-      if (currentActive) moveUnderline(currentActive.getAttribute("data-tab"));
+  if (navStatus) {
+    navStatus.addEventListener("click", function (e) {
+      e.preventDefault();
+      openTab(tabStatus, navStatus);
     });
   }
 
-  // Optional: logout button handler (wire later)
-  const logoutBtn = document.getElementById("logoutBtn");
-  if (logoutBtn) {
-    logoutBtn.addEventListener("click", () => {
-      // Replace with your real logout logic
-      alert("Logout clicked (connect to your auth/logout).");
+  openTab(tabHome, navHome);
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const navHome = document.getElementById("navHome");
+  const navHow = document.getElementById("navHow");
+  const navStatus = document.getElementById("navStatus");
+  const navParties = document.getElementById("navParties");
+
+  const tabHome = document.getElementById("tab-home");
+  const tabHow = document.getElementById("tab-how");
+  const tabStatus = document.getElementById("tab-status");
+  const tabParties = document.getElementById("tab-parties");
+
+  const navTabs = [navHome, navHow, navStatus, navParties];
+  const allSections = [tabHome, tabHow, tabStatus, tabParties];
+
+  function resetNavTabs() {
+    navTabs.forEach((tab) => {
+      if (!tab) return;
+      tab.classList.remove(
+        "border-y-red-600",
+        "text-red-600",
+        "scale-[1.12]",
+        "translate-y-[-3px]"
+      );
     });
   }
+
+  function hideAllSections() {
+    allSections.forEach((section) => {
+      if (!section) return;
+      section.classList.add("hidden");
+      section.classList.remove("block");
+    });
+  }
+
+  function openTab(sectionToShow, navToActivate) {
+    hideAllSections();
+    resetNavTabs();
+
+    if (sectionToShow) {
+      sectionToShow.classList.remove("hidden");
+      sectionToShow.classList.add("block");
+    }
+
+    if (navToActivate) {
+      navToActivate.classList.add(
+        "border-y-red-600",
+        "text-red-600",
+        "scale-[1.12]",
+        "translate-y-[-3px]"
+      );
+    }
+  }
+
+  if (navHome) {
+    navHome.addEventListener("click", function (e) {
+      e.preventDefault();
+      openTab(tabHome, navHome);
+    });
+  }
+
+  if (navHow) {
+    navHow.addEventListener("click", function (e) {
+      e.preventDefault();
+      openTab(tabHow, navHow);
+    });
+  }
+
+  if (navStatus) {
+    navStatus.addEventListener("click", function (e) {
+      e.preventDefault();
+      openTab(tabStatus, navStatus);
+    });
+  }
+
+  if (navParties) {
+    navParties.addEventListener("click", function (e) {
+      e.preventDefault();
+      openTab(tabParties, navParties);
+    });
+  }
+
+  openTab(tabHome, navHome);
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const navHome = document.getElementById("navHome");
+  const navHow = document.getElementById("navHow");
+  const navStatus = document.getElementById("navStatus");
+  const navParties = document.getElementById("navParties");
+  const navResults = document.getElementById("navResults");
+
+  const tabHome = document.getElementById("tab-home");
+  const tabHow = document.getElementById("tab-how");
+  const tabStatus = document.getElementById("tab-status");
+  const tabParties = document.getElementById("tab-parties");
+  const tabResults = document.getElementById("tab-results");
+
+  const navTabs = [navHome, navHow, navStatus, navParties, navResults];
+  const allSections = [tabHome, tabHow, tabStatus, tabParties, tabResults];
+
+  function resetNavTabs() {
+    navTabs.forEach((tab) => {
+      if (!tab) return;
+      tab.classList.remove(
+        "border-y-red-600",
+        "text-red-600",
+        "scale-[1.12]",
+        "translate-y-[-3px]"
+      );
+    });
+  }
+
+  function hideAllSections() {
+    allSections.forEach((section) => {
+      if (!section) return;
+      section.classList.add("hidden");
+      section.classList.remove("block");
+    });
+  }
+
+  function openTab(sectionToShow, navToActivate) {
+    hideAllSections();
+    resetNavTabs();
+
+    if (sectionToShow) {
+      sectionToShow.classList.remove("hidden");
+      sectionToShow.classList.add("block");
+    }
+
+    if (navToActivate) {
+      navToActivate.classList.add(
+        "border-y-red-600",
+        "text-red-600",
+        "scale-[1.12]",
+        "translate-y-[-3px]"
+      );
+    }
+  }
+
+  if (navHome) {
+    navHome.addEventListener("click", function (e) {
+      e.preventDefault();
+      openTab(tabHome, navHome);
+    });
+  }
+
+  if (navHow) {
+    navHow.addEventListener("click", function (e) {
+      e.preventDefault();
+      openTab(tabHow, navHow);
+    });
+  }
+
+  if (navStatus) {
+    navStatus.addEventListener("click", function (e) {
+      e.preventDefault();
+      openTab(tabStatus, navStatus);
+    });
+  }
+
+  if (navParties) {
+    navParties.addEventListener("click", function (e) {
+      e.preventDefault();
+      openTab(tabParties, navParties);
+    });
+  }
+
+  if (navResults) {
+    navResults.addEventListener("click", function (e) {
+      e.preventDefault();
+      openTab(tabResults, navResults);
+    });
+  }
+
+  openTab(tabHome, navHome);
 });
