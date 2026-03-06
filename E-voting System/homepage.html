@@ -8,10 +8,9 @@
     <title>HOMEPAGE:E-Voting System</title>
 </head>
 <body>
-   <!-- ✅ ADD THIS LINE just before your <nav> -->
+
 <input id="menu" type="checkbox" class="hidden peer" />
 
-<!-- ✅ YOUR NAVBAR (UNCHANGED) -->
 <nav class="w-[100%] fixed top-[0] left-[0] z-[999] 
 bg-white/95 backdrop-blur-[12px] 
 border-b-[1px] border-white/40 shadow-2xl">
@@ -102,7 +101,6 @@ border-b-[1px] border-white/40 shadow-2xl">
 
     </div>
 
-    <!-- ✅ ADD ONLY THIS hamburger button (rest navbar same) -->
     <label for="menu"
       class="md:hidden cursor-pointer select-none px-[12px] py-[10px] rounded-[14px]
              bg-white/20 border-[1px] border-white/40">
@@ -114,12 +112,12 @@ border-b-[1px] border-white/40 shadow-2xl">
   </div>
 </nav>
 
-<!-- ✅ MOBILE OVERLAY (click = close) -->
+<!--  MOBILE OVERLAY (click = close) -->
 <label for="menu"
   class="fixed inset-[0] z-[998] bg-black/60 hidden peer-checked:block">
 </label>
 
-<!-- ✅ MOBILE LEFT DRAWER -->
+<!--  MOBILE LEFT DRAWER -->
 <div
   class="fixed top-[0] left-[0] z-[999] h-[100%] w-[78%] max-w-[320px]
          bg-white/90 backdrop-blur-[10px] border-r-[1px] border-black/10
@@ -171,22 +169,21 @@ border-b-[1px] border-white/40 shadow-2xl">
 
       <p class="mt-[18px] text-white/95 font-[600]
                 text-[15px] sm:text-[18px] md:text-[22px]">
-        Empowering democracy with a fast, secure and transparent digital voting system.
-      </p>
+Trusted Digital Voting Platform for Transparent and Secure Elections      </p>
 
       <div class="mt-[30px] flex justify-center gap-[16px] flex-wrap">
 
         <a href="login.html"
-           class="px-[26px] py-[14px] rounded-[14px]
-                  bg-orange-400 text-white font-[500]
-                  text-[16px] sm:text-[18px]
-                  hover:bg-orange-600 hover:scale-[1.08] hover:translate-y-[-3px]
-                  duration-[0.3s]" id="startVoteBtn">
+           class="px-[26px] py-[14px] rounded-[15px]
+                  bg-orange-400 text-[white] font-[700]
+                  text-[25px] sm:text-[18px]
+                  hover:bg-green-400 hover:scale-[1.08] hover:translate-y-[-3px]
+                  duration-[0.3s] hover:text-[white]" id="startVoteBtn">
           Start Voting
         </a>
 
         <a href="#how"
-           class="px-[26px] py-[14px] rounded-[20px]
+           class="px-[26px] py-[14px] rounded-[15px]
                   border-[3px] border-white/40 text-white font-[500]
                   text-[16px] sm:text-[18px]
                   hover:bg-white/20 hover:scale-[1.08] hover:translate-y-[-3px]
@@ -201,8 +198,8 @@ border-b-[1px] border-white/40 shadow-2xl">
 </section>
 
 <style>
-  .slider-1 { background-image: url('Photos/homepage1.jpg'); }
-  .slider-2 { background-image: url('photos/homepage2.jpg'); }
+  .slider-1 { background-image: url('Photos/homeimg1.jpeg'); }
+  .slider-2 { background-image: url('Photos/homeimg2.jpg'); }
 
   .slider-img { opacity: 0; animation: sliderFade 6s infinite; }
   .slider-1 { animation-delay: 0s; }
@@ -293,9 +290,6 @@ border-b-[1px] border-white/40 shadow-2xl">
   </div>
 </footer>
 
-
-<!-- Modals of the homepage -->
-<!-- About Modal -->/
  <!-- ABOUT MODAL -->
 <div id="aboutModal" class="fixed inset-[0] z-[99999] hidden">
   <!-- overlay -->
@@ -369,7 +363,6 @@ border-b-[1px] border-white/40 shadow-2xl">
 </div>
 
 
-<!-- Features Modal -->
  <!-- FEATURES MODAL -->
 <div id="featuresModal" class="fixed inset-[0] z-[99999] hidden overflow-y-auto">
   <!-- overlay -->
