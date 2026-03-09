@@ -4,261 +4,276 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Voting Login</title>
-
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body
-class="min-h-screen 
-bg-[url('Photos/loginpg.jpg')]
-bg-cover 
-bg-right-center 
-bg-no-repeat 
-relative">
-<!-- DARK OVERLAY -->
-<div class="absolute inset-0 bg-black/55"></div>
+<body class="min-h-screen bg-[url('Photos/loginpg.jpg')] bg-cover bg-center bg-no-repeat relative overflow-x-hidden">
 
-<!-- MAIN SPLIT CONTAINER -->
-<div class="relative min-h-screen flex items-center flex-row-reverse">
+  <!-- DARK OVERLAY -->
+  <div class="absolute inset-[0px] bg-slate-950/70"></div>
 
-<!-- ================= RIGHT LOGIN FORM ================= -->
-<div class="w-full lg:w-[42%] px-[30px] lg:px-[70px]">
+  
 
-<div
-class="max-w-[420px]
-bg-white/15 backdrop-blur-[18px]
-border border-[orange] border-[3px]
-rounded-[18px]
-px-[26px] py-[28px]
-shadow-[0_18px_60px_rgba(0,0,0,0.45)]
-transition duration-[500ms]
-hover:-translate-y-[10px]"
->
+  <!-- MAIN SPLIT CONTAINER -->
+  <div class="relative min-h-screen flex items-center flex-row-reverse">
 
-<!-- Heading -->
-<div class="mb-[22px]">
-<h1 class="text-[30px] font-[700] text-black">
-Welcome Back
-</h1>
-<p class="text-black text-[18px] mt-[6px]">
-Login to continue voting system
-</p>
-</div>
+    <!-- ================= RIGHT LOGIN FORM ================= -->
+    <div class="w-full lg:w-[42%] px-[24px] lg:px-[70px] flex justify-center lg:justify-start">
 
-<!-- ROLE TABS -->
-<div class="grid grid-cols-2 gap-[10px] mb-[14px]">
+      <div
+class="w-full max-w-[440px]
+bg-white/12 backdrop-blur-[22px]
+border-[1px] border-white/20
+rounded-[24px]
+px-[28px] py-[24px]
+shadow-[0px_20px_70px_rgba(0,0,0,0.45)]
+transition duration-[300ms]
+hover:-translate-y-[4px]
+max-h-[86vh]
+overflow-y-auto
+">
 
-<button id="tabVoter"
-class="rounded-[12px]
-border-[2px] border-[white]
-bg-white/25 text-black
-px-[14px] py-[10px]
-font-[700] text-[18px]
-transition hover:bg-white/35">
-Voter
-</button>
+        <!-- TOP ACCENT -->
+        <div class="w-[72px] h-[5px] rounded-[999px] bg-gradient-to-r from-orange-500 via-white to-green-500 mb-[18px]"></div>
 
-<button id="tabAdmin"
-class="rounded-[12px]
-border-[2px] border-[white]
-bg-white/25 text-black
-px-[14px] py-[10px]
-font-[700] text-[18px]
-transition hover:bg-white/35">
-Admin
-</button>
+        <!-- Heading -->
+        <div class="mb-[22px]">
+          <h1 class="text-[34px] font-[600] text-white leading-[1.2]">
+            Welcome Back
+          </h1>
+          <p class="text-white/75 text-[16px] mt-[6px] font-[400]">
+            Login to continue voting system
+          </p>
+        </div>
 
-</div>
+        <!-- ROLE TABS -->
+        <div class="grid grid-cols-2 gap-[12px] mb-[16px]">
 
-<!-- ADMIN TOOL -->
-<div id="adminTools" class="hidden mb-[14px]">
+          <button id="tabVoter"
+            class="rounded-[14px]
+                   border-[1px] border-white/30
+                   bg-white/10 text-white
+                   px-[14px] py-[12px]
+                   font-[700] text-[18px]
+                   transition duration-[300ms]
+                   hover:bg-white/20 hover:border-white/45">
+            Voter
+          </button>
 
-<button id="showAdminDetailsBtn"
-class="rounded-[12px]
-border-[2px] border-[white]
-bg-white/25 text-black
-px-[14px] py-[10px]
-font-[700] text-[18px]
-transition hover:bg-white/35">
-Show Register Details
-</button>
+          <button id="tabAdmin"
+            class="rounded-[14px]
+                   border-[1px] border-white/30
+                   bg-white/10 text-white
+                   px-[14px] py-[12px]
+                   font-[700] text-[18px]
+                   transition duration-[300ms]
+                   hover:bg-white/20 hover:border-white/45">
+            Admin
+          </button>
 
-<div id="adminDetailsBox"
-class="hidden mt-[10px]
-rounded-[12px]
-border-[2px] border-white/30
-bg-white
-px-[14px] py-[12px]
-text-black text-[13px]">
+        </div>
 
-<p class="font-[700] mb-[6px]">
-Admin Credentials
-</p>
+        <!-- ADMIN TOOL -->
+        <div id="adminTools" class="hidden mb-[14px]">
 
-<p>Username: <span id="adminUserText"></span></p>
-<p>Password: <span id="adminPassText"></span></p>
+          <button id="showAdminDetailsBtn"
+            class="w-full rounded-[14px]
+                   border-[1px] border-white/30
+                   bg-white/10 text-white
+                   px-[14px] py-[12px]
+                   font-[700] text-[17px]
+                   transition duration-[300ms]
+                   hover:bg-white/20 hover:border-white/45">
+            Show Register Details
+          </button>
 
-</div>
-</div>
+          <div id="adminDetailsBox"
+            class="hidden mt-[10px]
+                   rounded-[14px]
+                   border-[1px] border-white/25
+                   bg-white/90
+                   px-[14px] py-[12px]
+                   text-slate-900 text-[13px]">
 
-<form id="loginForm" class="space-y-[14px]">
+            <p class="font-[700] mb-[6px]">
+              Admin Credentials
+            </p>
 
-<input type="hidden" id="role" value="voter">
+            <p>Username: <span id="adminUserText"></span></p>
+            <p>Password: <span id="adminPassText"></span></p>
 
-<p id="voteStatus" class="inline-flex items-center gap-[8px] rounded-[10px] px-[10px] py-[6px] text-[12px] font-[600] border border-white bg-white/10 text-black"></p>
+          </div>
+        </div>
 
-<button id="resetVoteBtn"
-  type="button"
-  class="w-full mt-[10px] rounded-[12px]
-         border-[2px] border-white bg-red-500
-         px-[14px] py-[12px] text-[18px] font-[600] text-white
-         hover:bg-red-300 hover:text-blue-800 duration-[0.3s]">
-  Reset Voting (Admin Only)
-</button>
+        <form id="loginForm" class="space-y-[14px]">
 
-<!-- USERNAME -->
-<input id="username"
-placeholder="Username"
-class="w-full rounded-[12px]
-border-[2px] border-white
-bg-white/10
-px-[14px] py-[12px]
-text-black
-placeholder:text-black
-focus:ring-[4px] focus:ring-black
-outline-none"/>
+          <input type="hidden" id="role" value="voter">
 
-<!-- PASSWORD -->
-<div class="relative">
+          <p id="voteStatus"
+             class="inline-flex items-center gap-[8px]
+                    rounded-[12px]
+                    px-[12px] py-[7px]
+                    text-[12px] font-[700]
+                    border-[1px] border-emerald-400/30
+                    bg-emerald-400/12 text-emerald-100">
+          </p>
 
-<input id="password"
-type="password"
-placeholder="Password"
-class="w-full rounded-[12px]
-border-[2px] border-white
-bg-white/10
-px-[14px] py-[12px]
-pr-[70px]
-text-black
-placeholder:text-black
-focus:ring-[6px] focus:ring-white/20
-outline-none"/>
+          <!-- USERNAME -->
+          <input id="username"
+            placeholder="Username"
+            class="w-full rounded-[14px]
+                   border-[1px] border-white/28
+                   bg-white/10
+                   px-[16px] py-[13px]
+                   text-white
+                   placeholder:text-white/65
+                   focus:ring-[3px] focus:ring-orange-400/35
+                   focus:border-orange-300/60
+                   outline-none transition duration-[250ms]" />
 
-<button id="togglePass"
-type="button"
-class="absolute right-[10px]
-top-1/2 -translate-y-1/2
-text-[15px] font-[600]
-border border-white
-border-[3px]
-px-[15px] py-[6px]
-rounded-[8px]
-text-black">
-SHOW
-</button>
+          <!-- PASSWORD -->
+          <div class="relative">
 
-</div>
+            <input id="password"
+              type="password"
+              placeholder="Password"
+              class="w-full rounded-[14px]
+                     border-[1px] border-white/28
+                     bg-white/10
+                     px-[16px] py-[13px]
+                     pr-[92px]
+                     text-white
+                     placeholder:text-white/65
+                     focus:ring-[3px] focus:ring-orange-400/35
+                     focus:border-orange-300/60
+                     outline-none transition duration-[250ms]" />
 
-<button
-class="w-full
-bg-[green] text-white text-[20px]
-rounded-[12px]
-py-[12px]
-font-[700]
-hover:bg-green-400 hover:text-black duration-[0.4s]">
-Login
-</button>
+            <button id="togglePass"
+              type="button"
+              class="absolute right-[10px]
+                     top-1/2 -translate-y-1/2
+                     text-[14px] font-[700]
+                     border-[1px] border-white/35
+                     bg-white/12
+                     px-[14px] py-[6px]
+                     rounded-[10px]
+                     text-white
+                     hover:bg-white/20 duration-[250ms]">
+              SHOW
+            </button>
 
-</form>
+          </div>
 
-</div>
-</div>
+          <button
+            class="w-full
+                   bg-gradient-to-r from-green-600 to-emerald-500
+                   text-white text-[20px]
+                   rounded-[14px]
+                   py-[13px]
+                   font-[800]
+                   shadow-[0px_12px_30px_rgba(34,197,94,0.22)]
+                   hover:from-green-500 hover:to-emerald-400 hover:text-slate-950
+                   duration-[300ms]">
+            Login
+          </button>
 
-<!-- ================= LEFT TEXT AREA ================= -->
+        </form>
 
-<div
-class="hidden lg:flex
-w-[58%]
-h-screen
-items-center
-justify-center
-px-[80px]">
+      </div>
+    </div>
 
-<div class="max-w-[520px] text-white">
+    <!-- ================= LEFT TEXT AREA ================= -->
+    <div class="hidden lg:flex w-[58%] h-screen items-center justify-center px-[80px]">
+      <div class="max-w-[560px]">
 
-<h2 class="text-[46px] font-[700] leading-[1.1] mb-[18px] text-black">
-Online Voting System
-</h2>
+        <div class="inline-flex items-center gap-[10px] rounded-[999px] border-[1px] border-white/20 bg-white/8 px-[16px] py-[8px] mb-[24px]">
+          <span class="w-[10px] h-[10px] rounded-[999px] bg-green-400"></span>
+          <span class="text-[13px] font-[700] text-white/85 tracking-[0.3px]">
+            Secure Digital Election Platform
+          </span>
+        </div>
 
-<p class="text-[20px] text-black  leading-[1.6]">
-Secure, transparent and digital election platform
-where administrators control voting sessions
-and voters participate safely once voting begins.
-</p>
+        <h2 class="text-[54px] font-[700] leading-[1.08] mb-[18px] text-white">
+          Online Voting
+          <span class="text-orange-400">System</span>
+        </h2>
 
-<div class="mt-[28px]">
-<button id="learnMoreBtn"
-class="px-[26px] py-[12px]
-rounded-[20px]
-bg-[white] text-black
-font-[700]
-hover:bg-black hover:text-white duration-[0.4s]">
-Learn More
-</button>
-</div>
+        <p class="text-[21px] text-white/85 leading-[1.8] font-[500]">
+          Secure, transparent and digital election platform where administrators control voting sessions and voters participate safely once voting begins.
+        </p>
 
-</div>
-</div>
+        <div class="mt-[24px] flex flex-col gap-[12px]">
+          <div class="flex items-center gap-[12px] text-white/85 text-[16px] font-[600]">
+            <span class="w-[10px] h-[10px] rounded-[999px] bg-orange-400"></span>
+            Admin-controlled voting flow
+          </div>
+          <div class="flex items-center gap-[12px] text-white/85 text-[16px] font-[600]">
+            <span class="w-[10px] h-[10px] rounded-[999px] bg-white"></span>
+            Transparent and secure process
+          </div>
+          <div class="flex items-center gap-[12px] text-white/85 text-[16px] font-[600]">
+            <span class="w-[10px] h-[10px] rounded-[999px] bg-green-400"></span>
+            Privacy-safe results visibility
+          </div>
+        </div>
 
-</div>
+        <div class="mt-[30px]">
+          <button id="learnMoreBtn"
+            class="px-[28px] py-[13px]
+                   rounded-[16px]
+                   bg-white text-slate-950
+                   font-[800] text-[18px]
+                   shadow-[0px_12px_30px_rgba(255,255,255,0.12)]
+                   hover:bg-orange-400 hover:text-[white] duration-[300ms]">
+            Learn More
+          </button>
+        </div>
 
+      </div>
+    </div>
 
-<!-- ================= LEARN MORE MODAL ================= -->
+  </div>
 
-<div id="learnModal"
-class="fixed inset-0 hidden items-center justify-center
-bg-black/70 backdrop-blur-[6px] z-[9999] px-[20px]">
+  <!-- ================= LEARN MORE MODAL ================= -->
+  <div id="learnModal"
+    class="fixed inset-[0px] hidden items-center justify-center
+           bg-black/70 backdrop-blur-[6px] z-[9999] px-[20px]">
 
-<div
-class="bg-white rounded-[18px]
-max-w-[600px] w-full
-px-[28px] py-[26px]
-shadow-[0_20px_60px_rgba(0,0,0,0.4)]
-relative">
+    <div
+      class="bg-white rounded-[20px]
+             max-w-[600px] w-full
+             px-[28px] py-[26px]
+             shadow-[0px_20px_60px_rgba(0,0,0,0.4)]
+             relative">
 
-<!-- Close Button -->
-<button id="closeModal"
-class="absolute top-[12px] right-[14px]
-text-[22px] font-[700] text-slate-700 hover:border-[solid] hover:border-black hover:border-[3px] hover:p-[2px]">
-✕
-</button>
+      <!-- Close Button -->
+      <button id="closeModal"
+        class="absolute top-[12px] right-[14px]
+               text-[22px] font-[700] text-slate-700
+               w-[38px] h-[38px] rounded-[10px]
+               hover:bg-slate-100 duration-[200ms]">
+        ✕
+      </button>
 
-<h2 class="text-[26px] font-[700] mb-[12px]">
-About Online Voting System
-</h2>
+      <h2 class="text-[28px] font-[800] mb-[12px] text-slate-900">
+        About Online Voting System
+      </h2>
 
-<p class="text-[17px] text-black text-slate-700 leading-[1.7]">
-The Online Voting System provides a secure and transparent
-platform where elections are conducted digitally.
-Only administrators can initiate voting sessions,
-ensuring complete control and fairness.
-</p>
+      <p class="text-[17px] text-slate-700 leading-[1.7]">
+        The Online Voting System provides a secure and transparent platform where elections are conducted digitally. Only administrators can initiate voting sessions, ensuring complete control and fairness.
+      </p>
 
-<p class="mt-[12px] text-[17px] text-black text-slate-700 leading-[1.7]">
-Once voting begins, registered voters can log in and
-cast their vote safely. Individual votes remain hidden,
-while only final results are visible after voting ends.
-</p>
+      <p class="mt-[12px] text-[17px] text-slate-700 leading-[1.7]">
+        Once voting begins, registered voters can log in and cast their vote safely. Individual votes remain hidden, while only final results are visible after voting ends.
+      </p>
 
-<p class="mt-[12px] text-[17px] text-black text-slate-700 leading-[1.7]">
-This system improves efficiency, eliminates manual
-errors, and guarantees confidentiality and integrity
-during elections.
-</p>
+      <p class="mt-[12px] text-[17px] text-slate-700 leading-[1.7]">
+        This system improves efficiency, eliminates manual errors, and guarantees confidentiality and integrity during elections.
+      </p>
 
-</div>
-</div>
+    </div>
+  </div>
 
-<script src="login.js"></script>
+  <script src="login.js"></script>
 </body>
 </html>

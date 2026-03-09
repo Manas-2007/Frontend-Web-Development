@@ -1,0 +1,38 @@
+.container{
+    text-align: center;
+    margin-top: 20px;
+    border: 2px solid lightgrey;
+    background-color: lightgrey;
+}
+
+.btn1{
+    background-color: lightgreen;
+    border-radius: 20px;
+    border: 2px solid lightgreen;
+    font-size: larger;
+    padding: 10px;
+    margin: 30px;
+    width: 200px;
+    font-weight: bold;
+}
+
+.btn2{
+    background-color: lightgreen;
+    border-radius: 20px;
+    border: 2px solid lightgreen;
+    font-size: larger;
+    padding: 10px;
+    margin: 30px;
+    width: 200px;
+    font-weight: bold;
+}
+
+.midbtn{
+    background-color: lightgrey;
+    font-size: larger;
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 20px;
+    width: 300px;
+    font-weight: bold;
+}

@@ -7,6 +7,8 @@ const ADMIN = {
 };
 
 // ===============================
+// ELEMENTS
+// ===============================
 const tabVoter = document.getElementById("tabVoter");
 const tabAdmin = document.getElementById("tabAdmin");
 
@@ -20,44 +22,15 @@ const adminPassText = document.getElementById("adminPassText");
 const roleInput = document.getElementById("role");
 
 const form = document.getElementById("loginForm");
+const usernameInput = document.getElementById("username");
 const password = document.getElementById("password");
 const togglePass = document.getElementById("togglePass");
 
 const voteStatus = document.getElementById("voteStatus");
 
-// ===============================
-// STATUS UI (STYLING CONTROLLER)
-// ===============================
-function setStatusUI(type, message) {
-  // type: "live" | "wait" | "admin" | "error"
-  const base =
-    "inline-flex items-center gap-[8px] rounded-[10px] px-[10px] py-[6px] text-[11px] font-[800] border";
-
-  // Reset classes safely (only voteStatus element)
-  voteStatus.className = base;
-
-  if (type === "live") {
-    voteStatus.classList.add("bg-green-500/15", "border-green-300/40", "text-green-100");
-    voteStatus.innerHTML = `<span class="text-[12px]">✅</span> ${message}`;
-    return;
-  }
-
-  if (type === "admin") {
-    voteStatus.classList.add("bg-blue-500/15", "border-blue-300/40", "text-blue-100");
-    voteStatus.innerHTML = `<span class="text-[12px]">🔐</span> ${message}`;
-    return;
-  }
-
-  if (type === "error") {
-    voteStatus.classList.add("bg-red-500/15", "border-red-300/40", "text-red-100");
-    voteStatus.innerHTML = `<span class="text-[12px]">⚠️</span> ${message}`;
-    return;
-  }
-
-  // default = wait
-  voteStatus.classList.add("bg-amber-500/15", "border-amber-300/40", "text-amber-100");
-  voteStatus.innerHTML = `<span class="text-[12px]">⏳</span> ${message}`;
-}
+const learnBtn = document.getElementById("learnMoreBtn");
+const modal = document.getElementById("learnModal");
+const closeModal = document.getElementById("closeModal");
 
 // ===============================
 // DEFAULT STATE
@@ -67,33 +40,141 @@ if (localStorage.getItem("voteStarted") === null) {
 }
 
 // ===============================
-// TAB SWITCHING
+// STATUS UI
 // ===============================
-tabAdmin.addEventListener("click", () => {
+function setStatusUI(type, message) {
+
+  const base =
+    "inline-flex items-center gap-[8px] rounded-[12px] px-[12px] py-[7px] text-[12px] font-[700] border-[1px]";
+
+  voteStatus.className = base;
+
+  if (type === "live") {
+    voteStatus.classList.add(
+      "bg-emerald-400/12",
+      "border-emerald-400/30",
+      "text-emerald-100"
+    );
+    voteStatus.innerHTML = `✅ ${message}`;
+    return;
+  }
+
+  if (type === "admin") {
+    voteStatus.classList.add(
+      "bg-blue-400/12",
+      "border-blue-300/30",
+      "text-blue-100"
+    );
+    voteStatus.innerHTML = `🔐 ${message}`;
+    return;
+  }
+
+  if (type === "error") {
+    voteStatus.classList.add(
+      "bg-red-400/12",
+      "border-red-300/30",
+      "text-red-100"
+    );
+    voteStatus.innerHTML = `⚠️ ${message}`;
+    return;
+  }
+
+  voteStatus.classList.add(
+    "bg-amber-400/12",
+    "border-amber-300/30",
+    "text-amber-100"
+  );
+  voteStatus.innerHTML = `⏳ ${message}`;
+}
+
+// ===============================
+// TAB UI STYLING
+// ===============================
+function setActiveTab(activeRole) {
+
+  const activeClasses = [
+    "bg-white/20",
+    "border-white/45",
+    "text-white",
+    "shadow-[0px_8px_20px_rgba(255,255,255,0.08)]"
+  ];
+
+  const inactiveClasses = [
+    "bg-white/10",
+    "border-white/30",
+    "text-white"
+  ];
+
+  tabVoter.classList.remove(...activeClasses);
+  tabAdmin.classList.remove(...activeClasses);
+
+  tabVoter.classList.add(...inactiveClasses);
+  tabAdmin.classList.add(...inactiveClasses);
+
+  if (activeRole === "admin") {
+    tabAdmin.classList.remove(...inactiveClasses);
+    tabAdmin.classList.add(...activeClasses);
+  } else {
+    tabVoter.classList.remove(...inactiveClasses);
+    tabVoter.classList.add(...activeClasses);
+  }
+}
+
+// ===============================
+// CHECK VOTING STATUS
+// ===============================
+function checkVotingStatus() {
+
+  if (localStorage.getItem("voteStarted") === "true") {
+    setStatusUI("live", "Voting LIVE. You may login.");
+  } else {
+    setStatusUI("wait", "Voting not started yet. Wait for Admin.");
+  }
+}
+
+// ===============================
+// SWITCH TO ADMIN
+// ===============================
+function switchToAdmin() {
+
   roleInput.value = "admin";
   adminTools.classList.remove("hidden");
 
-  tabAdmin.classList.add("bg-white/25");
-  tabVoter.classList.remove("bg-white/25");
+  setActiveTab("admin");
+  setStatusUI("admin", "Admin login required to control voting.");
 
-  // was: voteStatus.innerText = ...
-  setStatusUI("admin", "Admin login required to start voting.");
-});
+  adminBox?.classList.add("hidden");
 
-tabVoter.addEventListener("click", () => {
+  usernameInput?.focus();
+}
+
+// ===============================
+// SWITCH TO VOTER
+// ===============================
+function switchToVoter() {
+
   roleInput.value = "voter";
   adminTools.classList.add("hidden");
 
-  tabVoter.classList.add("bg-white/25");
-  tabAdmin.classList.remove("bg-white/25");
+  adminBox?.classList.add("hidden");
 
+  setActiveTab("voter");
   checkVotingStatus();
-});
+
+  usernameInput?.focus();
+}
 
 // ===============================
-// SHOW ADMIN DETAILS BUTTON
+// TAB EVENTS
 // ===============================
-showBtn.addEventListener("click", () => {
+tabAdmin?.addEventListener("click", switchToAdmin);
+tabVoter?.addEventListener("click", switchToVoter);
+
+// ===============================
+// SHOW ADMIN DETAILS
+// ===============================
+showBtn?.addEventListener("click", () => {
+
   adminUserText.textContent = ADMIN.username;
   adminPassText.textContent = ADMIN.password;
 
@@ -103,7 +184,8 @@ showBtn.addEventListener("click", () => {
 // ===============================
 // PASSWORD TOGGLE
 // ===============================
-togglePass.addEventListener("click", () => {
+togglePass?.addEventListener("click", () => {
+
   if (password.type === "password") {
     password.type = "text";
     togglePass.textContent = "HIDE";
@@ -114,97 +196,104 @@ togglePass.addEventListener("click", () => {
 });
 
 // ===============================
-// CHECK VOTING STATUS
-// ===============================
-function checkVotingStatus() {
-  if (localStorage.getItem("voteStarted") === "true") {
-    setStatusUI("live", "Voting LIVE. You may login.");
-  } else {
-    setStatusUI("wait", "Voting not started yet. Wait for Admin.");
-  }
-}
-
-checkVotingStatus();
-
-// ===============================
 // LOGIN LOGIC
 // ===============================
-form.addEventListener("submit", (e) => {
+form?.addEventListener("submit", (e) => {
+
   e.preventDefault();
 
-  const username = document.getElementById("username").value.trim();
-  const pass = document.getElementById("password").value.trim();
+  const username = usernameInput.value.trim();
+  const pass = password.value.trim();
   const role = roleInput.value;
 
   // ========= ADMIN LOGIN =========
   if (role === "admin") {
+
     if (username === ADMIN.username && pass === ADMIN.password) {
+
       alert("Admin Login Successful ✅");
 
-      // Admin starts vote automatically
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("userRole", "admin");
+
       localStorage.setItem("voteStarted", "true");
 
-      window.location.href = "admin-dashboard.html";
+      window.location.href = "dashboard.html";
+
     } else {
+
       alert("Invalid Admin Credentials ❌");
       setStatusUI("error", "Invalid Admin Credentials.");
+
     }
+
     return;
   }
 
   // ========= VOTER LOGIN =========
   if (localStorage.getItem("voteStarted") !== "true") {
+
     alert("Voting not started yet!");
     setStatusUI("wait", "Voting not started yet. Wait for Admin.");
     return;
   }
 
   if (username === "" || pass === "") {
+
     alert("Enter voter credentials");
     setStatusUI("error", "Please enter voter credentials.");
     return;
   }
 
   alert("Voter Login Successful ✅");
-  window.location.href = "voter-dashboard.html";
+
+  localStorage.setItem("isLoggedIn", "true");
+  localStorage.setItem("userRole", "voter");
+  localStorage.setItem("voterName", username);
+
+window.location.href = "dashboard.html";
 });
 
 // ===============================
 // LEARN MORE MODAL
 // ===============================
-const learnBtn = document.getElementById("learnMoreBtn");
-const modal = document.getElementById("learnModal");
-const closeModal = document.getElementById("closeModal");
-
 learnBtn?.addEventListener("click", () => {
+
   modal.classList.remove("hidden");
   modal.classList.add("flex");
+
 });
 
-closeModal?.addEventListener("click", () => {
+function closeLearnModal() {
+
   modal.classList.add("hidden");
-});
+  modal.classList.remove("flex");
 
-// close when clicking outside
+}
+
+closeModal?.addEventListener("click", closeLearnModal);
+
 modal?.addEventListener("click", (e) => {
+
   if (e.target === modal) {
-    modal.classList.add("hidden");
+    closeLearnModal();
   }
+
+});
+
+document.addEventListener("keydown", (e) => {
+
+  if (e.key === "Escape" && modal && !modal.classList.contains("hidden")) {
+    closeLearnModal();
+  }
+
 });
 
 // ===============================
-// RESET VOTING (ADMIN ONLY)
+// INITIAL PAGE LOAD STATE
 // ===============================
-const resetVoteBtn = document.getElementById("resetVoteBtn");
+switchToVoter();
 
-resetVoteBtn?.addEventListener("click", () => {
-  if (roleInput.value !== "admin") {
-    alert("Access denied. Only Admin can reset voting.");
-    setStatusUI("error", "Access denied. Admin only.");
-    return;
-  }
+password.type = "password";
 
-  localStorage.setItem("voteStarted", "false");
-  alert("Voting reset successful. Voters are blocked until Admin starts again.");
-  checkVotingStatus();
-});
+if (togglePass) togglePass.textContent = "SHOW";
