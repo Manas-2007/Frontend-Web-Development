@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurent : Order Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div class="container">
+        <h1>Restaurent - Order Budget Calculator</h1>
+
+        <div class="items">
+            <div>
+                <img src="https://png.pngtree.com/png-vector/20241211/ourmid/pngtree-authentic-italian-pizza-with-cheese-and-fresh-vegetable-toppings-png-image_14714611.png" alt="pizza">
+                <button onclick="pizza();">ADD</button>
+                <h3 id="pizza" ></h3>
+            </div>
+
+
+            <div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIU61jrScLAZ30mXh9W_mf0wK5xfTJPKROyw&s" alt="Chocolates">
+                <button  onclick="chocolate();">ADD</button>
+                <h3 id="Chocolates"></h3>
+            </div>
+            
+
+            <div>
+                <img src="https://www.warmoven.in/cdn/shop/files/duel-delight-chocolate_-cake.jpg?v=1749833568&width=1080" alt="Cakes">
+                <button onclick="cake();">ADD</button>
+                <h3 id="cakes" ></h3>
+            </div>
+        </div>
+        
+       <button class="order-btn" onclick="ordernow()">ORDER NOW</button>
+
+<h2 class="bill"></h2>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
