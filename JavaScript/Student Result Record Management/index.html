@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result Record Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="overlay"></div>
+
+    <div class="container">
+
+        <div class="header">
+            <p class="subheading">JavaScript Mini Project</p>
+            <h2 class="title">Student Result Record Management</h2>
+            <p class="description">
+                Save, load, remove and display student records with a clean interface.
+            </p>
+        </div>
+
+        <div class="features">
+            <button class="add" onclick="alert('Enter Student Information Below :')">Add Student</button>
+            <button class="load" onclick="displaystudent()">Load Student</button>
+            <button class="remove" onclick="removestudent();">Remove Student</button>
+            <button class="result" onclick="resultstudent();">Display Result</button>
+        </div>
+
+        <div class="main-content">
+
+            <div class="form-section">
+                <h3>Enter Student Details</h3>
+
+                <div class="input-group">
+                    <label for="studentName">Student Name</label>
+                    <input type="text" id="studentName" placeholder="Enter student name">
+                </div>
+
+                <div class="input-group">
+                    <label for="rollNumber">Roll Number</label>
+                    <input type="number" id="rollNumber" placeholder="Enter roll number">
+                </div>
+
+                <div class="input-group">
+                    <label for="courseName">Course</label>
+                    <input type="text" id="courseName" placeholder="Enter course name">
+                </div>
+
+                <div class="input-group">
+                    <label for="marks">Marks</label>
+                    <input type="number" id="marks" placeholder="Enter marks">
+                </div>
+
+                <div class="input-group">
+                    <label for="attendance">Attendance (%)</label>
+                    <input type="number" id="attendance" placeholder="Enter attendance percentage">
+                </div>
+
+                <button class="save" onclick="addstudent();">Save Student</button>
+            </div>
+
+            <div class="display-section">
+                <h3>Student Information</h3>
+
+                <div class="student-card">
+                    <div class="student-row">
+                        <span class="label">Name</span>
+                        <span class="value" id="displayName">Not Available</span>
+                    </div>
+
+                    <div class="student-row">
+                        <span class="label">Roll Number</span>
+                        <span class="value" id="displayRoll">Not Available</span>
+                    </div>
+
+                    <div class="student-row">
+                        <span class="label">Course</span>
+                        <span class="value" id="displayCourse">Not Available</span>
+                    </div>
+
+                    <div class="student-row">
+                        <span class="label">Marks</span>
+                        <span class="value" id="displayMarks">Not Available</span>
+                    </div>
+
+                    <div class="student-row">
+                        <span class="label">Attendance</span>
+                        <span class="value" id="displayAttendance">Not Available</span>
+                    </div>
+
+                    <div class="student-row highlight">
+                        <span class="label">Result</span>
+                        <span class="value" id="displayResult">Not Available</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
