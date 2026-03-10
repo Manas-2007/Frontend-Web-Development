@@ -1,105 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Result Record Management</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>School Result Management System</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <div class="overlay"></div>
+  <div class="container">
 
-    <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>School Result Management System</h1>
+      <p>Add student marks and view records easily</p>
+    </header>
 
-        <div class="header">
-            <p class="subheading">JavaScript Mini Project</p>
-            <h2 class="title">Student Result Record Management</h2>
-            <p class="description">
-                Save, load, remove and display student records with a clean interface.
-            </p>
+    <!-- Form Section -->
+    <section class="form-card">
+      <h2>Add Student Result</h2>
+
+      <form class="student-form">
+        <div class="input-group">
+          <label for="name">Student Name</label>
+          <input type="text" id="name" placeholder="Enter student name"  />
         </div>
 
-        <div class="features">
-            <button class="add" onclick="alert('Enter Student Information Below :')">Add Student</button>
-            <button class="load" onclick="displaystudent()">Load Student</button>
-            <button class="remove" onclick="removestudent();">Remove Student</button>
-            <button class="result" onclick="resultstudent();">Display Result</button>
+        <div class="input-group">
+          <label for="roll">Roll Number</label>
+          <input type="number" id="roll" placeholder="Enter roll number" />
         </div>
 
-        <div class="main-content">
-
-            <div class="form-section">
-                <h3>Enter Student Details</h3>
-
-                <div class="input-group">
-                    <label for="studentName">Student Name</label>
-                    <input type="text" id="studentName" placeholder="Enter student name">
-                </div>
-
-                <div class="input-group">
-                    <label for="rollNumber">Roll Number</label>
-                    <input type="number" id="rollNumber" placeholder="Enter roll number">
-                </div>
-
-                <div class="input-group">
-                    <label for="courseName">Course</label>
-                    <input type="text" id="courseName" placeholder="Enter course name">
-                </div>
-
-                <div class="input-group">
-                    <label for="marks">Marks</label>
-                    <input type="number" id="marks" placeholder="Enter marks">
-                </div>
-
-                <div class="input-group">
-                    <label for="attendance">Attendance (%)</label>
-                    <input type="number" id="attendance" placeholder="Enter attendance percentage">
-                </div>
-
-                <button class="save" onclick="addstudent();">Save Student</button>
-            </div>
-
-            <div class="display-section">
-                <h3>Student Information</h3>
-
-                <div class="student-card">
-                    <div class="student-row">
-                        <span class="label">Name</span>
-                        <span class="value" id="displayName">Not Available</span>
-                    </div>
-
-                    <div class="student-row">
-                        <span class="label">Roll Number</span>
-                        <span class="value" id="displayRoll">Not Available</span>
-                    </div>
-
-                    <div class="student-row">
-                        <span class="label">Course</span>
-                        <span class="value" id="displayCourse">Not Available</span>
-                    </div>
-
-                    <div class="student-row">
-                        <span class="label">Marks</span>
-                        <span class="value" id="displayMarks">Not Available</span>
-                    </div>
-
-                    <div class="student-row">
-                        <span class="label">Attendance</span>
-                        <span class="value" id="displayAttendance">Not Available</span>
-                    </div>
-
-                    <div class="student-row highlight">
-                        <span class="label">Result</span>
-                        <span class="value" id="displayResult">Not Available</span>
-                    </div>
-                </div>
-            </div>
-
+        <div class="input-group">
+          <label for="class">Class</label>
+          <input type="text" id="class" placeholder="Enter class" />
         </div>
 
-    </div>
+        <div class="marks-grid">
+          <div class="input-group">
+            <label for="sub1">Subject 1 Marks</label>
+            <input type="number" id="sub1" placeholder="0 - 100" />
+          </div>
 
-    <script src="script.js"></script>
+          <div class="input-group">
+            <label for="sub2">Subject 2 Marks</label>
+            <input type="number" id="sub2" placeholder="0 - 100" />
+          </div>
+
+          <div class="input-group">
+            <label for="sub3">Subject 3 Marks</label>
+            <input type="number" id="sub3" placeholder="0 - 100" />
+          </div>
+
+          <div class="input-group">
+            <label for="sub4">Subject 4 Marks</label>
+            <input type="number" id="sub4" placeholder="0 - 100" />
+          </div>
+
+          <div class="input-group">
+            <label for="sub5">Subject 5 Marks</label>
+            <input type="number" id="sub5" placeholder="0 - 100" />
+          </div>
+        </div>
+
+        <button type="button" class="add-btn" onclick="adddata();">Add Result</button>
+      </form>
+    </section>
+
+    <!-- Summary Section -->
+    <section class="summary-section">
+      <div class="summary-card">
+        <h3>Total Students</h3>
+        <p class="total_count">0</p>
+      </div>
+
+      <div class="summary-card">
+        <h3>Passed Students</h3>
+        <p class="pass_count">0</p>
+      </div>
+
+      <div class="summary-card">
+        <h3>Failed Students</h3>
+        <p class="fail_count">0</p>
+      </div>
+
+      <div class="summary-card">
+        <h3>Highest %</h3>
+        <p class="high_percent">0%</p>
+      </div>
+    </section>
+
+    <!-- Table Section -->
+    <section class="table-card">
+      <div class="table-header">
+        <h2>Student Records</h2>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Roll No</th>
+              <th>Name</th>
+              <th>Class</th>
+              <th>Total</th>
+              <th>Percentage</th>
+              <th>Result</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>101</td>
+              <td>Manas</td>
+              <td>B.Tech 1st Year</td>
+              <td>430</td>
+              <td>86%</td>
+              <td><span class="result pass">Pass</span></td>
+              <td><button class="delete-btn">Delete</button></td>
+            </tr>
+
+            <tr>
+              <td>102</td>
+              <td>Rahul</td>
+              <td>B.Tech 1st Year</td>
+              <td>180</td>
+              <td>36%</td>
+              <td><span class="result fail">Fail</span></td>
+              <td><button class="delete-btn">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,66 +1,78 @@
-//Add student function
-function addstudent()
-{
-    let sname=document.querySelector('#studentName').value;
-    let sno=document.querySelector('#rollNumber').value;
-    let scourse=document.querySelector('#courseName').value;
-    let smarks=document.querySelector('#marks').value;
-    let sattend=document.querySelector('#attendance').value;
-    let student_data={
-    name:sname,
-    roll:sno,
-    course:scourse,
-    marks:smarks,
-    attendance:sattend,
-    };
-    localStorage.setItem("Student 1",JSON.stringify(student_data))
-    alert("Student Successfully Added");   
-    document.querySelector('#studentName').value = "";
-    document.querySelector('#rollNumber').value = "";
-    document.querySelector('#courseName').value = "";
-    document.querySelector('#marks').value = "";
-    document.querySelector('#attendance').value = "";
-}
+let nameElement=document.querySelector('#name');
+let rollElement=document.querySelector('#roll'); 
+let classElement=document.querySelector('#class');
+let sub1Element=document.querySelector('#sub1');
+let sub2Element=document.querySelector('#sub2');
+let sub3Element=document.querySelector('#sub3');
+let sub4Element=document.querySelector('#sub4');
+let sub5Element=document.querySelector('#sub5');
 
-//Display record function
-function displaystudent()
-{
-    let student_details=JSON.parse(localStorage.getItem("Student 1"));
-    document.querySelector('#displayName').innerText=student_details.name;
-    document.querySelector('#displayRoll').innerText=student_details.roll;
-    document.querySelector('#displayCourse').innerText=student_details.course;
-    document.querySelector('#displayMarks').innerText=student_details.marks;
-    document.querySelector('#displayAttendance').innerText=student_details.attendance;
+let total_pass=0,total_fail=0,highest_marks,total_students=0;
+let students=[];
 
-   
-}
+//add function
+function adddata()
+{
+    total_students++;
+    let nameValue=nameElement.value;
+    let rollValue=rollElement.value;
+    let classValue=classElement.value;
+    let sub1Value = Number(sub1Element.value);
+let sub2Value = Number(sub2Element.value);
+let sub3Value = Number(sub3Element.value);
+let sub4Value = Number(sub4Element.value);
+let sub5Value = Number(sub5Element.value);
 
-//Delete Record Function
-function removestudent()
-{
-    JSON.parse(localStorage.getItem("Student 1"));
-    localStorage.removeItem("Student 1");
-    alert("Student Successfully Removed");
-    document.querySelector('#displayName').innerText = "Not Available";
-    document.querySelector('#displayRoll').innerText = "Not Available";
-    document.querySelector('#displayCourse').innerText = "Not Available";
-    document.querySelector('#displayMarks').innerText = "Not Available";
-    document.querySelector('#displayAttendance').innerText = "Not Available";
-    document.querySelector('#displayResult').innerText="Not Available";  
-         
-         
-}
-//Result function
-function resultstudent()
-{
-    alert("Result is available below");
-    displaystudent();
-    let student_details=JSON.parse(localStorage.getItem("Student 1"))
-     if(student_details.marks>=33)
+    let totalMarks=(sub1Value+sub2Value+sub3Value+sub4Value+sub5Value);
+    let percent=(totalMarks/500)*100;
+
+    //Passing cateogory
+    let result_status;
+    if(sub1Value>=33 && sub2Value>=33&&sub3Value>=33 && sub4Value>=33&&sub5Value>=33)
     {
-        document.querySelector('#displayResult').innerText="PASS";
+        total_pass++;
+        result_status="PASS";
+        
     }
     else{
-         document.querySelector('#displayResult').innerText="FAIL";
-        }
+        total_fail++;
+        result_status="FAIL";
+    }
+
+    //Object record
+    let data={
+        name:nameValue,
+        roll:rollValue,
+        classes:classValue,
+        total:totalMarks,
+        percentage:percent,
+        Result:result_status,
+    };
+
+    students.push(data);
+
+alert("DATA SUCCESSFULLY ADDED")
+sub1Element.value="";
+sub2Element.value="";
+sub3Element.value="";
+sub4Element.value="";
+sub5Element.value="";
+classElement.value="";
+nameElement.value="";
+rollElement.value="";
+
+//Displaying the records
+let totalStudentElement=document.querySelector('.total_count');
+totalStudentElement.innerText=total_students;
+
+let failElement=document.querySelector('.fail_count');
+failElement.innerText=total_fail;
+
+let passElement=document.querySelector('.pass_count');
+passElement.innerText=total_pass;
+
+
+
+
 }
+ 
