@@ -274,8 +274,12 @@ voteButtons.forEach((btn) => {
     selectedParty = btn.dataset.party;
     const img = btn.dataset.img;
 
-    if (modalPartyName) modalPartyName.textContent = selectedParty;
-    if (modalPartyImg) modalPartyImg.src = img;
+    if (modalPartyName) modalPartyName.textContent = selectedParty || "Selected Party";
+
+    if (modalPartyImg) {
+      modalPartyImg.src = img || "";
+      modalPartyImg.alt = selectedParty || "Party Symbol";
+    }
 
     voteModal?.classList.remove("hidden");
     voteModal?.classList.add("flex");
@@ -375,7 +379,8 @@ function updateLiveVoteNavbarStatus() {
   if (started && !ended) {
     liveDot.className = "w-[10px] h-[10px] rounded-full bg-[rgb(34,197,94)]";
     liveText.textContent = "LIVE NOW";
-    liveText.className = "text-[13px] font-[700] text-[rgb(21,128,61)] tracking-[0.4px]";
+    liveText.className =
+      "text-[13px] font-[700] text-[rgb(21,128,61)] tracking-[0.4px]";
     voteLiveBox.className =
       "inline-flex items-center gap-[8px] bg-[linear-gradient(90deg,rgba(240,253,244,1)_0%,rgba(220,252,231,1)_100%)] border-[1px] border-[rgba(34,197,94,0.20)] px-[14px] py-[9px] rounded-[999px] shadow-[0px_8px_20px_rgba(34,197,94,0.10)]";
     return;
@@ -384,7 +389,8 @@ function updateLiveVoteNavbarStatus() {
   if (!started && ended) {
     liveDot.className = "w-[10px] h-[10px] rounded-full bg-[rgb(239,68,68)]";
     liveText.textContent = "VOTING CLOSED";
-    liveText.className = "text-[13px] font-[700] text-[rgb(185,28,28)] tracking-[0.4px]";
+    liveText.className =
+      "text-[13px] font-[700] text-[rgb(185,28,28)] tracking-[0.4px]";
     voteLiveBox.className =
       "inline-flex items-center gap-[8px] bg-[linear-gradient(90deg,rgba(254,242,242,1)_0%,rgba(255,228,230,1)_100%)] border-[1px] border-[rgba(239,68,68,0.20)] px-[14px] py-[9px] rounded-[999px] shadow-[0px_8px_20px_rgba(239,68,68,0.10)]";
     return;
@@ -392,10 +398,11 @@ function updateLiveVoteNavbarStatus() {
 
   liveDot.className = "w-[10px] h-[10px] rounded-full bg-[rgb(107,114,128)]";
   liveText.textContent = "NOT STARTED";
-  liveText.className = "text-[13px] font-[700] text-[rgb(71,85,105)] tracking-[0.4px]";
+  liveText.className =
+    "text-[13px] font-[700] text-[rgb(71,85,105)] tracking-[0.4px]";
   voteLiveBox.className =
     "inline-flex items-center gap-[8px] bg-[linear-gradient(90deg,rgba(248,250,252,1)_0%,rgba(241,245,249,1)_100%)] border-[1px] border-[rgba(148,163,184,0.20)] px-[14px] py-[9px] rounded-[999px] shadow-[0px_8px_20px_rgba(15,23,42,0.06)]";
-  }
+}
 
 updateElectionStateUI();
 updateLiveVoteNavbarStatus();
@@ -411,6 +418,17 @@ function updateVoteButtonsState() {
   voteButtons.forEach((btn) => {
     btn.disabled = false;
     btn.classList.remove("opacity-50", "cursor-not-allowed");
+
+    // ADMIN VIEW
+    if (currentRole === "admin") {
+      btn.disabled = true;
+      btn.textContent = "Admin Only Access";
+      btn.classList.add("opacity-50", "cursor-not-allowed");
+      return;
+    }
+
+    // VOTER VIEW
+    btn.textContent = "Vote";
 
     if (!started || ended) {
       btn.disabled = true;
@@ -440,6 +458,8 @@ startVotingBtn?.addEventListener("click", () => {
   updateElectionStateUI();
   updateVoteButtonsState();
   updateLiveVoteNavbarStatus();
+  updateResultStatusUI();
+  loadPublishedResultsIfAvailable();
 
   alert("Voting has started successfully ✅");
 });
@@ -457,6 +477,7 @@ stopVotingBtn?.addEventListener("click", () => {
   updateElectionStateUI();
   updateVoteButtonsState();
   updateLiveVoteNavbarStatus();
+  updateResultStatusUI();
 
   alert("Voting has been stopped ✅");
 });
@@ -488,6 +509,7 @@ resetVotingBtn?.addEventListener("click", () => {
 
   updateElectionStateUI();
   updateLiveVoteNavbarStatus();
+  updateResultStatusUI();
 
   alert("Voting reset successfully ✅");
   window.location.reload();
@@ -497,7 +519,29 @@ resetVotingBtn?.addEventListener("click", () => {
 // RESULT DATA CALCULATION
 // ===============================
 function getAllPartyVotes() {
+  const allParties = [
+    "Bharatiya Janata Party (BJP)",
+    "Indian National Congress (INC)",
+    "Aam Aadmi Party (AAP)",
+    "Bahujan Samaj Party (BSP)",
+    "Communist Party of India (CPI)",
+    "Communist Party of India (Marxist) – CPI(M)",
+    "National People's Party (NPP)",
+    "Nationalist Congress Party (NCP)",
+    "Samajwadi Party (SP)",
+    "Shiv Sena",
+    "Janata Dal (United) – JD(U)",
+    "Rashtriya Janata Dal (RJD)",
+    "Trinamool Congress (TMC)",
+    "Telugu Desam Party (TDP)",
+    "Dravida Munnetra Kazhagam (DMK)"
+  ];
+
   const partyVoteMap = {};
+
+  allParties.forEach((party) => {
+    partyVoteMap[party] = 0;
+  });
 
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
@@ -505,11 +549,9 @@ function getAllPartyVotes() {
     if (key.startsWith("votedParty_")) {
       const partyName = localStorage.getItem(key);
 
-      if (!partyVoteMap[partyName]) {
-        partyVoteMap[partyName] = 0;
+      if (partyVoteMap.hasOwnProperty(partyName)) {
+        partyVoteMap[partyName]++;
       }
-
-      partyVoteMap[partyName]++;
     }
   }
 
@@ -519,65 +561,150 @@ function getAllPartyVotes() {
 }
 
 // ===============================
+// RESULT STATUS BADGE UI
+// ===============================
+function updateResultStatusUI() {
+  const resultStatusDot = document.getElementById("resultStatusDot");
+  const resultStatusText = document.getElementById("resultStatusText");
+
+  if (!resultStatusDot || !resultStatusText) return;
+
+  const resultShown = localStorage.getItem("resultShown") === "true";
+
+  if (resultShown) {
+    resultStatusDot.className =
+      "w-[11px] h-[11px] rounded-full bg-[rgb(34,197,94)]";
+    resultStatusText.textContent = "RESULT PUBLISHED";
+    resultStatusText.className =
+      "text-[14px] font-[800] tracking-[0.5px] text-[rgb(21,128,61)]";
+  } else {
+    resultStatusDot.className =
+      "w-[11px] h-[11px] rounded-full bg-[rgb(148,163,184)]";
+    resultStatusText.textContent = "RESULT LOCKED";
+    resultStatusText.className =
+      "text-[14px] font-[800] tracking-[0.5px] text-[rgb(71,85,105)]";
+  }
+}
+
+// ===============================
 // RENDER RESULT BOARD
 // ===============================
 function renderResults() {
+  const resultList = document.getElementById("resultList");
+  const winnerSummary = document.getElementById("winnerSummary");
+
   if (!resultList) return;
 
   const results = getAllPartyVotes();
+  const totalVotes = results.reduce((sum, item) => sum + item.votes, 0);
+
   resultList.innerHTML = "";
+
+  if (winnerSummary) {
+    winnerSummary.innerHTML = "";
+  }
 
   if (results.length === 0) {
     resultList.innerHTML = `
       <div class="rounded-[20px] border-[1px] border-[rgb(203,213,225)]
       bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-      p-[18px] text-center text-[rgb(71,85,105)] font-[700]">
-        No votes have been recorded yet.
+      p-[20px] text-center">
+        <p class="text-[18px] font-[800] text-[rgb(15,23,42)]">No results available</p>
+        <p class="mt-[6px] text-[14px] font-[600] text-[rgb(100,116,139)]">
+          No votes have been recorded yet for this election.
+        </p>
       </div>
     `;
     return;
   }
 
+  const winner = results[0];
+  const winnerPercent =
+    totalVotes > 0 ? ((winner.votes / totalVotes) * 100).toFixed(1) : "0.0";
+
+  if (winnerSummary) {
+    winnerSummary.innerHTML = `
+      <div class="flex items-start justify-between gap-[18px] flex-wrap">
+        <div class="flex-1 min-w-[280px]">
+          <div class="inline-flex items-center gap-[8px] px-[12px] py-[7px]
+          rounded-[999px] border-[1px] border-[rgba(34,197,94,0.18)]
+          bg-[rgba(34,197,94,0.08)]">
+            <span class="w-[8px] h-[8px] rounded-full bg-[rgb(34,197,94)]"></span>
+            <span class="text-[12px] font-[800] tracking-[0.5px] text-[rgb(21,128,61)]">
+              WINNING PARTY
+            </span>
+          </div>
+
+          <h3 class="mt-[16px] text-[34px] font-[900] leading-[1.12] text-[rgb(15,23,42)]">
+            ${winner.party}
+          </h3>
+
+          <p class="mt-[10px] text-[15px] leading-[1.8] font-[500] text-[rgb(71,85,105)] max-w-[760px]">
+            This party secured the highest number of valid votes in the final published election result and is ranked at the top position.
+          </p>
+        </div>
+
+        <div class="w-[230px] rounded-[24px]
+        border-[1px] border-[rgb(203,213,225)]
+        bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
+        p-[18px] shadow-[0px_10px_24px_rgba(15,23,42,0.06)]">
+          <p class="text-[12px] font-[800] tracking-[0.5px] text-[rgb(100,116,139)]">TOTAL VOTES</p>
+          <p class="mt-[8px] text-[36px] font-[900] leading-[1] text-[rgb(15,23,42)]">${winner.votes}</p>
+
+          <div class="mt-[14px] h-[10px] w-[100%] rounded-[999px] bg-[rgb(226,232,240)] overflow-hidden">
+            <div class="h-[10px] rounded-[999px]
+            bg-[linear-gradient(90deg,rgba(22,163,74,1)_0%,rgba(34,197,94,1)_100%)]"
+            style="width:${winnerPercent}%"></div>
+          </div>
+
+          <p class="mt-[10px] text-[13px] font-[700] text-[rgb(71,85,105)]">
+            Vote Share: ${winnerPercent}%
+          </p>
+        </div>
+      </div>
+    `;
+  }
+
   results.forEach((item, index) => {
-    const isWinner = index === 0;
+    const percentage =
+      totalVotes > 0 ? ((item.votes / totalVotes) * 100).toFixed(1) : "0.0";
 
     const row = document.createElement("div");
     row.className = `
-      rounded-[22px] border-[1px] p-[18px]
-      ${
-        isWinner
-          ? "border-[rgba(234,179,8,0.20)] bg-[linear-gradient(135deg,rgba(254,249,195,1)_0%,rgba(255,255,255,1)_100%)] shadow-[0px_12px_28px_rgba(234,179,8,0.12)]"
-          : "border-[rgb(203,213,225)] bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)] shadow-[0px_10px_20px_rgba(15,23,42,0.06)]"
-      }
+      grid grid-cols-[120px_1fr_180px] gap-[14px]
+      items-center px-[24px] py-[18px]
+      bg-white hover:bg-[rgb(248,250,252)]
+      transition duration-[200ms]
     `;
 
     row.innerHTML = `
-      <div class="flex items-center justify-between gap-[16px]">
-        <div class="flex items-center gap-[14px]">
-          <div class="w-[48px] h-[48px] rounded-[16px]
-          ${
-            isWinner
-              ? "bg-[linear-gradient(135deg,rgba(253,230,138,1)_0%,rgba(254,249,195,1)_100%)] text-[rgb(133,77,14)]"
-              : "bg-[linear-gradient(135deg,rgba(241,245,249,1)_0%,rgba(226,232,240,1)_100%)] text-[rgb(71,85,105)]"
-          }
-          flex items-center justify-center text-[20px] font-[900]">
-            ${index + 1}
-          </div>
-
-          <div>
-            <p class="text-[22px] font-[900] text-[rgb(15,23,42)]">
-              ${item.party} ${isWinner ? "👑" : ""}
-            </p>
-            <p class="mt-[4px] text-[13px] font-[600] text-[rgb(100,116,139)]">
-              ${isWinner ? "Leading / Winner Party" : "Election Party"}
-            </p>
-          </div>
+      <div>
+        <div class="inline-flex items-center justify-center
+        min-w-[52px] h-[52px] px-[14px]
+        rounded-[16px]
+        border-[1px]
+        ${
+          index === 0
+            ? "border-[rgba(34,197,94,0.18)] bg-[rgba(34,197,94,0.08)] text-[rgb(21,128,61)]"
+            : "border-[rgb(226,232,240)] bg-[rgb(248,250,252)] text-[rgb(51,65,85)]"
+        }
+        text-[18px] font-[900]">
+          ${index + 1}
         </div>
+      </div>
 
-        <div class="text-right">
-          <p class="text-[12px] font-[800] tracking-[0.5px] text-[rgb(100,116,139)]">TOTAL VOTES</p>
-          <p class="mt-[6px] text-[28px] font-[900] text-[rgb(15,23,42)]">${item.votes}</p>
-        </div>
+      <div>
+        <p class="text-[20px] font-[800] text-[rgb(15,23,42)]">
+          ${item.party}
+        </p>
+        <p class="mt-[5px] text-[13px] font-[600] text-[rgb(100,116,139)]">
+          ${index === 0 ? "Winning party" : "Election party"} • ${percentage}% vote share
+        </p>
+      </div>
+
+      <div class="text-right">
+        <p class="text-[28px] font-[900] leading-[1] text-[rgb(15,23,42)]">${item.votes}</p>
+        <p class="mt-[6px] text-[12px] font-[700] tracking-[0.5px] text-[rgb(100,116,139)]">VOTES</p>
       </div>
     `;
 
@@ -600,7 +727,9 @@ showResultBtn?.addEventListener("click", () => {
   }
 
   localStorage.setItem("resultShown", "true");
+
   renderResults();
+  updateResultStatusUI();
 
   if (resultBoard) {
     resultBoard.classList.remove("hidden");
@@ -621,15 +750,45 @@ showResultBtn?.addEventListener("click", () => {
 // ===============================
 // LOAD RESULT IF ALREADY SHOWN
 // ===============================
-if (localStorage.getItem("resultShown") === "true") {
-  renderResults();
+function loadPublishedResultsIfAvailable() {
+  const resultShown = localStorage.getItem("resultShown") === "true";
 
-  if (resultBoard) {
-    resultBoard.classList.remove("hidden");
-  }
-
+  const resultBoard = document.getElementById("resultBoard");
   const lockedCard = document.getElementById("lockedResultCard");
-  if (lockedCard) {
-    lockedCard.classList.add("hidden");
+
+  updateResultStatusUI();
+
+  if (resultShown) {
+    renderResults();
+
+    if (resultBoard) {
+      resultBoard.classList.remove("hidden");
+    }
+
+    if (lockedCard) {
+      lockedCard.classList.add("hidden");
+    }
+  } else {
+    if (resultBoard) {
+      resultBoard.classList.add("hidden");
+    }
+
+    if (lockedCard) {
+      lockedCard.classList.remove("hidden");
+    }
   }
 }
+
+loadPublishedResultsIfAvailable();
+
+//Go to parties & read instructions (home tab)
+const goToPartiesBtn = document.getElementById("goToPartiesBtn");
+const readInstructionsBtn = document.getElementById("readInstructionsBtn");
+
+goToPartiesBtn?.addEventListener("click", () => {
+  showTab("parties");
+});
+
+readInstructionsBtn?.addEventListener("click", () => {
+  showTab("how");
+});

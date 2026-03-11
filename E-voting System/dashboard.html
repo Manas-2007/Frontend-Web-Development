@@ -440,18 +440,18 @@ NOT LIVE
 
           <div class="mt-[14px] grid grid-cols-1 gap-[12px]">
 
-            <button
-              class="w-full px-[16px] py-[13px] rounded-[16px] font-[800] text-[15px]
-              bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
-              text-white border-[1px] border-[rgba(15,23,42,0.10)]
-              shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
-              hover:shadow-[0px_18px_34px_rgba(15,23,42,0.24)]
-              hover:-translate-y-[2px] hover:bg-[linear-gradient(90deg,rgba(30,41,59,1)_0%,rgba(51,65,85,1)_100%)]
-              duration-[250ms]">
-              Go to Parties
-            </button>
+                    <button id="goToPartiesBtn"
+            class="w-full px-[16px] py-[13px] rounded-[16px] font-[800] text-[15px]
+            bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
+            text-white border-[1px] border-[rgba(15,23,42,0.10)]
+            shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
+            hover:shadow-[0px_18px_34px_rgba(15,23,42,0.24)]
+            hover:-translate-y-[2px] hover:bg-[linear-gradient(90deg,rgba(30,41,59,1)_0%,rgba(51,65,85,1)_100%)]
+            duration-[250ms]">
+            Go to Parties
+          </button>
 
-            <button
+            <button id="readInstructionsBtn"
               class="w-full px-[16px] py-[13px] rounded-[16px] font-[800] text-[15px]
               bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
               text-[rgb(15,23,42)] border-[1px] border-[rgb(203,213,225)]
@@ -970,7 +970,8 @@ shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-         voteBt duration-[ voteBtn250ms]  voteBtn" >
+         voteBt duration-[ voteBtn250ms]  voteBtn " data-party="Indian National Congress (INC)"
+data-img="Photos/inc.jpg" >
           Vote
         </button>
       </div>
@@ -1012,7 +1013,8 @@ shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn">
+          duration-[250ms] voteBtn" data-party="Indian National Congress (INC)"
+data-img="Photos/inc.jpg">
           Vote
         </button>
       </div>
@@ -1054,7 +1056,8 @@ shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn">
+          duration-[250ms] voteBtn" data-party="Aam Aadmi Party (AAP)"
+data-img="Photos/aap.jpg">
           Vote
         </button>
       </div>
@@ -1096,7 +1099,8 @@ shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn">
+          duration-[250ms] voteBtn" data-party="Bahujan Samaj Party (BSP)"
+data-img="Photos/bsp.jpg">
           Vote
         </button>
       </div>
@@ -1138,7 +1142,8 @@ shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn">
+          duration-[250ms] voteBtn" data-party="Communist Party of India (CPI)"
+data-img="Photos/cpi.jpg">
           Vote
         </button>
       </div>
@@ -1180,7 +1185,8 @@ shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn">
+          duration-[250ms] voteBtn" data-party="Communist Party of India (Marxist) – CPI(M)"
+data-img="Photos/cpim.jpg">
           Vote
         </button>
       </div>
@@ -1222,7 +1228,8 @@ shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn">
+          duration-[250ms] voteBtn" data-party="National People's Party (NPP)"
+data-img="Photos/npp.jpg">
           Vote
         </button>
       </div>
@@ -1264,7 +1271,8 @@ shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn">
+          duration-[250ms] voteBtn" data-party="Samajwadi Party (SP)"
+data-img="Photos/sp.jpg">
           Vote
         </button>
       </div>
@@ -1306,7 +1314,8 @@ shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn">
+          duration-[250ms] voteBtn" data-party="Samajwadi Party (SP)"
+data-img="Photos/sp.jpg">
           Vote
         </button>
       </div>
@@ -1348,7 +1357,8 @@ shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn">
+          duration-[250ms] voteBtn" data-party="Shiv Sena"
+data-img="Photos/ss.jpg">
           Vote
         </button>
       </div>
@@ -1390,7 +1400,8 @@ shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn">
+          duration-[250ms] voteBtn" data-party="Janata Dal (United) – JD(U)"
+data-img="Photos/jd.jpg">
           Vote
         </button>
       </div>
@@ -1432,7 +1443,8 @@ shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn">
+          duration-[250ms] voteBtn" data-party="Rashtriya Janata Dal (RJD)"
+data-img="Photos/rjd.jpg">
           Vote
         </button>
       </div>
@@ -1474,7 +1486,8 @@ shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn">
+          duration-[250ms] voteBtn" data-party="Trinamool Congress (TMC)"
+data-img="Photos/tmc.jpg">
           Vote
         </button>
       </div>
@@ -1516,7 +1529,8 @@ shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn">
+          duration-[250ms] voteBtn" data-party="Telugu Desam Party (TDP)"
+data-img="Photos/tdp.jpg">
           Vote
         </button>
       </div>
@@ -1558,7 +1572,8 @@ shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn">
+          duration-[250ms] voteBtn" data-party="Dravida Munnetra Kazhagam (DMK)"
+data-img="Photos/dmk.jpg">
           Vote
         </button>
       </div>
@@ -2264,50 +2279,48 @@ shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
   </div>
 </section>
 
-
 <!-- Result Tab -->
 <section id="tab-results" class="tabSection hidden">
   <div class="max-w-[1280px] mx-auto px-[20px] pb-[34px]">
 
     <!-- Header -->
     <div class="relative overflow-hidden
-    bg-[linear-gradient(135deg,rgba(255,255,255,0.96)_0%,rgba(248,250,252,0.98)_100%)]
+    bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
     border-[1px] border-[rgb(203,213,225)]
-    shadow-[0px_20px_45px_rgba(15,23,42,0.10)]
-    rounded-[26px] p-[24px]">
+    rounded-[26px] p-[24px]
+    shadow-[0px_18px_40px_rgba(15,23,42,0.08)]">
 
-      <div class="absolute top-[-45px] right-[-35px] w-[180px] h-[180px] rounded-full bg-[rgba(100,116,139,0.07)]"></div>
-      <div class="absolute bottom-[-50px] left-[-35px] w-[150px] h-[150px] rounded-full bg-[rgba(239,68,68,0.05)]"></div>
-
-      <div class="relative flex items-center justify-between gap-[18px]">
+      <div class="flex items-center justify-between gap-[18px]">
 
         <div>
           <div class="inline-flex items-center gap-[8px] px-[12px] py-[7px]
-          rounded-[999px] border-[1px] border-[rgba(100,116,139,0.16)]
-          bg-[rgba(100,116,139,0.08)] mb-[14px]">
-            <span class="w-[8px] h-[8px] rounded-full bg-[rgb(100,116,139)]"></span>
-            <span class="text-[12px] font-[700] tracking-[0.5px] text-[rgb(71,85,105)]">
-              RESULT ACCESS CONTROL
+          rounded-[999px]
+          border-[1px] border-[rgba(37,99,235,0.14)]
+          bg-[rgba(37,99,235,0.06)] mb-[14px]">
+            <span class="w-[8px] h-[8px] rounded-full bg-[rgb(37,99,235)]"></span>
+            <span class="text-[12px] font-[700] tracking-[0.5px] text-[rgb(29,78,216)]">
+              ELECTION RESULT CENTER
             </span>
           </div>
 
-          <h2 class="text-[34px] font-[900] text-[rgb(15,23,42)] leading-[1.08]">
+          <h2 class="text-[34px] font-[900] leading-[1.08] text-[rgb(15,23,42)]">
             Election Results
           </h2>
 
-          <p class="mt-[10px] text-[16px] leading-[1.7] font-[500] text-[rgb(71,85,105)] max-w-[760px]">
-            Final results will become visible only after the admin completes the election session and officially unlocks the result state.
+          <p class="mt-[10px] max-w-[760px]
+          text-[16px] leading-[1.7] font-[500] text-[rgb(71,85,105)]">
+            Final party-wise voting results become visible only after the election is ended and the admin officially publishes the result.
           </p>
         </div>
 
-        <div
-          class="shrink-0 inline-flex items-center justify-center gap-[10px]
-          px-[18px] py-[11px] rounded-[999px]
-          border-[1px] border-[rgb(203,213,225)]
-          bg-[linear-gradient(135deg,rgba(248,250,252,1)_0%,rgba(229,231,235,1)_100%)]
-          shadow-[0px_10px_24px_rgba(100,116,139,0.10)]">
-          <span class="w-[11px] h-[11px] rounded-full bg-[rgb(107,114,128)]"></span>
-          <span class="text-[14px] font-[800] tracking-[0.6px] text-[rgb(71,85,105)]">
+        <div id="resultStatusBadge"
+        class="shrink-0 inline-flex items-center gap-[10px]
+        px-[18px] py-[11px] rounded-[999px]
+        border-[1px] border-[rgb(203,213,225)]
+        bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
+        shadow-[0px_8px_18px_rgba(15,23,42,0.06)]">
+          <span id="resultStatusDot" class="w-[11px] h-[11px] rounded-full bg-[rgb(148,163,184)]"></span>
+          <span id="resultStatusText" class="text-[14px] font-[800] tracking-[0.5px] text-[rgb(71,85,105)]">
             RESULT LOCKED
           </span>
         </div>
@@ -2315,111 +2328,105 @@ shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
       </div>
     </div>
 
-    <!-- Locked Result Card -->
-    <div  id="lockedResultCard" class="mt-[20px] relative overflow-hidden
+    <!-- Locked State -->
+    <div id="lockedResultCard"
+    class="mt-[20px]
     bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
     border-[1px] border-[rgb(203,213,225)]
-    rounded-[28px] p-[30px]
-    shadow-[0px_22px_48px_rgba(15,23,42,0.10)]
-    text-center">
+    rounded-[26px] p-[28px]
+    shadow-[0px_18px_40px_rgba(15,23,42,0.08)]">
 
-      <div class="absolute top-[-50px] right-[-30px] w-[160px] h-[160px] rounded-full bg-[rgba(239,68,68,0.05)]"></div>
-      <div class="absolute bottom-[-50px] left-[-30px] w-[150px] h-[150px] rounded-full bg-[rgba(100,116,139,0.05)]"></div>
-
-      <div class="relative">
-        <div class="w-[98px] h-[98px] mx-auto rounded-full
-        bg-[linear-gradient(135deg,rgba(248,250,252,1)_0%,rgba(226,232,240,1)_100%)]
-        border-[1px] border-[rgb(203,213,225)]
-        flex items-center justify-center text-[40px]
-        shadow-[0px_12px_24px_rgba(15,23,42,0.08)]">
+      <div class="max-w-[820px]">
+        <div class="w-[72px] h-[72px]
+        rounded-[20px]
+        border-[1px] border-[rgb(226,232,240)]
+        bg-[linear-gradient(180deg,rgba(248,250,252,1)_0%,rgba(241,245,249,1)_100%)]
+        flex items-center justify-center
+        text-[30px]
+        shadow-[0px_10px_22px_rgba(15,23,42,0.05)]">
           🔒
         </div>
 
-        <h3 class="mt-[20px] text-[32px] font-[900] text-[rgb(15,23,42)]">
-          Results Not Available Yet
+        <h3 class="mt-[18px] text-[30px] font-[900] text-[rgb(15,23,42)]">
+          Results are not published yet
         </h3>
 
-        <p class="mt-[12px] max-w-[800px] mx-auto text-[16px] text-[rgb(71,85,105)] font-[600] leading-[1.8]">
-          The election results are currently hidden because the voting session has either not started yet or is still active. Final results will only appear after the admin officially ends the election process.
+        <p class="mt-[10px] text-[16px] leading-[1.8] font-[500] text-[rgb(71,85,105)]">
+          The result panel remains hidden until voting is completed and the admin clicks the display result action. Once published, the winner and full party ranking will be visible to both admin and voters.
         </p>
 
-        <!-- Real Result Board -->
-<div id="resultBoard" class="hidden mt-[20px]
-bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
-border-[1px] border-[rgb(203,213,225)]
-rounded-[26px] p-[24px]
-shadow-[0px_20px_40px_rgba(15,23,42,0.10)]">
+        <div class="mt-[20px] grid grid-cols-3 gap-[14px]">
+          <div class="rounded-[20px]
+          border-[1px] border-[rgb(203,213,225)]
+          bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
+          p-[16px]">
+            <p class="text-[12px] font-[800] tracking-[0.5px] text-[rgb(100,116,139)]">RESULT STATUS</p>
+            <p class="mt-[7px] text-[18px] font-[900] text-[rgb(15,23,42)]">Locked</p>
+          </div>
 
-  <div class="flex items-center justify-between gap-[16px]">
-    <div>
-      <h3 class="text-[28px] font-[900] text-[rgb(15,23,42)]">
-        Final Voting Results
-      </h3>
-      <p class="mt-[6px] text-[14px] font-[600] text-[rgb(100,116,139)]">
-        Party-wise vote count after election completion.
-      </p>
+          <div class="rounded-[20px]
+          border-[1px] border-[rgb(203,213,225)]
+          bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
+          p-[16px]">
+            <p class="text-[12px] font-[800] tracking-[0.5px] text-[rgb(100,116,139)]">VISIBLE TO</p>
+            <p class="mt-[7px] text-[18px] font-[900] text-[rgb(15,23,42)]">Admin & Voters</p>
+          </div>
+
+          <div class="rounded-[20px]
+          border-[1px] border-[rgb(203,213,225)]
+          bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
+          p-[16px]">
+            <p class="text-[12px] font-[800] tracking-[0.5px] text-[rgb(100,116,139)]">UNLOCK CONDITION</p>
+            <p class="mt-[7px] text-[18px] font-[900] text-[rgb(15,23,42)]">After Publish</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div id="winnerBadge"
-    class="inline-flex items-center gap-[8px] px-[16px] py-[10px] rounded-[999px]
-    bg-[linear-gradient(135deg,rgba(254,249,195,1)_0%,rgba(253,230,138,1)_100%)]
-    border-[1px] border-[rgba(234,179,8,0.20)]
-    text-[rgb(133,77,14)] font-[800] text-[13px] shadow-[0px_10px_22px_rgba(234,179,8,0.12)]">
-      🏆 Winner Declared
-    </div>
-  </div>
+    <!-- Result Board -->
+    <div id="resultBoard" class="hidden mt-[20px]">
 
-  <div id="resultList" class="mt-[18px] grid grid-cols-1 gap-[12px]">
-    <!-- JS se rows aayengi -->
-  </div>
-</div>
+      <!-- Winner Summary -->
+      <div id="winnerSummary"
+      class="bg-[linear-gradient(180deg,rgba(255,255,255,0.99)_0%,rgba(248,250,252,0.99)_100%)]
+      border-[1px] border-[rgb(203,213,225)]
+      rounded-[28px] p-[26px]
+      shadow-[0px_20px_42px_rgba(15,23,42,0.09)]">
+        <!-- JS winner content -->
+      </div>
 
-        <!-- Status cards -->
-        <div class="mt-[24px] grid grid-cols-3 gap-[16px]">
+      <!-- Ranking Table -->
+      <div class="mt-[18px]
+      bg-[linear-gradient(180deg,rgba(255,255,255,0.99)_0%,rgba(248,250,252,0.99)_100%)]
+      border-[1px] border-[rgb(203,213,225)]
+      rounded-[28px]
+      shadow-[0px_20px_42px_rgba(15,23,42,0.09)]
+      overflow-hidden">
 
-          <div class="rounded-[22px]
-          border-[1px] border-[rgb(203,213,225)]
-          bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-          p-[18px]
-          shadow-[0px_10px_22px_rgba(15,23,42,0.06)]">
-            <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.6px]">CURRENT STATUS</p>
-            <p class="mt-[8px] text-[20px] font-[900] text-[rgb(15,23,42)]">Voting Not Started</p>
-          </div>
-
-          <div class="rounded-[22px]
-          border-[1px] border-[rgb(203,213,225)]
-          bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-          p-[18px]
-          shadow-[0px_10px_22px_rgba(15,23,42,0.06)]">
-            <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.6px]">RESULT ACCESS</p>
-            <p class="mt-[8px] text-[20px] font-[900] text-[rgb(15,23,42)]">Locked for Now</p>
-          </div>
-
-          <div class="rounded-[22px]
-          border-[1px] border-[rgb(203,213,225)]
-          bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-          p-[18px]
-          shadow-[0px_10px_22px_rgba(15,23,42,0.06)]">
-            <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.6px]">WILL BE VISIBLE</p>
-            <p class="mt-[8px] text-[20px] font-[900] text-[rgb(15,23,42)]">After Vote Ends</p>
-          </div>
-
+        <div class="px-[24px] py-[20px] border-b-[1px] border-[rgb(226,232,240)]">
+          <h3 class="text-[26px] font-[900] text-[rgb(15,23,42)]">
+            Full Party Ranking
+          </h3>
+          <p class="mt-[6px] text-[14px] font-[600] text-[rgb(100,116,139)]">
+            Professional final result view showing all parties and their vote counts.
+          </p>
         </div>
 
-        <!-- Warning note -->
-        <div class="mt-[24px] inline-flex items-center justify-center gap-[10px]
-        px-[20px] py-[13px] rounded-[16px]
-        bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(255,237,213,1)_100%)]
-        border-[1px] border-[rgba(239,68,68,0.16)]
-        text-[rgb(185,28,28)]
-        shadow-[0px_10px_20px_rgba(239,68,68,0.08)]">
-          <span class="text-[18px]">ℹ️</span>
-          <span class="text-[15px] font-[800]">
-            Please wait until the admin starts and completes the election session.
-          </span>
+        <!-- Header row -->
+        <div class="grid grid-cols-[120px_1fr_180px] gap-[14px]
+        px-[24px] py-[16px]
+        bg-[rgb(15,23,42)] text-white">
+          <div class="text-[14px] font-[800] tracking-[0.5px]">RANK</div>
+          <div class="text-[14px] font-[800] tracking-[0.5px]">PARTY NAME</div>
+          <div class="text-[14px] font-[800] tracking-[0.5px] text-right">TOTAL VOTES</div>
+        </div>
+
+        <div id="resultList" class="divide-y divide-[rgb(226,232,240)]">
+          <!-- JS rows -->
         </div>
 
       </div>
+
     </div>
 
   </div>
