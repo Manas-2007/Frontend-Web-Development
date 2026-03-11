@@ -157,15 +157,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const navTabs = [navHome, navHow, navStatus, navParties, navResults];
   const allSections = [tabHome, tabHow, tabStatus, tabParties, tabResults];
 
+  const baseTabClass =
+    "px-[16px] py-[10px] rounded-[12px] text-[15px] text-slate-700 border-[1px] border-transparent transition duration-[250ms]";
+  const activeTabClass =
+    "px-[16px] py-[10px] rounded-[12px] text-[15px] text-red-600 bg-red-500/10 border-[1px] border-red-500/15 shadow-[0px_6px_16px_rgba(239,68,68,0.08)] transition duration-[250ms]";
+
+  const hoverMap = new Map([
+    [navHome, "hover:bg-red-500/10 hover:text-red-600"],
+    [navHow, "hover:bg-orange-500/10 hover:text-orange-600 hover:border-orange-500/10"],
+    [navStatus, "hover:bg-emerald-500/10 hover:text-emerald-600"],
+    [navParties, "hover:bg-red-500/10 hover:text-red-600"],
+    [navResults, "hover:bg-sky-500/10 hover:text-sky-600"],
+  ]);
+
   function resetNavTabs() {
     navTabs.forEach((tab) => {
       if (!tab) return;
-      tab.classList.remove(
-        "border-y-red-600",
-        "text-red-600",
-        "scale-[1.12]",
-        "translate-y-[-3px]"
-      );
+      tab.className = `${baseTabClass} ${hoverMap.get(tab) || ""}`;
+      tab.blur();
     });
   }
 
@@ -200,12 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (navToActivate) {
-      navToActivate.classList.add(
-        "border-y-red-600",
-        "text-red-600",
-        "scale-[1.12]",
-        "translate-y-[-3px]"
-      );
+      navToActivate.className = activeTabClass;
     }
   };
 
@@ -266,19 +270,38 @@ voteButtons.forEach((btn) => {
     const started = localStorage.getItem("voteStarted") === "true";
     const ended = localStorage.getItem("voteEnded") === "true";
 
+    // voting only allowed when election is live
     if (!started || ended) {
       alert("Voting is not active right now.");
       return;
     }
 
-    selectedParty = btn.dataset.party;
-    const img = btn.dataset.img;
+    // find the parent party block of clicked button
+    const partyWrapper = btn.closest(".group");
+    if (!partyWrapper) {
+      alert("Unable to detect selected party.");
+      return;
+    }
 
-    if (modalPartyName) modalPartyName.textContent = selectedParty || "Selected Party";
+    // get real party name from card heading
+    const partyHeading = partyWrapper.querySelector("h3");
+    const partyImage = partyWrapper.querySelector("img");
+
+    selectedParty = partyHeading ? partyHeading.textContent.trim() : null;
+    const img = partyImage ? partyImage.getAttribute("src") : "";
+
+    if (!selectedParty) {
+      alert("Party name not found.");
+      return;
+    }
+
+    if (modalPartyName) {
+      modalPartyName.textContent = selectedParty;
+    }
 
     if (modalPartyImg) {
       modalPartyImg.src = img || "";
-      modalPartyImg.alt = selectedParty || "Party Symbol";
+      modalPartyImg.alt = selectedParty;
     }
 
     voteModal?.classList.remove("hidden");
@@ -419,20 +442,15 @@ function updateVoteButtonsState() {
     btn.disabled = false;
     btn.classList.remove("opacity-50", "cursor-not-allowed");
 
-    // ADMIN VIEW
-    if (currentRole === "admin") {
-      btn.disabled = true;
-      btn.textContent = "Admin Only Access";
-      btn.classList.add("opacity-50", "cursor-not-allowed");
-      return;
-    }
-
-    // VOTER VIEW
     btn.textContent = "Vote";
 
     if (!started || ended) {
       btn.disabled = true;
       btn.classList.add("opacity-50", "cursor-not-allowed");
+
+      if (ended) {
+        btn.textContent = "Voting Closed";
+      }
     }
 
     if (voted) {
@@ -791,4 +809,22 @@ goToPartiesBtn?.addEventListener("click", () => {
 
 readInstructionsBtn?.addEventListener("click", () => {
   showTab("how");
+});
+
+// ===============================
+// LOGOUT SYSTEM
+// ===============================
+const logoutBtn = document.getElementById("logoutBtn");
+
+logoutBtn?.addEventListener("click", () => {
+  const confirmLogout = confirm("Are you sure you want to logout?");
+  if (!confirmLogout) return;
+
+  // remove login session
+  localStorage.removeItem("isLoggedIn");
+  localStorage.removeItem("userRole");
+  localStorage.removeItem("voterName");
+
+  // redirect to login
+  window.location.href = "login.html";
 });

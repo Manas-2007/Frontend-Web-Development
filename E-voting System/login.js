@@ -38,12 +38,17 @@ const closeModal = document.getElementById("closeModal");
 if (localStorage.getItem("voteStarted") === null) {
   localStorage.setItem("voteStarted", "false");
 }
+if (localStorage.getItem("voteEnded") === null) {
+  localStorage.setItem("voteEnded", "false");
+}
+if (localStorage.getItem("resultShown") === null) {
+  localStorage.setItem("resultShown", "false");
+}
 
 // ===============================
 // STATUS UI
 // ===============================
 function setStatusUI(type, message) {
-
   const base =
     "inline-flex items-center gap-[8px] rounded-[12px] px-[12px] py-[7px] text-[12px] font-[700] border-[1px]";
 
@@ -69,6 +74,26 @@ function setStatusUI(type, message) {
     return;
   }
 
+  if (type === "closed") {
+    voteStatus.classList.add(
+      "bg-rose-400/12",
+      "border-rose-300/30",
+      "text-rose-100"
+    );
+    voteStatus.innerHTML = `🔒 ${message}`;
+    return;
+  }
+
+  if (type === "published") {
+    voteStatus.classList.add(
+      "bg-green-400/12",
+      "border-green-300/30",
+      "text-green-100"
+    );
+    voteStatus.innerHTML = `🏆 ${message}`;
+    return;
+  }
+
   if (type === "error") {
     voteStatus.classList.add(
       "bg-red-400/12",
@@ -91,7 +116,6 @@ function setStatusUI(type, message) {
 // TAB UI STYLING
 // ===============================
 function setActiveTab(activeRole) {
-
   const activeClasses = [
     "bg-white/20",
     "border-white/45",
@@ -124,19 +148,32 @@ function setActiveTab(activeRole) {
 // CHECK VOTING STATUS
 // ===============================
 function checkVotingStatus() {
+  const started = localStorage.getItem("voteStarted") === "true";
+  const ended = localStorage.getItem("voteEnded") === "true";
+  const resultShown = localStorage.getItem("resultShown") === "true";
 
-  if (localStorage.getItem("voteStarted") === "true") {
-    setStatusUI("live", "Voting LIVE. You may login.");
-  } else {
-    setStatusUI("wait", "Voting not started yet. Wait for Admin.");
+  if (started && !ended) {
+    setStatusUI("live", "Voting LIVE. You may login and vote.");
+    return;
   }
+
+  if (!started && ended && resultShown) {
+    setStatusUI("published", "Result published. Login to view status and results.");
+    return;
+  }
+
+  if (!started && ended) {
+    setStatusUI("closed", "Voting closed. Login to view your status and results.");
+    return;
+  }
+
+  setStatusUI("wait", "Voting not started yet. Wait for Admin.");
 }
 
 // ===============================
 // SWITCH TO ADMIN
 // ===============================
 function switchToAdmin() {
-
   roleInput.value = "admin";
   adminTools.classList.remove("hidden");
 
@@ -152,7 +189,6 @@ function switchToAdmin() {
 // SWITCH TO VOTER
 // ===============================
 function switchToVoter() {
-
   roleInput.value = "voter";
   adminTools.classList.add("hidden");
 
@@ -174,7 +210,6 @@ tabVoter?.addEventListener("click", switchToVoter);
 // SHOW ADMIN DETAILS
 // ===============================
 showBtn?.addEventListener("click", () => {
-
   adminUserText.textContent = ADMIN.username;
   adminPassText.textContent = ADMIN.password;
 
@@ -185,7 +220,6 @@ showBtn?.addEventListener("click", () => {
 // PASSWORD TOGGLE
 // ===============================
 togglePass?.addEventListener("click", () => {
-
   if (password.type === "password") {
     password.type = "text";
     togglePass.textContent = "HIDE";
@@ -199,7 +233,6 @@ togglePass?.addEventListener("click", () => {
 // LOGIN LOGIC
 // ===============================
 form?.addEventListener("submit", (e) => {
-
   e.preventDefault();
 
   const username = usernameInput.value.trim();
@@ -208,38 +241,35 @@ form?.addEventListener("submit", (e) => {
 
   // ========= ADMIN LOGIN =========
   if (role === "admin") {
-
     if (username === ADMIN.username && pass === ADMIN.password) {
-
       alert("Admin Login Successful ✅");
 
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("userRole", "admin");
-
-      localStorage.setItem("voteStarted", "true");
+      localStorage.setItem("voterName", ADMIN.username);
 
       window.location.href = "dashboard.html";
-
     } else {
-
       alert("Invalid Admin Credentials ❌");
       setStatusUI("error", "Invalid Admin Credentials.");
-
     }
 
     return;
   }
 
   // ========= VOTER LOGIN =========
-  if (localStorage.getItem("voteStarted") !== "true") {
+  const started = localStorage.getItem("voteStarted") === "true";
+  const ended = localStorage.getItem("voteEnded") === "true";
+  const resultShown = localStorage.getItem("resultShown") === "true";
 
-    alert("Voting not started yet!");
+  // allow voter login if election is live OR ended OR result published
+  if (!started && !ended && !resultShown) {
+    alert("Voting has not started yet!");
     setStatusUI("wait", "Voting not started yet. Wait for Admin.");
     return;
   }
 
   if (username === "" || pass === "") {
-
     alert("Enter voter credentials");
     setStatusUI("error", "Please enter voter credentials.");
     return;
@@ -251,42 +281,34 @@ form?.addEventListener("submit", (e) => {
   localStorage.setItem("userRole", "voter");
   localStorage.setItem("voterName", username);
 
-window.location.href = "dashboard.html";
+  window.location.href = "dashboard.html";
 });
 
 // ===============================
 // LEARN MORE MODAL
 // ===============================
 learnBtn?.addEventListener("click", () => {
-
   modal.classList.remove("hidden");
   modal.classList.add("flex");
-
 });
 
 function closeLearnModal() {
-
   modal.classList.add("hidden");
   modal.classList.remove("flex");
-
 }
 
 closeModal?.addEventListener("click", closeLearnModal);
 
 modal?.addEventListener("click", (e) => {
-
   if (e.target === modal) {
     closeLearnModal();
   }
-
 });
 
 document.addEventListener("keydown", (e) => {
-
   if (e.key === "Escape" && modal && !modal.classList.contains("hidden")) {
     closeLearnModal();
   }
-
 });
 
 // ===============================
