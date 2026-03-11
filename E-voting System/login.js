@@ -50,7 +50,7 @@ if (localStorage.getItem("resultShown") === null) {
 // ===============================
 function setStatusUI(type, message) {
   const base =
-    "inline-flex items-center gap-[8px] rounded-[12px] px-[12px] py-[7px] text-[12px] font-[700] border-[1px]";
+    "inline-flex items-center gap-[8px] rounded-[12px] px-[12px] py-[7px] text-[14px] font-[600] border-[1px]";
 
   voteStatus.className = base;
 
