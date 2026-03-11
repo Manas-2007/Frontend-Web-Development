@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Theme Changer App | JS Project 02</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="project-wrapper">
+
+      <div class="project-badge">JavaScript Project 02</div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <p class="project-label">Interactive UI Practice</p>
+          <h1 class="titlebar">Theme Changer App</h1>
+          <p class="project-desc">
+            A clean and responsive interface designed for JavaScript theme switching,
+            DOM selection, event handling, and dynamic style manipulation practice.
+          </p>
+        </div>
+
+        <div class="theme-preview" id="themePreview">
+          <div class="preview-top">
+            <span class="preview-chip" id="themeName">Default Theme</span>
+          </div>
+
+          <div class="preview-content">
+            <h2 id="previewTitle">Creative Dashboard Preview</h2>
+            <p id="previewText">
+              Click any theme button below to dynamically update this interface using JavaScript.
+            </p>
+
+            <div class="preview-stats">
+              <div class="stat-box">
+                <span>Cards</span>
+                <p>08</p>
+              </div>
+              <div class="stat-box">
+                <span>Visitors</span>
+                <p>1.2K</p>
+              </div>
+              <div class="stat-box">
+                <span>Growth</span>
+                <p>+24%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theme-actions">
+          <button class="theme-btn blue-theme" id="blueThemeBtn" onclick="blue();">Blue Theme</button>
+          <button class="theme-btn green-theme" id="greenThemeBtn" onclick="green();">Green Theme</button>
+          <button class="theme-btn pink-theme" id="pinkThemeBtn" onclick="pink();">Pink Theme</button>
+          <button class="theme-btn dark-theme" id="darkThemeBtn" onclick="dark();">Dark Theme</button>
+        </div>
+
+        <div class="project-footer">
+          <div class="footer-box">
+            <span>Focus</span>
+            <p>Style Manipulation</p>
+          </div>
+          <div class="footer-box">
+            <span>Concept</span>
+            <p>Theme Switching</p>
+          </div>
+          <div class="footer-box">
+            <span>Level</span>
+            <p>Beginner Friendly</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
