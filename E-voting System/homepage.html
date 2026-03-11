@@ -12,435 +12,383 @@
 
   <input id="menu" type="checkbox" class="hidden peer" />
 
-  <!-- ================= NAVBAR ================= -->
-  <nav class="w-[100%] fixed top-[0px] left-[0px] z-[999]
-              bg-white/88 backdrop-blur-[18px]
-              border-b-[1px] border-white/40
-              shadow-[0px_10px_35px_rgba(15,23,42,0.10)]">
+<!-- ================= NAVBAR ================= -->
+<nav class="w-full fixed top-0 left-0 z-[100]
+            bg-white/88 backdrop-blur-[18px]
+            border-b border-white/40
+            shadow-[0px_10px_35px_rgba(15,23,42,0.10)]">
 
-    <div class="max-w-[1280px] mx-auto px-[20px] py-[12px] flex items-center justify-between">
+  <div class="max-w-[1280px] mx-auto px-[16px] sm:px-[20px] py-[15px] flex items-center justify-between">
 
-      <!-- Left logo -->
-      <div class="flex items-center gap-[12px]">
-        <img src="Photos/homepagelogo.jpg"
-             class="w-[68px] h-[68px] rounded-[16px] object-cover border-[1px] border-black/5 shadow-[0px_8px_20px_rgba(0,0,0,0.08)]" />
-        <div>
-          <h1 class="text-[24px] font-[700] text-slate-900 leading-[1.1] tracking-[0.2px]">
-            E-Vote <span class="text-red-600">Bank</span>
-          </h1>
-          <p class="text-[12px] font-[600] text-slate-500 mt-[4px] tracking-[0.4px]">
-            Secure Digital Election Platform
-          </p>
-        </div>
+    <div class="flex items-center gap-[10px] sm:gap-[12px]">
+      <img src="Photos/homepagelogo.jpg"
+           class="w-[54px] h-[54px] sm:w-[60px] sm:h-[60px] md:w-[68px] md:h-[68px]
+                  rounded-[14px] md:rounded-[16px] object-cover
+                  border border-black/5 shadow-sm" />
+      <div>
+        <h1 class="text-[19px] sm:text-[21px] md:text-[24px] font-[700] text-slate-900 leading-[1.1]">
+          E-Vote <span class="text-red-600">Bank</span>
+        </h1>
+        <p class="text-[10px] sm:text-[11px] md:text-[12px] font-[600] text-slate-500 mt-[4px]">
+          Secure Digital Election Platform
+        </p>
       </div>
-
-      <!-- Desktop Tabs -->
-      <div class="hidden md:flex items-center gap-[10px] font-[600]">
-
-        <a href="#"
-           class="text-[15px] text-red-600
-                  px-[14px] py-[10px]
-                  rounded-[12px]
-                  bg-red-500/10
-                  border-[1px] border-red-500/15
-                  shadow-[0px_6px_16px_rgba(239,68,68,0.08)]
-                  transition duration-[250ms]">
-          HOME
-        </a>
-
-        <a href="#"
-           class="openAbout text-[15px] text-slate-700
-                  px-[14px] py-[10px]
-                  rounded-[12px]
-                  border-[1px] border-transparent
-                  hover:bg-orange-500/10 hover:text-orange-600 hover:border-orange-500/15
-                  transition duration-[250ms]">
-          ABOUT
-        </a>
-
-        <a href="#"
-           id="featuresBtn"
-           class="openFeatures text-[15px] text-slate-700
-                  px-[14px] py-[10px]
-                  rounded-[12px]
-                  border-[1px] border-transparent
-                  hover:bg-emerald-500/10 hover:text-emerald-600 hover:border-emerald-500/15
-                  transition duration-[250ms]">
-          FEATURES
-        </a>
-
-        <a href="#"
-           class="howBtn text-[15px] text-slate-700
-                  px-[14px] py-[10px]
-                  rounded-[12px]
-                  border-[1px] border-transparent
-                  hover:bg-red-500/10 hover:text-red-600 hover:border-red-500/15
-                  transition duration-[250ms]">
-          HOW IT WORKS
-        </a>
-
-        <a href="#"
-           class="openSecurity text-[15px] text-slate-700
-                  px-[14px] py-[10px]
-                  rounded-[12px]
-                  border-[1px] border-transparent
-                  hover:bg-sky-500/10 hover:text-sky-600 hover:border-sky-500/15
-                  transition duration-[250ms]">
-          SECURITY
-        </a>
-
-        <a href="#"
-           class="openGuide text-[15px] text-slate-700
-                  px-[14px] py-[10px]
-                  rounded-[12px]
-                  border-[1px] border-transparent
-                  hover:bg-amber-500/10 hover:text-amber-600 hover:border-amber-500/15
-                  transition duration-[250ms]">
-          GUIDELINES
-        </a>
-
-        <a href="#"
-           class="openContact text-[15px] text-slate-700
-                  px-[14px] py-[10px]
-                  rounded-[12px]
-                  border-[1px] border-transparent
-                  hover:bg-violet-500/10 hover:text-violet-600 hover:border-violet-500/15
-                  transition duration-[250ms]">
-          CONTACT
-        </a>
-
-      </div>
-
-      <!-- Mobile Menu Button -->
-      <label for="menu"
-             class="md:hidden cursor-pointer select-none
-                    px-[12px] py-[10px]
-                    rounded-[14px]
-                    bg-white/70 border-[1px] border-black/10 shadow-[0px_8px_20px_rgba(0,0,0,0.08)]">
-        <span class="block w-[26px] h-[2px] bg-slate-900 mb-[6px] rounded-[999px]"></span>
-        <span class="block w-[26px] h-[2px] bg-slate-900 mb-[6px] rounded-[999px]"></span>
-        <span class="block w-[26px] h-[2px] bg-slate-900 rounded-[999px]"></span>
-      </label>
-
     </div>
-  </nav>
 
-  <!-- ================= MOBILE OVERLAY ================= -->
-  <label for="menu"
-         class="fixed inset-[0px] z-[998] bg-black/60 hidden peer-checked:block">
+    <div class="hidden lg:flex items-center gap-[10px] font-[600]">
+      <a href="#" class="text-[15px] text-red-600 px-[14px] py-[10px] rounded-[12px] bg-red-500/10 border border-red-500/15">HOME</a>
+      <a href="#" class="openAbout text-[15px] text-slate-700 px-[14px] py-[10px] hover:text-orange-600">ABOUT</a>
+      <a href="#" class="openFeatures text-[15px] text-slate-700 px-[14px] py-[10px] hover:text-emerald-600">FEATURES</a>
+      <a href="#" class="howBtn text-[15px] text-slate-700 px-[14px] py-[10px] hover:text-red-600">HOW IT WORKS</a>
+      <a href="#" class="openSecurity text-[15px] text-slate-700 px-[14px] py-[10px] hover:text-sky-600">SECURITY</a>
+      <a href="#" class="openContact text-[15px] text-slate-700 px-[14px] py-[10px] hover:text-violet-600">CONTACT</a>
+    </div>
+
+    <label for="menu" class="lg:hidden cursor-pointer px-[12px] py-[10px] rounded-[14px] bg-white/70 border border-black/10 shadow-sm">
+      <span class="block w-[26px] h-[2px] bg-slate-900 mb-[6px] rounded-full"></span>
+      <span class="block w-[26px] h-[2px] bg-slate-900 mb-[6px] rounded-full"></span>
+      <span class="block w-[26px] h-[2px] bg-slate-900 rounded-full"></span>
+    </label>
+
+  </div>
+</nav>
+
+<label for="menu" class="fixed inset-0 z-[998] bg-slate-950/60 backdrop-blur-sm hidden peer-checked:block lg:hidden"></label>
+
+<div class="fixed top-0 left-0 z-[999] h-full w-[82%] max-w-[320px] 
+            bg-slate-900 text-white
+            border-r border-white/5
+            p-[18px]
+            translate-x-[-100%] peer-checked:translate-x-0
+            duration-[350ms] ease-out lg:hidden
+            shadow-[20px_0px_60px_rgba(0,0,0,0.5)] flex flex-col overflow-y-auto">
+
+  <label for="menu" class="absolute top-[16px] right-[16px] cursor-pointer w-[40px] h-[40px] rounded-[12px] bg-white/5 border border-white/10 grid place-items-center text-white/70 hover:bg-white/10 transition">
+    ✕
   </label>
 
-  <!-- ================= MOBILE LEFT DRAWER ================= -->
-  <div class="fixed top-[0px] left-[0px] z-[999] h-[100%] w-[80%] max-w-[320px]
-              bg-white/92 backdrop-blur-[16px]
-              border-r-[1px] border-black/10
-              p-[18px]
-              translate-x-[-100%] peer-checked:translate-x-[0px]
-              duration-[300ms] md:hidden shadow-[0px_18px_40px_rgba(0,0,0,0.20)]">
-
-    <div class="flex items-center justify-between mb-[18px]">
-      <div>
-        <div class="font-[700] text-[20px] text-slate-900">Menu</div>
-        <p class="text-[12px] text-slate-500 font-[600] mt-[2px]">Quick navigation</p>
-      </div>
-      <label for="menu"
-             class="cursor-pointer w-[38px] h-[38px] rounded-[12px] bg-black/6 grid place-items-center text-[18px]">
-        ✕
-      </label>
+  <div class="flex flex-col items-center text-center mb-[24px] mt-[10px]">
+    <div class="p-[6px] rounded-[18px] bg-white/5 border border-white/10">
+      <img src="Photos/homepagelogo.jpg" class="w-[70px] h-[70px] rounded-[14px] object-cover" />
     </div>
+    <h2 class="mt-[12px] text-[30px] font-[700] text-white leading-none">
+      E-Vote <span class="text-red-500">Bank</span>
+    </h2>
+    <p class="text-[15px] font-[600] text-white/50 mt-[6px] uppercase tracking-widest">
+      Secure Digital Platform
+    </p>
+  </div>
 
-    <div class="flex flex-col gap-[10px] font-[600]">
-      <a href="#" class="px-[14px] py-[12px] rounded-[14px] bg-red-500/10 text-red-600 border-[1px] border-red-500/15">HOME</a>
-      <a href="#" class="px-[14px] py-[12px] rounded-[14px] hover:bg-black/5 openAbout">ABOUT</a>
-      <a href="#" class="px-[14px] py-[12px] rounded-[14px] hover:bg-black/5 openFeatures">FEATURES</a>
-      <a href="#" class="howBtn px-[14px] py-[12px] rounded-[14px] hover:bg-black/5">HOW IT WORKS</a>
-      <a href="#" class="px-[14px] py-[12px] rounded-[14px] hover:bg-black/5 openSecurity">SECURITY</a>
-      <a href="#" class="px-[14px] py-[12px] rounded-[14px] hover:bg-black/5 openGuide">GUIDELINES</a>
-      <a href="#" class="px-[14px] py-[12px] rounded-[14px] hover:bg-black/5 openContact">CONTACT</a>
+  <div class="w-full h-[1px] bg-white/5 mb-[20px]"></div>
+
+  <div class="flex flex-col gap-[10px]">
+
+    <a href="#" class="px-[16px] py-[12px] rounded-[14px] bg-red-500/10 border border-red-500/20 text-red-400 font-[700] text-left">
+      HOME
+    </a>
+
+    <a href="#" class="openAbout px-[16px] py-[12px] rounded-[14px] bg-white/5 border border-white/5 text-white/70 font-[700] hover:bg-white/10 hover:text-white transition">
+      ABOUT
+    </a>
+
+    <a href="#" class="openFeatures px-[16px] py-[12px] rounded-[14px] bg-white/5 border border-white/5 text-white/70 font-[700] hover:bg-white/10 hover:text-white transition">
+      FEATURES
+    </a>
+
+    <a href="#" class="howBtn px-[16px] py-[12px] rounded-[14px] bg-white/5 border border-white/5 text-white/70 font-[700] hover:bg-white/10 hover:text-white transition">
+      HOW IT WORKS
+    </a>
+
+    <a href="#" class="openSecurity px-[16px] py-[12px] rounded-[14px] bg-white/5 border border-white/5 text-white/70 font-[700] hover:bg-white/10 hover:text-white transition">
+      SECURITY
+    </a>
+
+    <a href="#" class="openGuide px-[16px] py-[12px] rounded-[14px] bg-white/5 border border-white/5 text-white/70 font-[700] hover:bg-white/10 hover:text-white transition">
+      GUIDELINES
+    </a>
+
+    <a href="#" class="openContact px-[16px] py-[12px] rounded-[14px] bg-white/5 border border-white/5 text-white/70 font-[700] hover:bg-white/10 hover:text-white transition">
+      CONTACT
+    </a>
+  </div>
+
+  <div class="mt-auto pt-[32px] pb-[10px] w-full">
+    <div class="relative overflow-hidden rounded-[20px] bg-white/5 border border-white/10 p-[20px] text-center shadow-xl">
+      <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-orange-500 via-white to-green-600"></div>
+
+      <div class="flex justify-center mb-[10px]">
+        <span class="w-[36px] h-[36px] rounded-full bg-white flex items-center justify-center text-[18px] shadow-lg">
+          🗳️
+        </span>
+      </div>
+
+      <p class="text-[15px] font-[800] text-white leading-tight">
+        Your Voice. Your Choice. <br> <span class="text-white/60 font-[600] text-[13px]">Your Power.</span>
+      </p>
+      <p class="text-[11px] font-[500] text-white/40 mt-[8px]">
+        Every secure vote strengthens democracy.
+      </p>
     </div>
   </div>
 
-  <!-- ================= HERO SECTION ================= -->
-  <section class="w-[100%] h-[100vh] pt-[96px] relative overflow-hidden">
+</div>
 
-    <!-- Background Slider -->
-    <div class="absolute top-[96px] left-[0px] right-[0px] bottom-[0px]">
+<!-- Main Content -->
+<section class="w-full min-h-[100dvh] relative overflow-hidden flex flex-col bg-slate-950">
 
-      <div class="absolute inset-[0px] slider-img slider-1 bg-cover bg-center bg-no-repeat"></div>
-      <div class="absolute inset-[0px] slider-img slider-2 bg-cover bg-center bg-no-repeat"></div>
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 slider-img slider-1 bg-cover bg-[center_top] sm:bg-center bg-no-repeat"></div>
+    <div class="absolute inset-0 slider-img slider-2 bg-cover bg-[center_top] sm:bg-center bg-no-repeat"></div>
 
-      <!-- Overlays -->
-      <div class="absolute inset-[0px] bg-slate-950/62"></div>
-      <div class="absolute inset-[0px] bg-gradient-to-r from-slate-950/68 via-slate-900/38 to-orange-950/24"></div>
-    </div>
+    <div class="absolute inset-0 bg-slate-950/65"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-900/40 to-orange-950/25"></div>
+  </div>
 
-    <!-- Foreground Content -->
-    <div class="relative z-[10] h-[calc(100vh_-_96px)] flex items-center justify-center text-center px-[20px]">
-      <div class="max-w-[1040px] w-[100%]">
+  <div class="relative z-10 flex-1 flex items-center justify-center text-center px-4 sm:px-6 md:px-8 pt-[120px] pb-12">
+    <div class="max-w-[1040px] w-full">
 
-        <div class="inline-flex items-center gap-[10px]
-                    rounded-[999px]
-                    border-[1px] border-white/18
-                    bg-white/8
-                    px-[16px] py-[8px]
-                    mb-[22px]">
-          <span class="w-[10px] h-[10px] rounded-[999px] bg-green-400"></span>
-          <span class="text-[13px] font-[600] text-white/85 tracking-[0.3px]">
-            Transparent • Secure • Admin-Controlled Voting
-          </span>
-        </div>
+      <div class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 mb-6 sm:mb-8">
+        <span class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-green-400 animate-pulse"></span>
+        <span class="text-[13px] sm:text-[15px] font-semibold text-white/90 tracking-wide ">
+          Transparent • Secure • Admin-Controlled Voting
+        </span>
+      </div>
 
-        <h1 class="text-white font-[700] leading-[1.06]
-                   text-[40px] sm:text-[52px] md:text-[68px] lg:text-[76px] tracking-[-0.5px]">
-          Vote Smart. Vote Secure.
-          <br class="hidden sm:block">
-          Vote Online.
-        </h1>
+      <h1 class="text-white font-bold leading-[1.2] sm:leading-[1.1] text-[32px] sm:text-[48px] md:text-[60px] lg:text-[76px] tracking-tight">
+        Vote Smart. Vote Secure.
+        <br class="hidden sm:block">
+        Vote Online.
+      </h1>
 
-        <p class="mt-[18px] text-white/82 font-[500]
-                  text-[17px] sm:text-[19px] md:text-[22px]
-                  leading-[1.8] max-w-[860px] mx-auto">
-          Trusted digital voting platform built for transparent elections, controlled access, privacy-safe vote handling, and reliable result visibility.
-        </p>
+      <p class="mt-4 sm:mt-6 text-white/80 font-medium text-[15px] sm:text-[18px] md:text-[22px] leading-[1.7] max-w-[860px] mx-auto">
+        Trusted digital voting platform built for transparent elections, controlled access, privacy-safe vote handling, and reliable result visibility.
+      </p>
 
-        <div class="mt-[32px] flex justify-center items-center gap-[16px] flex-wrap">
-
-          <a href="login.html"
-             id="startVoteBtn"
-             class="px-[32px] py-[15px]
-                    rounded-[16px]
-                    bg-gradient-to-r from-green-600 to-emerald-500
-                    text-white font-[700]
-                    text-[18px]
-                    shadow-[0px_14px_30px_rgba(34,197,94,0.22)]
-                    hover:from-green-500 hover:to-emerald-400 hover:text-slate-950
-                    hover:scale-[1.04] hover:translate-y-[-2px]
-                    transition duration-[300ms]">
-            Start Voting
-          </a>
-
-          <a href="#"
-             class="howBtn px-[32px] py-[15px]
-                    rounded-[16px]
-                    border-[1px] border-white/26
-                    bg-white/8 text-white font-[600]
-                    text-[18px]
-                    hover:bg-white/14 hover:scale-[1.04] hover:translate-y-[-2px]
-                    transition duration-[300ms]">
-            How It Works
-          </a>
-
-        </div>
-
-        <div class="mt-[32px] flex flex-wrap justify-center gap-[12px]">
-          <span class="px-[14px] py-[8px] rounded-[999px] text-[13px] font-[700] bg-white/8 text-white/80 border-[1px] border-white/14">
-            Role-based Access
-          </span>
-          <span class="px-[14px] py-[8px] rounded-[999px] text-[13px] font-[700] bg-white/8 text-white/80 border-[1px] border-white/14">
-            Privacy First
-          </span>
-          <span class="px-[14px] py-[8px] rounded-[999px] text-[13px] font-[700] bg-white/8 text-white/80 border-[1px] border-white/14">
-            Controlled Results
-          </span>
-        </div>
+      <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center items-center gap-4 w-full sm:w-auto">
+        
+        <a href="login.html" id="startVoteBtn"
+           class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-green-600 to-emerald-500 text-white font-bold text-[17px] sm:text-[20px] shadow-[0px_14px_30px_rgba(34,197,94,0.22)] hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300">
+          Start Voting
+        </a>
+        
+        <a href="#" class="howBtn w-full sm:w-auto px-8 py-3.5 rounded-2xl border border-white/25 bg-white/10 backdrop-blur-sm text-white font-semibold text-[17px] sm:text-[18px] hover:bg-white/20 hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300">
+          How It Works
+        </a>
 
       </div>
+
+      <div class="mt-10 sm:mt-12 flex flex-wrap justify-center gap-2 sm:gap-3">
+        <span class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-[13px] text-[15px] font-bold bg-white/10 backdrop-blur-sm text-white/85 border border-white/15">Role-based Access</span>
+        <span class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[15px] text-[11px] sm:text-[13px] font-bold bg-white/10 backdrop-blur-sm text-white/85 border border-white/15" >Privacy First</span>
+        <span class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[15px] text-[11px] sm:text-[13px] font-bold bg-white/10 backdrop-blur-sm text-white/85 border border-white/15">Controlled Results</span>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <style>
-    .slider-1 { background-image: url('Photos/homeimg1.jpeg'); }
-    .slider-2 { background-image: url('Photos/homeimg2.jpg'); }
+<style>
+  .slider-1 { background-image: url('Photos/homeimg1.jpeg'); }
+  .slider-2 { background-image: url('Photos/homeimg2.jpg'); }
 
+  /* FIX: Default (Mobile) Behavior - Static Image 1, Image 2 is hidden */
+  .slider-img {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  .slider-2 {
+    display: none;
+  }
+
+  /* FIX: Tablet & Desktop Behavior - Slider Animation activates for screens wider than 640px */
+  @media (min-width: 640px) {
     .slider-img {
       opacity: 0;
       animation: sliderFade 8s infinite ease-in-out;
-      transform: scale(1.02);
     }
-
+    .slider-2 {
+      display: block;
+    }
     .slider-1 { animation-delay: 0s; }
     .slider-2 { animation-delay: 4s; }
+  }
 
-    @keyframes sliderFade {
-      0%   { opacity: 0; }
-      8%   { opacity: 1; }
-      42%  { opacity: 1; }
-      50%  { opacity: 0; }
-      100% { opacity: 0; }
-    }
-  </style>
+  @keyframes sliderFade {
+    0%   { opacity: 0; }
+    8%   { opacity: 1; }
+    42%  { opacity: 1; }
+    50%  { opacity: 0; }
+    100% { opacity: 0; }
+  }
+</style>
 
   <!-- ================= FOOTER ================= -->
-  <footer class="w-[100%] bg-slate-950 text-white border-t-[1px] border-white/10">
-    <div class="w-[100%] h-[6px] bg-gradient-to-r from-orange-500 via-white to-green-600"></div>
+  <footer class="w-full bg-slate-950 text-white border-t border-white/10">
+  
+  <div class="w-full h-1.5 bg-gradient-to-r from-orange-500 via-white to-green-600"></div>
 
-    <div class="max-w-[1280px] mx-auto px-[20px] py-[26px] grid grid-cols-1 md:grid-cols-3 gap-[22px]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
 
-      <!-- Brand -->
-      <div>
-        <div class="flex items-center gap-[12px]">
-          <div class="w-[48px] h-[48px] rounded-[14px]
-                      bg-white/8 border-[1px] border-white/10
-                      grid place-items-center font-[800] text-[18px]">
-            EV
-          </div>
-          <div>
-            <h2 class="text-[19px] font-[700] tracking-[0.3px]">E-Vote Bank</h2>
-            <p class="text-[13px] text-white/65 mt-[3px] font-[500]">Secure • Transparent • Fast</p>
-          </div>
+    <div class="sm:col-span-2 lg:col-span-2 pr-0 lg:pr-12">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center font-extrabold text-lg shadow-sm">
+          EV
         </div>
-
-        <p class="text-[13px] text-white/72 mt-[12px] leading-[1.7] font-[500] max-w-[360px]">
-          A modern voting-oriented demo system focused on controlled access, privacy, transparent counting, and a clear election workflow.
-        </p>
-      </div>
-
-      <!-- Quick Links -->
-      <div>
-        <h3 class="text-[15px] font-[700] mb-[12px] text-white">Quick Links</h3>
-        <div class="grid grid-cols-2 gap-[10px] text-[13px] font-[600]">
-          <a href="#" class="text-white/72 hover:text-orange-400 duration-[250ms]">Home</a>
-          <a href="#" class="text-white/72 hover:text-orange-400 duration-[250ms] openAbout">About</a>
-          <a href="#" class="text-white/72 hover:text-orange-400 duration-[250ms] openFeatures">Features</a>
-          <a href="#" class="howBtn text-white/72 hover:text-orange-400 duration-[250ms]">How it Works</a>
-          <a href="#" class="text-white/72 hover:text-green-400 duration-[250ms] openSecurity">Security</a>
-          <a href="#" class="text-white/72 hover:text-green-400 duration-[250ms] openContact">Contact</a>
-        </div>
-      </div>
-
-      <!-- Support / Info -->
-      <div>
-        <h3 class="text-[15px] font-[700] mb-[12px] text-white">Support</h3>
-
-        <div class="text-[13px] text-white/72 leading-[1.8] font-[500]">
-          <p><span class="text-white/88 font-[700]">Help:</span> Guidelines & voting rules</p>
-          <p class="mt-[4px]"><span class="text-white/88 font-[700]">Email:</span> support@evotebank.com</p>
-          <p class="mt-[4px]"><span class="text-white/88 font-[700]">Hours:</span> 9 AM – 6 PM</p>
-        </div>
-
-        <div class="mt-[14px] inline-flex items-center gap-[10px] flex-wrap">
-          <span class="px-[11px] py-[7px] rounded-[999px] text-[12px] font-[700] bg-orange-500/14 border-[1px] border-orange-500/25 text-orange-200">
-            Verified Flow
-          </span>
-          <span class="px-[11px] py-[7px] rounded-[999px] text-[12px] font-[700] bg-green-500/14 border-[1px] border-green-500/25 text-green-200">
-            Privacy First
-          </span>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="border-t-[1px] border-white/10">
-      <div class="max-w-[1280px] mx-auto px-[20px] py-[14px]
-                  flex flex-col md:flex-row items-center justify-between gap-[8px]">
-        <p class="text-[12px] text-white/55 font-[600]">
-          © <span class="text-white/80">2026</span> E-Vote Bank • All rights reserved.
-        </p>
-
-        <p class="text-[12px] text-white/50 text-center md:text-right leading-[1.7]">
-          Educational demo project — individual vote choices are not displayed, only party-wise counts.
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ================= ABOUT MODAL ================= -->
-  <div id="aboutModal" class="fixed inset-[0px] z-[99999] hidden">
-    <div id="aboutOverlay" class="absolute inset-[0px] bg-slate-950/72 backdrop-blur-[6px]"></div>
-
-    <div class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
-                w-[92%] max-w-[720px] rounded-[22px]
-                bg-white/95 backdrop-blur-[14px]
-                border-[1px] border-black/8 shadow-[0px_24px_80px_rgba(0,0,0,0.22)]
-                p-[22px] sm:p-[26px]">
-
-      <div class="flex items-start justify-between gap-[12px]">
         <div>
-          <h2 class="text-[26px] font-[700] text-slate-900">About E-Vote Bank</h2>
-          <p class="text-[14px] text-slate-500 font-[500] mt-[6px]">
-            Secure • Transparent • Fast
-          </p>
-        </div>
-
-        <button id="aboutClose"
-                class="w-[40px] h-[40px] rounded-[12px] bg-black/6 hover:bg-black/10 font-[700] text-[16px] duration-[200ms]">
-          ✕
-        </button>
-      </div>
-
-      <div class="mt-[16px] text-slate-800 text-[15px] leading-[1.8] font-[500]">
-        <p class="font-[600] text-slate-900">
-          E-Vote Bank is an e-voting system designed to conduct elections digitally with controlled access, fair session handling, and privacy-safe vote visibility.
-        </p>
-
-        <ul class="mt-[12px] list-disc pl-[20px] space-y-[7px] text-slate-700">
-          <li>Admin starts and ends the voting session.</li>
-          <li>Voters can only vote and access restricted actions.</li>
-          <li>Admin can see total counts but not individual vote choices.</li>
-          <li>Results become visible only after voting ends.</li>
-        </ul>
-
-        <div class="mt-[16px] flex flex-wrap gap-[10px]">
-          <span class="px-[10px] py-[7px] rounded-[999px] text-[12px] font-[700]
-                       bg-orange-500/10 border-[1px] border-orange-500/20 text-orange-700">
-            Role-based Access
-          </span>
-          <span class="px-[10px] py-[7px] rounded-[999px] text-[12px] font-[700]
-                       bg-green-500/10 border-[1px] border-green-500/20 text-green-700">
-            Privacy First
-          </span>
-          <span class="px-[10px] py-[7px] rounded-[999px] text-[12px] font-[700]
-                       bg-slate-900/8 border-[1px] border-slate-900/10 text-slate-800">
-            Instant Counting
-          </span>
+          <h2 class="text-xl font-bold tracking-wide">E-Vote Bank</h2>
+          <p class="text-sm text-white/60 mt-0.5 font-medium tracking-wide">Secure • Transparent • Fast</p>
         </div>
       </div>
 
-      <div class="mt-[20px] flex justify-end gap-[10px]">
-        <a href="#"
-           id="aboutGoHow"
-           class="howBtn px-[15px] py-[11px] rounded-[14px]
-                  bg-orange-500 text-white font-[700] text-[14px]
-                  hover:bg-orange-600 duration-[200ms]">
-          View Workflow
-        </a>
-        <button id="aboutOk"
-                class="px-[15px] py-[11px] rounded-[14px]
-                       bg-slate-900 text-white font-[700] text-[14px]
-                       hover:bg-slate-800 duration-[200ms]">
-          Okay
-        </button>
-      </div>
-
+      <p class="text-sm text-white/60 mt-6 leading-relaxed font-medium max-w-sm">
+        A modern voting-oriented demo system focused on controlled access, privacy, transparent counting, and a clear election workflow.
+      </p>
     </div>
+
+    <div class="sm:col-span-1 lg:col-span-1">
+      <h3 class="text-base font-bold mb-6 text-white tracking-wide">Quick Links</h3>
+      <div class="grid grid-cols-2 gap-y-3 gap-x-4 text-sm font-medium">
+        <a href="#" class="text-white/60 hover:text-orange-400 transition-colors duration-300">Home</a>
+        <a href="#" class="text-white/60 hover:text-orange-400 transition-colors duration-300 openAbout">About</a>
+        <a href="#" class="text-white/60 hover:text-orange-400 transition-colors duration-300 openFeatures">Features</a>
+        <a href="#" class="howBtn text-white/60 hover:text-orange-400 transition-colors duration-300">How it Works</a>
+        <a href="#" class="text-white/60 hover:text-green-400 transition-colors duration-300 openSecurity">Security</a>
+        <a href="#" class="text-white/60 hover:text-green-400 transition-colors duration-300 openContact">Contact</a>
+      </div>
+    </div>
+
+    <div class="sm:col-span-1 lg:col-span-1">
+      <h3 class="text-base font-bold mb-6 text-white tracking-wide">Support</h3>
+
+      <ul class="space-y-2.5 text-sm text-white/60 font-medium">
+        <li><span class="text-white/90 font-bold">Help:</span> Guidelines & voting rules</li>
+        <li><span class="text-white/90 font-bold">Email:</span> support@evotebank.com</li>
+        <li><span class="text-white/90 font-bold">Hours:</span> 9 AM – 6 PM</li>
+      </ul>
+
+      <div class="mt-6 flex flex-wrap gap-2.5">
+        <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-orange-500/10 border border-orange-500/20 text-orange-400">
+          Verified Flow
+        </span>
+        <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-green-500/10 border border-green-500/20 text-green-400">
+          Privacy First
+        </span>
+      </div>
+    </div>
+
   </div>
 
-  <!-- ================= FEATURES MODAL ================= -->
-  <div id="featuresModal" class="fixed inset-[0px] z-[99999] hidden overflow-y-auto">
-    <div id="featuresOverlay" class="absolute inset-[0px] bg-slate-950/72 backdrop-blur-[6px]"></div>
+  <div class="border-t border-white/10 bg-black/20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      
+      <p class="text-sm text-white/50 font-medium text-center md:text-left">
+        © <span class="text-white/80">2026</span> E-Vote Bank • All rights reserved.
+      </p>
 
-    <div class="relative mx-auto my-[24px]
-                w-[92%] max-w-[780px] rounded-[22px]
-                bg-white/95 backdrop-blur-[14px]
-                border-[1px] border-black/8 shadow-[0px_24px_80px_rgba(0,0,0,0.22)]
-                p-[22px] sm:p-[26px]
-                max-h-[calc(100vh_-_48px)] overflow-y-auto">
+      <p class="text-xs sm:text-sm text-white/40 text-center md:text-right leading-relaxed max-w-xl font-medium">
+        Educational demo project — individual vote choices are not displayed, only party-wise counts.
+      </p>
+      
+    </div>
+  </div>
+</footer>
 
-      <div class="flex items-start justify-between gap-[12px]">
-        <div>
-          <h2 class="text-[26px] font-[700] text-slate-900">Key Features</h2>
-          <p class="text-[14px] text-slate-500 font-[500] mt-[6px]">
-            Built for fairness, privacy, and speed
-          </p>
-        </div>
+<!-- About Modal -->
+ <div id="aboutModal" class="fixed inset-[0px] z-[99999] hidden">
+  <div id="aboutOverlay" class="absolute inset-[0px] bg-slate-950/72 backdrop-blur-[6px]"></div>
 
-        <button id="featuresClose"
-                class="w-[40px] h-[40px] rounded-[12px] bg-black/6 hover:bg-black/10 font-[700] text-[16px] duration-[200ms]">
-          ✕
-        </button>
+  <div class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
+              w-[92%] max-w-[720px] max-h-[80vh] flex flex-col rounded-[22px]
+              bg-white/95 backdrop-blur-[14px]
+              border-[1px] border-black/8 shadow-[0px_24px_80px_rgba(0,0,0,0.22)]
+              p-[22px] sm:p-[26px]">
+
+    <div class="flex items-start justify-between gap-[12px] shrink-0 pb-[4px]">
+      <div>
+        <h2 class="text-[26px] font-[700] text-slate-900">About E-Vote Bank</h2>
+        <p class="text-[14px] text-slate-500 font-[500] mt-[6px]">
+          Secure • Transparent • Fast
+        </p>
       </div>
 
-      <div class="mt-[18px] grid grid-cols-1 sm:grid-cols-2 gap-[12px]">
+      <button id="aboutClose"
+              class="w-[40px] h-[40px] rounded-[12px] bg-black/6 hover:bg-black/10 font-[700] text-[16px] duration-[200ms] shrink-0">
+        ✕
+      </button>
+    </div>
+
+    <div class="mt-[16px] overflow-y-auto pr-[8px] text-slate-800 text-[15px] leading-[1.8] font-[500]">
+      <p class="font-[600] text-slate-900">
+        E-Vote Bank is an e-voting system designed to conduct elections digitally with controlled access, fair session handling, and privacy-safe vote visibility.
+      </p>
+
+      <ul class="mt-[12px] list-disc pl-[20px] space-y-[7px] text-slate-700">
+        <li>Admin starts and ends the voting session.</li>
+        <li>Voters can only vote and access restricted actions.</li>
+        <li>Admin can see total counts but not individual vote choices.</li>
+        <li>Results become visible only after voting ends.</li>
+      </ul>
+
+      <div class="mt-[16px] flex flex-wrap gap-[10px]">
+        <span class="px-[10px] py-[7px] rounded-[999px] text-[12px] font-[700]
+                     bg-orange-500/10 border-[1px] border-orange-500/20 text-orange-700">
+          Role-based Access
+        </span>
+        <span class="px-[10px] py-[7px] rounded-[999px] text-[12px] font-[700]
+                     bg-green-500/10 border-[1px] border-green-500/20 text-green-700">
+          Privacy First
+        </span>
+        <span class="px-[10px] py-[7px] rounded-[999px] text-[12px] font-[700]
+                     bg-slate-900/8 border-[1px] border-slate-900/10 text-slate-800">
+          Instant Counting
+        </span>
+      </div>
+    </div>
+
+    <div class="mt-[20px] pt-[4px] flex justify-end gap-[10px] flex-wrap sm:flex-nowrap shrink-0">
+      <a href="#"
+         id="aboutGoHow"
+         class="howBtn w-full sm:w-auto text-center px-[15px] py-[11px] rounded-[14px]
+                bg-orange-500 text-white font-[700] text-[14px]
+                hover:bg-orange-600 duration-[200ms]">
+        View Workflow
+      </a>
+      <button id="aboutOk"
+              class="w-full sm:w-auto text-center px-[15px] py-[11px] rounded-[14px]
+                     bg-slate-900 text-white font-[700] text-[14px]
+                     hover:bg-slate-800 duration-[200ms]">
+        Okay
+      </button>
+    </div>
+
+  </div>
+</div>
+
+  <!-- ================= FEATURES MODAL ================= -->
+  <div id="featuresModal" class="fixed inset-[0px] z-[99999] hidden flex items-center justify-center p-[16px]">
+  <div id="featuresOverlay" class="absolute inset-[0px] bg-slate-950/72 backdrop-blur-[6px]"></div>
+
+  <div class="relative w-[92%] max-w-[780px] max-h-[85vh] flex flex-col rounded-[22px]
+              bg-white/95 backdrop-blur-[14px]
+              border-[1px] border-black/8 shadow-[0px_24px_80px_rgba(0,0,0,0.22)]
+              p-[22px] sm:p-[26px]">
+
+    <div class="flex items-start justify-between gap-[12px] shrink-0 pb-[8px]">
+      <div>
+        <h2 class="text-[26px] font-[700] text-slate-900">Key Features</h2>
+        <p class="text-[14px] text-slate-500 font-[500] mt-[6px]">
+          Built for fairness, privacy, and speed
+        </p>
+      </div>
+
+      <button id="featuresClose"
+              class="w-[40px] h-[40px] rounded-[12px] bg-black/6 hover:bg-black/10 font-[700] text-[16px] duration-[200ms] shrink-0">
+        ✕
+      </button>
+    </div>
+
+    <div class="mt-[18px] overflow-y-auto pr-[8px]">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-[12px]">
 
         <div class="rounded-[18px] p-[15px] border-[1px] border-black/8 bg-white shadow-[0px_8px_18px_rgba(15,23,42,0.04)]">
           <p class="font-[700] text-[15px] text-slate-900">Role-based Access</p>
@@ -485,48 +433,49 @@
         </div>
 
       </div>
-
-      <div class="mt-[20px] flex justify-end gap-[10px]">
-        <button id="featuresOk"
-                class="px-[15px] py-[11px] rounded-[14px]
-                       bg-slate-900 text-white font-[700] text-[14px]
-                       hover:bg-slate-800 duration-[200ms]">
-          Okay
-        </button>
-      </div>
-
     </div>
+
+    <div class="mt-[20px] pt-[8px] flex justify-end gap-[10px] shrink-0">
+      <button id="featuresOk"
+              class="w-full sm:w-auto px-[15px] py-[11px] rounded-[14px]
+                     bg-slate-900 text-white font-[700] text-[14px]
+                     hover:bg-slate-800 duration-[200ms]">
+        Okay
+      </button>
+    </div>
+
   </div>
+</div>
 
   <!-- ================= HOW IT WORKS MODAL ================= -->
-  <div id="howModal" class="fixed inset-[0px] z-[99999] hidden">
-    <div id="howOverlay" class="absolute inset-[0px] bg-slate-950/72 backdrop-blur-[6px]"></div>
+  <div id="howModal" class="fixed inset-[0px] z-[99999] hidden flex items-center justify-center p-[16px]">
+  <div id="howOverlay" class="absolute inset-[0px] bg-slate-950/72 backdrop-blur-[6px]"></div>
 
-    <div class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
-                w-[92%] max-w-[840px] rounded-[22px]
-                bg-white/95 backdrop-blur-[14px]
-                border-[1px] border-black/8 shadow-[0px_24px_80px_rgba(0,0,0,0.22)]
-                p-[22px] sm:p-[26px]">
+  <div class="relative w-[92%] max-w-[840px] max-h-[85vh] flex flex-col rounded-[22px]
+              bg-white/95 backdrop-blur-[14px]
+              border-[1px] border-black/8 shadow-[0px_24px_80px_rgba(0,0,0,0.22)]
+              p-[22px] sm:p-[26px]">
 
-      <div class="flex items-start justify-between gap-[12px]">
-        <div>
-          <h2 class="text-[26px] font-[700] text-slate-900">How It Works</h2>
-          <p class="text-[14px] text-slate-500 font-[500] mt-[6px]">
-            Admin controlled flow • Voter privacy protected
-          </p>
-        </div>
-
-        <button id="howClose"
-                class="w-[40px] h-[40px] rounded-[12px] bg-black/6 hover:bg-black/10 font-[700] text-[16px] duration-[200ms]">
-          ✕
-        </button>
+    <div class="flex items-start justify-between gap-[12px] shrink-0 pb-[8px]">
+      <div>
+        <h2 class="text-[26px] font-[700] text-slate-900">How It Works</h2>
+        <p class="text-[14px] text-slate-500 font-[500] mt-[6px]">
+          Admin controlled flow • Voter privacy protected
+        </p>
       </div>
 
-      <div class="mt-[18px] grid grid-cols-1 md:grid-cols-2 gap-[12px]">
+      <button id="howClose"
+              class="w-[40px] h-[40px] rounded-[12px] bg-black/6 hover:bg-black/10 font-[700] text-[16px] duration-[200ms] shrink-0">
+        ✕
+      </button>
+    </div>
+
+    <div class="mt-[18px] overflow-y-auto pr-[8px]">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-[12px]">
 
         <div class="rounded-[18px] p-[15px] border-[1px] border-black/8 bg-white">
           <div class="flex items-start gap-[10px]">
-            <span class="w-[36px] h-[36px] rounded-[12px] grid place-items-center font-[700]
+            <span class="w-[36px] h-[36px] rounded-[12px] grid place-items-center font-[700] shrink-0
                          bg-orange-500/12 border-[1px] border-orange-500/18 text-orange-700">1</span>
             <div>
               <p class="font-[700] text-[15px] text-slate-900">Admin Login</p>
@@ -539,7 +488,7 @@
 
         <div class="rounded-[18px] p-[15px] border-[1px] border-black/8 bg-white">
           <div class="flex items-start gap-[10px]">
-            <span class="w-[36px] h-[36px] rounded-[12px] grid place-items-center font-[700]
+            <span class="w-[36px] h-[36px] rounded-[12px] grid place-items-center font-[700] shrink-0
                          bg-orange-500/12 border-[1px] border-orange-500/18 text-orange-700">2</span>
             <div>
               <p class="font-[700] text-[15px] text-slate-900">Start Voting</p>
@@ -552,7 +501,7 @@
 
         <div class="rounded-[18px] p-[15px] border-[1px] border-black/8 bg-white">
           <div class="flex items-start gap-[10px]">
-            <span class="w-[36px] h-[36px] rounded-[12px] grid place-items-center font-[700]
+            <span class="w-[36px] h-[36px] rounded-[12px] grid place-items-center font-[700] shrink-0
                          bg-green-500/12 border-[1px] border-green-500/18 text-green-700">3</span>
             <div>
               <p class="font-[700] text-[15px] text-slate-900">Voter Login & Vote</p>
@@ -565,7 +514,7 @@
 
         <div class="rounded-[18px] p-[15px] border-[1px] border-black/8 bg-white">
           <div class="flex items-start gap-[10px]">
-            <span class="w-[36px] h-[36px] rounded-[12px] grid place-items-center font-[700]
+            <span class="w-[36px] h-[36px] rounded-[12px] grid place-items-center font-[700] shrink-0
                          bg-green-500/12 border-[1px] border-green-500/18 text-green-700">4</span>
             <div>
               <p class="font-[700] text-[15px] text-slate-900">Counting (Privacy Safe)</p>
@@ -578,7 +527,7 @@
 
         <div class="rounded-[18px] p-[15px] border-[1px] border-black/8 bg-white">
           <div class="flex items-start gap-[10px]">
-            <span class="w-[36px] h-[36px] rounded-[12px] grid place-items-center font-[700]
+            <span class="w-[36px] h-[36px] rounded-[12px] grid place-items-center font-[700] shrink-0
                          bg-red-500/12 border-[1px] border-red-500/18 text-red-700">5</span>
             <div>
               <p class="font-[700] text-[15px] text-slate-900">End Voting</p>
@@ -591,7 +540,7 @@
 
         <div class="rounded-[18px] p-[15px] border-[1px] border-black/8 bg-white">
           <div class="flex items-start gap-[10px]">
-            <span class="w-[36px] h-[36px] rounded-[12px] grid place-items-center font-[700]
+            <span class="w-[36px] h-[36px] rounded-[12px] grid place-items-center font-[700] shrink-0
                          bg-red-500/12 border-[1px] border-red-500/18 text-red-700">6</span>
             <div>
               <p class="font-[700] text-[15px] text-slate-900">Show Results</p>
@@ -603,7 +552,9 @@
         </div>
 
       </div>
+    </div>
 
+    <div class="shrink-0">
       <div class="mt-[16px] rounded-[16px] p-[13px] bg-slate-900/5 border-[1px] border-slate-900/10">
         <p class="text-[13px] font-[600] text-slate-700 leading-[1.7]">
           Note: Admin can view totals and session status, but cannot see who voted for whom.
@@ -612,41 +563,42 @@
 
       <div class="mt-[18px] flex justify-end gap-[10px]">
         <button id="howOk"
-                class="px-[15px] py-[11px] rounded-[14px]
+                class="w-full sm:w-auto px-[15px] py-[11px] rounded-[14px]
                        bg-slate-900 text-white font-[700] text-[14px]
                        hover:bg-slate-800 duration-[200ms]">
           Okay
         </button>
       </div>
-
     </div>
+
   </div>
+</div>
 
   <!-- ================= SECURITY MODAL ================= -->
-  <div id="securityModal" class="fixed inset-[0px] z-[99999] hidden">
-    <div id="securityOverlay" class="absolute inset-[0px] bg-slate-950/72 backdrop-blur-[6px]"></div>
+  <div id="securityModal" class="fixed inset-[0px] z-[99999] hidden flex items-center justify-center p-[16px]">
+  <div id="securityOverlay" class="absolute inset-[0px] bg-slate-950/72 backdrop-blur-[6px]"></div>
 
-    <div class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
-                w-[92%] max-w-[800px] rounded-[22px]
-                bg-white/95 backdrop-blur-[14px]
-                border-[1px] border-black/8 shadow-[0px_24px_80px_rgba(0,0,0,0.22)]
-                p-[22px] sm:p-[26px]">
+  <div class="relative w-[92%] max-w-[800px] max-h-[85vh] flex flex-col rounded-[22px]
+              bg-white/95 backdrop-blur-[14px]
+              border-[1px] border-black/8 shadow-[0px_24px_80px_rgba(0,0,0,0.22)]
+              p-[22px] sm:p-[26px]">
 
-      <div class="flex items-start justify-between gap-[12px]">
-        <div>
-          <h2 class="text-[26px] font-[700] text-slate-900">Security & Privacy</h2>
-          <p class="text-[14px] text-slate-500 font-[500] mt-[6px]">
-            Protecting voters, ensuring fair counting
-          </p>
-        </div>
-
-        <button id="securityClose"
-                class="w-[40px] h-[40px] rounded-[12px] bg-black/6 hover:bg-black/10 font-[700] text-[16px] duration-[200ms]">
-          ✕
-        </button>
+    <div class="flex items-start justify-between gap-[12px] shrink-0 pb-[8px]">
+      <div>
+        <h2 class="text-[26px] font-[700] text-slate-900">Security & Privacy</h2>
+        <p class="text-[14px] text-slate-500 font-[500] mt-[6px]">
+          Protecting voters, ensuring fair counting
+        </p>
       </div>
 
-      <div class="mt-[18px] grid grid-cols-1 sm:grid-cols-2 gap-[12px]">
+      <button id="securityClose"
+              class="w-[40px] h-[40px] rounded-[12px] bg-black/6 hover:bg-black/10 font-[700] text-[16px] duration-[200ms] shrink-0">
+        ✕
+      </button>
+    </div>
+
+    <div class="mt-[18px] overflow-y-auto pr-[8px]">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-[12px]">
 
         <div class="rounded-[18px] p-[15px] border-[1px] border-black/8 bg-white">
           <p class="font-[700] text-[15px] text-slate-900">Role-based Access</p>
@@ -691,7 +643,9 @@
         </div>
 
       </div>
+    </div>
 
+    <div class="shrink-0 pt-[8px]">
       <div class="mt-[16px] rounded-[16px] p-[13px] bg-green-500/10 border-[1px] border-green-600/18">
         <p class="text-[13px] font-[700] text-green-800 leading-[1.7]">
           Privacy guarantee: Admin can never view individual votes — only total counts.
@@ -700,41 +654,42 @@
 
       <div class="mt-[18px] flex justify-end gap-[10px]">
         <button id="securityOk"
-                class="px-[15px] py-[11px] rounded-[14px]
+                class="w-full sm:w-auto px-[15px] py-[11px] rounded-[14px]
                        bg-slate-900 text-white font-[700] text-[14px]
                        hover:bg-slate-800 duration-[200ms]">
           Okay
         </button>
       </div>
-
     </div>
+
   </div>
+</div>
 
   <!-- ================= GUIDELINES MODAL ================= -->
-  <div id="guideModal" class="fixed inset-[0px] z-[99999] hidden">
-    <div id="guideOverlay" class="absolute inset-[0px] bg-slate-950/72 backdrop-blur-[6px]"></div>
+  <div id="guideModal" class="fixed inset-[0px] z-[99999] hidden flex items-center justify-center p-[16px]">
+  <div id="guideOverlay" class="absolute inset-[0px] bg-slate-950/72 backdrop-blur-[6px]"></div>
 
-    <div class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
-                w-[92%] max-w-[780px] rounded-[22px]
-                bg-white/95 backdrop-blur-[14px]
-                border-[1px] border-black/8 shadow-[0px_24px_80px_rgba(0,0,0,0.22)]
-                p-[22px] sm:p-[26px]">
+  <div class="relative w-[92%] max-w-[780px] max-h-[85vh] flex flex-col rounded-[22px]
+              bg-white/95 backdrop-blur-[14px]
+              border-[1px] border-black/8 shadow-[0px_24px_80px_rgba(0,0,0,0.22)]
+              p-[22px] sm:p-[26px]">
 
-      <div class="flex items-start justify-between">
-        <div>
-          <h2 class="text-[26px] font-[700] text-slate-900">Voting Guidelines</h2>
-          <p class="text-[14px] text-slate-500 font-[500] mt-[6px]">
-            Please follow instructions carefully during voting
-          </p>
-        </div>
-
-        <button id="guideClose"
-                class="w-[40px] h-[40px] rounded-[12px] bg-black/6 hover:bg-black/10 font-[700] text-[16px] duration-[200ms]">
-          ✕
-        </button>
+    <div class="flex items-start justify-between shrink-0 pb-[8px]">
+      <div>
+        <h2 class="text-[26px] font-[700] text-slate-900">Voting Guidelines</h2>
+        <p class="text-[14px] text-slate-500 font-[500] mt-[6px]">
+          Please follow instructions carefully during voting
+        </p>
       </div>
 
-      <div class="mt-[18px] grid grid-cols-1 sm:grid-cols-2 gap-[12px]">
+      <button id="guideClose"
+              class="w-[40px] h-[40px] rounded-[12px] bg-black/6 hover:bg-black/10 font-[700] text-[16px] duration-[200ms] shrink-0">
+        ✕
+      </button>
+    </div>
+
+    <div class="mt-[18px] overflow-y-auto pr-[8px]">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-[12px]">
 
         <div class="rounded-[16px] p-[13px] border-[1px] border-black/8 bg-white">
           <p class="font-[700] text-[15px] text-green-700">✔ Login Carefully</p>
@@ -779,7 +734,9 @@
         </div>
 
       </div>
+    </div>
 
+    <div class="shrink-0 pt-[8px]">
       <div class="mt-[18px] rounded-[16px] p-[13px] bg-orange-500/10 border-[1px] border-orange-400/20">
         <p class="text-[13px] font-[700] text-orange-700 leading-[1.7]">
           Important: Voting results will be visible only after admin ends voting session.
@@ -788,42 +745,43 @@
 
       <div class="mt-[20px] flex justify-end">
         <button id="guideOk"
-                class="px-[16px] py-[11px] rounded-[14px]
-                       bg-slate-900 text-white font-[700]
+                class="w-full sm:w-auto px-[16px] py-[11px] rounded-[14px]
+                       bg-slate-900 text-white font-[700] text-[14px]
                        hover:bg-slate-800 duration-[200ms]">
           Understood
         </button>
       </div>
-
     </div>
+
   </div>
+</div>
 
   <!-- ================= CONTACT MODAL ================= -->
-  <div id="contactModal" class="fixed inset-[0px] z-[99999] hidden">
-    <div id="contactOverlay" class="absolute inset-[0px] bg-slate-950/72 backdrop-blur-[6px]"></div>
+  <div id="contactModal" class="fixed inset-[0px] z-[99999] hidden flex items-center justify-center p-[16px]">
+  <div id="contactOverlay" class="absolute inset-[0px] bg-slate-950/72 backdrop-blur-[6px]"></div>
 
-    <div class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
-                w-[92%] max-w-[720px] rounded-[22px]
-                bg-white/95 backdrop-blur-[14px]
-                border-[1px] border-black/8 shadow-[0px_24px_80px_rgba(0,0,0,0.22)]
-                p-[22px] sm:p-[26px]">
+  <div class="relative w-[92%] max-w-[720px] max-h-[85vh] flex flex-col rounded-[22px]
+              bg-white/95 backdrop-blur-[14px]
+              border-[1px] border-black/8 shadow-[0px_24px_80px_rgba(0,0,0,0.22)]
+              p-[22px] sm:p-[26px]">
 
-      <div class="flex items-start justify-between gap-[12px]">
-        <div>
-          <h2 class="text-[26px] font-[700] text-slate-900">Contact</h2>
-          <p class="text-[14px] text-slate-500 font-[500] mt-[6px]">
-            Need help or want to report an issue?
-          </p>
-        </div>
-
-        <button id="contactClose"
-                class="w-[40px] h-[40px] rounded-[12px] bg-black/6 hover:bg-black/10 font-[700] text-[16px] duration-[200ms]">
-          ✕
-        </button>
+    <div class="flex items-start justify-between gap-[12px] shrink-0 pb-[8px]">
+      <div>
+        <h2 class="text-[26px] font-[700] text-slate-900">Contact</h2>
+        <p class="text-[14px] text-slate-500 font-[500] mt-[6px]">
+          Need help or want to report an issue?
+        </p>
       </div>
 
-      <div class="mt-[18px] grid grid-cols-1 sm:grid-cols-2 gap-[12px]">
+      <button id="contactClose"
+              class="w-[40px] h-[40px] rounded-[12px] bg-black/6 hover:bg-black/10 font-[700] text-[16px] duration-[200ms] shrink-0">
+        ✕
+      </button>
+    </div>
 
+    <div class="mt-[18px] overflow-y-auto pr-[8px]">
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-[12px]">
         <div class="rounded-[18px] p-[15px] border-[1px] border-black/8 bg-white">
           <p class="font-[700] text-[15px] text-slate-900">Email</p>
           <p class="mt-[5px] text-[13px] font-[500] text-slate-600">support@evotebank.com</p>
@@ -843,10 +801,9 @@
           <p class="font-[700] text-[15px] text-slate-900">Location</p>
           <p class="mt-[5px] text-[13px] font-[500] text-slate-600">Campus / Department Lab</p>
         </div>
-
       </div>
 
-      <div class="mt-[16px] rounded-[18px] p-[15px] bg-slate-900/5 border-[1px] border-slate-900/10">
+      <div class="mt-[16px] rounded-[18px] p-[15px] bg-slate-900/5 border-[1px] border-slate-900/10 mb-[8px]">
         <p class="font-[700] text-[14px] text-slate-900 mb-[10px]">Send a message</p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-[10px]">
@@ -859,22 +816,24 @@
                         outline-none focus:border-orange-500 bg-white text-slate-900" />
         </div>
 
-        <textarea placeholder="Your Message" rows="4"
+        <textarea placeholder="Your Message" rows="3"
                   class="mt-[10px] w-[100%] px-[13px] py-[11px] rounded-[14px] border-[1px] border-black/12
                          outline-none focus:border-orange-500 bg-white text-slate-900"></textarea>
-
-        <div class="mt-[12px] flex justify-end gap-[10px]">
-          <button id="contactOk"
-                  class="px-[15px] py-[11px] rounded-[14px]
-                         bg-slate-900 text-white font-[700] text-[14px]
-                         hover:bg-slate-800 duration-[200ms]">
-            Done
-          </button>
-        </div>
       </div>
-      
+
     </div>
+
+    <div class="shrink-0 pt-[8px] flex justify-end">
+      <button id="contactOk"
+              class="w-full sm:w-auto px-[15px] py-[11px] rounded-[14px]
+                     bg-slate-900 text-white font-[700] text-[14px]
+                     hover:bg-slate-800 duration-[200ms]">
+        Done
+      </button>
+    </div>
+
   </div>
+</div>
 
   <script src="homepage.js"></script>
 </body>
