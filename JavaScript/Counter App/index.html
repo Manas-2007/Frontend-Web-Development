@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Counter App | JS Project 01</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="project-wrapper">
+
+      <div class="project-badge">JavaScript Project 01</div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <p class="project-label">Interactive UI Practice</p>
+          <h1>Counter App</h1>
+          <p class="project-desc">
+            A clean and responsive counter interface designed for JavaScript DOM manipulation,
+            event handling, and dynamic UI practice.
+          </p>
+        </div>
+
+        <div class="counter-display-section">
+          <p class="counter-title">Current Count</p>
+          <h2 class="counter-value" id="counterValue">0</h2>
+          <p class="counter-status" id="counterStatus">Ready to count</p>
+        </div>
+
+        <div class="counter-actions">
+          <button class="btn btn-decrease" id="decreaseBtn" onclick="sub();">Decrease</button>
+          <button class="btn btn-reset" id="resetBtn" onclick="reset();">Reset</button>
+          <button class="btn btn-increase" id="increaseBtn" onclick="add();">Increase</button>
+        </div>
+
+        <div class="project-footer">
+          <div class="footer-box">
+            <span>Focus</span>
+            <p>DOM Manipulation</p>
+          </div>
+          <div class="footer-box">
+            <span>Concept</span>
+            <p>Event Handling</p>
+          </div>
+          <div class="footer-box">
+            <span>Level</span>
+            <p>Beginner Friendly</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
