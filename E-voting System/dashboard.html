@@ -42,43 +42,46 @@ shadow-[0px_10px_30px_rgba(15,23,42,0.08)]">
   <!-- RIGHT AREA -->
   <div class="flex items-center gap-[6px] shrink-0">
 
-    <!-- MOBILE LIVE STATUS -->
-    <div id="mobileVoteLiveBox"
-    class="flex items-center gap-[5px]
-    bg-gradient-to-r from-slate-50 to-slate-100
-    border-[1px] border-slate-200
-    px-[8px] py-[6px]
-    rounded-[999px]
-    shadow-[0px_6px_18px_rgba(15,23,42,0.05)]
-    max-w-[120px]">
+  <!-- MOBILE LIVE STATUS (HIDDEN ON PHONE) -->
+<div id="mobileVoteLiveBox"
+class="hidden md:flex items-center gap-[5px]
+bg-gradient-to-r from-slate-50 to-slate-100
+border-[1px] border-slate-200
+px-[8px] py-[6px]
+rounded-[999px]
+shadow-[0px_6px_18px_rgba(15,23,42,0.05)]
+max-w-[120px]">
 
-      <span id="mobileLiveDot"
-      class="w-[7px] h-[7px] rounded-full bg-gray-400 shrink-0"></span>
+  <span id="mobileLiveDot"
+  class="w-[7px] h-[7px] rounded-full bg-gray-400 shrink-0"></span>
 
-      <span id="mobileLiveText"
-      class="text-[10px] font-[800] text-slate-600 tracking-[0.2px] whitespace-nowrap truncate">
-        NOT STARTED
-      </span>
+</div>
 
-    </div>
 
-    <!-- HAMBURGER -->
-    <label for="mobileMenuToggle"
-    class="flex md:hidden w-[42px] h-[42px]
-    rounded-[12px]
-    bg-slate-100
-    border-[1px] border-slate-200
-    shadow-[0px_6px_16px_rgba(15,23,42,0.08)]
-    items-center justify-center
-    cursor-pointer shrink-0">
+<!-- HAMBURGER -->
+<label for="mobileMenuToggle"
+class="flex md:hidden w-[42px] h-[42px]
+rounded-[12px]
+bg-slate-100
+border-[1px] border-slate-200
+shadow-[0px_6px_16px_rgba(15,23,42,0.08)]
+items-center justify-center
+cursor-pointer shrink-0">
 
-      <svg xmlns="http://www.w3.org/2000/svg"
-      class="w-[21px] h-[21px] text-slate-700"
-      fill="none" viewBox="0 0 24 24"
-      stroke="currentColor" stroke-width="2.2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
-      </svg>
-    </label>
+  <svg xmlns="http://www.w3.org/2000/svg"
+  class="w-[21px] h-[21px] text-slate-700"
+  fill="none"
+  viewBox="0 0 24 24"
+  stroke="currentColor"
+  stroke-width="2.2">
+
+    <path stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M4 7h16M4 12h16M4 17h16" />
+
+  </svg>
+
+</label>
   </div>
 </div>
 
@@ -234,7 +237,7 @@ flex flex-col overflow-hidden">
 
   <!-- FIXED LOGOUT -->
   <div class="shrink-0 px-[14px] pt-[10px] pb-[16px] border-t-[1px] border-white/10 bg-[rgba(2,11,47,0.96)]">
-    <button type="button" id="mobileLogoutBtn"
+    <button type="button" id="logoutBtn"
     class="w-[100%]
     px-[16px] py-[13px]
     rounded-[14px]
@@ -1038,47 +1041,47 @@ flex flex-col overflow-hidden">
 
 <!-- Vote status tab -->
 <section id="tab-status" class="tabSection hidden">
-  <div class="max-w-[1280px] mx-auto px-[20px] pb-[34px]">
+  <div class="max-w-[1280px] mx-auto px-[12px] sm:px-[16px] md:px-[20px] pb-[24px] md:pb-[34px]">
 
     <!-- Top Header -->
     <div class="relative overflow-hidden
     bg-[linear-gradient(135deg,rgba(255,255,255,0.96)_0%,rgba(248,250,252,0.98)_100%)]
     border-[1px] border-[rgb(203,213,225)]
     shadow-[0px_20px_45px_rgba(15,23,42,0.10)]
-    rounded-[26px] p-[24px]">
+    rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[24px]">
 
-      <div class="absolute top-[-40px] right-[-40px] w-[180px] h-[180px] rounded-full bg-[rgba(34,197,94,0.06)]"></div>
-      <div class="absolute bottom-[-50px] left-[-35px] w-[150px] h-[150px] rounded-full bg-[rgba(59,130,246,0.05)]"></div>
+      <div class="absolute top-[-40px] right-[-40px] w-[130px] h-[130px] md:w-[180px] md:h-[180px] rounded-full bg-[rgba(34,197,94,0.06)]"></div>
+      <div class="absolute bottom-[-50px] left-[-35px] w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full bg-[rgba(59,130,246,0.05)]"></div>
 
-      <div class="relative flex items-center justify-between gap-[18px]">
+      <div class="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-[14px] md:gap-[18px]">
 
-        <div>
-          <div class="inline-flex items-center gap-[8px] px-[12px] py-[7px]
+        <div class="min-w-0">
+          <div class="inline-flex items-center gap-[8px] px-[10px] md:px-[12px] py-[6px] md:py-[7px]
           rounded-[999px] border-[1px] border-[rgba(34,197,94,0.18)]
-          bg-[rgba(34,197,94,0.08)] mb-[14px]">
+          bg-[rgba(34,197,94,0.08)] mb-[12px] md:mb-[14px]">
             <span class="w-[8px] h-[8px] rounded-full bg-[rgb(34,197,94)]"></span>
-            <span class="text-[12px] font-[700] tracking-[0.5px] text-[rgb(21,128,61)]">
+            <span class="text-[10px] sm:text-[11px] md:text-[12px] font-[700] tracking-[0.5px] text-[rgb(21,128,61)]">
               ACTIVE VOTING SECTION
             </span>
           </div>
 
-          <h2 class="text-[34px] font-[900] text-[rgb(15,23,42)] leading-[1.08]">
+          <h2 class="text-[24px] sm:text-[28px] md:text-[34px] font-[900] text-[rgb(15,23,42)] leading-[1.08]">
             Cast Your Vote Securely
           </h2>
 
-          <p class="mt-[10px] text-[16px] leading-[1.7] font-[500] text-[rgb(71,85,105)] max-w-[760px]">
+          <p class="mt-[8px] md:mt-[10px] text-[13px] sm:text-[15px] md:text-[16px] leading-[1.7] font-[500] text-[rgb(71,85,105)] max-w-[760px]">
             Review the available election parties below, choose your preferred option carefully, and submit your vote only after full confirmation.
           </p>
         </div>
 
         <div
-          class="shrink-0 inline-flex items-center justify-center gap-[10px]
-          px-[18px] py-[11px] rounded-[999px]
+          class="w-fit shrink-0 inline-flex items-center justify-center gap-[8px] md:gap-[10px]
+          px-[14px] md:px-[18px] py-[9px] md:py-[11px] rounded-[999px]
           border-[1px] border-[rgb(187,247,208)]
           bg-[linear-gradient(135deg,rgba(240,253,244,1)_0%,rgba(236,253,245,1)_100%)]
           shadow-[0px_10px_24px_rgba(34,197,94,0.10)]">
-          <span class="w-[11px] h-[11px] rounded-full bg-[rgb(34,197,94)]"></span>
-          <span class="text-[14px] font-[800] tracking-[0.6px] text-[rgb(21,128,61)]">
+          <span class="w-[9px] h-[9px] md:w-[11px] md:h-[11px] rounded-full bg-[rgb(34,197,94)]"></span>
+          <span class="text-[12px] md:text-[14px] font-[800] tracking-[0.5px] md:tracking-[0.6px] text-[rgb(21,128,61)] whitespace-nowrap">
             SELECT PARTY
           </span>
         </div>
@@ -1087,91 +1090,91 @@ flex flex-col overflow-hidden">
     </div>
 
     <!-- Admin Control Panel -->
-<div id="adminControlPanel"
-class="hidden mt-[18px]
-bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
-border-[1px] border-[rgb(203,213,225)]
-rounded-[24px] p-[20px]
-shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
-
-  <div class="flex items-center justify-between gap-[16px]">
-
-    <div>
-      <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">
-        Election Control Panel
-      </h3>
-      <p class="mt-[5px] text-[13px] font-[600] text-[rgb(100,116,139)]">
-        Start, stop, reset voting and publish final results.
-      </p>
-    </div>
-
-    <div id="electionStateBadge"
-    class="inline-flex items-center gap-[9px] px-[16px] py-[10px] rounded-[999px]
+    <div id="adminControlPanel"
+    class="hidden mt-[16px] md:mt-[18px]
+    bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
     border-[1px] border-[rgb(203,213,225)]
-    bg-[linear-gradient(135deg,rgba(248,250,252,1)_0%,rgba(229,231,235,1)_100%)]
-    shadow-[0px_8px_18px_rgba(15,23,42,0.06)]">
-      <span id="electionStateDot" class="w-[10px] h-[10px] rounded-full bg-[rgb(107,114,128)]"></span>
-      <span id="electionStateText" class="text-[13px] font-[800] text-[rgb(71,85,105)] tracking-[0.5px]">
-        NOT STARTED
-      </span>
+    rounded-[20px] md:rounded-[24px] p-[14px] sm:p-[18px] md:p-[20px]
+    shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
+
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-[14px] md:gap-[16px]">
+
+        <div>
+          <h3 class="text-[18px] md:text-[21px] font-[900] text-[rgb(15,23,42)]">
+            Election Control Panel
+          </h3>
+          <p class="mt-[5px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">
+            Start, stop, reset voting and publish final results.
+          </p>
+        </div>
+
+        <div id="electionStateBadge"
+        class="w-fit inline-flex items-center gap-[8px] md:gap-[9px] px-[14px] md:px-[16px] py-[9px] md:py-[10px] rounded-[999px]
+        border-[1px] border-[rgb(203,213,225)]
+        bg-[linear-gradient(135deg,rgba(248,250,252,1)_0%,rgba(229,231,235,1)_100%)]
+        shadow-[0px_8px_18px_rgba(15,23,42,0.06)]">
+          <span id="electionStateDot" class="w-[9px] h-[9px] md:w-[10px] md:h-[10px] rounded-full bg-[rgb(107,114,128)]"></span>
+          <span id="electionStateText" class="text-[12px] md:text-[13px] font-[800] text-[rgb(71,85,105)] tracking-[0.5px]">
+            NOT STARTED
+          </span>
+        </div>
+
+      </div>
+
+      <div class="mt-[14px] md:mt-[16px] grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-[10px] md:gap-[12px]">
+
+        <button id="startVotingBtn"
+        class="px-[16px] py-[13px] rounded-[16px] font-[800] text-[14px] md:text-[15px]
+        text-white border-[1px] border-[rgba(34,197,94,0.20)]
+        bg-[linear-gradient(90deg,rgba(22,163,74,1)_0%,rgba(34,197,94,1)_100%)]
+        shadow-[0px_12px_24px_rgba(34,197,94,0.18)]
+        hover:-translate-y-[2px] hover:shadow-[0px_18px_30px_rgba(34,197,94,0.24)]
+        duration-[250ms]">
+          Start Voting
+        </button>
+
+        <button id="stopVotingBtn"
+        class="px-[16px] py-[13px] rounded-[16px] font-[800] text-[14px] md:text-[15px]
+        text-white border-[1px] border-[rgba(239,68,68,0.20)]
+        bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
+        shadow-[0px_12px_24px_rgba(239,68,68,0.18)]
+        hover:-translate-y-[2px] hover:shadow-[0px_18px_30px_rgba(239,68,68,0.24)]
+        duration-[250ms]">
+          Stop Voting
+        </button>
+
+        <button id="showResultBtn"
+        class="px-[16px] py-[13px] rounded-[16px] font-[800] text-[14px] md:text-[15px]
+        text-white border-[1px] border-[rgba(59,130,246,0.20)]
+        bg-[linear-gradient(90deg,rgba(37,99,235,1)_0%,rgba(59,130,246,1)_100%)]
+        shadow-[0px_12px_24px_rgba(59,130,246,0.18)]
+        hover:-translate-y-[2px] hover:shadow-[0px_18px_30px_rgba(59,130,246,0.24)]
+        duration-[250ms]">
+          Show Result
+        </button>
+
+        <button id="resetVotingBtn"
+        class="px-[16px] py-[13px] rounded-[16px] font-[800] text-[14px] md:text-[15px]
+        text-[rgb(15,23,42)] border-[1px] border-[rgb(203,213,225)]
+        bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
+        shadow-[0px_8px_18px_rgba(15,23,42,0.06)]
+        hover:-translate-y-[2px] hover:shadow-[0px_14px_24px_rgba(15,23,42,0.10)]
+        duration-[250ms]">
+          Reset Voting
+        </button>
+
+      </div>
     </div>
-
-  </div>
-
-  <div class="mt-[16px] grid grid-cols-4 gap-[12px]">
-
-    <button id="startVotingBtn"
-    class="px-[16px] py-[13px] rounded-[16px] font-[800] text-[15px]
-    text-white border-[1px] border-[rgba(34,197,94,0.20)]
-    bg-[linear-gradient(90deg,rgba(22,163,74,1)_0%,rgba(34,197,94,1)_100%)]
-    shadow-[0px_12px_24px_rgba(34,197,94,0.18)]
-    hover:-translate-y-[2px] hover:shadow-[0px_18px_30px_rgba(34,197,94,0.24)]
-    duration-[250ms]">
-      Start Voting
-    </button>
-
-    <button id="stopVotingBtn"
-    class="px-[16px] py-[13px] rounded-[16px] font-[800] text-[15px]
-    text-white border-[1px] border-[rgba(239,68,68,0.20)]
-    bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
-    shadow-[0px_12px_24px_rgba(239,68,68,0.18)]
-    hover:-translate-y-[2px] hover:shadow-[0px_18px_30px_rgba(239,68,68,0.24)]
-    duration-[250ms]">
-      Stop Voting
-    </button>
-
-    <button id="showResultBtn"
-    class="px-[16px] py-[13px] rounded-[16px] font-[800] text-[15px]
-    text-white border-[1px] border-[rgba(59,130,246,0.20)]
-    bg-[linear-gradient(90deg,rgba(37,99,235,1)_0%,rgba(59,130,246,1)_100%)]
-    shadow-[0px_12px_24px_rgba(59,130,246,0.18)]
-    hover:-translate-y-[2px] hover:shadow-[0px_18px_30px_rgba(59,130,246,0.24)]
-    duration-[250ms]">
-      Show Result
-    </button>
-
-    <button id="resetVotingBtn"
-    class="px-[16px] py-[13px] rounded-[16px] font-[800] text-[15px]
-    text-[rgb(15,23,42)] border-[1px] border-[rgb(203,213,225)]
-    bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-    shadow-[0px_8px_18px_rgba(15,23,42,0.06)]
-    hover:-translate-y-[2px] hover:shadow-[0px_14px_24px_rgba(15,23,42,0.10)]
-    duration-[250ms]">
-      Reset Voting
-    </button>
-
-  </div>
-</div>
 
     <!-- Parties Grid -->
-    <div class="mt-[20px] grid grid-cols-3 gap-x-[22px] gap-y-[24px]">
+    <div class="mt-[18px] md:mt-[20px] grid grid-cols-2 md:grid-cols-3 gap-[12px] sm:gap-[14px] md:gap-x-[22px] md:gap-y-[24px]">
 
       <!-- Party 1 -->
       <div class="group flex flex-col items-center">
-        <div class="w-full min-h-[295px]
+        <div class="w-full min-h-[260px] sm:min-h-[280px] md:min-h-[295px]
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[26px] p-[20px]
+        rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[20px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[4px]
@@ -1179,42 +1182,43 @@ shadow-[0px_16px_36px_rgba(15,23,42,0.08)]">
         hover:border-[rgb(148,163,184)]
         flex flex-col justify-center">
           <div class="w-full flex items-center justify-center">
-            <div class="w-[180px] h-[180px] rounded-[20px]
+            <div class="w-[96px] h-[96px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] rounded-[16px] md:rounded-[20px]
             border-[1px] border-[rgb(226,232,240)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
             shadow-[inset_0px_1px_0px_rgba(255,255,255,0.7)]
             flex items-center justify-center
             transition duration-[300ms] group-hover:scale-[1.03]">
               <img src="Photos/bjp.jpg" alt="Party 1"
-              class="w-[145px] h-[145px] object-contain rounded-[16px]" />
+              class="w-[110px] h-[110px] sm:w-[125px] sm:h-[125px] md:w-[145px] md:h-[145px] object-contain rounded-[14px] md:rounded-[16px]" />
             </div>
           </div>
 
           <div class="mt-[16px] text-center">
-            <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">Bharatiya Janata Party (BJP)</h3>
-            <p class="mt-[5px] text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
+            <h3 class="text-[13px] sm:text-[19px] md:text-[21px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Bharatiya Janata Party (BJP)</h3>
+            <p class="mt-[5px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
           </div>
         </div>
 
         <button
-          class="mt-[13px] px-[34px] py-[12px] rounded-[16px] font-[800] text-[15px]
+          class="mt-[12px] md:mt-[13px] w-full sm:w-auto px-[20px] sm:px-[28px] md:px-[34px] py-[12px] rounded-[14px] md:rounded-[16px] font-[800] text-[14px] md:text-[15px]
           text-white border-[1px] border-[rgba(15,23,42,0.10)]
           bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-         voteBt duration-[ voteBtn250ms]  voteBtn " data-party="Indian National Congress (INC)"
-data-img="Photos/inc.jpg" >
+          duration-[250ms] voteBtn"
+          data-party="Bharatiya Janata Party (BJP)"
+          data-img="Photos/bjp.jpg">
           Vote
         </button>
       </div>
 
       <!-- Party 2 -->
       <div class="group flex flex-col items-center">
-        <div class="w-full min-h-[295px]
+        <div class="w-full min-h-[260px] sm:min-h-[280px] md:min-h-[295px]
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[26px] p-[20px]
+        rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[20px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[4px]
@@ -1222,42 +1226,43 @@ data-img="Photos/inc.jpg" >
         hover:border-[rgb(148,163,184)]
         flex flex-col justify-center">
           <div class="w-full flex items-center justify-center">
-            <div class="w-[180px] h-[180px] rounded-[20px]
+            <div class="w-[96px] h-[96px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] rounded-[16px] md:rounded-[20px]
             border-[1px] border-[rgb(226,232,240)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
             shadow-[inset_0px_1px_0px_rgba(255,255,255,0.7)]
             flex items-center justify-center
             transition duration-[300ms] group-hover:scale-[1.03]">
               <img src="Photos/inc.jpg" alt="Party 2"
-              class="w-[145px] h-[145px] object-contain rounded-[16px]" />
+              class="w-[110px] h-[110px] sm:w-[125px] sm:h-[125px] md:w-[145px] md:h-[145px] object-contain rounded-[14px] md:rounded-[16px]" />
             </div>
           </div>
 
           <div class="mt-[16px] text-center">
-            <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">Indian National Congress (INC)</h3>
-            <p class="mt-[5px] text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
+            <h3 class="text-[13px] sm:text-[19px] md:text-[21px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Indian National Congress (INC)</h3>
+            <p class="mt-[5px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
           </div>
         </div>
 
         <button
-          class="mt-[13px] px-[34px] py-[12px] rounded-[16px] font-[800] text-[15px]
+          class="mt-[12px] md:mt-[13px] w-full sm:w-auto px-[20px] sm:px-[28px] md:px-[34px] py-[12px] rounded-[14px] md:rounded-[16px] font-[800] text-[14px] md:text-[15px]
           text-white border-[1px] border-[rgba(15,23,42,0.10)]
           bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn" data-party="Indian National Congress (INC)"
-data-img="Photos/inc.jpg">
+          duration-[250ms] voteBtn"
+          data-party="Indian National Congress (INC)"
+          data-img="Photos/inc.jpg">
           Vote
         </button>
       </div>
 
       <!-- Party 3 -->
       <div class="group flex flex-col items-center">
-        <div class="w-full min-h-[295px]
+        <div class="w-full min-h-[260px] sm:min-h-[280px] md:min-h-[295px]
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[26px] p-[20px]
+        rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[20px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[4px]
@@ -1265,42 +1270,43 @@ data-img="Photos/inc.jpg">
         hover:border-[rgb(148,163,184)]
         flex flex-col justify-center">
           <div class="w-full flex items-center justify-center">
-            <div class="w-[180px] h-[180px] rounded-[20px]
+            <div class="w-[96px] h-[96px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] rounded-[16px] md:rounded-[20px]
             border-[1px] border-[rgb(226,232,240)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
             shadow-[inset_0px_1px_0px_rgba(255,255,255,0.7)]
             flex items-center justify-center
             transition duration-[300ms] group-hover:scale-[1.03]">
               <img src="Photos/aap.jpg" alt="Party 3"
-              class="w-[145px] h-[145px] object-contain rounded-[16px]" />
+              class="w-[110px] h-[110px] sm:w-[125px] sm:h-[125px] md:w-[145px] md:h-[145px] object-contain rounded-[14px] md:rounded-[16px]" />
             </div>
           </div>
 
           <div class="mt-[16px] text-center">
-            <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">Aam Aadmi Party (AAP)</h3>
-            <p class="mt-[5px] text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
+            <h3 class="text-[13px] sm:text-[19px] md:text-[21px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Aam Aadmi Party (AAP)</h3>
+            <p class="mt-[5px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
           </div>
         </div>
 
         <button
-          class="mt-[13px] px-[34px] py-[12px] rounded-[16px] font-[800] text-[15px]
+          class="mt-[12px] md:mt-[13px] w-full sm:w-auto px-[20px] sm:px-[28px] md:px-[34px] py-[12px] rounded-[14px] md:rounded-[16px] font-[800] text-[14px] md:text-[15px]
           text-white border-[1px] border-[rgba(15,23,42,0.10)]
           bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn" data-party="Aam Aadmi Party (AAP)"
-data-img="Photos/aap.jpg">
+          duration-[250ms] voteBtn"
+          data-party="Aam Aadmi Party (AAP)"
+          data-img="Photos/aap.jpg">
           Vote
         </button>
       </div>
 
       <!-- Party 4 -->
       <div class="group flex flex-col items-center">
-        <div class="w-full min-h-[295px]
+        <div class="w-full min-h-[260px] sm:min-h-[280px] md:min-h-[295px]
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[26px] p-[20px]
+        rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[20px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[4px]
@@ -1308,42 +1314,43 @@ data-img="Photos/aap.jpg">
         hover:border-[rgb(148,163,184)]
         flex flex-col justify-center">
           <div class="w-full flex items-center justify-center">
-            <div class="w-[180px] h-[180px] rounded-[20px]
+            <div class="w-[96px] h-[96px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] rounded-[16px] md:rounded-[20px]
             border-[1px] border-[rgb(226,232,240)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
             shadow-[inset_0px_1px_0px_rgba(255,255,255,0.7)]
             flex items-center justify-center
             transition duration-[300ms] group-hover:scale-[1.03]">
               <img src="Photos/bsp.jpg" alt="Party 4"
-              class="w-[145px] h-[145px] object-contain rounded-[16px]" />
+              class="w-[110px] h-[110px] sm:w-[125px] sm:h-[125px] md:w-[145px] md:h-[145px] object-contain rounded-[14px] md:rounded-[16px]" />
             </div>
           </div>
 
           <div class="mt-[16px] text-center">
-            <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">Bahujan Samaj Party (BSP)</h3>
-            <p class="mt-[5px] text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
+            <h3 class="text-[13px] sm:text-[19px] md:text-[21px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Bahujan Samaj Party (BSP)</h3>
+            <p class="mt-[5px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
           </div>
         </div>
 
         <button
-          class="mt-[13px] px-[34px] py-[12px] rounded-[16px] font-[800] text-[15px]
+          class="mt-[12px] md:mt-[13px] w-full sm:w-auto px-[20px] sm:px-[28px] md:px-[34px] py-[12px] rounded-[14px] md:rounded-[16px] font-[800] text-[14px] md:text-[15px]
           text-white border-[1px] border-[rgba(15,23,42,0.10)]
           bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn" data-party="Bahujan Samaj Party (BSP)"
-data-img="Photos/bsp.jpg">
+          duration-[250ms] voteBtn"
+          data-party="Bahujan Samaj Party (BSP)"
+          data-img="Photos/bsp.jpg">
           Vote
         </button>
       </div>
 
       <!-- Party 5 -->
       <div class="group flex flex-col items-center">
-        <div class="w-full min-h-[295px]
+        <div class="w-full min-h-[260px] sm:min-h-[280px] md:min-h-[295px]
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[26px] p-[20px]
+        rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[20px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[4px]
@@ -1351,42 +1358,43 @@ data-img="Photos/bsp.jpg">
         hover:border-[rgb(148,163,184)]
         flex flex-col justify-center">
           <div class="w-full flex items-center justify-center">
-            <div class="w-[180px] h-[180px] rounded-[20px]
+            <div class="w-[96px] h-[96px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] rounded-[16px] md:rounded-[20px]
             border-[1px] border-[rgb(226,232,240)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
             shadow-[inset_0px_1px_0px_rgba(255,255,255,0.7)]
             flex items-center justify-center
             transition duration-[300ms] group-hover:scale-[1.03]">
               <img src="Photos/cpi.jpg" alt="Party 5"
-              class="w-[145px] h-[145px] object-contain rounded-[16px]" />
+              class="w-[110px] h-[110px] sm:w-[125px] sm:h-[125px] md:w-[145px] md:h-[145px] object-contain rounded-[14px] md:rounded-[16px]" />
             </div>
           </div>
 
           <div class="mt-[16px] text-center">
-            <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">Communist Party of India (CPI)</h3>
-            <p class="mt-[5px] text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
+            <h3 class="text-[13px] sm:text-[19px] md:text-[21px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Communist Party of India (CPI)</h3>
+            <p class="mt-[5px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
           </div>
         </div>
 
         <button
-          class="mt-[13px] px-[34px] py-[12px] rounded-[16px] font-[800] text-[15px]
+          class="mt-[12px] md:mt-[13px] w-full sm:w-auto px-[20px] sm:px-[28px] md:px-[34px] py-[12px] rounded-[14px] md:rounded-[16px] font-[800] text-[14px] md:text-[15px]
           text-white border-[1px] border-[rgba(15,23,42,0.10)]
           bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn" data-party="Communist Party of India (CPI)"
-data-img="Photos/cpi.jpg">
+          duration-[250ms] voteBtn"
+          data-party="Communist Party of India (CPI)"
+          data-img="Photos/cpi.jpg">
           Vote
         </button>
       </div>
 
       <!-- Party 6 -->
       <div class="group flex flex-col items-center">
-        <div class="w-full min-h-[295px]
+        <div class="w-full min-h-[260px] sm:min-h-[280px] md:min-h-[295px]
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[26px] p-[20px]
+        rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[20px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[4px]
@@ -1394,42 +1402,43 @@ data-img="Photos/cpi.jpg">
         hover:border-[rgb(148,163,184)]
         flex flex-col justify-center">
           <div class="w-full flex items-center justify-center">
-            <div class="w-[180px] h-[180px] rounded-[20px]
+            <div class="w-[96px] h-[96px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] rounded-[16px] md:rounded-[20px]
             border-[1px] border-[rgb(226,232,240)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
             shadow-[inset_0px_1px_0px_rgba(255,255,255,0.7)]
             flex items-center justify-center
             transition duration-[300ms] group-hover:scale-[1.03]">
               <img src="Photos/cpim.jpg" alt="Party 6"
-              class="w-[145px] h-[145px] object-contain rounded-[16px]" />
+              class="w-[110px] h-[110px] sm:w-[125px] sm:h-[125px] md:w-[145px] md:h-[145px] object-contain rounded-[14px] md:rounded-[16px]" />
             </div>
           </div>
 
           <div class="mt-[16px] text-center">
-            <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">Communist Party of India (Marxist) – CPI(M)</h3>
-            <p class="mt-[5px] text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
+            <h3 class="text-[13px] sm:text-[19px] md:text-[21px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Communist Party of India (Marxist) – CPI(M)</h3>
+            <p class="mt-[5px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
           </div>
         </div>
 
         <button
-          class="mt-[13px] px-[34px] py-[12px] rounded-[16px] font-[800] text-[15px]
+          class="mt-[12px] md:mt-[13px] w-full sm:w-auto px-[20px] sm:px-[28px] md:px-[34px] py-[12px] rounded-[14px] md:rounded-[16px] font-[800] text-[14px] md:text-[15px]
           text-white border-[1px] border-[rgba(15,23,42,0.10)]
           bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn" data-party="Communist Party of India (Marxist) – CPI(M)"
-data-img="Photos/cpim.jpg">
+          duration-[250ms] voteBtn"
+          data-party="Communist Party of India (Marxist) – CPI(M)"
+          data-img="Photos/cpim.jpg">
           Vote
         </button>
       </div>
 
       <!-- Party 7 -->
       <div class="group flex flex-col items-center">
-        <div class="w-full min-h-[295px]
+        <div class="w-full min-h-[260px] sm:min-h-[280px] md:min-h-[295px]
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[26px] p-[20px]
+        rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[20px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[4px]
@@ -1437,42 +1446,43 @@ data-img="Photos/cpim.jpg">
         hover:border-[rgb(148,163,184)]
         flex flex-col justify-center">
           <div class="w-full flex items-center justify-center">
-            <div class="w-[180px] h-[180px] rounded-[20px]
+            <div class="w-[96px] h-[96px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] rounded-[16px] md:rounded-[20px]
             border-[1px] border-[rgb(226,232,240)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
             shadow-[inset_0px_1px_0px_rgba(255,255,255,0.7)]
             flex items-center justify-center
             transition duration-[300ms] group-hover:scale-[1.03]">
               <img src="Photos/npp.jpg" alt="Party 7"
-              class="w-[145px] h-[145px] object-contain rounded-[16px]" />
+              class="w-[110px] h-[110px] sm:w-[125px] sm:h-[125px] md:w-[145px] md:h-[145px] object-contain rounded-[14px] md:rounded-[16px]" />
             </div>
           </div>
 
           <div class="mt-[16px] text-center">
-            <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">National People's Party (NPP)</h3>
-            <p class="mt-[5px] text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
+            <h3 class="text-[13px] sm:text-[19px] md:text-[21px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">National People's Party (NPP)</h3>
+            <p class="mt-[5px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
           </div>
         </div>
 
         <button
-          class="mt-[13px] px-[34px] py-[12px] rounded-[16px] font-[800] text-[15px]
+          class="mt-[12px] md:mt-[13px] w-full sm:w-auto px-[20px] sm:px-[28px] md:px-[34px] py-[12px] rounded-[14px] md:rounded-[16px] font-[800] text-[14px] md:text-[15px]
           text-white border-[1px] border-[rgba(15,23,42,0.10)]
           bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn" data-party="National People's Party (NPP)"
-data-img="Photos/npp.jpg">
+          duration-[250ms] voteBtn"
+          data-party="National People's Party (NPP)"
+          data-img="Photos/npp.jpg">
           Vote
         </button>
       </div>
 
       <!-- Party 8 -->
       <div class="group flex flex-col items-center">
-        <div class="w-full min-h-[295px]
+        <div class="w-full min-h-[260px] sm:min-h-[280px] md:min-h-[295px]
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[26px] p-[20px]
+        rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[20px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[4px]
@@ -1480,42 +1490,43 @@ data-img="Photos/npp.jpg">
         hover:border-[rgb(148,163,184)]
         flex flex-col justify-center">
           <div class="w-full flex items-center justify-center">
-            <div class="w-[180px] h-[180px] rounded-[20px]
+            <div class="w-[96px] h-[96px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] rounded-[16px] md:rounded-[20px]
             border-[1px] border-[rgb(226,232,240)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
             shadow-[inset_0px_1px_0px_rgba(255,255,255,0.7)]
             flex items-center justify-center
             transition duration-[300ms] group-hover:scale-[1.03]">
               <img src="Photos/ncp.jpg" alt="Party 8"
-              class="w-[145px] h-[145px] object-contain rounded-[16px]" />
+              class="w-[110px] h-[110px] sm:w-[125px] sm:h-[125px] md:w-[145px] md:h-[145px] object-contain rounded-[14px] md:rounded-[16px]" />
             </div>
           </div>
 
           <div class="mt-[16px] text-center">
-            <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">Nationalist Congress Party (NCP)</h3>
-            <p class="mt-[5px] text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
+            <h3 class="text-[13px] sm:text-[19px] md:text-[21px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Nationalist Congress Party (NCP)</h3>
+            <p class="mt-[5px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
           </div>
         </div>
 
         <button
-          class="mt-[13px] px-[34px] py-[12px] rounded-[16px] font-[800] text-[15px]
+          class="mt-[12px] md:mt-[13px] w-full sm:w-auto px-[20px] sm:px-[28px] md:px-[34px] py-[12px] rounded-[14px] md:rounded-[16px] font-[800] text-[14px] md:text-[15px]
           text-white border-[1px] border-[rgba(15,23,42,0.10)]
           bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn" data-party="Samajwadi Party (SP)"
-data-img="Photos/sp.jpg">
+          duration-[250ms] voteBtn"
+          data-party="Nationalist Congress Party (NCP)"
+          data-img="Photos/ncp.jpg">
           Vote
         </button>
       </div>
 
       <!-- Party 9 -->
       <div class="group flex flex-col items-center">
-        <div class="w-full min-h-[295px]
+        <div class="w-full min-h-[260px] sm:min-h-[280px] md:min-h-[295px]
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[26px] p-[20px]
+        rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[20px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[4px]
@@ -1523,42 +1534,43 @@ data-img="Photos/sp.jpg">
         hover:border-[rgb(148,163,184)]
         flex flex-col justify-center">
           <div class="w-full flex items-center justify-center">
-            <div class="w-[180px] h-[180px] rounded-[20px]
+            <div class="w-[96px] h-[96px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] rounded-[16px] md:rounded-[20px]
             border-[1px] border-[rgb(226,232,240)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
             shadow-[inset_0px_1px_0px_rgba(255,255,255,0.7)]
             flex items-center justify-center
             transition duration-[300ms] group-hover:scale-[1.03]">
               <img src="Photos/sp.jpg" alt="Party 9"
-              class="w-[145px] h-[145px] object-contain rounded-[16px]" />
+              class="w-[110px] h-[110px] sm:w-[125px] sm:h-[125px] md:w-[145px] md:h-[145px] object-contain rounded-[14px] md:rounded-[16px]" />
             </div>
           </div>
 
           <div class="mt-[16px] text-center">
-            <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">Samajwadi Party (SP)</h3>
-            <p class="mt-[5px] text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
+            <h3 class="text-[13px] sm:text-[19px] md:text-[21px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Samajwadi Party (SP)</h3>
+            <p class="mt-[5px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
           </div>
         </div>
 
         <button
-          class="mt-[13px] px-[34px] py-[12px] rounded-[16px] font-[800] text-[15px]
+          class="mt-[12px] md:mt-[13px] w-full sm:w-auto px-[20px] sm:px-[28px] md:px-[34px] py-[12px] rounded-[14px] md:rounded-[16px] font-[800] text-[14px] md:text-[15px]
           text-white border-[1px] border-[rgba(15,23,42,0.10)]
           bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn" data-party="Samajwadi Party (SP)"
-data-img="Photos/sp.jpg">
+          duration-[250ms] voteBtn"
+          data-party="Samajwadi Party (SP)"
+          data-img="Photos/sp.jpg">
           Vote
         </button>
       </div>
 
       <!-- Party 10 -->
       <div class="group flex flex-col items-center">
-        <div class="w-full min-h-[295px]
+        <div class="w-full min-h-[260px] sm:min-h-[280px] md:min-h-[295px]
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[26px] p-[20px]
+        rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[20px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[4px]
@@ -1566,42 +1578,43 @@ data-img="Photos/sp.jpg">
         hover:border-[rgb(148,163,184)]
         flex flex-col justify-center">
           <div class="w-full flex items-center justify-center">
-            <div class="w-[180px] h-[180px] rounded-[20px]
+            <div class="w-[96px] h-[96px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] rounded-[16px] md:rounded-[20px]
             border-[1px] border-[rgb(226,232,240)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
             shadow-[inset_0px_1px_0px_rgba(255,255,255,0.7)]
             flex items-center justify-center
             transition duration-[300ms] group-hover:scale-[1.03]">
               <img src="Photos/ss.jpg" alt="Party 10"
-              class="w-[145px] h-[145px] object-contain rounded-[16px]" />
+              class="w-[110px] h-[110px] sm:w-[125px] sm:h-[125px] md:w-[145px] md:h-[145px] object-contain rounded-[14px] md:rounded-[16px]" />
             </div>
           </div>
 
           <div class="mt-[16px] text-center">
-            <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">Shiv Sena</h3>
-            <p class="mt-[5px] text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
+            <h3 class="text-[13px] sm:text-[19px] md:text-[21px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Shiv Sena</h3>
+            <p class="mt-[5px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
           </div>
         </div>
 
         <button
-          class="mt-[13px] px-[34px] py-[12px] rounded-[16px] font-[800] text-[15px]
+          class="mt-[12px] md:mt-[13px] w-full sm:w-auto px-[20px] sm:px-[28px] md:px-[34px] py-[12px] rounded-[14px] md:rounded-[16px] font-[800] text-[14px] md:text-[15px]
           text-white border-[1px] border-[rgba(15,23,42,0.10)]
           bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn" data-party="Shiv Sena"
-data-img="Photos/ss.jpg">
+          duration-[250ms] voteBtn"
+          data-party="Shiv Sena"
+          data-img="Photos/ss.jpg">
           Vote
         </button>
       </div>
 
       <!-- Party 11 -->
       <div class="group flex flex-col items-center">
-        <div class="w-full min-h-[295px]
+        <div class="w-full min-h-[260px] sm:min-h-[280px] md:min-h-[295px]
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[26px] p-[20px]
+        rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[20px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[4px]
@@ -1609,42 +1622,43 @@ data-img="Photos/ss.jpg">
         hover:border-[rgb(148,163,184)]
         flex flex-col justify-center">
           <div class="w-full flex items-center justify-center">
-            <div class="w-[180px] h-[180px] rounded-[20px]
+            <div class="w-[96px] h-[96px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] rounded-[16px] md:rounded-[20px]
             border-[1px] border-[rgb(226,232,240)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
             shadow-[inset_0px_1px_0px_rgba(255,255,255,0.7)]
             flex items-center justify-center
             transition duration-[300ms] group-hover:scale-[1.03]">
               <img src="Photos/jd.jpg" alt="Party 11"
-              class="w-[145px] h-[145px] object-contain rounded-[16px]" />
+              class="w-[110px] h-[110px] sm:w-[125px] sm:h-[125px] md:w-[145px] md:h-[145px] object-contain rounded-[14px] md:rounded-[16px]" />
             </div>
           </div>
 
           <div class="mt-[16px] text-center">
-            <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">Janata Dal (United) – JD(U)</h3>
-            <p class="mt-[5px] text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
+            <h3 class="text-[13px] sm:text-[19px] md:text-[21px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Janata Dal (United) – JD(U)</h3>
+            <p class="mt-[5px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
           </div>
         </div>
 
         <button
-          class="mt-[13px] px-[34px] py-[12px] rounded-[16px] font-[800] text-[15px]
+          class="mt-[12px] md:mt-[13px] w-full sm:w-auto px-[20px] sm:px-[28px] md:px-[34px] py-[12px] rounded-[14px] md:rounded-[16px] font-[800] text-[14px] md:text-[15px]
           text-white border-[1px] border-[rgba(15,23,42,0.10)]
           bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn" data-party="Janata Dal (United) – JD(U)"
-data-img="Photos/jd.jpg">
+          duration-[250ms] voteBtn"
+          data-party="Janata Dal (United) – JD(U)"
+          data-img="Photos/jd.jpg">
           Vote
         </button>
       </div>
 
       <!-- Party 12 -->
       <div class="group flex flex-col items-center">
-        <div class="w-full min-h-[295px]
+        <div class="w-full min-h-[260px] sm:min-h-[280px] md:min-h-[295px]
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[26px] p-[20px]
+        rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[20px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[4px]
@@ -1652,42 +1666,43 @@ data-img="Photos/jd.jpg">
         hover:border-[rgb(148,163,184)]
         flex flex-col justify-center">
           <div class="w-full flex items-center justify-center">
-            <div class="w-[180px] h-[180px] rounded-[20px]
+            <div class="w-[96px] h-[96px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] rounded-[16px] md:rounded-[20px]
             border-[1px] border-[rgb(226,232,240)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
             shadow-[inset_0px_1px_0px_rgba(255,255,255,0.7)]
             flex items-center justify-center
             transition duration-[300ms] group-hover:scale-[1.03]">
               <img src="Photos/rjd.jpg" alt="Party 12"
-              class="w-[145px] h-[145px] object-contain rounded-[16px]" />
+              class="w-[110px] h-[110px] sm:w-[125px] sm:h-[125px] md:w-[145px] md:h-[145px] object-contain rounded-[14px] md:rounded-[16px]" />
             </div>
           </div>
 
           <div class="mt-[16px] text-center">
-            <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">Rashtriya Janata Dal (RJD)</h3>
-            <p class="mt-[5px] text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
+            <h3 class="text-[13px] sm:text-[19px] md:text-[21px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Rashtriya Janata Dal (RJD)</h3>
+            <p class="mt-[5px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
           </div>
         </div>
 
         <button
-          class="mt-[13px] px-[34px] py-[12px] rounded-[16px] font-[800] text-[15px]
+          class="mt-[12px] md:mt-[13px] w-full sm:w-auto px-[20px] sm:px-[28px] md:px-[34px] py-[12px] rounded-[14px] md:rounded-[16px] font-[800] text-[14px] md:text-[15px]
           text-white border-[1px] border-[rgba(15,23,42,0.10)]
           bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn" data-party="Rashtriya Janata Dal (RJD)"
-data-img="Photos/rjd.jpg">
+          duration-[250ms] voteBtn"
+          data-party="Rashtriya Janata Dal (RJD)"
+          data-img="Photos/rjd.jpg">
           Vote
         </button>
       </div>
 
       <!-- Party 13 -->
       <div class="group flex flex-col items-center">
-        <div class="w-full min-h-[295px]
+        <div class="w-full min-h-[260px] sm:min-h-[280px] md:min-h-[295px]
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[26px] p-[20px]
+        rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[20px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[4px]
@@ -1695,42 +1710,43 @@ data-img="Photos/rjd.jpg">
         hover:border-[rgb(148,163,184)]
         flex flex-col justify-center">
           <div class="w-full flex items-center justify-center">
-            <div class="w-[180px] h-[180px] rounded-[20px]
+            <div class="w-[96px] h-[96px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] rounded-[16px] md:rounded-[20px]
             border-[1px] border-[rgb(226,232,240)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
             shadow-[inset_0px_1px_0px_rgba(255,255,255,0.7)]
             flex items-center justify-center
             transition duration-[300ms] group-hover:scale-[1.03]">
               <img src="Photos/tmc.jpg" alt="Party 13"
-              class="w-[145px] h-[145px] object-contain rounded-[16px]" />
+              class="w-[110px] h-[110px] sm:w-[125px] sm:h-[125px] md:w-[145px] md:h-[145px] object-contain rounded-[14px] md:rounded-[16px]" />
             </div>
           </div>
 
           <div class="mt-[16px] text-center">
-            <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">Trinamool Congress (TMC)</h3>
-            <p class="mt-[5px] text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
+            <h3 class="text-[13px] sm:text-[19px] md:text-[21px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Trinamool Congress (TMC)</h3>
+            <p class="mt-[5px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
           </div>
         </div>
 
         <button
-          class="mt-[13px] px-[34px] py-[12px] rounded-[16px] font-[800] text-[15px]
+          class="mt-[12px] md:mt-[13px] w-full sm:w-auto px-[20px] sm:px-[28px] md:px-[34px] py-[12px] rounded-[14px] md:rounded-[16px] font-[800] text-[14px] md:text-[15px]
           text-white border-[1px] border-[rgba(15,23,42,0.10)]
           bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn" data-party="Trinamool Congress (TMC)"
-data-img="Photos/tmc.jpg">
+          duration-[250ms] voteBtn"
+          data-party="Trinamool Congress (TMC)"
+          data-img="Photos/tmc.jpg">
           Vote
         </button>
       </div>
 
       <!-- Party 14 -->
       <div class="group flex flex-col items-center">
-        <div class="w-full min-h-[295px]
+        <div class="w-full min-h-[260px] sm:min-h-[280px] md:min-h-[295px]
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[26px] p-[20px]
+        rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[20px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[4px]
@@ -1738,42 +1754,43 @@ data-img="Photos/tmc.jpg">
         hover:border-[rgb(148,163,184)]
         flex flex-col justify-center">
           <div class="w-full flex items-center justify-center">
-            <div class="w-[180px] h-[180px] rounded-[20px]
+            <div class="w-[96px] h-[96px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] rounded-[16px] md:rounded-[20px]
             border-[1px] border-[rgb(226,232,240)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
             shadow-[inset_0px_1px_0px_rgba(255,255,255,0.7)]
             flex items-center justify-center
             transition duration-[300ms] group-hover:scale-[1.03]">
               <img src="Photos/tdp.jpg" alt="Party 14"
-              class="w-[145px] h-[145px] object-contain rounded-[16px]" />
+              class="w-[110px] h-[110px] sm:w-[125px] sm:h-[125px] md:w-[145px] md:h-[145px] object-contain rounded-[14px] md:rounded-[16px]" />
             </div>
           </div>
 
           <div class="mt-[16px] text-center">
-            <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">Telugu Desam Party (TDP)</h3>
-            <p class="mt-[5px] text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
+            <h3 class="text-[13px] sm:text-[19px] md:text-[21px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Telugu Desam Party (TDP)</h3>
+            <p class="mt-[5px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
           </div>
         </div>
 
         <button
-          class="mt-[13px] px-[34px] py-[12px] rounded-[16px] font-[800] text-[15px]
+          class="mt-[12px] md:mt-[13px] w-full sm:w-auto px-[20px] sm:px-[28px] md:px-[34px] py-[12px] rounded-[14px] md:rounded-[16px] font-[800] text-[14px] md:text-[15px]
           text-white border-[1px] border-[rgba(15,23,42,0.10)]
           bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn" data-party="Telugu Desam Party (TDP)"
-data-img="Photos/tdp.jpg">
+          duration-[250ms] voteBtn"
+          data-party="Telugu Desam Party (TDP)"
+          data-img="Photos/tdp.jpg">
           Vote
         </button>
       </div>
 
       <!-- Party 15 -->
       <div class="group flex flex-col items-center">
-        <div class="w-full min-h-[295px]
+        <div class="w-full min-h-[260px] sm:min-h-[280px] md:min-h-[295px]
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[26px] p-[20px]
+        rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[20px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[4px]
@@ -1781,32 +1798,33 @@ data-img="Photos/tdp.jpg">
         hover:border-[rgb(148,163,184)]
         flex flex-col justify-center">
           <div class="w-full flex items-center justify-center">
-            <div class="w-[180px] h-[180px] rounded-[20px]
+            <div class="w-[96px] h-[96px] sm:w-[120px] sm:h-[120px] md:w-[180px] md:h-[180px] rounded-[16px] md:rounded-[20px]
             border-[1px] border-[rgb(226,232,240)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
             shadow-[inset_0px_1px_0px_rgba(255,255,255,0.7)]
             flex items-center justify-center
             transition duration-[300ms] group-hover:scale-[1.03]">
               <img src="Photos/dmk.jpg" alt="Party 15"
-              class="w-[145px] h-[145px] object-contain rounded-[16px]" />
+              class="w-[110px] h-[110px] sm:w-[125px] sm:h-[125px] md:w-[145px] md:h-[145px] object-contain rounded-[14px] md:rounded-[16px]" />
             </div>
           </div>
 
           <div class="mt-[16px] text-center">
-            <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">Dravida Munnetra Kazhagam (DMK)</h3>
-            <p class="mt-[5px] text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
+            <h3 class="text-[13px] sm:text-[19px] md:text-[21px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Dravida Munnetra Kazhagam (DMK)</h3>
+            <p class="mt-[5px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Official Election Party</p>
           </div>
         </div>
 
         <button
-          class="mt-[13px] px-[34px] py-[12px] rounded-[16px] font-[800] text-[15px]
+          class="mt-[12px] md:mt-[13px] w-full sm:w-auto px-[20px] sm:px-[28px] md:px-[34px] py-[12px] rounded-[14px] md:rounded-[16px] font-[800] text-[14px] md:text-[15px]
           text-white border-[1px] border-[rgba(15,23,42,0.10)]
           bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
           shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
           hover:bg-[linear-gradient(90deg,rgba(185,28,28,1)_0%,rgba(239,68,68,1)_100%)]
           hover:-translate-y-[2px] hover:shadow-[0px_18px_34px_rgba(239,68,68,0.18)]
-          duration-[250ms] voteBtn" data-party="Dravida Munnetra Kazhagam (DMK)"
-data-img="Photos/dmk.jpg">
+          duration-[250ms] voteBtn"
+          data-party="Dravida Munnetra Kazhagam (DMK)"
+          data-img="Photos/dmk.jpg">
           Vote
         </button>
       </div>
@@ -1817,40 +1835,43 @@ data-img="Photos/dmk.jpg">
 </section>
 
 
- <!-- Modal -->
-  <!-- Vote Confirmation Modal -->
-<div id="voteModal" class="fixed inset-0 hidden items-center justify-center bg-black/50 z-[999]">
+<!-- Modal -->
+<!-- Vote Confirmation Modal -->
+<div id="voteModal" class="fixed inset-0 hidden items-center justify-center bg-black/50 z-[999] px-[12px] sm:px-[16px]">
 
-  <div class="bg-white rounded-[20px] w-[420px] p-[24px] text-center shadow-2xl">
+  <div class="bg-white rounded-[18px] sm:rounded-[20px]
+  w-[100%] max-w-[420px]
+  p-[16px] sm:p-[20px] md:p-[24px]
+  text-center shadow-2xl">
 
-    <h2 class="text-[22px] font-[900] text-slate-900">
+    <h2 class="text-[18px] sm:text-[20px] md:text-[22px] font-[900] text-slate-900 leading-[1.2]">
       Confirm Your Vote
     </h2>
 
-    <p class="mt-[8px] text-[14px] text-slate-600 font-[600]">
+    <p class="mt-[8px] text-[12px] sm:text-[13px] md:text-[14px] text-slate-600 font-[600]">
       You are about to vote for
     </p>
 
     <img id="modalPartyImg"
-    class="w-[90px] h-[90px] mx-auto mt-[16px] object-contain" />
+    class="w-[68px] h-[68px] sm:w-[80px] sm:h-[80px] md:w-[90px] md:h-[90px] mx-auto mt-[14px] sm:mt-[16px] object-contain" />
 
     <h3 id="modalPartyName"
-    class="mt-[10px] text-[20px] font-[900] text-slate-900"></h3>
+    class="mt-[10px] text-[17px] sm:text-[18px] md:text-[20px] font-[900] text-slate-900 leading-[1.3]"></h3>
 
-    <p class="mt-[10px] text-[13px] text-red-600 font-[700]">
+    <p class="mt-[10px] text-[11px] sm:text-[12px] md:text-[13px] text-red-600 font-[700]">
       This action cannot be changed.
     </p>
 
-    <div class="mt-[18px] flex justify-center gap-[14px]">
+    <div class="mt-[16px] sm:mt-[18px] grid grid-cols-1 sm:grid-cols-2 gap-[10px] sm:gap-[14px]">
 
       <button id="confirmVoteBtn"
-      class="px-[20px] py-[10px] rounded-[12px] bg-green-600 text-white font-[700] hover:bg-green-700">
-      Confirm
+      class="w-full px-[18px] py-[10px] sm:py-[11px] rounded-[12px] bg-green-600 text-white text-[14px] font-[700] hover:bg-green-700">
+        Confirm
       </button>
 
       <button id="cancelVoteBtn"
-      class="px-[20px] py-[10px] rounded-[12px] bg-gray-200 font-[700] hover:bg-gray-300">
-      Cancel
+      class="w-full px-[18px] py-[10px] sm:py-[11px] rounded-[12px] bg-gray-200 text-[14px] font-[700] hover:bg-gray-300">
+        Cancel
       </button>
 
     </div>
@@ -1862,47 +1883,47 @@ data-img="Photos/dmk.jpg">
 
 <!-- Election Party List Tab -->
 <section id="tab-parties" class="tabSection hidden">
-  <div class="max-w-[1280px] mx-auto px-[20px] pb-[34px]">
+  <div class="max-w-[1280px] mx-auto px-[12px] sm:px-[16px] md:px-[20px] pb-[24px] md:pb-[34px]">
 
     <!-- Header -->
     <div class="relative overflow-hidden
     bg-[linear-gradient(135deg,rgba(255,255,255,0.96)_0%,rgba(248,250,252,0.98)_100%)]
     border-[1px] border-[rgb(203,213,225)]
     shadow-[0px_20px_45px_rgba(15,23,42,0.10)]
-    rounded-[26px] p-[24px]">
+    rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[24px]">
 
-      <div class="absolute top-[-45px] right-[-35px] w-[175px] h-[175px] rounded-full bg-[rgba(239,68,68,0.06)]"></div>
-      <div class="absolute bottom-[-50px] left-[-35px] w-[155px] h-[155px] rounded-full bg-[rgba(249,115,22,0.05)]"></div>
+      <div class="absolute top-[-45px] right-[-35px] w-[130px] h-[130px] md:w-[175px] md:h-[175px] rounded-full bg-[rgba(239,68,68,0.06)]"></div>
+      <div class="absolute bottom-[-50px] left-[-35px] w-[120px] h-[120px] md:w-[155px] md:h-[155px] rounded-full bg-[rgba(249,115,22,0.05)]"></div>
 
-      <div class="relative flex items-center justify-between gap-[18px]">
+      <div class="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-[14px] md:gap-[18px]">
 
-        <div>
-          <div class="inline-flex items-center gap-[8px] px-[12px] py-[7px]
+        <div class="min-w-0">
+          <div class="inline-flex items-center gap-[8px] px-[10px] md:px-[12px] py-[6px] md:py-[7px]
           rounded-[999px] border-[1px] border-[rgba(239,68,68,0.16)]
-          bg-[rgba(239,68,68,0.08)] mb-[14px]">
+          bg-[rgba(239,68,68,0.08)] mb-[12px] md:mb-[14px]">
             <span class="w-[8px] h-[8px] rounded-full bg-[rgb(239,68,68)]"></span>
-            <span class="text-[12px] font-[700] tracking-[0.5px] text-[rgb(185,28,28)]">
+            <span class="text-[10px] sm:text-[11px] md:text-[12px] font-[700] tracking-[0.5px] text-[rgb(185,28,28)]">
               OFFICIAL ELECTION RECORD
             </span>
           </div>
 
-          <h2 class="text-[34px] font-[900] text-[rgb(15,23,42)] leading-[1.08]">
+          <h2 class="text-[24px] sm:text-[28px] md:text-[34px] font-[900] text-[rgb(15,23,42)] leading-[1.08]">
             Election Party List
           </h2>
 
-          <p class="mt-[10px] text-[16px] leading-[1.7] font-[500] text-[rgb(71,85,105)] max-w-[760px]">
+          <p class="mt-[8px] md:mt-[10px] text-[13px] sm:text-[15px] md:text-[16px] leading-[1.7] font-[500] text-[rgb(71,85,105)] max-w-[760px]">
             This section displays all officially registered parties added by the admin for the current election session, along with their visual symbols.
           </p>
         </div>
 
         <div
-          class="shrink-0 inline-flex items-center justify-center gap-[10px]
-          px-[18px] py-[11px] rounded-[999px]
+          class="w-fit shrink-0 inline-flex items-center justify-center gap-[8px] md:gap-[10px]
+          px-[14px] md:px-[18px] py-[9px] md:py-[11px] rounded-[999px]
           border-[1px] border-[rgb(254,202,202)]
           bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(255,237,213,1)_100%)]
           shadow-[0px_10px_24px_rgba(239,68,68,0.10)]">
-          <span class="w-[11px] h-[11px] rounded-full bg-[rgb(239,68,68)]"></span>
-          <span class="text-[14px] font-[800] tracking-[0.6px] text-[rgb(185,28,28)]">
+          <span class="w-[9px] h-[9px] md:w-[11px] md:h-[11px] rounded-full bg-[rgb(239,68,68)]"></span>
+          <span class="text-[12px] md:text-[14px] font-[800] tracking-[0.5px] md:tracking-[0.6px] text-[rgb(185,28,28)] whitespace-nowrap">
             OFFICIAL PARTY LIST
           </span>
         </div>
@@ -1910,601 +1931,647 @@ data-img="Photos/dmk.jpg">
       </div>
     </div>
 
-    <!-- List Header -->
-    <div class="mt-[20px] grid grid-cols-[110px_1fr_200px] gap-[14px]
+    <!-- Desktop/Tablet List Header -->
+    <div class="hidden md:grid mt-[20px] grid-cols-[90px_1fr_170px]
+    lg:grid-cols-[110px_1fr_200px] gap-[14px]
     bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
-    text-white rounded-[20px] px-[20px] py-[16px]
+    text-white rounded-[20px] px-[16px] lg:px-[20px] py-[16px]
     shadow-[0px_16px_32px_rgba(15,23,42,0.18)]">
 
-      <div class="text-[15px] font-[800] tracking-[0.4px]">S. No.</div>
-      <div class="text-[15px] font-[800] tracking-[0.4px]">Party Name</div>
-      <div class="text-[15px] font-[800] tracking-[0.4px] text-center">Symbol</div>
+      <div class="text-[14px] lg:text-[15px] font-[800] tracking-[0.4px]">S. No.</div>
+      <div class="text-[14px] lg:text-[15px] font-[800] tracking-[0.4px]">Party Name</div>
+      <div class="text-[14px] lg:text-[15px] font-[800] tracking-[0.4px] text-center">Symbol</div>
     </div>
 
     <!-- Party List -->
     <div class="mt-[16px] grid grid-cols-1 gap-[14px]">
 
       <!-- Party 1 -->
-      <div class="group grid grid-cols-[110px_1fr_200px] gap-[14px] items-center
+      <div class="group
+      grid grid-cols-1 md:grid-cols-[90px_1fr_170px] lg:grid-cols-[110px_1fr_200px]
+      items-start md:items-center
+      gap-[14px]
       bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
-      border-[1px] border-[rgb(203,213,225)] rounded-[24px] p-[18px]
+      border-[1px] border-[rgb(203,213,225)] rounded-[20px] md:rounded-[24px] p-[14px] md:p-[18px]
       shadow-[0px_16px_32px_rgba(15,23,42,0.08)]
       transition duration-[300ms]
       hover:-translate-y-[2px] hover:shadow-[0px_22px_42px_rgba(15,23,42,0.12)]
       hover:border-[rgb(148,163,184)]">
 
-        <div class="flex items-center">
-          <span class="w-[52px] h-[52px] rounded-[16px]
+        <div class="flex items-start justify-start">
+          <span class="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-[12px] md:rounded-[16px]
           bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(255,237,213,1)_100%)]
           border-[1px] border-[rgba(239,68,68,0.14)]
           shadow-[0px_8px_18px_rgba(239,68,68,0.08)]
           flex items-center justify-center
-          text-[22px] font-[900] text-[rgb(185,28,28)]">
+          text-[18px] md:text-[22px] font-[900] text-[rgb(185,28,28)]">
             01
           </span>
         </div>
 
-        <div>
-          <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
-          <h3 class="mt-[5px] text-[22px] font-[900] text-[rgb(15,23,42)]">Bharatiya Janata Party (BJP)</h3>
-          <p class="mt-[4px] text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
+        <div class="text-left">
+          <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
+          <h3 class="mt-[5px] text-[18px] sm:text-[20px] md:text-[22px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Bharatiya Janata Party (BJP)</h3>
+          <p class="mt-[4px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
         </div>
 
-        <div class="flex justify-center">
-          <div class="w-[130px] h-[130px] rounded-[20px]
+        <div class="flex justify-center md:justify-center mt-[6px] md:mt-0">
+          <div class="w-[110px] h-[110px] md:w-[120px] md:h-[120px] lg:w-[130px] lg:h-[130px] rounded-[18px] md:rounded-[20px]
           border-[1px] border-[rgb(226,232,240)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
           shadow-[inset_0px_1px_0px_rgba(255,255,255,0.75)]
           flex items-center justify-center
           transition duration-[300ms] group-hover:scale-[1.03]">
             <img src="Photos/bjp.jpg" alt="Party 1 Symbol"
-            class="w-[110px] h-[110px] object-contain rounded-[16px]" />
+            class="w-[90px] h-[90px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] object-contain rounded-[14px] md:rounded-[16px]" />
           </div>
         </div>
       </div>
 
       <!-- Party 2 -->
-      <div class="group grid grid-cols-[110px_1fr_200px] gap-[14px] items-center
+      <div class="group
+      grid grid-cols-1 md:grid-cols-[90px_1fr_170px] lg:grid-cols-[110px_1fr_200px]
+      items-start md:items-center
+      gap-[14px]
       bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
-      border-[1px] border-[rgb(203,213,225)] rounded-[24px] p-[18px]
+      border-[1px] border-[rgb(203,213,225)] rounded-[20px] md:rounded-[24px] p-[14px] md:p-[18px]
       shadow-[0px_16px_32px_rgba(15,23,42,0.08)]
       transition duration-[300ms]
       hover:-translate-y-[2px] hover:shadow-[0px_22px_42px_rgba(15,23,42,0.12)]
       hover:border-[rgb(148,163,184)]">
 
-        <div class="flex items-center">
-          <span class="w-[52px] h-[52px] rounded-[16px]
+        <div class="flex items-start justify-start">
+          <span class="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-[12px] md:rounded-[16px]
           bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(255,237,213,1)_100%)]
           border-[1px] border-[rgba(239,68,68,0.14)]
           shadow-[0px_8px_18px_rgba(239,68,68,0.08)]
           flex items-center justify-center
-          text-[22px] font-[900] text-[rgb(185,28,28)]">
+          text-[18px] md:text-[22px] font-[900] text-[rgb(185,28,28)]">
             02
           </span>
         </div>
 
-        <div>
-          <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
-          <h3 class="mt-[5px] text-[22px] font-[900] text-[rgb(15,23,42)]">Indian National Congress (INC)</h3>
-          <p class="mt-[4px] text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
+        <div class="text-left">
+          <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
+          <h3 class="mt-[5px] text-[18px] sm:text-[20px] md:text-[22px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Indian National Congress (INC)</h3>
+          <p class="mt-[4px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
         </div>
 
-        <div class="flex justify-center">
-          <div class="w-[130px] h-[130px] rounded-[20px]
+        <div class="flex justify-center md:justify-center mt-[6px] md:mt-0">
+          <div class="w-[110px] h-[110px] md:w-[120px] md:h-[120px] lg:w-[130px] lg:h-[130px] rounded-[18px] md:rounded-[20px]
           border-[1px] border-[rgb(226,232,240)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
           shadow-[inset_0px_1px_0px_rgba(255,255,255,0.75)]
           flex items-center justify-center
           transition duration-[300ms] group-hover:scale-[1.03]">
             <img src="Photos/inc.jpg" alt="Party 2 Symbol"
-            class="w-[110px] h-[110px] object-contain rounded-[16px]" />
+            class="w-[90px] h-[90px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] object-contain rounded-[14px] md:rounded-[16px]" />
           </div>
         </div>
       </div>
 
       <!-- Party 3 -->
-      <div class="group grid grid-cols-[110px_1fr_200px] gap-[14px] items-center
+      <div class="group
+      grid grid-cols-1 md:grid-cols-[90px_1fr_170px] lg:grid-cols-[110px_1fr_200px]
+      items-start md:items-center
+      gap-[14px]
       bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
-      border-[1px] border-[rgb(203,213,225)] rounded-[24px] p-[18px]
+      border-[1px] border-[rgb(203,213,225)] rounded-[20px] md:rounded-[24px] p-[14px] md:p-[18px]
       shadow-[0px_16px_32px_rgba(15,23,42,0.08)]
       transition duration-[300ms]
       hover:-translate-y-[2px] hover:shadow-[0px_22px_42px_rgba(15,23,42,0.12)]
       hover:border-[rgb(148,163,184)]">
 
-        <div class="flex items-center">
-          <span class="w-[52px] h-[52px] rounded-[16px]
+        <div class="flex items-start justify-start">
+          <span class="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-[12px] md:rounded-[16px]
           bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(255,237,213,1)_100%)]
           border-[1px] border-[rgba(239,68,68,0.14)]
           shadow-[0px_8px_18px_rgba(239,68,68,0.08)]
           flex items-center justify-center
-          text-[22px] font-[900] text-[rgb(185,28,28)]">
+          text-[18px] md:text-[22px] font-[900] text-[rgb(185,28,28)]">
             03
           </span>
         </div>
 
-        <div>
-          <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
-          <h3 class="mt-[5px] text-[22px] font-[900] text-[rgb(15,23,42)]">Aam Aadmi Party (AAP)</h3>
-          <p class="mt-[4px] text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
+        <div class="text-left">
+          <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
+          <h3 class="mt-[5px] text-[18px] sm:text-[20px] md:text-[22px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Aam Aadmi Party (AAP)</h3>
+          <p class="mt-[4px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
         </div>
 
-        <div class="flex justify-center">
-          <div class="w-[130px] h-[130px] rounded-[20px]
+        <div class="flex justify-center md:justify-center mt-[6px] md:mt-0">
+          <div class="w-[110px] h-[110px] md:w-[120px] md:h-[120px] lg:w-[130px] lg:h-[130px] rounded-[18px] md:rounded-[20px]
           border-[1px] border-[rgb(226,232,240)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
           shadow-[inset_0px_1px_0px_rgba(255,255,255,0.75)]
           flex items-center justify-center
           transition duration-[300ms] group-hover:scale-[1.03]">
             <img src="Photos/aap.jpg" alt="Party 3 Symbol"
-            class="w-[110px] h-[110px] object-contain rounded-[16px]" />
+            class="w-[90px] h-[90px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] object-contain rounded-[14px] md:rounded-[16px]" />
           </div>
         </div>
       </div>
 
       <!-- Party 4 -->
-      <div class="group grid grid-cols-[110px_1fr_200px] gap-[14px] items-center
+      <div class="group
+      grid grid-cols-1 md:grid-cols-[90px_1fr_170px] lg:grid-cols-[110px_1fr_200px]
+      items-start md:items-center
+      gap-[14px]
       bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
-      border-[1px] border-[rgb(203,213,225)] rounded-[24px] p-[18px]
+      border-[1px] border-[rgb(203,213,225)] rounded-[20px] md:rounded-[24px] p-[14px] md:p-[18px]
       shadow-[0px_16px_32px_rgba(15,23,42,0.08)]
       transition duration-[300ms]
       hover:-translate-y-[2px] hover:shadow-[0px_22px_42px_rgba(15,23,42,0.12)]
       hover:border-[rgb(148,163,184)]">
 
-        <div class="flex items-center">
-          <span class="w-[52px] h-[52px] rounded-[16px]
+        <div class="flex items-start justify-start">
+          <span class="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-[12px] md:rounded-[16px]
           bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(255,237,213,1)_100%)]
           border-[1px] border-[rgba(239,68,68,0.14)]
           shadow-[0px_8px_18px_rgba(239,68,68,0.08)]
           flex items-center justify-center
-          text-[22px] font-[900] text-[rgb(185,28,28)]">
+          text-[18px] md:text-[22px] font-[900] text-[rgb(185,28,28)]">
             04
           </span>
         </div>
 
-        <div>
-          <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
-          <h3 class="mt-[5px] text-[22px] font-[900] text-[rgb(15,23,42)]">Bahujan Samaj Party (BSP)</h3>
-          <p class="mt-[4px] text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
+        <div class="text-left">
+          <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
+          <h3 class="mt-[5px] text-[18px] sm:text-[20px] md:text-[22px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Bahujan Samaj Party (BSP)</h3>
+          <p class="mt-[4px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
         </div>
 
-        <div class="flex justify-center">
-          <div class="w-[130px] h-[130px] rounded-[20px]
+        <div class="flex justify-center md:justify-center mt-[6px] md:mt-0">
+          <div class="w-[110px] h-[110px] md:w-[120px] md:h-[120px] lg:w-[130px] lg:h-[130px] rounded-[18px] md:rounded-[20px]
           border-[1px] border-[rgb(226,232,240)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
           shadow-[inset_0px_1px_0px_rgba(255,255,255,0.75)]
           flex items-center justify-center
           transition duration-[300ms] group-hover:scale-[1.03]">
             <img src="Photos/bsp.jpg" alt="Party 4 Symbol"
-            class="w-[110px] h-[110px] object-contain rounded-[16px]" />
+            class="w-[90px] h-[90px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] object-contain rounded-[14px] md:rounded-[16px]" />
           </div>
         </div>
       </div>
 
       <!-- Party 5 -->
-      <div class="group grid grid-cols-[110px_1fr_200px] gap-[14px] items-center
+      <div class="group
+      grid grid-cols-1 md:grid-cols-[90px_1fr_170px] lg:grid-cols-[110px_1fr_200px]
+      items-start md:items-center
+      gap-[14px]
       bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
-      border-[1px] border-[rgb(203,213,225)] rounded-[24px] p-[18px]
+      border-[1px] border-[rgb(203,213,225)] rounded-[20px] md:rounded-[24px] p-[14px] md:p-[18px]
       shadow-[0px_16px_32px_rgba(15,23,42,0.08)]
       transition duration-[300ms]
       hover:-translate-y-[2px] hover:shadow-[0px_22px_42px_rgba(15,23,42,0.12)]
       hover:border-[rgb(148,163,184)]">
 
-        <div class="flex items-center">
-          <span class="w-[52px] h-[52px] rounded-[16px]
+        <div class="flex items-start justify-start">
+          <span class="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-[12px] md:rounded-[16px]
           bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(255,237,213,1)_100%)]
           border-[1px] border-[rgba(239,68,68,0.14)]
           shadow-[0px_8px_18px_rgba(239,68,68,0.08)]
           flex items-center justify-center
-          text-[22px] font-[900] text-[rgb(185,28,28)]">
+          text-[18px] md:text-[22px] font-[900] text-[rgb(185,28,28)]">
             05
           </span>
         </div>
 
-        <div>
-          <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
-          <h3 class="mt-[5px] text-[22px] font-[900] text-[rgb(15,23,42)]">Communist Party of India (CPI)</h3>
-          <p class="mt-[4px] text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
+        <div class="text-left">
+          <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
+          <h3 class="mt-[5px] text-[18px] sm:text-[20px] md:text-[22px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Communist Party of India (CPI)</h3>
+          <p class="mt-[4px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
         </div>
 
-        <div class="flex justify-center">
-          <div class="w-[130px] h-[130px] rounded-[20px]
+        <div class="flex justify-center md:justify-center mt-[6px] md:mt-0">
+          <div class="w-[110px] h-[110px] md:w-[120px] md:h-[120px] lg:w-[130px] lg:h-[130px] rounded-[18px] md:rounded-[20px]
           border-[1px] border-[rgb(226,232,240)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
           shadow-[inset_0px_1px_0px_rgba(255,255,255,0.75)]
           flex items-center justify-center
           transition duration-[300ms] group-hover:scale-[1.03]">
             <img src="Photos/cpi.jpg" alt="Party 5 Symbol"
-            class="w-[110px] h-[110px] object-contain rounded-[16px]" />
+            class="w-[90px] h-[90px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] object-contain rounded-[14px] md:rounded-[16px]" />
           </div>
         </div>
       </div>
 
       <!-- Party 6 -->
-      <div class="group grid grid-cols-[110px_1fr_200px] gap-[14px] items-center
+      <div class="group
+      grid grid-cols-1 md:grid-cols-[90px_1fr_170px] lg:grid-cols-[110px_1fr_200px]
+      items-start md:items-center
+      gap-[14px]
       bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
-      border-[1px] border-[rgb(203,213,225)] rounded-[24px] p-[18px]
+      border-[1px] border-[rgb(203,213,225)] rounded-[20px] md:rounded-[24px] p-[14px] md:p-[18px]
       shadow-[0px_16px_32px_rgba(15,23,42,0.08)]
       transition duration-[300ms]
       hover:-translate-y-[2px] hover:shadow-[0px_22px_42px_rgba(15,23,42,0.12)]
       hover:border-[rgb(148,163,184)]">
 
-        <div class="flex items-center">
-          <span class="w-[52px] h-[52px] rounded-[16px]
+        <div class="flex items-start justify-start">
+          <span class="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-[12px] md:rounded-[16px]
           bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(255,237,213,1)_100%)]
           border-[1px] border-[rgba(239,68,68,0.14)]
           shadow-[0px_8px_18px_rgba(239,68,68,0.08)]
           flex items-center justify-center
-          text-[22px] font-[900] text-[rgb(185,28,28)]">
+          text-[18px] md:text-[22px] font-[900] text-[rgb(185,28,28)]">
             06
           </span>
         </div>
 
-        <div>
-          <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
-          <h3 class="mt-[5px] text-[22px] font-[900] text-[rgb(15,23,42)]">Communist Party of India (Marxist) – CPI(M)</h3>
-          <p class="mt-[4px] text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
+        <div class="text-left">
+          <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
+          <h3 class="mt-[5px] text-[18px] sm:text-[20px] md:text-[22px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Communist Party of India (Marxist) – CPI(M)</h3>
+          <p class="mt-[4px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
         </div>
 
-        <div class="flex justify-center">
-          <div class="w-[130px] h-[130px] rounded-[20px]
+        <div class="flex justify-center md:justify-center mt-[6px] md:mt-0">
+          <div class="w-[110px] h-[110px] md:w-[120px] md:h-[120px] lg:w-[130px] lg:h-[130px] rounded-[18px] md:rounded-[20px]
           border-[1px] border-[rgb(226,232,240)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
           shadow-[inset_0px_1px_0px_rgba(255,255,255,0.75)]
           flex items-center justify-center
           transition duration-[300ms] group-hover:scale-[1.03]">
             <img src="Photos/cpim.jpg" alt="Party 6 Symbol"
-            class="w-[110px] h-[110px] object-contain rounded-[16px]" />
+            class="w-[90px] h-[90px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] object-contain rounded-[14px] md:rounded-[16px]" />
           </div>
         </div>
       </div>
 
       <!-- Party 7 -->
-      <div class="group grid grid-cols-[110px_1fr_200px] gap-[14px] items-center
+      <div class="group
+      grid grid-cols-1 md:grid-cols-[90px_1fr_170px] lg:grid-cols-[110px_1fr_200px]
+      items-start md:items-center
+      gap-[14px]
       bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
-      border-[1px] border-[rgb(203,213,225)] rounded-[24px] p-[18px]
+      border-[1px] border-[rgb(203,213,225)] rounded-[20px] md:rounded-[24px] p-[14px] md:p-[18px]
       shadow-[0px_16px_32px_rgba(15,23,42,0.08)]
       transition duration-[300ms]
       hover:-translate-y-[2px] hover:shadow-[0px_22px_42px_rgba(15,23,42,0.12)]
       hover:border-[rgb(148,163,184)]">
 
-        <div class="flex items-center">
-          <span class="w-[52px] h-[52px] rounded-[16px]
+        <div class="flex items-start justify-start">
+          <span class="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-[12px] md:rounded-[16px]
           bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(255,237,213,1)_100%)]
           border-[1px] border-[rgba(239,68,68,0.14)]
           shadow-[0px_8px_18px_rgba(239,68,68,0.08)]
           flex items-center justify-center
-          text-[22px] font-[900] text-[rgb(185,28,28)]">
+          text-[18px] md:text-[22px] font-[900] text-[rgb(185,28,28)]">
             07
           </span>
         </div>
 
-        <div>
-          <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
-          <h3 class="mt-[5px] text-[22px] font-[900] text-[rgb(15,23,42)]">National People's Party (NPP)</h3>
-          <p class="mt-[4px] text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
+        <div class="text-left">
+          <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
+          <h3 class="mt-[5px] text-[18px] sm:text-[20px] md:text-[22px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">National People's Party (NPP)</h3>
+          <p class="mt-[4px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
         </div>
 
-        <div class="flex justify-center">
-          <div class="w-[130px] h-[130px] rounded-[20px]
+        <div class="flex justify-center md:justify-center mt-[6px] md:mt-0">
+          <div class="w-[110px] h-[110px] md:w-[120px] md:h-[120px] lg:w-[130px] lg:h-[130px] rounded-[18px] md:rounded-[20px]
           border-[1px] border-[rgb(226,232,240)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
           shadow-[inset_0px_1px_0px_rgba(255,255,255,0.75)]
           flex items-center justify-center
           transition duration-[300ms] group-hover:scale-[1.03]">
             <img src="Photos/npp.jpg" alt="Party 7 Symbol"
-            class="w-[110px] h-[110px] object-contain rounded-[16px]" />
+            class="w-[90px] h-[90px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] object-contain rounded-[14px] md:rounded-[16px]" />
           </div>
         </div>
       </div>
 
       <!-- Party 8 -->
-      <div class="group grid grid-cols-[110px_1fr_200px] gap-[14px] items-center
+      <div class="group
+      grid grid-cols-1 md:grid-cols-[90px_1fr_170px] lg:grid-cols-[110px_1fr_200px]
+      items-start md:items-center
+      gap-[14px]
       bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
-      border-[1px] border-[rgb(203,213,225)] rounded-[24px] p-[18px]
+      border-[1px] border-[rgb(203,213,225)] rounded-[20px] md:rounded-[24px] p-[14px] md:p-[18px]
       shadow-[0px_16px_32px_rgba(15,23,42,0.08)]
       transition duration-[300ms]
       hover:-translate-y-[2px] hover:shadow-[0px_22px_42px_rgba(15,23,42,0.12)]
       hover:border-[rgb(148,163,184)]">
 
-        <div class="flex items-center">
-          <span class="w-[52px] h-[52px] rounded-[16px]
+        <div class="flex items-start justify-start">
+          <span class="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-[12px] md:rounded-[16px]
           bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(255,237,213,1)_100%)]
           border-[1px] border-[rgba(239,68,68,0.14)]
           shadow-[0px_8px_18px_rgba(239,68,68,0.08)]
           flex items-center justify-center
-          text-[22px] font-[900] text-[rgb(185,28,28)]">
+          text-[18px] md:text-[22px] font-[900] text-[rgb(185,28,28)]">
             08
           </span>
         </div>
 
-        <div>
-          <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
-          <h3 class="mt-[5px] text-[22px] font-[900] text-[rgb(15,23,42)]">Nationalist Congress Party (NCP)</h3>
-          <p class="mt-[4px] text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
+        <div class="text-left">
+          <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
+          <h3 class="mt-[5px] text-[18px] sm:text-[20px] md:text-[22px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Nationalist Congress Party (NCP)</h3>
+          <p class="mt-[4px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
         </div>
 
-        <div class="flex justify-center">
-          <div class="w-[130px] h-[130px] rounded-[20px]
+        <div class="flex justify-center md:justify-center mt-[6px] md:mt-0">
+          <div class="w-[110px] h-[110px] md:w-[120px] md:h-[120px] lg:w-[130px] lg:h-[130px] rounded-[18px] md:rounded-[20px]
           border-[1px] border-[rgb(226,232,240)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
           shadow-[inset_0px_1px_0px_rgba(255,255,255,0.75)]
           flex items-center justify-center
           transition duration-[300ms] group-hover:scale-[1.03]">
             <img src="Photos/ncp.jpg" alt="Party 8 Symbol"
-            class="w-[110px] h-[110px] object-contain rounded-[16px]" />
+            class="w-[90px] h-[90px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] object-contain rounded-[14px] md:rounded-[16px]" />
           </div>
         </div>
       </div>
 
       <!-- Party 9 -->
-      <div class="group grid grid-cols-[110px_1fr_200px] gap-[14px] items-center
+      <div class="group
+      grid grid-cols-1 md:grid-cols-[90px_1fr_170px] lg:grid-cols-[110px_1fr_200px]
+      items-start md:items-center
+      gap-[14px]
       bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
-      border-[1px] border-[rgb(203,213,225)] rounded-[24px] p-[18px]
+      border-[1px] border-[rgb(203,213,225)] rounded-[20px] md:rounded-[24px] p-[14px] md:p-[18px]
       shadow-[0px_16px_32px_rgba(15,23,42,0.08)]
       transition duration-[300ms]
       hover:-translate-y-[2px] hover:shadow-[0px_22px_42px_rgba(15,23,42,0.12)]
       hover:border-[rgb(148,163,184)]">
 
-        <div class="flex items-center">
-          <span class="w-[52px] h-[52px] rounded-[16px]
+        <div class="flex items-start justify-start">
+          <span class="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-[12px] md:rounded-[16px]
           bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(255,237,213,1)_100%)]
           border-[1px] border-[rgba(239,68,68,0.14)]
           shadow-[0px_8px_18px_rgba(239,68,68,0.08)]
           flex items-center justify-center
-          text-[22px] font-[900] text-[rgb(185,28,28)]">
+          text-[18px] md:text-[22px] font-[900] text-[rgb(185,28,28)]">
             09
           </span>
         </div>
 
-        <div>
-          <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
-          <h3 class="mt-[5px] text-[22px] font-[900] text-[rgb(15,23,42)]">Samajwadi Party (SP)</h3>
-          <p class="mt-[4px] text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
+        <div class="text-left">
+          <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
+          <h3 class="mt-[5px] text-[18px] sm:text-[20px] md:text-[22px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Samajwadi Party (SP)</h3>
+          <p class="mt-[4px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
         </div>
 
-        <div class="flex justify-center">
-          <div class="w-[130px] h-[130px] rounded-[20px]
+        <div class="flex justify-center md:justify-center mt-[6px] md:mt-0">
+          <div class="w-[110px] h-[110px] md:w-[120px] md:h-[120px] lg:w-[130px] lg:h-[130px] rounded-[18px] md:rounded-[20px]
           border-[1px] border-[rgb(226,232,240)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
           shadow-[inset_0px_1px_0px_rgba(255,255,255,0.75)]
           flex items-center justify-center
           transition duration-[300ms] group-hover:scale-[1.03]">
             <img src="Photos/sp.jpg" alt="Party 9 Symbol"
-            class="w-[110px] h-[110px] object-contain rounded-[16px]" />
+            class="w-[90px] h-[90px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] object-contain rounded-[14px] md:rounded-[16px]" />
           </div>
         </div>
       </div>
 
       <!-- Party 10 -->
-      <div class="group grid grid-cols-[110px_1fr_200px] gap-[14px] items-center
+      <div class="group
+      grid grid-cols-1 md:grid-cols-[90px_1fr_170px] lg:grid-cols-[110px_1fr_200px]
+      items-start md:items-center
+      gap-[14px]
       bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
-      border-[1px] border-[rgb(203,213,225)] rounded-[24px] p-[18px]
+      border-[1px] border-[rgb(203,213,225)] rounded-[20px] md:rounded-[24px] p-[14px] md:p-[18px]
       shadow-[0px_16px_32px_rgba(15,23,42,0.08)]
       transition duration-[300ms]
       hover:-translate-y-[2px] hover:shadow-[0px_22px_42px_rgba(15,23,42,0.12)]
       hover:border-[rgb(148,163,184)]">
 
-        <div class="flex items-center">
-          <span class="w-[52px] h-[52px] rounded-[16px]
+        <div class="flex items-start justify-start">
+          <span class="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-[12px] md:rounded-[16px]
           bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(255,237,213,1)_100%)]
           border-[1px] border-[rgba(239,68,68,0.14)]
           shadow-[0px_8px_18px_rgba(239,68,68,0.08)]
           flex items-center justify-center
-          text-[22px] font-[900] text-[rgb(185,28,28)]">
+          text-[18px] md:text-[22px] font-[900] text-[rgb(185,28,28)]">
             10
           </span>
         </div>
 
-        <div>
-          <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
-          <h3 class="mt-[5px] text-[22px] font-[900] text-[rgb(15,23,42)]">Shiv Sena</h3>
-          <p class="mt-[4px] text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
+        <div class="text-left">
+          <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
+          <h3 class="mt-[5px] text-[18px] sm:text-[20px] md:text-[22px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Shiv Sena</h3>
+          <p class="mt-[4px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
         </div>
 
-        <div class="flex justify-center">
-          <div class="w-[130px] h-[130px] rounded-[20px]
+        <div class="flex justify-center md:justify-center mt-[6px] md:mt-0">
+          <div class="w-[110px] h-[110px] md:w-[120px] md:h-[120px] lg:w-[130px] lg:h-[130px] rounded-[18px] md:rounded-[20px]
           border-[1px] border-[rgb(226,232,240)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
           shadow-[inset_0px_1px_0px_rgba(255,255,255,0.75)]
           flex items-center justify-center
           transition duration-[300ms] group-hover:scale-[1.03]">
             <img src="Photos/ss.jpg" alt="Party 10 Symbol"
-            class="w-[110px] h-[110px] object-contain rounded-[16px]" />
+            class="w-[90px] h-[90px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] object-contain rounded-[14px] md:rounded-[16px]" />
           </div>
         </div>
       </div>
 
       <!-- Party 11 -->
-      <div class="group grid grid-cols-[110px_1fr_200px] gap-[14px] items-center
+      <div class="group
+      grid grid-cols-1 md:grid-cols-[90px_1fr_170px] lg:grid-cols-[110px_1fr_200px]
+      items-start md:items-center
+      gap-[14px]
       bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
-      border-[1px] border-[rgb(203,213,225)] rounded-[24px] p-[18px]
+      border-[1px] border-[rgb(203,213,225)] rounded-[20px] md:rounded-[24px] p-[14px] md:p-[18px]
       shadow-[0px_16px_32px_rgba(15,23,42,0.08)]
       transition duration-[300ms]
       hover:-translate-y-[2px] hover:shadow-[0px_22px_42px_rgba(15,23,42,0.12)]
       hover:border-[rgb(148,163,184)]">
 
-        <div class="flex items-center">
-          <span class="w-[52px] h-[52px] rounded-[16px]
+        <div class="flex items-start justify-start">
+          <span class="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-[12px] md:rounded-[16px]
           bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(255,237,213,1)_100%)]
           border-[1px] border-[rgba(239,68,68,0.14)]
           shadow-[0px_8px_18px_rgba(239,68,68,0.08)]
           flex items-center justify-center
-          text-[22px] font-[900] text-[rgb(185,28,28)]">
+          text-[18px] md:text-[22px] font-[900] text-[rgb(185,28,28)]">
             11
           </span>
         </div>
 
-        <div>
-          <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
-          <h3 class="mt-[5px] text-[22px] font-[900] text-[rgb(15,23,42)]">Janata Dal (United) – JD(U)</h3>
-          <p class="mt-[4px] text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
+        <div class="text-left">
+          <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
+          <h3 class="mt-[5px] text-[18px] sm:text-[20px] md:text-[22px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Janata Dal (United) – JD(U)</h3>
+          <p class="mt-[4px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
         </div>
 
-        <div class="flex justify-center">
-          <div class="w-[130px] h-[130px] rounded-[20px]
+        <div class="flex justify-center md:justify-center mt-[6px] md:mt-0">
+          <div class="w-[110px] h-[110px] md:w-[120px] md:h-[120px] lg:w-[130px] lg:h-[130px] rounded-[18px] md:rounded-[20px]
           border-[1px] border-[rgb(226,232,240)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
           shadow-[inset_0px_1px_0px_rgba(255,255,255,0.75)]
           flex items-center justify-center
           transition duration-[300ms] group-hover:scale-[1.03]">
             <img src="Photos/jd.jpg" alt="Party 11 Symbol"
-            class="w-[110px] h-[110px] object-contain rounded-[16px]" />
+            class="w-[90px] h-[90px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] object-contain rounded-[14px] md:rounded-[16px]" />
           </div>
         </div>
       </div>
 
       <!-- Party 12 -->
-      <div class="group grid grid-cols-[110px_1fr_200px] gap-[14px] items-center
+      <div class="group
+      grid grid-cols-1 md:grid-cols-[90px_1fr_170px] lg:grid-cols-[110px_1fr_200px]
+      items-start md:items-center
+      gap-[14px]
       bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
-      border-[1px] border-[rgb(203,213,225)] rounded-[24px] p-[18px]
+      border-[1px] border-[rgb(203,213,225)] rounded-[20px] md:rounded-[24px] p-[14px] md:p-[18px]
       shadow-[0px_16px_32px_rgba(15,23,42,0.08)]
       transition duration-[300ms]
       hover:-translate-y-[2px] hover:shadow-[0px_22px_42px_rgba(15,23,42,0.12)]
       hover:border-[rgb(148,163,184)]">
 
-        <div class="flex items-center">
-          <span class="w-[52px] h-[52px] rounded-[16px]
+        <div class="flex items-start justify-start">
+          <span class="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-[12px] md:rounded-[16px]
           bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(255,237,213,1)_100%)]
           border-[1px] border-[rgba(239,68,68,0.14)]
           shadow-[0px_8px_18px_rgba(239,68,68,0.08)]
           flex items-center justify-center
-          text-[22px] font-[900] text-[rgb(185,28,28)]">
+          text-[18px] md:text-[22px] font-[900] text-[rgb(185,28,28)]">
             12
           </span>
         </div>
 
-        <div>
-          <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
-          <h3 class="mt-[5px] text-[22px] font-[900] text-[rgb(15,23,42)]">Rashtriya Janata Dal (RJD)</h3>
-          <p class="mt-[4px] text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
+        <div class="text-left">
+          <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
+          <h3 class="mt-[5px] text-[18px] sm:text-[20px] md:text-[22px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Rashtriya Janata Dal (RJD)</h3>
+          <p class="mt-[4px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
         </div>
 
-        <div class="flex justify-center">
-          <div class="w-[130px] h-[130px] rounded-[20px]
+        <div class="flex justify-center md:justify-center mt-[6px] md:mt-0">
+          <div class="w-[110px] h-[110px] md:w-[120px] md:h-[120px] lg:w-[130px] lg:h-[130px] rounded-[18px] md:rounded-[20px]
           border-[1px] border-[rgb(226,232,240)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
           shadow-[inset_0px_1px_0px_rgba(255,255,255,0.75)]
           flex items-center justify-center
           transition duration-[300ms] group-hover:scale-[1.03]">
             <img src="Photos/rjd.jpg" alt="Party 12 Symbol"
-            class="w-[110px] h-[110px] object-contain rounded-[16px]" />
+            class="w-[90px] h-[90px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] object-contain rounded-[14px] md:rounded-[16px]" />
           </div>
         </div>
       </div>
 
       <!-- Party 13 -->
-      <div class="group grid grid-cols-[110px_1fr_200px] gap-[14px] items-center
+      <div class="group
+      grid grid-cols-1 md:grid-cols-[90px_1fr_170px] lg:grid-cols-[110px_1fr_200px]
+      items-start md:items-center
+      gap-[14px]
       bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
-      border-[1px] border-[rgb(203,213,225)] rounded-[24px] p-[18px]
+      border-[1px] border-[rgb(203,213,225)] rounded-[20px] md:rounded-[24px] p-[14px] md:p-[18px]
       shadow-[0px_16px_32px_rgba(15,23,42,0.08)]
       transition duration-[300ms]
       hover:-translate-y-[2px] hover:shadow-[0px_22px_42px_rgba(15,23,42,0.12)]
       hover:border-[rgb(148,163,184)]">
 
-        <div class="flex items-center">
-          <span class="w-[52px] h-[52px] rounded-[16px]
+        <div class="flex items-start justify-start">
+          <span class="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-[12px] md:rounded-[16px]
           bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(255,237,213,1)_100%)]
           border-[1px] border-[rgba(239,68,68,0.14)]
           shadow-[0px_8px_18px_rgba(239,68,68,0.08)]
           flex items-center justify-center
-          text-[22px] font-[900] text-[rgb(185,28,28)]">
+          text-[18px] md:text-[22px] font-[900] text-[rgb(185,28,28)]">
             13
           </span>
         </div>
 
-        <div>
-          <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
-          <h3 class="mt-[5px] text-[22px] font-[900] text-[rgb(15,23,42)]">Trinamool Congress (TMC)</h3>
-          <p class="mt-[4px] text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
+        <div class="text-left">
+          <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
+          <h3 class="mt-[5px] text-[18px] sm:text-[20px] md:text-[22px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Trinamool Congress (TMC)</h3>
+          <p class="mt-[4px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
         </div>
 
-        <div class="flex justify-center">
-          <div class="w-[130px] h-[130px] rounded-[20px]
+        <div class="flex justify-center md:justify-center mt-[6px] md:mt-0">
+          <div class="w-[110px] h-[110px] md:w-[120px] md:h-[120px] lg:w-[130px] lg:h-[130px] rounded-[18px] md:rounded-[20px]
           border-[1px] border-[rgb(226,232,240)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
           shadow-[inset_0px_1px_0px_rgba(255,255,255,0.75)]
           flex items-center justify-center
           transition duration-[300ms] group-hover:scale-[1.03]">
             <img src="Photos/tmc.jpg" alt="Party 13 Symbol"
-            class="w-[110px] h-[110px] object-contain rounded-[16px]" />
+            class="w-[90px] h-[90px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] object-contain rounded-[14px] md:rounded-[16px]" />
           </div>
         </div>
       </div>
 
       <!-- Party 14 -->
-      <div class="group grid grid-cols-[110px_1fr_200px] gap-[14px] items-center
+      <div class="group
+      grid grid-cols-1 md:grid-cols-[90px_1fr_170px] lg:grid-cols-[110px_1fr_200px]
+      items-start md:items-center
+      gap-[14px]
       bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
-      border-[1px] border-[rgb(203,213,225)] rounded-[24px] p-[18px]
+      border-[1px] border-[rgb(203,213,225)] rounded-[20px] md:rounded-[24px] p-[14px] md:p-[18px]
       shadow-[0px_16px_32px_rgba(15,23,42,0.08)]
       transition duration-[300ms]
       hover:-translate-y-[2px] hover:shadow-[0px_22px_42px_rgba(15,23,42,0.12)]
       hover:border-[rgb(148,163,184)]">
 
-        <div class="flex items-center">
-          <span class="w-[52px] h-[52px] rounded-[16px]
+        <div class="flex items-start justify-start">
+          <span class="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-[12px] md:rounded-[16px]
           bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(255,237,213,1)_100%)]
           border-[1px] border-[rgba(239,68,68,0.14)]
           shadow-[0px_8px_18px_rgba(239,68,68,0.08)]
           flex items-center justify-center
-          text-[22px] font-[900] text-[rgb(185,28,28)]">
+          text-[18px] md:text-[22px] font-[900] text-[rgb(185,28,28)]">
             14
           </span>
         </div>
 
-        <div>
-          <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
-          <h3 class="mt-[5px] text-[22px] font-[900] text-[rgb(15,23,42)]">Telugu Desam Party (TDP)</h3>
-          <p class="mt-[4px] text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
+        <div class="text-left">
+          <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
+          <h3 class="mt-[5px] text-[18px] sm:text-[20px] md:text-[22px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Telugu Desam Party (TDP)</h3>
+          <p class="mt-[4px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
         </div>
 
-        <div class="flex justify-center">
-          <div class="w-[130px] h-[130px] rounded-[20px]
+        <div class="flex justify-center md:justify-center mt-[6px] md:mt-0">
+          <div class="w-[110px] h-[110px] md:w-[120px] md:h-[120px] lg:w-[130px] lg:h-[130px] rounded-[18px] md:rounded-[20px]
           border-[1px] border-[rgb(226,232,240)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
           shadow-[inset_0px_1px_0px_rgba(255,255,255,0.75)]
           flex items-center justify-center
           transition duration-[300ms] group-hover:scale-[1.03]">
             <img src="Photos/tdp.jpg" alt="Party 14 Symbol"
-            class="w-[110px] h-[110px] object-contain rounded-[16px]" />
+            class="w-[90px] h-[90px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] object-contain rounded-[14px] md:rounded-[16px]" />
           </div>
         </div>
       </div>
 
       <!-- Party 15 -->
-      <div class="group grid grid-cols-[110px_1fr_200px] gap-[14px] items-center
+      <div class="group
+      grid grid-cols-1 md:grid-cols-[90px_1fr_170px] lg:grid-cols-[110px_1fr_200px]
+      items-start md:items-center
+      gap-[14px]
       bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
-      border-[1px] border-[rgb(203,213,225)] rounded-[24px] p-[18px]
+      border-[1px] border-[rgb(203,213,225)] rounded-[20px] md:rounded-[24px] p-[14px] md:p-[18px]
       shadow-[0px_16px_32px_rgba(15,23,42,0.08)]
       transition duration-[300ms]
       hover:-translate-y-[2px] hover:shadow-[0px_22px_42px_rgba(15,23,42,0.12)]
       hover:border-[rgb(148,163,184)]">
 
-        <div class="flex items-center">
-          <span class="w-[52px] h-[52px] rounded-[16px]
+        <div class="flex items-start justify-start">
+          <span class="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-[12px] md:rounded-[16px]
           bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(255,237,213,1)_100%)]
           border-[1px] border-[rgba(239,68,68,0.14)]
           shadow-[0px_8px_18px_rgba(239,68,68,0.08)]
           flex items-center justify-center
-          text-[22px] font-[900] text-[rgb(185,28,28)]">
+          text-[18px] md:text-[22px] font-[900] text-[rgb(185,28,28)]">
             15
           </span>
         </div>
 
-        <div>
-          <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
-          <h3 class="mt-[5px] text-[22px] font-[900] text-[rgb(15,23,42)]">Dravida Munnetra Kazhagam (DMK)</h3>
-          <p class="mt-[4px] text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
+        <div class="text-left">
+          <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">PARTY NAME</p>
+          <h3 class="mt-[5px] text-[18px] sm:text-[20px] md:text-[22px] font-[900] text-[rgb(15,23,42)] leading-[1.35]">Dravida Munnetra Kazhagam (DMK)</h3>
+          <p class="mt-[4px] text-[12px] md:text-[13px] font-[600] text-[rgb(100,116,139)]">Registered election participant</p>
         </div>
 
-        <div class="flex justify-center">
-          <div class="w-[130px] h-[130px] rounded-[20px]
+        <div class="flex justify-center md:justify-center mt-[6px] md:mt-0">
+          <div class="w-[110px] h-[110px] md:w-[120px] md:h-[120px] lg:w-[130px] lg:h-[130px] rounded-[18px] md:rounded-[20px]
           border-[1px] border-[rgb(226,232,240)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
           shadow-[inset_0px_1px_0px_rgba(255,255,255,0.75)]
           flex items-center justify-center
           transition duration-[300ms] group-hover:scale-[1.03]">
             <img src="Photos/dmk.jpg" alt="Party 15 Symbol"
-            class="w-[110px] h-[110px] object-contain rounded-[16px]" />
+            class="w-[90px] h-[90px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] object-contain rounded-[14px] md:rounded-[16px]" />
           </div>
         </div>
       </div>
@@ -2516,46 +2583,46 @@ data-img="Photos/dmk.jpg">
 
 <!-- Result Tab -->
 <section id="tab-results" class="tabSection hidden">
-  <div class="max-w-[1280px] mx-auto px-[20px] pb-[34px]">
+  <div class="max-w-[1280px] mx-auto px-[12px] sm:px-[16px] md:px-[20px] pb-[24px] md:pb-[34px]">
 
     <!-- Header -->
     <div class="relative overflow-hidden
     bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
     border-[1px] border-[rgb(203,213,225)]
-    rounded-[26px] p-[24px]
+    rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[24px]
     shadow-[0px_18px_40px_rgba(15,23,42,0.08)]">
 
-      <div class="flex items-center justify-between gap-[18px]">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-[14px] md:gap-[18px]">
 
-        <div>
-          <div class="inline-flex items-center gap-[8px] px-[12px] py-[7px]
+        <div class="min-w-0">
+          <div class="inline-flex items-center gap-[8px] px-[10px] md:px-[12px] py-[6px] md:py-[7px]
           rounded-[999px]
           border-[1px] border-[rgba(37,99,235,0.14)]
-          bg-[rgba(37,99,235,0.06)] mb-[14px]">
+          bg-[rgba(37,99,235,0.06)] mb-[12px] md:mb-[14px]">
             <span class="w-[8px] h-[8px] rounded-full bg-[rgb(37,99,235)]"></span>
-            <span class="text-[12px] font-[700] tracking-[0.5px] text-[rgb(29,78,216)]">
+            <span class="text-[10px] sm:text-[11px] md:text-[12px] font-[700] tracking-[0.5px] text-[rgb(29,78,216)]">
               ELECTION RESULT CENTER
             </span>
           </div>
 
-          <h2 class="text-[34px] font-[900] leading-[1.08] text-[rgb(15,23,42)]">
+          <h2 class="text-[24px] sm:text-[28px] md:text-[34px] font-[900] leading-[1.08] text-[rgb(15,23,42)]">
             Election Results
           </h2>
 
-          <p class="mt-[10px] max-w-[760px]
-          text-[16px] leading-[1.7] font-[500] text-[rgb(71,85,105)]">
+          <p class="mt-[8px] md:mt-[10px] max-w-[760px]
+          text-[13px] sm:text-[15px] md:text-[16px] leading-[1.7] font-[500] text-[rgb(71,85,105)]">
             Final party-wise voting results become visible only after the election is ended and the admin officially publishes the result.
           </p>
         </div>
 
         <div id="resultStatusBadge"
-        class="shrink-0 inline-flex items-center gap-[10px]
-        px-[18px] py-[11px] rounded-[999px]
+        class="w-fit shrink-0 inline-flex items-center gap-[8px] md:gap-[10px]
+        px-[14px] md:px-[18px] py-[9px] md:py-[11px] rounded-[999px]
         border-[1px] border-[rgb(203,213,225)]
         bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
         shadow-[0px_8px_18px_rgba(15,23,42,0.06)]">
-          <span id="resultStatusDot" class="w-[11px] h-[11px] rounded-full bg-[rgb(148,163,184)]"></span>
-          <span id="resultStatusText" class="text-[14px] font-[800] tracking-[0.5px] text-[rgb(71,85,105)]">
+          <span id="resultStatusDot" class="w-[9px] h-[9px] md:w-[11px] md:h-[11px] rounded-full bg-[rgb(148,163,184)]"></span>
+          <span id="resultStatusText" class="text-[12px] md:text-[14px] font-[800] tracking-[0.5px] text-[rgb(71,85,105)] whitespace-nowrap">
             RESULT LOCKED
           </span>
         </div>
@@ -2565,95 +2632,95 @@ data-img="Photos/dmk.jpg">
 
     <!-- Locked State -->
     <div id="lockedResultCard"
-    class="mt-[20px]
+    class="mt-[16px] md:mt-[20px]
     bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
     border-[1px] border-[rgb(203,213,225)]
-    rounded-[26px] p-[28px]
+    rounded-[20px] md:rounded-[26px] p-[16px] sm:p-[20px] md:p-[28px]
     shadow-[0px_18px_40px_rgba(15,23,42,0.08)]">
 
       <div class="max-w-[820px]">
-        <div class="w-[72px] h-[72px]
-        rounded-[20px]
+        <div class="w-[58px] h-[58px] sm:w-[64px] sm:h-[64px] md:w-[72px] md:h-[72px]
+        rounded-[16px] md:rounded-[20px]
         border-[1px] border-[rgb(226,232,240)]
         bg-[linear-gradient(180deg,rgba(248,250,252,1)_0%,rgba(241,245,249,1)_100%)]
         flex items-center justify-center
-        text-[30px]
+        text-[24px] sm:text-[26px] md:text-[30px]
         shadow-[0px_10px_22px_rgba(15,23,42,0.05)]">
           🔒
         </div>
 
-        <h3 class="mt-[18px] text-[30px] font-[900] text-[rgb(15,23,42)]">
+        <h3 class="mt-[16px] md:mt-[18px] text-[24px] sm:text-[27px] md:text-[30px] font-[900] text-[rgb(15,23,42)] leading-[1.2]">
           Results are not published yet
         </h3>
 
-        <p class="mt-[10px] text-[16px] leading-[1.8] font-[500] text-[rgb(71,85,105)]">
+        <p class="mt-[10px] text-[13px] sm:text-[15px] md:text-[16px] leading-[1.8] font-[500] text-[rgb(71,85,105)]">
           The result panel remains hidden until voting is completed and the admin clicks the display result action. Once published, the winner and full party ranking will be visible to both admin and voters.
         </p>
 
-        <div class="mt-[20px] grid grid-cols-3 gap-[14px]">
-          <div class="rounded-[20px]
+        <div class="mt-[18px] md:mt-[20px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[12px] md:gap-[14px]">
+          <div class="rounded-[18px] md:rounded-[20px]
           border-[1px] border-[rgb(203,213,225)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-          p-[16px]">
-            <p class="text-[12px] font-[800] tracking-[0.5px] text-[rgb(100,116,139)]">RESULT STATUS</p>
-            <p class="mt-[7px] text-[18px] font-[900] text-[rgb(15,23,42)]">Locked</p>
+          p-[14px] md:p-[16px]">
+            <p class="text-[11px] md:text-[12px] font-[800] tracking-[0.5px] text-[rgb(100,116,139)]">RESULT STATUS</p>
+            <p class="mt-[7px] text-[16px] md:text-[18px] font-[900] text-[rgb(15,23,42)]">Locked</p>
           </div>
 
-          <div class="rounded-[20px]
+          <div class="rounded-[18px] md:rounded-[20px]
           border-[1px] border-[rgb(203,213,225)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-          p-[16px]">
-            <p class="text-[12px] font-[800] tracking-[0.5px] text-[rgb(100,116,139)]">VISIBLE TO</p>
-            <p class="mt-[7px] text-[18px] font-[900] text-[rgb(15,23,42)]">Admin & Voters</p>
+          p-[14px] md:p-[16px]">
+            <p class="text-[11px] md:text-[12px] font-[800] tracking-[0.5px] text-[rgb(100,116,139)]">VISIBLE TO</p>
+            <p class="mt-[7px] text-[16px] md:text-[18px] font-[900] text-[rgb(15,23,42)]">Admin & Voters</p>
           </div>
 
-          <div class="rounded-[20px]
+          <div class="rounded-[18px] md:rounded-[20px]
           border-[1px] border-[rgb(203,213,225)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-          p-[16px]">
-            <p class="text-[12px] font-[800] tracking-[0.5px] text-[rgb(100,116,139)]">UNLOCK CONDITION</p>
-            <p class="mt-[7px] text-[18px] font-[900] text-[rgb(15,23,42)]">After Publish</p>
+          p-[14px] md:p-[16px]">
+            <p class="text-[11px] md:text-[12px] font-[800] tracking-[0.5px] text-[rgb(100,116,139)]">UNLOCK CONDITION</p>
+            <p class="mt-[7px] text-[16px] md:text-[18px] font-[900] text-[rgb(15,23,42)]">After Publish</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Result Board -->
-    <div id="resultBoard" class="hidden mt-[20px]">
+    <div id="resultBoard" class="hidden mt-[16px] md:mt-[20px]">
 
       <!-- Winner Summary -->
       <div id="winnerSummary"
       class="bg-[linear-gradient(180deg,rgba(255,255,255,0.99)_0%,rgba(248,250,252,0.99)_100%)]
       border-[1px] border-[rgb(203,213,225)]
-      rounded-[28px] p-[26px]
+      rounded-[20px] md:rounded-[28px] p-[16px] sm:p-[20px] md:p-[26px]
       shadow-[0px_20px_42px_rgba(15,23,42,0.09)]">
         <!-- JS winner content -->
       </div>
 
       <!-- Ranking Table -->
-      <div class="mt-[18px]
+      <div class="mt-[16px] md:mt-[18px]
       bg-[linear-gradient(180deg,rgba(255,255,255,0.99)_0%,rgba(248,250,252,0.99)_100%)]
       border-[1px] border-[rgb(203,213,225)]
-      rounded-[28px]
+      rounded-[20px] md:rounded-[28px]
       shadow-[0px_20px_42px_rgba(15,23,42,0.09)]
       overflow-hidden">
 
-        <div class="px-[24px] py-[20px] border-b-[1px] border-[rgb(226,232,240)]">
-          <h3 class="text-[26px] font-[900] text-[rgb(15,23,42)]">
+        <div class="px-[16px] sm:px-[20px] md:px-[24px] py-[16px] md:py-[20px] border-b-[1px] border-[rgb(226,232,240)]">
+          <h3 class="text-[22px] sm:text-[24px] md:text-[26px] font-[900] text-[rgb(15,23,42)]">
             Full Party Ranking
           </h3>
-          <p class="mt-[6px] text-[14px] font-[600] text-[rgb(100,116,139)]">
+          <p class="mt-[6px] text-[12px] md:text-[14px] font-[600] text-[rgb(100,116,139)]">
             Professional final result view showing all parties and their vote counts.
           </p>
         </div>
 
         <!-- Header row -->
-        <div class="grid grid-cols-[120px_1fr_180px] gap-[14px]
-        px-[24px] py-[16px]
+        <div class="hidden md:grid grid-cols-[90px_1fr_130px] lg:grid-cols-[120px_1fr_180px] gap-[14px]
+        px-[16px] lg:px-[24px] py-[16px]
         bg-[rgb(15,23,42)] text-white">
-          <div class="text-[14px] font-[800] tracking-[0.5px]">RANK</div>
-          <div class="text-[14px] font-[800] tracking-[0.5px]">PARTY NAME</div>
-          <div class="text-[14px] font-[800] tracking-[0.5px] text-right">TOTAL VOTES</div>
+          <div class="text-[13px] lg:text-[14px] font-[800] tracking-[0.5px]">RANK</div>
+          <div class="text-[13px] lg:text-[14px] font-[800] tracking-[0.5px]">PARTY NAME</div>
+          <div class="text-[13px] lg:text-[14px] font-[800] tracking-[0.5px] text-right">TOTAL VOTES</div>
         </div>
 
         <div id="resultList" class="divide-y divide-[rgb(226,232,240)]">

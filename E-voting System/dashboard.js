@@ -828,4 +828,51 @@ logoutBtn?.addEventListener("click", () => {
   // redirect to login
   window.location.href = "login.html";
 });
+const mobileBtns = document.querySelectorAll(".mobileNavBtn");
+const sections = document.querySelectorAll(".tabSection");
+const mobileMenuToggle = document.getElementById("mobileMenuToggle");
 
+mobileBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const target = btn.dataset.target;
+
+    // hide all sections
+    sections.forEach((sec) => {
+      sec.classList.add("hidden");
+      sec.classList.remove("block");
+    });
+
+    // map nav button to tab section
+    let sectionId = "";
+
+    if (target === "navHome") sectionId = "tab-home";
+    if (target === "navHow") sectionId = "tab-how";
+    if (target === "navStatus") sectionId = "tab-status";
+    if (target === "navParties") sectionId = "tab-parties";
+    if (target === "navResults") sectionId = "tab-results";
+
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+      section.classList.remove("hidden");
+      section.classList.add("block");
+    }
+
+    // auto close sidebar on mobile
+    if (mobileMenuToggle) {
+      mobileMenuToggle.checked = false;
+    }
+  });
+});
+
+//Mobile logout button working
+<button class="logoutBtn
+px-[16px] py-[13px]
+rounded-[14px]
+text-[14px] font-[800]
+text-white
+bg-[linear-gradient(90deg,rgba(239,68,68,1)_0%,rgba(220,38,38,1)_100%)]
+border-[1px] border-[rgba(239,68,68,0.35)]
+shadow-[0px_10px_24px_rgba(239,68,68,0.25)]">
+Logout
+</button>
