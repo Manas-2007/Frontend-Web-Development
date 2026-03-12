@@ -828,3 +828,4 @@ logoutBtn?.addEventListener("click", () => {
   // redirect to login
   window.location.href = "login.html";
 });
+

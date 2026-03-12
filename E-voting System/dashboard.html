@@ -13,218 +13,434 @@ bg-white/90 backdrop-blur-[16px]
 border-b-[1px] border-slate-200
 shadow-[0px_10px_30px_rgba(15,23,42,0.08)]">
 
-<div class="max-w-[1280px] mx-auto px-[20px] py-[12px]
-flex items-center justify-between">
+  <!-- TOGGLE -->
+  <input type="checkbox" id="mobileMenuToggle" class="hidden peer" />
 
-<!-- LOGO -->
-<div class="flex items-center gap-[12px] group">
+<!-- ========================= -->
+<!-- MOBILE / TABLET TOP BAR -->
+<!-- ========================= -->
+<div class="flex md:hidden w-[100%] px-[10px] py-[10px] items-center justify-between gap-[8px]">
 
-<img src="Photos/homepagelogo.jpg"
-class="w-[64px] h-[64px] rounded-[14px]
-object-cover
-shadow-[0px_8px_20px_rgba(0,0,0,0.10)]
-group-hover:scale-[1.05]
-duration-[300ms]"/>
+  <!-- LEFT LOGO -->
+  <div class="flex items-center gap-[8px] min-w-0 flex-1">
+    <img src="Photos/homepagelogo.jpg"
+    class="w-[40px] h-[40px] rounded-[10px]
+    object-cover
+    shadow-[0px_8px_20px_rgba(0,0,0,0.10)]"/>
 
-<div>
+    <div class="min-w-0">
+      <h1 class="text-[15px] font-[700] text-slate-900 leading-[1.05] tracking-[0.2px] truncate">
+        E-Vote <span class="text-red-600">Bank</span>
+      </h1>
 
-<h1 class="text-[24px] font-[700]
-text-slate-900 leading-[1.1] tracking-[0.3px]">
+      <p class="text-[9px] font-[600] text-slate-500 tracking-[0.2px] truncate">
+        Digital Voting Portal
+      </p>
+    </div>
+  </div>
 
-E-Vote <span class="text-red-600">Bank</span>
+  <!-- RIGHT AREA -->
+  <div class="flex items-center gap-[6px] shrink-0">
 
-</h1>
+    <!-- MOBILE LIVE STATUS -->
+    <div id="mobileVoteLiveBox"
+    class="flex items-center gap-[5px]
+    bg-gradient-to-r from-slate-50 to-slate-100
+    border-[1px] border-slate-200
+    px-[8px] py-[6px]
+    rounded-[999px]
+    shadow-[0px_6px_18px_rgba(15,23,42,0.05)]
+    max-w-[120px]">
 
-<p class="text-[12px] font-[600]
-text-slate-500 tracking-[0.3px]">
+      <span id="mobileLiveDot"
+      class="w-[7px] h-[7px] rounded-full bg-gray-400 shrink-0"></span>
 
-Digital Voting Portal
+      <span id="mobileLiveText"
+      class="text-[10px] font-[800] text-slate-600 tracking-[0.2px] whitespace-nowrap truncate">
+        NOT STARTED
+      </span>
 
-</p>
+    </div>
+
+    <!-- HAMBURGER -->
+    <label for="mobileMenuToggle"
+    class="flex md:hidden w-[42px] h-[42px]
+    rounded-[12px]
+    bg-slate-100
+    border-[1px] border-slate-200
+    shadow-[0px_6px_16px_rgba(15,23,42,0.08)]
+    items-center justify-center
+    cursor-pointer shrink-0">
+
+      <svg xmlns="http://www.w3.org/2000/svg"
+      class="w-[21px] h-[21px] text-slate-700"
+      fill="none" viewBox="0 0 24 24"
+      stroke="currentColor" stroke-width="2.2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+      </svg>
+    </label>
+  </div>
+</div>
+
+  <!-- ========================= -->
+  <!-- MOBILE OVERLAY -->
+  <!-- ========================= -->
+  <label for="mobileMenuToggle"
+  class="fixed md:hidden inset-0 bg-slate-950/50 z-[998]
+  opacity-0 invisible
+  peer-checked:opacity-100 peer-checked:visible
+  transition duration-[300ms] cursor-pointer"></label>
+
+<!-- ========================= -->
+<!-- MOBILE SIDEBAR -->
+<!-- ========================= -->
+<div class="fixed md:hidden top-0 left-0 z-[999]
+w-[84%] max-w-[300px] h-[100dvh]
+bg-[linear-gradient(180deg,#020b2f_0%,#08132f_40%,#16233c_100%)]
+border-r-[1px] border-white/10
+shadow-[20px_0px_40px_rgba(0,0,0,0.35)]
+-translate-x-full peer-checked:translate-x-0
+transition duration-[350ms] ease-out
+flex flex-col overflow-hidden">
+
+  <!-- CLOSE BUTTON -->
+  <div class="w-[100%] flex justify-end px-[14px] pt-[12px] shrink-0">
+    <label for="mobileMenuToggle"
+    class="w-[40px] h-[40px]
+    rounded-[12px]
+    bg-white/10
+    border-[1px] border-white/10
+    flex items-center justify-center
+    cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg"
+      class="w-[20px] h-[20px] text-white"
+      fill="none" viewBox="0 0 24 24"
+      stroke="currentColor" stroke-width="2.2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </label>
+  </div>
+
+  <!-- SIDEBAR LOGO -->
+  <div class="shrink-0 px-[16px] pt-[2px] pb-[16px] text-center">
+    <img src="Photos/homepagelogo.jpg"
+    class="w-[76px] h-[76px] mx-auto rounded-[18px]
+    object-cover
+    shadow-[0px_12px_25px_rgba(0,0,0,0.28)]"/>
+
+    <h1 class="mt-[12px] text-[16px] font-[700] text-white leading-[1.1] tracking-[0.3px]">
+      E-Vote Bank
+    </h1>
+
+    <p class="mt-[4px] text-[11px] font-[500] text-slate-300 tracking-[0.2px]">
+      Secure Digital Election Platform
+    </p>
+  </div>
+
+  <div class="mx-[14px] h-[1px] bg-white/10 shrink-0"></div>
+
+  <!-- SCROLLABLE AREA -->
+  <div class="flex-1 overflow-y-auto pb-[10px]">
+
+    <!-- MOBILE NAV ITEMS -->
+    <div class="px-[14px] py-[14px] flex flex-col gap-[10px] font-[700]">
+
+      <button type="button"
+      class="mobileNavBtn px-[16px] py-[12px]
+      rounded-[14px]
+      text-[14px]
+      text-left
+      text-white
+      bg-[linear-gradient(90deg,rgba(127,29,29,0.65)_0%,rgba(69,10,10,0.35)_100%)]
+      border-[1px] border-red-400/20
+      shadow-[0px_10px_24px_rgba(127,29,29,0.20)]"
+      data-target="navHome">
+        HOME
+      </button>
+
+      <button type="button"
+      class="mobileNavBtn px-[16px] py-[12px]
+      rounded-[14px]
+      text-[14px]
+      text-left
+      text-slate-200
+      bg-white/6
+      border-[1px] border-white/8
+      shadow-[inset_0px_1px_0px_rgba(255,255,255,0.04)]"
+      data-target="navHow">
+        HOW TO USE
+      </button>
+
+      <button type="button"
+      class="mobileNavBtn px-[16px] py-[12px]
+      rounded-[14px]
+      text-[14px]
+      text-left
+      text-slate-200
+      bg-white/6
+      border-[1px] border-white/8
+      shadow-[inset_0px_1px_0px_rgba(255,255,255,0.04)]"
+      data-target="navStatus">
+        VOTE STATUS
+      </button>
+
+      <button type="button"
+      class="mobileNavBtn px-[16px] py-[12px]
+      rounded-[14px]
+      text-[14px]
+      text-left
+      text-slate-200
+      bg-white/6
+      border-[1px] border-white/8
+      shadow-[inset_0px_1px_0px_rgba(255,255,255,0.04)]"
+      data-target="navParties">
+        ELECTION PARTIES
+      </button>
+
+      <button type="button"
+      class="mobileNavBtn px-[16px] py-[12px]
+      rounded-[14px]
+      text-[14px]
+      text-left
+      text-slate-200
+      bg-white/6
+      border-[1px] border-white/8
+      shadow-[inset_0px_1px_0px_rgba(255,255,255,0.04)]"
+      data-target="navResults">
+        RESULTS
+      </button>
+    </div>
+
+    <!-- MOBILE INFO MESSAGE -->
+    <div class="px-[14px] pt-[4px]">
+      <div class="w-[100%]
+      rounded-[18px]
+      border-[1px] border-white/10
+      bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.03)_100%)]
+      px-[16px] py-[15px]">
+
+        <h3 class="text-[16px] font-[600] text-white tracking-[0.3px]">
+          Your Vote Matters
+        </h3>
+
+        <p class="mt-[8px] text-[14px] leading-[1.6] text-slate-300">
+          Participate responsibly in the digital election process. Review party details carefully, verify election status, and cast your vote only during the official active voting period.
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FIXED LOGOUT -->
+  <div class="shrink-0 px-[14px] pt-[10px] pb-[16px] border-t-[1px] border-white/10 bg-[rgba(2,11,47,0.96)]">
+    <button type="button" id="mobileLogoutBtn"
+    class="w-[100%]
+    px-[16px] py-[13px]
+    rounded-[14px]
+    text-[14px] font-[800]
+    text-white
+    bg-[linear-gradient(90deg,rgba(239,68,68,1)_0%,rgba(220,38,38,1)_100%)]
+    border-[1px] border-[rgba(239,68,68,0.35)]
+    shadow-[0px_10px_24px_rgba(239,68,68,0.25)]">
+      Logout
+    </button>
+  </div>
 
 </div>
 
-</div>
+  <!-- ========================= -->
+  <!-- DESKTOP ORIGINAL NAVBAR -->
+  <!-- ========================= -->
+  <div class="hidden md:flex max-w-[1280px] mx-auto px-[20px] py-[12px]
+  items-center justify-between">
 
+    <!-- LOGO -->
+    <div class="flex items-center gap-[12px] group">
 
-<!-- NAVIGATION TABS -->
-<div class="flex items-center gap-[10px] font-[600]">
+      <img src="Photos/homepagelogo.jpg"
+      class="w-[64px] h-[64px] rounded-[14px]
+      object-cover
+      shadow-[0px_8px_20px_rgba(0,0,0,0.10)]
+      group-hover:scale-[1.05]
+      duration-[300ms]"/>
 
+      <div>
 
-<!-- ACTIVE TAB -->
-<a href="#"
-class="px-[16px] py-[10px]
-rounded-[12px]
-text-[15px]
-text-slate-700
-hover:bg-red-500/10
-hover:text-red-600
-border-[1px] border-transparent
-transition duration-[250ms]"
-id="navHome">
-HOME
-</a>
+        <h1 class="text-[24px] font-[700]
+        text-slate-900 leading-[1.1] tracking-[0.3px]">
+          E-Vote <span class="text-red-600">Bank</span>
+        </h1>
 
+        <p class="text-[12px] font-[600]
+        text-slate-500 tracking-[0.3px]">
+          Digital Voting Portal
+        </p>
 
-<a href="#"
-class="px-[16px] py-[10px]
-rounded-[12px]
-text-[15px]
-text-slate-700
-hover:bg-orange-500/10
-hover:text-orange-600
-hover:border-orange-500/10
-border-[1px] border-transparent
-transition duration-[250ms]"
-id="navHow">
+      </div>
 
-HOW TO USE
+    </div>
 
-</a>
+    <!-- NAVIGATION TABS -->
+    <div class="flex items-center gap-[10px] font-[600]">
 
+      <a href="#"
+      class="px-[16px] py-[10px]
+      rounded-[12px]
+      text-[15px]
+      text-slate-700
+      hover:bg-red-500/10
+      hover:text-red-600
+      border-[1px] border-transparent
+      transition duration-[250ms]"
+      id="navHome">
+        HOME
+      </a>
 
-<a href="#"
-class="px-[16px] py-[10px]
-rounded-[12px]
-text-[15px]
-text-slate-700
-hover:bg-emerald-500/10
-hover:text-emerald-600
-border-[1px] border-transparent
-transition duration-[250ms]"
-id="navStatus">
+      <a href="#"
+      class="px-[16px] py-[10px]
+      rounded-[12px]
+      text-[15px]
+      text-slate-700
+      hover:bg-orange-500/10
+      hover:text-orange-600
+      hover:border-orange-500/10
+      border-[1px] border-transparent
+      transition duration-[250ms]"
+      id="navHow">
+        HOW TO USE
+      </a>
 
-VOTE STATUS
+      <a href="#"
+      class="px-[16px] py-[10px]
+      rounded-[12px]
+      text-[15px]
+      text-slate-700
+      hover:bg-emerald-500/10
+      hover:text-emerald-600
+      border-[1px] border-transparent
+      transition duration-[250ms]"
+      id="navStatus">
+        VOTE STATUS
+      </a>
 
-</a>
+      <a href="#"
+      class="px-[16px] py-[10px]
+      rounded-[12px]
+      text-[15px]
+      text-slate-700
+      hover:bg-red-500/10
+      hover:text-red-600
+      border-[1px] border-transparent
+      transition duration-[250ms]"
+      id="navParties">
+        ELECTION PARTIES
+      </a>
 
+      <a href="#"
+      class="px-[16px] py-[10px]
+      rounded-[12px]
+      text-[15px]
+      text-slate-700
+      hover:bg-sky-500/10
+      hover:text-sky-600
+      border-[1px] border-transparent
+      transition duration-[250ms]"
+      id="navResults">
+        RESULTS
+      </a>
 
-<a href="#"
-class="px-[16px] py-[10px]
-rounded-[12px]
-text-[15px]
-text-slate-700
-hover:bg-red-500/10
-hover:text-red-600
-border-[1px] border-transparent
-transition duration-[250ms]"
-id="navParties">
+    </div>
 
-ELECTION PARTIES
+    <!-- LIVE STATUS -->
+    <div id="voteLiveBox"
+    class="flex items-center gap-[8px]
+    bg-gradient-to-r from-slate-50 to-slate-100
+    border-[1px] border-slate-200
+    px-[14px] py-[8px]
+    rounded-[999px]
+    shadow-[0px_6px_18px_rgba(15,23,42,0.05)]">
 
-</a>
+      <span id="liveDot"
+      class="w-[10px] h-[10px] rounded-full bg-emerald-400"></span>
 
+      <span id="liveText"
+      class="text-[13px] font-[700] text-slate-600 tracking-[0.4px]">
+        NOT LIVE
+      </span>
 
-<a href="#"
-class="px-[16px] py-[10px]
-rounded-[12px]
-text-[15px]
-text-slate-700
-hover:bg-sky-500/10
-hover:text-sky-600
-border-[1px] border-transparent
-transition duration-[250ms]"
-id="navResults">
+    </div>
 
-RESULTS
+    <!-- Logout Button -->
+    <button id="logoutBtn"
+    class="ml-[10px]
+    px-[18px] py-[10px]
+    rounded-[12px]
+    text-[14px] font-[700]
+    text-white
+    bg-[linear-gradient(90deg,rgba(239,68,68,1)_0%,rgba(220,38,38,1)_100%)]
+    shadow-[0px_8px_18px_rgba(239,68,68,0.20)]
+    border-[1px] border-[rgba(239,68,68,0.35)]
+    hover:scale-[1.05]
+    hover:shadow-[0px_12px_22px_rgba(239,68,68,0.28)]
+    transition duration-[250ms]">
+      Logout
+    </button>
 
-</a>
-
-
-</div>
-
-
-<!-- LIVE STATUS -->
-<div id="voteLiveBox"
-class="flex items-center gap-[8px]
-bg-gradient-to-r from-slate-50 to-slate-100
-border-[1px] border-slate-200
-px-[14px] py-[8px]
-rounded-[999px]
-shadow-[0px_6px_18px_rgba(15,23,42,0.05)]">
-
-<span id="liveDot"
-class="w-[10px] h-[10px] rounded-full bg-gray-400"></span>
-
-<span id="liveText"
-class="text-[13px] font-[700] text-slate-600 tracking-[0.4px]">
-
-NOT LIVE
-
-</span>
-
-</div>
-
-<!-- Logout Button -->
-<button id="logoutBtn"
-class="ml-[10px]
-px-[18px] py-[10px]
-rounded-[12px]
-text-[14px] font-[700]
-text-white
-bg-[linear-gradient(90deg,rgba(239,68,68,1)_0%,rgba(220,38,38,1)_100%)]
-shadow-[0px_8px_18px_rgba(239,68,68,0.20)]
-border-[1px] border-[rgba(239,68,68,0.35)]
-hover:scale-[1.05]
-hover:shadow-[0px_12px_22px_rgba(239,68,68,0.28)]
-transition duration-[250ms]">
-Logout
-</button>
-
-</div>
+  </div>
 </nav>
 
 
 <!-- Home Tab -->
-<main class="pt-[112px] bg-[linear-gradient(180deg,rgba(241,245,249,1)_0%,rgba(226,232,240,1)_42%,rgba(248,250,252,1)_100%)]">
+<main class="pt-[92px] md:pt-[112px] bg-[linear-gradient(180deg,rgba(241,245,249,1)_0%,rgba(226,232,240,1)_42%,rgba(248,250,252,1)_100%)]">
 
 <section id="tab-home" class="tabSection block">
-  <div class="max-w-[1280px] mx-auto px-[20px] pb-[34px]">
+  <div class="max-w-[1280px] mx-auto px-[12px] sm:px-[16px] md:px-[20px] pb-[24px] md:pb-[34px]">
 
     <!-- Top Hero Card -->
     <div class="relative overflow-hidden
     bg-[linear-gradient(135deg,rgba(255,255,255,0.96)_0%,rgba(241,245,249,0.98)_100%)]
     border-[1px] border-[rgb(203,213,225)]
     shadow-[0px_20px_45px_rgba(15,23,42,0.10)]
-    rounded-[26px] p-[24px]">
+    rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[24px]">
 
-      <div class="absolute top-[-40px] right-[-40px] w-[180px] h-[180px] rounded-full bg-[rgba(239,68,68,0.06)]"></div>
-      <div class="absolute bottom-[-50px] left-[-30px] w-[160px] h-[160px] rounded-full bg-[rgba(59,130,246,0.05)]"></div>
+      <div class="absolute top-[-40px] right-[-40px] w-[140px] h-[140px] md:w-[180px] md:h-[180px] rounded-full bg-[rgba(239,68,68,0.06)]"></div>
+      <div class="absolute bottom-[-50px] left-[-30px] w-[120px] h-[120px] md:w-[160px] md:h-[160px] rounded-full bg-[rgba(59,130,246,0.05)]"></div>
 
-      <div class="relative flex items-center justify-between gap-[18px]">
+      <div class="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-[14px] md:gap-[18px]">
 
-        <div>
-          <div class="inline-flex items-center gap-[8px] px-[12px] py-[7px]
+        <div class="min-w-0">
+          <div class="inline-flex items-center gap-[8px] px-[10px] md:px-[12px] py-[6px] md:py-[7px]
           rounded-[999px] border-[1px] border-[rgba(239,68,68,0.16)]
-          bg-[rgba(239,68,68,0.08)] mb-[14px]">
+          bg-[rgba(239,68,68,0.08)] mb-[12px] md:mb-[14px]">
             <span class="w-[8px] h-[8px] rounded-full bg-[rgb(239,68,68)]"></span>
-            <span class="text-[12px] font-[700] tracking-[0.5px] text-[rgb(185,28,28)]">
+            <span class="text-[10px] sm:text-[11px] md:text-[12px] font-[700] tracking-[0.5px] text-[rgb(185,28,28)]">
               VOTER ACCESS PANEL
             </span>
           </div>
 
-          <h2 class="text-[34px] font-[900] text-[rgb(15,23,42)] leading-[1.08]">
+          <h2 class="text-[24px] sm:text-[28px] md:text-[34px] font-[900] text-[rgb(15,23,42)] leading-[1.08]">
             Welcome to Your Voting Dashboard
           </h2>
 
-          <p class="mt-[10px] text-[16px] leading-[1.7] font-[500] text-[rgb(71,85,105)] max-w-[760px]">
+          <p class="mt-[8px] md:mt-[10px] text-[13px] sm:text-[15px] md:text-[16px] leading-[1.7] font-[500] text-[rgb(71,85,105)] max-w-[760px]">
             View your verified voter profile, monitor your vote activity, and safely track your election participation from one secure dashboard.
           </p>
         </div>
 
         <!-- Status Pill -->
         <div id="voteStatusBadge"
-          class="shrink-0 inline-flex items-center justify-center gap-[10px]
-          px-[18px] py-[11px] rounded-[999px]
+          class="w-fit shrink-0 inline-flex items-center justify-center gap-[8px] md:gap-[10px]
+          px-[14px] md:px-[18px] py-[9px] md:py-[11px] rounded-[999px]
           border-[1px] border-[rgb(203,213,225)]
           bg-[linear-gradient(135deg,rgba(255,255,255,1)_0%,rgba(241,245,249,1)_100%)]
           shadow-[0px_10px_24px_rgba(15,23,42,0.08)]">
 
           <span id="voteStatusDot"
-            class="w-[11px] h-[11px] rounded-full bg-[rgb(148,163,184)]"></span>
+            class="w-[9px] h-[9px] md:w-[11px] md:h-[11px] rounded-full bg-[rgb(148,163,184)]"></span>
 
           <span id="voteStatusText"
-            class="text-[14px] font-[800] tracking-[0.6px] text-[rgb(71,85,105)]">
+            class="text-[12px] md:text-[14px] font-[800] tracking-[0.5px] md:tracking-[0.6px] text-[rgb(71,85,105)] whitespace-nowrap">
             NOT VOTED
           </span>
         </div>
@@ -233,32 +449,32 @@ Logout
     </div>
 
     <!-- Main Grid -->
-    <div class="mt-[18px] grid grid-cols-12 gap-[18px]">
+    <div class="mt-[16px] md:mt-[18px] grid grid-cols-1 xl:grid-cols-12 gap-[16px] md:gap-[18px]">
 
       <!-- LEFT COLUMN -->
-      <div class="col-span-7 grid grid-cols-1 gap-[18px]">
+      <div class="xl:col-span-7 grid grid-cols-1 gap-[16px] md:gap-[18px]">
 
         <!-- Voter Profile Card -->
         <div class="group
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[24px] p-[22px]
+        rounded-[20px] md:rounded-[24px] p-[16px] sm:p-[18px] md:p-[22px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[3px]
         hover:shadow-[0px_24px_44px_rgba(15,23,42,0.12)]">
 
-          <div class="flex items-start justify-between gap-[12px]">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-[12px]">
             <div>
-              <h3 class="text-[20px] font-[900] text-[rgb(15,23,42)]">
+              <h3 class="text-[18px] md:text-[20px] font-[900] text-[rgb(15,23,42)]">
                 Your Information
               </h3>
-              <p class="mt-[5px] text-[13px] text-[rgb(100,116,139)] font-[600]">
+              <p class="mt-[5px] text-[12px] md:text-[13px] text-[rgb(100,116,139)] font-[600]">
                 Verified identity details for the current election session.
               </p>
             </div>
 
-            <div class="px-[12px] py-[8px] rounded-[14px]
+            <div class="w-fit px-[12px] py-[8px] rounded-[14px]
             bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(255,237,213,1)_100%)]
             border-[1px] border-[rgba(239,68,68,0.12)]
             shadow-[0px_6px_16px_rgba(239,68,68,0.08)]">
@@ -266,44 +482,44 @@ Logout
             </div>
           </div>
 
-          <div class="mt-[16px] grid grid-cols-2 gap-[14px]">
+          <div class="mt-[16px] grid grid-cols-1 sm:grid-cols-2 gap-[12px] md:gap-[14px]">
 
             <div class="rounded-[18px] border-[1px] border-[rgb(203,213,225)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-            p-[15px] transition duration-[250ms]
+            p-[14px] md:p-[15px] transition duration-[250ms]
             group-hover:border-[rgb(148,163,184)] group-hover:shadow-[0px_8px_18px_rgba(15,23,42,0.05)]">
-              <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">NAME</p>
-              <p id="voterName" class="mt-[5px] text-[17px] font-[900] text-[rgb(15,23,42)]">
+              <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">NAME</p>
+              <p id="voterName" class="mt-[5px] text-[15px] sm:text-[16px] md:text-[17px] font-[900] text-[rgb(15,23,42)] break-words">
                 Manas Patidar
               </p>
             </div>
 
             <div class="rounded-[18px] border-[1px] border-[rgb(203,213,225)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-            p-[15px] transition duration-[250ms]
+            p-[14px] md:p-[15px] transition duration-[250ms]
             group-hover:border-[rgb(148,163,184)] group-hover:shadow-[0px_8px_18px_rgba(15,23,42,0.05)]">
-              <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">VOTER ID</p>
-              <p id="voterId" class="mt-[5px] text-[17px] font-[900] text-[rgb(15,23,42)]">
+              <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">VOTER ID</p>
+              <p id="voterId" class="mt-[5px] text-[15px] sm:text-[16px] md:text-[17px] font-[900] text-[rgb(15,23,42)] break-words">
                 EVB-10293
               </p>
             </div>
 
             <div class="rounded-[18px] border-[1px] border-[rgb(203,213,225)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-            p-[15px] transition duration-[250ms]
+            p-[14px] md:p-[15px] transition duration-[250ms]
             group-hover:border-[rgb(148,163,184)] group-hover:shadow-[0px_8px_18px_rgba(15,23,42,0.05)]">
-              <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">CONSTITUENCY</p>
-              <p id="voterArea" class="mt-[5px] text-[17px] font-[900] text-[rgb(15,23,42)]">
+              <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">CONSTITUENCY</p>
+              <p id="voterArea" class="mt-[5px] text-[15px] sm:text-[16px] md:text-[17px] font-[900] text-[rgb(15,23,42)] break-words">
                 Huzurganj
               </p>
             </div>
 
             <div class="rounded-[18px] border-[1px] border-[rgb(203,213,225)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-            p-[15px] transition duration-[250ms]
+            p-[14px] md:p-[15px] transition duration-[250ms]
             group-hover:border-[rgb(148,163,184)] group-hover:shadow-[0px_8px_18px_rgba(15,23,42,0.05)]">
-              <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">ACCOUNT STATUS</p>
-              <p class="mt-[5px] text-[17px] font-[900] text-[rgb(22,163,74)]">
+              <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">ACCOUNT STATUS</p>
+              <p class="mt-[5px] text-[15px] sm:text-[16px] md:text-[17px] font-[900] text-[rgb(22,163,74)]">
                 Active
               </p>
             </div>
@@ -315,23 +531,23 @@ Logout
         <div class="group
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[24px] p-[22px]
+        rounded-[20px] md:rounded-[24px] p-[16px] sm:p-[18px] md:p-[22px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[3px]
         hover:shadow-[0px_24px_44px_rgba(15,23,42,0.12)]">
 
-          <div class="flex items-start justify-between gap-[12px]">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-[12px]">
             <div>
-              <h3 class="text-[20px] font-[900] text-[rgb(15,23,42)]">
+              <h3 class="text-[18px] md:text-[20px] font-[900] text-[rgb(15,23,42)]">
                 Your Vote Details
               </h3>
-              <p class="mt-[5px] text-[13px] text-[rgb(100,116,139)] font-[600]">
+              <p class="mt-[5px] text-[12px] md:text-[13px] text-[rgb(100,116,139)] font-[600]">
                 Vote submission record and current election activity.
               </p>
             </div>
 
-            <div class="px-[12px] py-[8px] rounded-[14px]
+            <div class="w-fit px-[12px] py-[8px] rounded-[14px]
             bg-[linear-gradient(135deg,rgba(236,253,245,1)_0%,rgba(236,252,203,1)_100%)]
             border-[1px] border-[rgba(16,185,129,0.14)]
             shadow-[0px_6px_16px_rgba(16,185,129,0.08)]">
@@ -340,30 +556,30 @@ Logout
             </div>
           </div>
 
-          <div class="mt-[16px] grid grid-cols-3 gap-[14px]">
+          <div class="mt-[16px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[12px] md:gap-[14px]">
 
             <div class="rounded-[18px] border-[1px] border-[rgb(203,213,225)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-            p-[15px] transition duration-[250ms]
+            p-[14px] md:p-[15px] transition duration-[250ms]
             group-hover:border-[rgb(148,163,184)] group-hover:shadow-[0px_8px_18px_rgba(15,23,42,0.05)]">
-              <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">HAS VOTED?</p>
-              <p id="hasVoted" class="mt-[5px] text-[19px] font-[900] text-[rgb(15,23,42)]">No</p>
+              <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">HAS VOTED?</p>
+              <p id="hasVoted" class="mt-[5px] text-[17px] md:text-[19px] font-[900] text-[rgb(15,23,42)]">No</p>
             </div>
 
             <div class="rounded-[18px] border-[1px] border-[rgb(203,213,225)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-            p-[15px] transition duration-[250ms]
+            p-[14px] md:p-[15px] transition duration-[250ms]
             group-hover:border-[rgb(148,163,184)] group-hover:shadow-[0px_8px_18px_rgba(15,23,42,0.05)]">
-              <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">VOTE DATE</p>
-              <p id="voteDate" class="mt-[5px] text-[17px] font-[900] text-[rgb(15,23,42)]">—</p>
+              <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">VOTE DATE</p>
+              <p id="voteDate" class="mt-[5px] text-[15px] sm:text-[16px] md:text-[17px] font-[900] text-[rgb(15,23,42)]">—</p>
             </div>
 
             <div class="rounded-[18px] border-[1px] border-[rgb(203,213,225)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-            p-[15px] transition duration-[250ms]
+            p-[14px] md:p-[15px] transition duration-[250ms]
             group-hover:border-[rgb(148,163,184)] group-hover:shadow-[0px_8px_18px_rgba(15,23,42,0.05)]">
-              <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">VOTE TIME</p>
-              <p id="voteTime" class="mt-[5px] text-[17px] font-[900] text-[rgb(15,23,42)]">—</p>
+              <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">VOTE TIME</p>
+              <p id="voteTime" class="mt-[5px] text-[15px] sm:text-[16px] md:text-[17px] font-[900] text-[rgb(15,23,42)]">—</p>
             </div>
 
           </div>
@@ -372,49 +588,49 @@ Logout
       </div>
 
       <!-- RIGHT COLUMN -->
-      <div class="col-span-5 grid grid-cols-1 gap-[18px]">
+      <div class="xl:col-span-5 grid grid-cols-1 gap-[16px] md:gap-[18px]">
 
         <!-- Vote Count Big Card -->
         <div class="group
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[24px] p-[22px]
+        rounded-[20px] md:rounded-[24px] p-[16px] sm:p-[18px] md:p-[22px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[3px]
         hover:shadow-[0px_24px_44px_rgba(15,23,42,0.12)]">
 
-          <div class="flex items-start justify-between">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-[12px]">
             <div>
-              <h3 class="text-[20px] font-[900] text-[rgb(15,23,42)]">
+              <h3 class="text-[18px] md:text-[20px] font-[900] text-[rgb(15,23,42)]">
                 Vote Count
               </h3>
-              <p class="mt-[5px] text-[13px] text-[rgb(100,116,139)] font-[600]">
+              <p class="mt-[5px] text-[12px] md:text-[13px] text-[rgb(100,116,139)] font-[600]">
                 Your total vote usage in this election.
               </p>
             </div>
 
-            <div class="px-[12px] py-[8px] rounded-[14px]
+            <div class="w-fit px-[12px] py-[8px] rounded-[14px]
             bg-[linear-gradient(135deg,rgba(219,234,254,1)_0%,rgba(224,231,255,1)_100%)]
             border-[1px] border-[rgba(59,130,246,0.14)]">
               <p class="text-[12px] font-[800] text-[rgb(37,99,235)] tracking-[0.4px]">MAX 1</p>
             </div>
           </div>
 
-          <div class="mt-[18px] rounded-[22px]
+          <div class="mt-[18px] rounded-[20px] md:rounded-[22px]
           border-[1px] border-[rgb(203,213,225)]
           bg-[linear-gradient(135deg,rgba(248,250,252,1)_0%,rgba(226,232,240,1)_100%)]
-          p-[18px] shadow-[inset_0px_1px_0px_rgba(255,255,255,0.65)]">
+          p-[14px] sm:p-[16px] md:p-[18px] shadow-[inset_0px_1px_0px_rgba(255,255,255,0.65)]">
 
             <div class="flex items-end justify-between gap-[14px]">
               <div>
-                <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.6px]">YOUR VOTES</p>
-                <p id="voteCount" class="mt-[8px] text-[62px] leading-[1] font-[900] text-[rgb(15,23,42)]">0</p>
+                <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.6px]">YOUR VOTES</p>
+                <p id="voteCount" class="mt-[8px] text-[44px] sm:text-[52px] md:text-[62px] leading-[1] font-[900] text-[rgb(15,23,42)]">0</p>
               </div>
 
               <div class="text-right">
-                <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.6px]">LIMIT</p>
-                <p class="mt-[8px] text-[24px] font-[900] text-[rgb(15,23,42)]">1</p>
+                <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.6px]">LIMIT</p>
+                <p class="mt-[8px] text-[20px] md:text-[24px] font-[900] text-[rgb(15,23,42)]">1</p>
               </div>
             </div>
 
@@ -428,7 +644,7 @@ Logout
                 rounded-[999px] duration-[350ms]"></div>
             </div>
 
-            <p class="mt-[13px] text-[12px] text-[rgb(71,85,105)] font-[700] leading-[1.6]">
+            <p class="mt-[13px] text-[11px] md:text-[12px] text-[rgb(71,85,105)] font-[700] leading-[1.6]">
               You can vote only once. After successful submission, the voting action is permanently locked for your account.
             </p>
 
@@ -439,34 +655,34 @@ Logout
         <div class="group
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[24px] p-[22px]
+        rounded-[20px] md:rounded-[24px] p-[16px] sm:p-[18px] md:p-[22px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[3px]
         hover:shadow-[0px_24px_44px_rgba(15,23,42,0.12)]">
 
-          <h3 class="text-[20px] font-[900] text-[rgb(15,23,42)]">
+          <h3 class="text-[18px] md:text-[20px] font-[900] text-[rgb(15,23,42)]">
             Quick Actions
           </h3>
-          <p class="mt-[5px] text-[13px] text-[rgb(100,116,139)] font-[600]">
+          <p class="mt-[5px] text-[12px] md:text-[13px] text-[rgb(100,116,139)] font-[600]">
             Move faster between your most important dashboard actions.
           </p>
 
           <div class="mt-[14px] grid grid-cols-1 gap-[12px]">
 
-                    <button id="goToPartiesBtn"
-            class="w-full px-[16px] py-[13px] rounded-[16px] font-[800] text-[15px]
+            <button id="goToPartiesBtn"
+            class="w-full px-[16px] py-[13px] rounded-[16px] font-[800] text-[14px] md:text-[15px]
             bg-[linear-gradient(90deg,rgba(15,23,42,1)_0%,rgba(30,41,59,1)_100%)]
             text-white border-[1px] border-[rgba(15,23,42,0.10)]
             shadow-[0px_12px_24px_rgba(15,23,42,0.16)]
             hover:shadow-[0px_18px_34px_rgba(15,23,42,0.24)]
             hover:-translate-y-[2px] hover:bg-[linear-gradient(90deg,rgba(30,41,59,1)_0%,rgba(51,65,85,1)_100%)]
             duration-[250ms]">
-            Go to Parties
-          </button>
+              Go to Parties
+            </button>
 
             <button id="readInstructionsBtn"
-              class="w-full px-[16px] py-[13px] rounded-[16px] font-[800] text-[15px]
+              class="w-full px-[16px] py-[13px] rounded-[16px] font-[800] text-[14px] md:text-[15px]
               bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
               text-[rgb(15,23,42)] border-[1px] border-[rgb(203,213,225)]
               shadow-[0px_8px_18px_rgba(15,23,42,0.06)]
@@ -487,50 +703,49 @@ Logout
 </section>
 </main>
 
-
 <!-- how to use tab -->
 <section id="tab-how" class="tabSection hidden">
-  <div class="max-w-[1280px] mx-auto px-[20px] pb-[34px]">
+  <div class="max-w-[1280px] mx-auto px-[12px] sm:px-[16px] md:px-[20px] pb-[24px] md:pb-[34px]">
 
     <!-- Header -->
     <div class="relative overflow-hidden
     bg-[linear-gradient(135deg,rgba(255,255,255,0.96)_0%,rgba(248,250,252,0.98)_100%)]
     border-[1px] border-[rgb(203,213,225)]
     shadow-[0px_20px_45px_rgba(15,23,42,0.10)]
-    rounded-[26px] p-[24px]">
+    rounded-[20px] md:rounded-[26px] p-[14px] sm:p-[18px] md:p-[24px]">
 
-      <div class="absolute top-[-40px] right-[-30px] w-[170px] h-[170px] rounded-full bg-[rgba(249,115,22,0.07)]"></div>
-      <div class="absolute bottom-[-50px] left-[-40px] w-[150px] h-[150px] rounded-full bg-[rgba(59,130,246,0.05)]"></div>
+      <div class="absolute top-[-40px] right-[-30px] w-[130px] h-[130px] md:w-[170px] md:h-[170px] rounded-full bg-[rgba(249,115,22,0.07)]"></div>
+      <div class="absolute bottom-[-50px] left-[-40px] w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full bg-[rgba(59,130,246,0.05)]"></div>
 
-      <div class="relative flex items-center justify-between gap-[18px]">
+      <div class="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-[14px] md:gap-[18px]">
 
-        <div>
-          <div class="inline-flex items-center gap-[8px] px-[12px] py-[7px]
+        <div class="min-w-0">
+          <div class="inline-flex items-center gap-[8px] px-[10px] md:px-[12px] py-[6px] md:py-[7px]
           rounded-[999px] border-[1px] border-[rgba(249,115,22,0.16)]
-          bg-[rgba(249,115,22,0.08)] mb-[14px]">
+          bg-[rgba(249,115,22,0.08)] mb-[12px] md:mb-[14px]">
             <span class="w-[8px] h-[8px] rounded-full bg-[rgb(249,115,22)]"></span>
-            <span class="text-[12px] font-[700] tracking-[0.5px] text-[rgb(194,65,12)]">
+            <span class="text-[10px] sm:text-[11px] md:text-[12px] font-[700] tracking-[0.5px] text-[rgb(194,65,12)]">
               VOTER GUIDE SECTION
             </span>
           </div>
 
-          <h2 class="text-[34px] font-[900] text-[rgb(15,23,42)] leading-[1.08]">
+          <h2 class="text-[24px] sm:text-[28px] md:text-[34px] font-[900] text-[rgb(15,23,42)] leading-[1.08]">
             How To Use the Voting Dashboard
           </h2>
 
-          <p class="mt-[10px] text-[16px] leading-[1.7] font-[500] text-[rgb(71,85,105)] max-w-[760px]">
+          <p class="mt-[8px] md:mt-[10px] text-[13px] sm:text-[15px] md:text-[16px] leading-[1.7] font-[500] text-[rgb(71,85,105)] max-w-[760px]">
             Follow these guided steps to review your voter details, confirm election activity, choose a party correctly, and complete your vote safely.
           </p>
         </div>
 
         <div
-          class="shrink-0 inline-flex items-center justify-center gap-[10px]
-          px-[18px] py-[11px] rounded-[999px]
+          class="w-fit shrink-0 inline-flex items-center justify-center gap-[8px] md:gap-[10px]
+          px-[14px] md:px-[18px] py-[9px] md:py-[11px] rounded-[999px]
           border-[1px] border-[rgb(253,186,116)]
           bg-[linear-gradient(135deg,rgba(255,247,237,1)_0%,rgba(254,243,199,1)_100%)]
           shadow-[0px_10px_24px_rgba(249,115,22,0.10)]">
-          <span class="w-[11px] h-[11px] rounded-full bg-[rgb(251,146,60)]"></span>
-          <span class="text-[14px] font-[800] tracking-[0.6px] text-[rgb(194,65,12)]">
+          <span class="w-[9px] h-[9px] md:w-[11px] md:h-[11px] rounded-full bg-[rgb(251,146,60)]"></span>
+          <span class="text-[12px] md:text-[14px] font-[800] tracking-[0.5px] md:tracking-[0.6px] text-[rgb(194,65,12)] whitespace-nowrap">
             VOTER GUIDE
           </span>
         </div>
@@ -539,32 +754,32 @@ Logout
     </div>
 
     <!-- Main Grid -->
-    <div class="mt-[18px] grid grid-cols-12 gap-[18px]">
+    <div class="mt-[16px] md:mt-[18px] grid grid-cols-1 xl:grid-cols-12 gap-[16px] md:gap-[18px]">
 
       <!-- LEFT COLUMN -->
-      <div class="col-span-7 grid grid-cols-1 gap-[18px]">
+      <div class="xl:col-span-7 grid grid-cols-1 gap-[16px] md:gap-[18px]">
 
         <!-- Step 1 -->
         <div class="group
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[24px] p-[22px]
+        rounded-[20px] md:rounded-[24px] p-[16px] sm:p-[18px] md:p-[22px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[3px]
         hover:shadow-[0px_24px_44px_rgba(15,23,42,0.12)]">
 
-          <div class="flex items-start justify-between gap-[12px]">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-[12px]">
             <div>
-              <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">
+              <h3 class="text-[18px] md:text-[21px] font-[900] text-[rgb(15,23,42)]">
                 Step 1 — Check Your Dashboard
               </h3>
-              <p class="mt-[5px] text-[13px] text-[rgb(100,116,139)] font-[600]">
+              <p class="mt-[5px] text-[12px] md:text-[13px] text-[rgb(100,116,139)] font-[600]">
                 Review your voter profile and verify your current voting status before taking any action.
               </p>
             </div>
 
-            <div class="px-[13px] py-[8px] rounded-[14px]
+            <div class="w-fit px-[13px] py-[8px] rounded-[14px]
             bg-[linear-gradient(135deg,rgba(255,247,237,1)_0%,rgba(254,242,242,1)_100%)]
             border-[1px] border-[rgba(249,115,22,0.14)]
             shadow-[0px_6px_16px_rgba(249,115,22,0.08)]">
@@ -572,22 +787,26 @@ Logout
             </div>
           </div>
 
-          <div class="mt-[16px] grid grid-cols-2 gap-[14px]">
+          <div class="mt-[16px] grid grid-cols-1 sm:grid-cols-2 gap-[12px] md:gap-[14px]">
 
             <div class="rounded-[18px] border-[1px] border-[rgb(203,213,225)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-            p-[15px] transition duration-[250ms]
+            p-[14px] md:p-[15px] transition duration-[250ms]
             group-hover:border-[rgb(148,163,184)] group-hover:shadow-[0px_8px_18px_rgba(15,23,42,0.05)]">
-              <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">CHECK</p>
-              <p class="mt-[5px] text-[17px] font-[900] text-[rgb(15,23,42)]">Name and Voter ID</p>
+              <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">CHECK</p>
+              <p class="mt-[5px] text-[15px] sm:text-[16px] md:text-[17px] font-[900] text-[rgb(15,23,42)]">
+                Name and Voter ID
+              </p>
             </div>
 
             <div class="rounded-[18px] border-[1px] border-[rgb(203,213,225)]
             bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-            p-[15px] transition duration-[250ms]
+            p-[14px] md:p-[15px] transition duration-[250ms]
             group-hover:border-[rgb(148,163,184)] group-hover:shadow-[0px_8px_18px_rgba(15,23,42,0.05)]">
-              <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">CHECK</p>
-              <p class="mt-[5px] text-[17px] font-[900] text-[rgb(15,23,42)]">Whether you already voted</p>
+              <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">CHECK</p>
+              <p class="mt-[5px] text-[15px] sm:text-[16px] md:text-[17px] font-[900] text-[rgb(15,23,42)]">
+                Whether you already voted
+              </p>
             </div>
 
           </div>
@@ -597,23 +816,23 @@ Logout
         <div class="group
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[24px] p-[22px]
+        rounded-[20px] md:rounded-[24px] p-[16px] sm:p-[18px] md:p-[22px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[3px]
         hover:shadow-[0px_24px_44px_rgba(15,23,42,0.12)]">
 
-          <div class="flex items-start justify-between gap-[12px]">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-[12px]">
             <div>
-              <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">
+              <h3 class="text-[18px] md:text-[21px] font-[900] text-[rgb(15,23,42)]">
                 Step 2 — Confirm Voting is Live
               </h3>
-              <p class="mt-[5px] text-[13px] text-[rgb(100,116,139)] font-[600]">
+              <p class="mt-[5px] text-[12px] md:text-[13px] text-[rgb(100,116,139)] font-[600]">
                 Voting is allowed only when the admin has activated the current election session.
               </p>
             </div>
 
-            <div class="px-[13px] py-[8px] rounded-[14px]
+            <div class="w-fit px-[13px] py-[8px] rounded-[14px]
             bg-[linear-gradient(135deg,rgba(236,253,245,1)_0%,rgba(236,252,203,1)_100%)]
             border-[1px] border-[rgba(16,185,129,0.14)]
             shadow-[0px_6px_16px_rgba(16,185,129,0.08)]">
@@ -623,14 +842,14 @@ Logout
 
           <div class="mt-[16px] rounded-[18px] border-[1px] border-[rgb(203,213,225)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-          p-[15px] transition duration-[250ms]
+          p-[14px] md:p-[15px] transition duration-[250ms]
           group-hover:border-[rgb(148,163,184)] group-hover:shadow-[0px_8px_18px_rgba(15,23,42,0.05)]">
 
-            <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">LOOK FOR</p>
-            <p class="mt-[5px] text-[17px] font-[900] text-[rgb(15,23,42)]">
+            <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">LOOK FOR</p>
+            <p class="mt-[5px] text-[15px] sm:text-[16px] md:text-[17px] font-[900] text-[rgb(15,23,42)]">
               The LIVE status indicator in the top navbar
             </p>
-            <p class="mt-[7px] text-[13px] text-[rgb(71,85,105)] font-[600] leading-[1.7]">
+            <p class="mt-[7px] text-[12px] md:text-[13px] text-[rgb(71,85,105)] font-[600] leading-[1.7]">
               If voting is not live, wait until the election session is started by the admin.
             </p>
 
@@ -641,23 +860,23 @@ Logout
         <div class="group
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[24px] p-[22px]
+        rounded-[20px] md:rounded-[24px] p-[16px] sm:p-[18px] md:p-[22px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[3px]
         hover:shadow-[0px_24px_44px_rgba(15,23,42,0.12)]">
 
-          <div class="flex items-start justify-between gap-[12px]">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-[12px]">
             <div>
-              <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">
+              <h3 class="text-[18px] md:text-[21px] font-[900] text-[rgb(15,23,42)]">
                 Step 3 — Open Election Parties
               </h3>
-              <p class="mt-[5px] text-[13px] text-[rgb(100,116,139)] font-[600]">
+              <p class="mt-[5px] text-[12px] md:text-[13px] text-[rgb(100,116,139)] font-[600]">
                 Move to the Election Parties tab to view all available parties and their official symbols.
               </p>
             </div>
 
-            <div class="px-[13px] py-[8px] rounded-[14px]
+            <div class="w-fit px-[13px] py-[8px] rounded-[14px]
             bg-[linear-gradient(135deg,rgba(254,242,242,1)_0%,rgba(252,231,243,1)_100%)]
             border-[1px] border-[rgba(239,68,68,0.14)]
             shadow-[0px_6px_16px_rgba(239,68,68,0.08)]">
@@ -667,11 +886,11 @@ Logout
 
           <div class="mt-[16px] rounded-[18px] border-[1px] border-[rgb(203,213,225)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-          p-[15px] transition duration-[250ms]
+          p-[14px] md:p-[15px] transition duration-[250ms]
           group-hover:border-[rgb(148,163,184)] group-hover:shadow-[0px_8px_18px_rgba(15,23,42,0.05)]">
 
-            <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">YOU WILL SEE</p>
-            <p class="mt-[5px] text-[17px] font-[900] text-[rgb(15,23,42)]">
+            <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.5px]">YOU WILL SEE</p>
+            <p class="mt-[5px] text-[15px] sm:text-[16px] md:text-[17px] font-[900] text-[rgb(15,23,42)]">
               Party cards with symbol, party name, and vote button
             </p>
 
@@ -681,29 +900,29 @@ Logout
       </div>
 
       <!-- RIGHT COLUMN -->
-      <div class="col-span-5 grid grid-cols-1 gap-[18px]">
+      <div class="xl:col-span-5 grid grid-cols-1 gap-[16px] md:gap-[18px]">
 
         <!-- Step 4 -->
         <div class="group
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[24px] p-[22px]
+        rounded-[20px] md:rounded-[24px] p-[16px] sm:p-[18px] md:p-[22px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[3px]
         hover:shadow-[0px_24px_44px_rgba(15,23,42,0.12)]">
 
-          <div class="flex items-start justify-between gap-[12px]">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-[12px]">
             <div>
-              <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">
+              <h3 class="text-[18px] md:text-[21px] font-[900] text-[rgb(15,23,42)]">
                 Step 4 — Vote Carefully
               </h3>
-              <p class="mt-[5px] text-[13px] text-[rgb(100,116,139)] font-[600]">
+              <p class="mt-[5px] text-[12px] md:text-[13px] text-[rgb(100,116,139)] font-[600]">
                 Select your preferred party carefully before confirming the final vote submission.
               </p>
             </div>
 
-            <div class="px-[13px] py-[8px] rounded-[14px]
+            <div class="w-fit px-[13px] py-[8px] rounded-[14px]
             bg-[linear-gradient(135deg,rgba(238,242,255,1)_0%,rgba(219,234,254,1)_100%)]
             border-[1px] border-[rgba(59,130,246,0.14)]
             shadow-[0px_6px_16px_rgba(59,130,246,0.08)]">
@@ -711,12 +930,12 @@ Logout
             </div>
           </div>
 
-          <div class="mt-[16px] rounded-[20px] border-[1px] border-[rgb(203,213,225)]
+          <div class="mt-[16px] rounded-[18px] md:rounded-[20px] border-[1px] border-[rgb(203,213,225)]
           bg-[linear-gradient(135deg,rgba(248,250,252,1)_0%,rgba(226,232,240,1)_100%)]
-          p-[17px] shadow-[inset_0px_1px_0px_rgba(255,255,255,0.65)]">
+          p-[14px] md:p-[17px] shadow-[inset_0px_1px_0px_rgba(255,255,255,0.65)]">
 
-            <p class="text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.6px]">IMPORTANT</p>
-            <p class="mt-[7px] text-[17px] leading-[1.6] font-[900] text-[rgb(15,23,42)]">
+            <p class="text-[11px] md:text-[12px] font-[800] text-[rgb(100,116,139)] tracking-[0.6px]">IMPORTANT</p>
+            <p class="mt-[7px] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.6] font-[900] text-[rgb(15,23,42)]">
               Once you click the vote button, a confirmation popup appears before the final vote is submitted.
             </p>
 
@@ -727,23 +946,23 @@ Logout
         <div class="group
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[24px] p-[22px]
+        rounded-[20px] md:rounded-[24px] p-[16px] sm:p-[18px] md:p-[22px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[3px]
         hover:shadow-[0px_24px_44px_rgba(15,23,42,0.12)]">
 
-          <div class="flex items-start justify-between gap-[12px]">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-[12px]">
             <div>
-              <h3 class="text-[21px] font-[900] text-[rgb(15,23,42)]">
+              <h3 class="text-[18px] md:text-[21px] font-[900] text-[rgb(15,23,42)]">
                 Step 5 — Vote is Locked After Submission
               </h3>
-              <p class="mt-[5px] text-[13px] text-[rgb(100,116,139)] font-[600]">
+              <p class="mt-[5px] text-[12px] md:text-[13px] text-[rgb(100,116,139)] font-[600]">
                 The system follows a strict one-person, one-vote rule.
               </p>
             </div>
 
-            <div class="px-[13px] py-[8px] rounded-[14px]
+            <div class="w-fit px-[13px] py-[8px] rounded-[14px]
             bg-[linear-gradient(135deg,rgba(248,250,252,1)_0%,rgba(229,231,235,1)_100%)]
             border-[1px] border-[rgba(100,116,139,0.14)]
             shadow-[0px_6px_16px_rgba(100,116,139,0.08)]">
@@ -753,10 +972,10 @@ Logout
 
           <div class="mt-[16px] rounded-[18px] border-[1px] border-[rgb(203,213,225)]
           bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-          p-[15px] transition duration-[250ms]
+          p-[14px] md:p-[15px] transition duration-[250ms]
           group-hover:border-[rgb(148,163,184)] group-hover:shadow-[0px_8px_18px_rgba(15,23,42,0.05)]">
 
-            <p class="text-[13px] text-[rgb(51,65,85)] font-[700] leading-[1.7]">
+            <p class="text-[12px] md:text-[13px] text-[rgb(51,65,85)] font-[700] leading-[1.7]">
               After a successful vote, your dashboard updates the vote status, vote date, vote time, and vote count. You cannot cast a second vote after submission.
             </p>
 
@@ -767,22 +986,22 @@ Logout
         <div class="group
         bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)]
         border-[1px] border-[rgb(203,213,225)]
-        rounded-[24px] p-[22px]
+        rounded-[20px] md:rounded-[24px] p-[16px] sm:p-[18px] md:p-[22px]
         shadow-[0px_16px_36px_rgba(15,23,42,0.08)]
         transition duration-[300ms]
         hover:-translate-y-[3px]
         hover:shadow-[0px_24px_44px_rgba(15,23,42,0.12)]">
 
-          <h3 class="text-[20px] font-[900] text-[rgb(15,23,42)]">
+          <h3 class="text-[18px] md:text-[20px] font-[900] text-[rgb(15,23,42)]">
             Quick Tips
           </h3>
-          <p class="mt-[5px] text-[13px] text-[rgb(100,116,139)] font-[600]">
+          <p class="mt-[5px] text-[12px] md:text-[13px] text-[rgb(100,116,139)] font-[600]">
             Keep these important reminders in mind before you vote.
           </p>
 
           <div class="mt-[14px] grid grid-cols-1 gap-[12px]">
 
-            <div class="w-full px-[15px] py-[13px] rounded-[16px] font-[800] text-[14px]
+            <div class="w-full px-[14px] md:px-[15px] py-[12px] md:py-[13px] rounded-[16px] font-[800] text-[13px] md:text-[14px]
             bg-[linear-gradient(135deg,rgba(255,247,237,1)_0%,rgba(255,237,213,1)_100%)]
             text-[rgb(154,52,18)] border-[1px] border-[rgba(251,146,60,0.20)]
             shadow-[0px_8px_18px_rgba(249,115,22,0.08)]
@@ -790,7 +1009,7 @@ Logout
               Check the party symbol carefully before confirming
             </div>
 
-            <div class="w-full px-[15px] py-[13px] rounded-[16px] font-[800] text-[14px]
+            <div class="w-full px-[14px] md:px-[15px] py-[12px] md:py-[13px] rounded-[16px] font-[800] text-[13px] md:text-[14px]
             bg-[linear-gradient(135deg,rgba(236,253,245,1)_0%,rgba(220,252,231,1)_100%)]
             text-[rgb(22,101,52)] border-[1px] border-[rgba(34,197,94,0.20)]
             shadow-[0px_8px_18px_rgba(34,197,94,0.08)]
@@ -798,7 +1017,7 @@ Logout
               Vote only when the LIVE status is active
             </div>
 
-            <div class="w-full px-[15px] py-[13px] rounded-[16px] font-[800] text-[14px]
+            <div class="w-full px-[14px] md:px-[15px] py-[12px] md:py-[13px] rounded-[16px] font-[800] text-[13px] md:text-[14px]
             bg-[linear-gradient(135deg,rgba(248,250,252,1)_0%,rgba(226,232,240,1)_100%)]
             text-[rgb(51,65,85)] border-[1px] border-[rgba(148,163,184,0.20)]
             shadow-[0px_8px_18px_rgba(148,163,184,0.08)]
@@ -1596,6 +1815,8 @@ data-img="Photos/dmk.jpg">
 
   </div>
 </section>
+
+
  <!-- Modal -->
   <!-- Vote Confirmation Modal -->
 <div id="voteModal" class="fixed inset-0 hidden items-center justify-center bg-black/50 z-[999]">
