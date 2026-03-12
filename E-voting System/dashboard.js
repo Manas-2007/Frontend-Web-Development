@@ -617,20 +617,33 @@ function renderResults() {
   const totalVotes = results.reduce((sum, item) => sum + item.votes, 0);
 
   resultList.innerHTML = "";
-
-  if (winnerSummary) {
-    winnerSummary.innerHTML = "";
-  }
+  if (winnerSummary) winnerSummary.innerHTML = "";
 
   if (results.length === 0) {
+    if (winnerSummary) {
+      winnerSummary.innerHTML = `
+        <div class="text-center">
+          <div class="w-[64px] h-[64px] mx-auto rounded-[18px]
+          bg-[linear-gradient(135deg,rgba(248,250,252,1)_0%,rgba(226,232,240,1)_100%)]
+          border-[1px] border-[rgb(226,232,240)]
+          flex items-center justify-center text-[28px]">
+            📊
+          </div>
+
+          <h3 class="mt-[16px] text-[24px] md:text-[30px] font-[900] text-[rgb(15,23,42)]">
+            No Results Available Yet
+          </h3>
+
+          <p class="mt-[10px] text-[14px] md:text-[16px] leading-[1.8] font-[500] text-[rgb(71,85,105)] max-w-[680px] mx-auto">
+            No votes have been recorded for the current election yet.
+          </p>
+        </div>
+      `;
+    }
+
     resultList.innerHTML = `
-      <div class="rounded-[20px] border-[1px] border-[rgb(203,213,225)]
-      bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-      p-[20px] text-center">
-        <p class="text-[18px] font-[800] text-[rgb(15,23,42)]">No results available</p>
-        <p class="mt-[6px] text-[14px] font-[600] text-[rgb(100,116,139)]">
-          No votes have been recorded yet for this election.
-        </p>
+      <div class="p-[16px] md:p-[24px] text-center">
+        <p class="text-[16px] md:text-[18px] font-[800] text-[rgb(15,23,42)]">No ranked parties to display</p>
       </div>
     `;
     return;
@@ -640,89 +653,166 @@ function renderResults() {
   const winnerPercent =
     totalVotes > 0 ? ((winner.votes / totalVotes) * 100).toFixed(1) : "0.0";
 
+  // ===============================
+  // WINNER SUMMARY
+  // ===============================
   if (winnerSummary) {
     winnerSummary.innerHTML = `
-      <div class="flex items-start justify-between gap-[18px] flex-wrap">
-        <div class="flex-1 min-w-[280px]">
+      <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-[18px] md:gap-[22px] items-center">
+
+        <div>
           <div class="inline-flex items-center gap-[8px] px-[12px] py-[7px]
-          rounded-[999px] border-[1px] border-[rgba(34,197,94,0.18)]
-          bg-[rgba(34,197,94,0.08)]">
-            <span class="w-[8px] h-[8px] rounded-full bg-[rgb(34,197,94)]"></span>
-            <span class="text-[12px] font-[800] tracking-[0.5px] text-[rgb(21,128,61)]">
+          rounded-[999px] border-[1px] border-[rgba(245,158,11,0.18)]
+          bg-[rgba(245,158,11,0.10)]">
+            <span class="text-[14px]">👑</span>
+            <span class="text-[12px] font-[800] tracking-[0.5px] text-[rgb(180,83,9)]">
               WINNING PARTY
             </span>
           </div>
 
-          <h3 class="mt-[16px] text-[34px] font-[900] leading-[1.12] text-[rgb(15,23,42)]">
+          <h3 class="mt-[16px] text-[24px] sm:text-[28px] md:text-[36px] font-[900] leading-[1.12] text-[rgb(15,23,42)]">
             ${winner.party}
           </h3>
 
-          <p class="mt-[10px] text-[15px] leading-[1.8] font-[500] text-[rgb(71,85,105)] max-w-[760px]">
-            This party secured the highest number of valid votes in the final published election result and is ranked at the top position.
+          <p class="mt-[10px] text-[14px] md:text-[15px] leading-[1.8] font-[500] text-[rgb(71,85,105)] max-w-[760px]">
+            This party received the highest number of valid votes in the final published result and secured the top rank in the election.
           </p>
+
+          <div class="mt-[18px] grid grid-cols-2 sm:grid-cols-3 gap-[10px] md:gap-[12px]">
+            <div class="rounded-[18px] border-[1px] border-[rgb(226,232,240)]
+            bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
+            p-[14px]">
+              <p class="text-[11px] font-[800] tracking-[0.5px] text-[rgb(100,116,139)]">RANK</p>
+              <p class="mt-[6px] text-[20px] font-[900] text-[rgb(15,23,42)]">#1</p>
+            </div>
+
+            <div class="rounded-[18px] border-[1px] border-[rgb(226,232,240)]
+            bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
+            p-[14px]">
+              <p class="text-[11px] font-[800] tracking-[0.5px] text-[rgb(100,116,139)]">TOTAL VOTES</p>
+              <p class="mt-[6px] text-[20px] font-[900] text-[rgb(15,23,42)]">${winner.votes}</p>
+            </div>
+
+            <div class="rounded-[18px] border-[1px] border-[rgb(226,232,240)]
+            bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
+            p-[14px] col-span-2 sm:col-span-1">
+              <p class="text-[11px] font-[800] tracking-[0.5px] text-[rgb(100,116,139)]">VOTE SHARE</p>
+              <p class="mt-[6px] text-[20px] font-[900] text-[rgb(22,163,74)]">${winnerPercent}%</p>
+            </div>
+          </div>
         </div>
 
-        <div class="w-[230px] rounded-[24px]
-        border-[1px] border-[rgb(203,213,225)]
-        bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
-        p-[18px] shadow-[0px_10px_24px_rgba(15,23,42,0.06)]">
-          <p class="text-[12px] font-[800] tracking-[0.5px] text-[rgb(100,116,139)]">TOTAL VOTES</p>
-          <p class="mt-[8px] text-[36px] font-[900] leading-[1] text-[rgb(15,23,42)]">${winner.votes}</p>
+        <div class="rounded-[22px] md:rounded-[24px]
+        border-[1px] border-[rgb(226,232,240)]
+        bg-[linear-gradient(135deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]
+        p-[16px] md:p-[20px]
+        shadow-[0px_12px_28px_rgba(15,23,42,0.06)]">
 
-          <div class="mt-[14px] h-[10px] w-[100%] rounded-[999px] bg-[rgb(226,232,240)] overflow-hidden">
-            <div class="h-[10px] rounded-[999px]
-            bg-[linear-gradient(90deg,rgba(22,163,74,1)_0%,rgba(34,197,94,1)_100%)]"
-            style="width:${winnerPercent}%"></div>
+          <div class="flex items-center justify-between gap-[12px]">
+            <div>
+              <p class="text-[12px] font-[800] tracking-[0.5px] text-[rgb(100,116,139)]">WINNER PERFORMANCE</p>
+              <p class="mt-[6px] text-[28px] md:text-[34px] font-[900] leading-[1] text-[rgb(15,23,42)]">${winner.votes}</p>
+            </div>
+
+            <div class="w-[54px] h-[54px] rounded-[16px]
+            bg-[linear-gradient(135deg,rgba(254,249,195,1)_0%,rgba(254,240,138,1)_100%)]
+            border-[1px] border-[rgba(245,158,11,0.18)]
+            flex items-center justify-center text-[24px]">
+              🏆
+            </div>
           </div>
 
-          <p class="mt-[10px] text-[13px] font-[700] text-[rgb(71,85,105)]">
-            Vote Share: ${winnerPercent}%
+          <div class="mt-[18px]">
+            <div class="flex items-center justify-between mb-[8px]">
+              <span class="text-[12px] font-[700] text-[rgb(100,116,139)]">Vote Share</span>
+              <span class="text-[12px] font-[800] text-[rgb(22,163,74)]">${winnerPercent}%</span>
+            </div>
+
+            <div class="h-[12px] w-full rounded-[999px] bg-[rgb(226,232,240)] overflow-hidden">
+              <div class="h-[12px] rounded-[999px]
+              bg-[linear-gradient(90deg,rgba(22,163,74,1)_0%,rgba(34,197,94,1)_100%)]"
+              style="width:${winnerPercent}%"></div>
+            </div>
+          </div>
+
+          <p class="mt-[14px] text-[13px] leading-[1.7] font-[600] text-[rgb(71,85,105)]">
+            The top party is highlighted with a winning performance bar for clear voter-side result visualization.
           </p>
         </div>
       </div>
     `;
   }
 
+  // ===============================
+  // GRAPH STYLE RANKING LIST
+  // ===============================
   results.forEach((item, index) => {
     const percentage =
       totalVotes > 0 ? ((item.votes / totalVotes) * 100).toFixed(1) : "0.0";
 
+    const isWinner = index === 0;
+
     const row = document.createElement("div");
     row.className = `
-      grid grid-cols-[120px_1fr_180px] gap-[14px]
-      items-center px-[24px] py-[18px]
+      px-[14px] sm:px-[18px] md:px-[24px] py-[14px] md:py-[18px]
       bg-white hover:bg-[rgb(248,250,252)]
       transition duration-[200ms]
     `;
 
     row.innerHTML = `
-      <div>
-        <div class="inline-flex items-center justify-center
-        min-w-[52px] h-[52px] px-[14px]
-        rounded-[16px]
-        border-[1px]
-        ${
-          index === 0
-            ? "border-[rgba(34,197,94,0.18)] bg-[rgba(34,197,94,0.08)] text-[rgb(21,128,61)]"
-            : "border-[rgb(226,232,240)] bg-[rgb(248,250,252)] text-[rgb(51,65,85)]"
-        }
-        text-[18px] font-[900]">
-          ${index + 1}
+      <div class="rounded-[18px] md:rounded-[20px]
+      border-[1px] ${isWinner ? "border-[rgba(34,197,94,0.20)] bg-[rgba(240,253,244,0.65)]" : "border-[rgb(226,232,240)] bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(248,250,252,1)_100%)]"}
+      p-[14px] md:p-[16px]">
+
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-[10px]">
+          <div class="flex items-start gap-[10px] min-w-0">
+            <div class="inline-flex items-center justify-center
+            min-w-[42px] h-[42px] px-[12px]
+            rounded-[12px]
+            border-[1px]
+            ${
+              isWinner
+                ? "border-[rgba(34,197,94,0.18)] bg-[rgba(34,197,94,0.10)] text-[rgb(21,128,61)]"
+                : "border-[rgb(226,232,240)] bg-[rgb(248,250,252)] text-[rgb(51,65,85)]"
+            }
+            text-[16px] font-[900]">
+              ${index + 1}
+            </div>
+
+            <div class="min-w-0">
+              <p class="text-[15px] sm:text-[16px] md:text-[18px] font-[800] text-[rgb(15,23,42)] leading-[1.35] break-words">
+                ${item.party}
+              </p>
+              <p class="mt-[4px] text-[11px] md:text-[12px] font-[700] ${isWinner ? "text-[rgb(21,128,61)]" : "text-[rgb(100,116,139)]"}">
+                ${isWinner ? "Winning party" : "Election party"}
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-[18px] sm:gap-[22px] shrink-0">
+            <div class="text-right">
+              <p class="text-[20px] md:text-[24px] font-[900] leading-[1] text-[rgb(15,23,42)]">${item.votes}</p>
+              <p class="mt-[5px] text-[10px] md:text-[11px] font-[700] tracking-[0.4px] text-[rgb(100,116,139)]">VOTES</p>
+            </div>
+
+            <div class="text-right">
+              <p class="text-[16px] md:text-[18px] font-[900] leading-[1] ${isWinner ? "text-[rgb(22,163,74)]" : "text-[rgb(51,65,85)]"}">
+                ${percentage}%
+              </p>
+              <p class="mt-[5px] text-[10px] md:text-[11px] font-[700] tracking-[0.4px] text-[rgb(100,116,139)]">SHARE</p>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div>
-        <p class="text-[20px] font-[800] text-[rgb(15,23,42)]">
-          ${item.party}
-        </p>
-        <p class="mt-[5px] text-[13px] font-[600] text-[rgb(100,116,139)]">
-          ${index === 0 ? "Winning party" : "Election party"} • ${percentage}% vote share
-        </p>
-      </div>
-
-      <div class="text-right">
-        <p class="text-[28px] font-[900] leading-[1] text-[rgb(15,23,42)]">${item.votes}</p>
-        <p class="mt-[6px] text-[12px] font-[700] tracking-[0.5px] text-[rgb(100,116,139)]">VOTES</p>
+        <div class="mt-[12px]">
+          <div class="h-[10px] md:h-[12px] w-full rounded-[999px] bg-[rgb(226,232,240)] overflow-hidden">
+            <div class="h-[10px] md:h-[12px] rounded-[999px]
+            ${isWinner
+              ? "bg-[linear-gradient(90deg,rgba(22,163,74,1)_0%,rgba(34,197,94,1)_100%)]"
+              : "bg-[linear-gradient(90deg,rgba(37,99,235,1)_0%,rgba(59,130,246,1)_100%)]"}"
+            style="width:${percentage}%"></div>
+          </div>
+        </div>
       </div>
     `;
 
@@ -864,15 +954,3 @@ mobileBtns.forEach((btn) => {
     }
   });
 });
-
-//Mobile logout button working
-<button class="logoutBtn
-px-[16px] py-[13px]
-rounded-[14px]
-text-[14px] font-[800]
-text-white
-bg-[linear-gradient(90deg,rgba(239,68,68,1)_0%,rgba(220,38,38,1)_100%)]
-border-[1px] border-[rgba(239,68,68,0.35)]
-shadow-[0px_10px_24px_rgba(239,68,68,0.25)]">
-Logout
-</button>
