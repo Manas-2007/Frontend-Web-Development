@@ -1,18 +1,11 @@
-function Display() {
+import React from "react";
+
+const Display = ({ value }) => {
   return (
-    <div className="container mb-3">
-      <div className="row">
-        <div className="col-12">
-          <input
-            type="text"
-            className="form-control form-control-lg text-end border shadow-lg"
-            placeholder="0"
-            readOnly
-          />
-        </div>
-      </div>
+    <div className="w-full h-20 bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-900 text-3xl flex items-center justify-end px-4 rounded-t-lg overflow-x-auto">
+      {value || "0"}
     </div>
   );
-}
+};
 
 export default Display;
