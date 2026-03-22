@@ -1,4 +1,4 @@
-export function Sidebar() {
+export function Sidebar({selectedTab,setSelectedTab}) {
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
@@ -28,23 +28,34 @@ export function Sidebar() {
 
       {/* Only Home + Create Post */}
       <ul className="nav nav-pills flex-column mb-auto">
-        <li className="nav-item">
-          <a href="#" className="nav-link active" aria-current="page">
-            <svg className="bi me-2" width="16" height="16">
-              <use xlinkHref="#home"></use>
-            </svg>
-            Home
-          </a>
-        </li>
-        <li>
-          <a href="#" className="nav-link text-white">
-            <svg className="bi me-2" width="16" height="16">
-              <use xlinkHref="#speedometer2"></use>
-            </svg>
-            Create Post
-          </a>
-        </li>
-      </ul>
+  {/* HOME TAB */}
+  <li className="nav-item" onClick={() => setSelectedTab("Home")}>
+    <a 
+      href="#" 
+      className={`nav-link ${selectedTab === "Home" ? "active" : "text-white"}`} 
+      aria-current={selectedTab === "Home" ? "page" : undefined}
+    >
+      <svg className="bi me-2" width="16" height="16">
+        <use xlinkHref="#home"></use>
+      </svg>
+      Home
+    </a>
+  </li>
+
+  {/* CREATE POST TAB */}
+  <li className="nav-item" onClick={() => setSelectedTab("CreatePost")}>
+    <a 
+      href="#" 
+      className={`nav-link ${selectedTab === "CreatePost" ? "active" : "text-white"}`}
+      aria-current={selectedTab === "CreatePost" ? "page" : undefined}
+    >
+      <svg className="bi me-2" width="16" height="16">
+        <use xlinkHref="#speedometer2"></use>
+      </svg>
+      Create Post
+    </a>
+  </li>
+</ul>
 
       <hr />
 
