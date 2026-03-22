@@ -1,34 +1,39 @@
-import { useState } from "react"; // CRITICAL: Don't forget this import
+import { useState, useEffect } from "react"; 
 import { Header } from "./Components/header";
 import { Footer } from "./Components/footer";
 import { Sidebar } from "./Components/sidebar";
 import { Form } from "./Components/create_post";
 import { Post } from "./Components/allposts";
 
-
 export default function App() {
-  // Logic to track which tab is active
   const [selectedTab, setSelectedTab] = useState("Home");
+  const [posts, setPosts] = useState([]);
+  const [fetching, setFetching] = useState(false); // To show a loading spinner
 
-  //Track total posts
-  const [posts, setPosts] = useState([
-    {
-      id: 1,
-      title: "Welcome to my App",
-      description: "This is a default post. Create your own!",
-      reactions: 5,
-      mode: "Public",
-      tags: ["React", "Bootstrap"]
-    }
-  ]);
+  // 1. Fetching Data from API on initial load
+  useEffect(() => {
+    setFetching(true);
+    fetch("https://dummyjson.com/posts")
+      .then((res) => res.json())
+      .then((data) => {
+        // Mapping API data (body) to YOUR data (description)
+        const mappedPosts = data.posts.map((post) => ({
+          id: post.id,
+          title: post.title,
+          description: post.body, // API calls it 'body', you call it 'description'
+          reactions: post.reactions.likes || post.reactions, // Handling different API versions
+          mode: "Public", // API doesn't have 'mode', so we add it
+          tags: post.tags,
+        }));
+        setPosts(mappedPosts);
+        setFetching(false);
+      });
+  }, []);
 
-  // 2. Function to add a new post to the list
   const addPost = (newPost) => {
-    setPosts([newPost, ...posts]); // Adds new post to the top
-    setSelectedTab("Home"); // Automatically redirect to Home after posting!
+    setPosts([newPost, ...posts]);
+    setSelectedTab("Home");
   };
-
-  
 
   return (
     <>
@@ -36,30 +41,33 @@ export default function App() {
       <div className="d-flex">
         <Sidebar selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
         <div className="content w-100 p-4 bg-light">
-                  {selectedTab === "Home" ? (
-          <div className="container">
-            <h3 className="mb-4 fw-bold">Recent Posts</h3>
-            
-            {/* This is the Scrollable Container */}
-            <div 
-              style={{ 
-                height: "70vh",      // Set a fixed height (70% of screen)
-                overflowY: "auto",   // Enable vertical scrolling
-                paddingRight: "10px" // Space for the scrollbar
-              }}
-              className="custom-scrollbar"
-            >
-              {posts.map((post) => (
-                <Post key={post.id} {...post} />
-              ))}
+          {selectedTab === "Home" ? (
+            <div className="container">
+              <h3 className="mb-4 fw-bold text-dark">Recent Feed</h3>
+              
+              <div 
+                style={{ height: "70vh", overflowY: "auto", paddingRight: "10px" }}
+                className="custom-scrollbar"
+              >
+                {/* 2. Show Spinner while fetching */}
+                {fetching && (
+                  <div className="text-center my-5">
+                    <div className="spinner-border text-primary" role="status"></div>
+                    <p className="mt-2 text-muted">Loading your social feed...</p>
+                  </div>
+                )}
+
+                {/* 3. Display mapped posts */}
+                {!fetching && posts.map((post) => (
+                  <Post key={post.id} {...post} />
+                ))}
+              </div>
             </div>
-          </div>
-        ) : (
-          <div className="container" style={{ maxWidth: "600px" }}>
-            <h3 className="mb-4 fw-bold">Create New Post</h3>
-            <Form addPost={addPost} />
-          </div>
-        )}
+          ) : (
+            <div className="container" style={{ maxWidth: "600px" }}>
+              <Form addPost={addPost} />
+            </div>
+          )}
         </div>
       </div>
       <Footer />
